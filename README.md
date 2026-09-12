@@ -1,6 +1,6 @@
 # Petri SDK
 
-Open-source TypeScript and Rust SDK for Amoeba/Petri (Apache-2.0). This is a pre-production Devnet preview; package capability does not grant runtime permission.
+Open-source TypeScript/Rust SDK for Amoeba/Petri (Apache-2.0). This is a Devnet preview.
 
 ## Install
 
@@ -8,7 +8,7 @@ Open-source TypeScript and Rust SDK for Amoeba/Petri (Apache-2.0). This is a pre
 npm install https://github.com/amoeba-farm/petri-sdk/releases/download/v0.2.0/ameba-sdk-0.2.0.tgz
 ```
 
-The package name and import remain `ameba-sdk`. Node.js 22–24 is required.
+The package name and import is `ameba-sdk`. Node.js 22–24 is required.
 
 ```toml
 [dependencies]
@@ -23,17 +23,14 @@ npm run build
 cargo build --locked
 ```
 
-Native Spread dependencies are included as exact, pinned source/package snapshots. No private repository credentials are required. Source identities are recorded in `PUBLIC_SOURCE_PROVENANCE.json`; this publication changes distribution metadata, not deployment identity or signing policy.
-
 ## Reference
 
 
-Typed TypeScript and Rust boundaries for Amoeba protocol reads, historical
-RC44 semantics, governance identity, and unsigned transaction review.
+Typed TypeScript and Rust boundaries for Amoeba protocol reads, governance identity, and unsigned transaction review.
 
 ## Release status
 
-The current local integration supports the exact V3 governed deployment
+The current local integration supports the exact governed deployment
 `2jVQSPny9eFoaG1ZWoJVAezQ5VgqJtF8rQCQXMktuBVw`, with deployed Writer auction V1.
 Package capability and runtime permission are separate: frozen gates, missing
 business state and paused vaults refuse materialization before signing.
