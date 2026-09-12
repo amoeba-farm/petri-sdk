@@ -1,0 +1,20 @@
+{
+  "schema": "sdk-existing-deployment-build-attestation-v1",
+  "sourceCommit": "3b30cce8f0b67c34751a9680c118cab61d752a3f",
+  "artifactBytes": 1257304,
+  "artifactSha256": "6e02dd9ebf15c8d6cee2274f40c17e156fb2b5b3c1f4fc1b3e86bc586208caba",
+  "independentCleanBuildsAttested": true,
+  "twoBuildsMatch": true,
+  "matchesFinalizedDeployedPayload": true,
+  "deploymentPerformed": false,
+  "sourceFiles": 508,
+  "inputInventoryAggregateSha256": "553e6e82d54f9dcf46737dc7d3a0814c1b7f0621101b00ddce94e4878c00ec8b",
+  "inputInventoryFileSha256": "fd6a9c8142a99e655250eba16c70783d2bc4e85f319f15914c166db575f31cac",
+  "inputInventoryUnchangedAfterBothBuilds": true,
+  "firstBuildLogSha256": "fa34db458897d98a6871f4b12a6ab1597966304b08ee7386bc59850b7b5198e4",
+  "secondBuildLogSha256": "bbe1d32deb229766bef4bab4423e6ac62ea5dbe9a26124eee84d300dfa77eee7",
+  "toolchain": {"cargoBuildSbf": "4.0.0", "platformTools": "v1.53", "rustc": "1.89.0", "arch": "v1"},
+  "buildFeatures": ["devnet-v3-governance-controller", "devnet-solo-backfill-2026"],
+  "command": "cargo-build-sbf --arch v1 --tools-version v1.53 --offline --sbf-out-dir <separate-output> -- --locked --no-default-features --features devnet-v3-governance-controller,devnet-solo-backfill-2026",
+  "script": "scripts/qualify-existing-scoped-builds.sh"
+}

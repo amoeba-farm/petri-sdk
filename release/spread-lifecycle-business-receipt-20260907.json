@@ -1,0 +1,104 @@
+{
+  "schema": "ameba-v3-business-parity-metadata-review-v1",
+  "inputInventorySha256": "b7432c00a3cb2a0c72f64065603dc8e98bbc84c42bbddf61f990801e2788672a",
+  "previousDescriptorSha256": "f9f3ae4f4fcd8c317086af0df1a4d20079e1bbc92fd4ec32db86fb10ba2091ac",
+  "descriptorSha256": "516f8275c6866c25e4df351f2914e1992fae9725f2bf01425bd84fac9c02847e",
+  "typescriptSha256": "91486eaa8121be58750938b7cfebb723fc26f8f4e7b6687a60d596d64712dd43",
+  "observationSlots": {
+    "market": 494386396,
+    "retainedMarkets": 494386404,
+    "oracles": {
+      "NANDX-202609-CALL-01": {
+        "manifest": 494386584,
+        "sources": 494386602,
+        "economics": 494386605
+      },
+      "NANDX-202609-PUT-01": {
+        "manifest": 494386613,
+        "sources": 494386623,
+        "economics": 494386632
+      },
+      "NANDX-202610-CALL-01": {
+        "manifest": 494387242,
+        "sources": 494387252,
+        "economics": 494387260
+      },
+      "NANDX-202610-PUT-01": {
+        "manifest": 494387268,
+        "sources": 494387278,
+        "economics": 494387287
+      },
+      "RAMX-202609-CALL-01": {
+        "manifest": 494387056,
+        "sources": 494387064,
+        "economics": 494387073
+      },
+      "RAMX-202609-PUT-01": {
+        "manifest": 494387082,
+        "sources": 494387092,
+        "economics": 494387100
+      },
+      "RAMX-202610-CALL-01": {
+        "manifest": 494386777,
+        "sources": 494386786,
+        "economics": 494386796
+      },
+      "RAMX-202610-PUT-01": {
+        "manifest": 494386804,
+        "sources": 494386813,
+        "economics": 494386822
+      }
+    },
+    "pools": {
+      "NANDX-202609-CALL-01": 494387350,
+      "NANDX-202609-PUT-01": 494387423,
+      "NANDX-202610-CALL-01": 494387332,
+      "NANDX-202610-PUT-01": 494387405,
+      "RAMX-202609-CALL-01": 494387388,
+      "RAMX-202609-PUT-01": 494387321,
+      "RAMX-202610-CALL-01": 494387372,
+      "RAMX-202610-PUT-01": 494387441
+    },
+    "minimum": 494386396,
+    "maximum": 494387441
+  },
+  "deploymentIdentityReceipt": "docs/governance/evidence/v3-writer-terminal-lifecycle-20260906/metadata-receipt.json",
+  "supportingReceipts": {
+    "approved-oracle-differences.json": {
+      "path": "docs/governance/evidence/v3-business-parity-20260907T032342Z/approved-oracle-differences.json",
+      "sha256": "280ee4b44a0e92ebe483179a263e23aabfc937d8e795595208744c607c42d998"
+    },
+    "dlmm-audit.json": {
+      "path": "docs/governance/evidence/v3-business-parity-20260907T032342Z/dlmm-audit.json",
+      "sha256": "e5ff242dfbac687ce32424f098c216060ba11784f8de6c2c2415acc2e9ec298c"
+    },
+    "dlmm-run.json": {
+      "path": "docs/governance/evidence/v3-business-parity-20260907T032342Z/dlmm-run.json",
+      "sha256": "6df655c3fc17e5ebe209bea5494208ff3ec9f0a935b4c4eb29178a350079b1de"
+    },
+    "funding.json": {
+      "path": "docs/governance/evidence/v3-business-parity-20260907T032342Z/funding.json",
+      "sha256": "4f6529e3656129c617fa5e4e3760080245ee566b89571b52e23dfe01a20df120"
+    },
+    "lifecycle-preservation.json": {
+      "path": "docs/governance/evidence/v3-business-parity-20260907T032342Z/lifecycle-preservation.json",
+      "sha256": "3a42bbd6bd0790484ecc4755b277164d2b0ff9c4f5d7fc905cd6225378db59fe"
+    },
+    "oracle-complete.json": {
+      "path": "docs/governance/evidence/v3-business-parity-20260907T032342Z/oracle-complete.json",
+      "sha256": "b1aad3457b7d5b299bede23719a5b062fd5b63ac8a4c00358c64b9442c3d3313"
+    },
+    "prerequisites.json": {
+      "path": "docs/governance/evidence/v3-business-parity-20260907T032342Z/prerequisites.json",
+      "sha256": "de455a0f96c062049b60bb7be5dcc6c5c0063d09ad30d96f849f150451da632c"
+    },
+    "writer-issuance.json": {
+      "path": "docs/governance/evidence/v3-business-parity-20260907T032342Z/writer-issuance.json",
+      "sha256": "175a573a99e1ed2cde0fc9552671e3ae1881e1c0fda6f9dc366094a154db9d3b"
+    }
+  },
+  "fundingReceiptScope": "retained supporting evidence; not an independent wallet-wide balance assertion",
+  "tradeReady": false,
+  "qualificationComplete": false,
+  "productionEnabled": false
+}

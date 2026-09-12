@@ -1,0 +1,272 @@
+{
+  "schemaVersion": 1,
+  "kind": "ameba-devnet-v3-market-preparation-checkpoint",
+  "status": "awaiting-recipe-resolution",
+  "complete": false,
+  "genesisHash": "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG",
+  "chain": {
+    "observedAt": "2026-09-06T12:47:52.051Z",
+    "program": "2jVQSPny9eFoaG1ZWoJVAezQ5VgqJtF8rQCQXMktuBVw",
+    "controller": "8fhNi6QHU5TYNhoPDM4vs89ZBztnpxp3LnBXRgkBVKtx",
+    "programData": {
+      "slot": "494031585",
+      "authority": "4hsEKyThDv85YA4HjUaGWn2nWnVbM5V23XcLrEX3UKzn",
+      "capacity": 1231264,
+      "sha256": "bf05c3c19a5c1f7d3c3c4db157106d2b868fcb507b1171728645c40b57936e0a"
+    },
+    "gate": {
+      "bump": 254,
+      "status": 0,
+      "config": "Ec5H8jsGvaLU3T3gp6qTayPjY2qF3geBbVKWz4rsaEHB",
+      "targetProgram": "2jVQSPny9eFoaG1ZWoJVAezQ5VgqJtF8rQCQXMktuBVw",
+      "programdata": "8KR6hgcQehz32jm7CvrAriYNhvT2Bu9JuUWHce81J1oh",
+      "epoch": "3",
+      "activeProposal": "11111111111111111111111111111111",
+      "freezeSlot": "0",
+      "reason": 0,
+      "lastCompletedProposal": "CDkPhVaYRAzdkH65xb14uhgHJY6HFoia6PsRfZpT256h"
+    },
+    "timing": {
+      "reviewSlots": "4000000",
+      "delaySlots": "4500",
+      "expirySlots": "7000000"
+    }
+  },
+  "sourceCommit": "e57473cea72f387e5d877d70e9495f07bebfcdaa",
+  "operatorCommit": "8e2dab5d993750dffc9fb08abf18cf044bfb4cea",
+  "freshAmbaMint": "63qhg3zF3vmPpPF5y5Yb1cvG9UmWjP5Z5r9S7weG65hQ",
+  "markets": {
+    "at": "2026-09-06T11:50:42.797Z",
+    "contextSlot": 494048406,
+    "rows": [
+      {
+        "marketId": "RAMX-202609-CALL-01",
+        "address": "4uLi4s8KMTKn8cP2q11w4MCz6mXW3kVihQpELys8cDQk",
+        "mint": "CdmUzowSNgHYN5GZg4WDMTK5Ym4A2FDb94iZvij6LVMy",
+        "paused": true,
+        "termsMatch": true,
+        "ordinaryOracleState": null,
+        "issued": "0",
+        "consumed": "0",
+        "burned": "0"
+      },
+      {
+        "marketId": "RAMX-202609-PUT-01",
+        "address": "FxGcrgBBgRwKey1bPqrFt8n5PtTBffcBqLc3SLztwykq",
+        "mint": "3o2PKQbWLvqXEgkVcPKBZdhk7craiDYU533SNEGxjhvL",
+        "paused": true,
+        "termsMatch": true,
+        "ordinaryOracleState": null,
+        "issued": "0",
+        "consumed": "0",
+        "burned": "0"
+      },
+      {
+        "marketId": "NANDX-202609-CALL-01",
+        "address": "4CeGSLZGVfuFKVAmBjWxALNvh7gdunBCw4g8YnUxCsht",
+        "mint": "DbSRs1eWX3WLjMe9HrQZWhswTXuLnsRGfLCDMufPc7Gv",
+        "paused": true,
+        "termsMatch": true,
+        "ordinaryOracleState": null,
+        "issued": "0",
+        "consumed": "0",
+        "burned": "0"
+      },
+      {
+        "marketId": "NANDX-202609-PUT-01",
+        "address": "6xmSuG5jGX4cVdWywgCfE2UukizZ36H3SjnG3f9sTeyZ",
+        "mint": "ErEitQyFUusZNC7gqCkWvUR5zqmYohYZwcKocVWFJVzA",
+        "paused": true,
+        "termsMatch": true,
+        "ordinaryOracleState": null,
+        "issued": "0",
+        "consumed": "0",
+        "burned": "0"
+      },
+      {
+        "marketId": "RAMX-202610-CALL-01",
+        "address": "BQgRxZwNnG59RoEWpd1xS7vArYNA6eoiAzvfusPPjQYe",
+        "mint": "xTmowNn4GRwmKqJzkVMem1j3b71xs5ueH2i5pVKK7Fe",
+        "paused": true,
+        "termsMatch": true,
+        "ordinaryOracleState": null,
+        "issued": "0",
+        "consumed": "0",
+        "burned": "0"
+      },
+      {
+        "marketId": "RAMX-202610-PUT-01",
+        "address": "FUYJxxbHei9b6HXHPm1ySrdMk4jmtxVpm7DNQd5Ffahg",
+        "mint": "GrEgEiQy426nD8jz5yCRK5uvoXiYhTDWTZpGkizgzycP",
+        "paused": true,
+        "termsMatch": true,
+        "ordinaryOracleState": null,
+        "issued": "0",
+        "consumed": "0",
+        "burned": "0"
+      },
+      {
+        "marketId": "NANDX-202610-CALL-01",
+        "address": "2DkcfMzMgfYswuogW8qDRwazV9EWyUUGZyAEhqGfuMNy",
+        "mint": "J9TouVzpcwCoAFLtc3CwBSFbSWojMT2CPbMTFJBXSF8N",
+        "paused": true,
+        "termsMatch": true,
+        "ordinaryOracleState": null,
+        "issued": "0",
+        "consumed": "0",
+        "burned": "0"
+      },
+      {
+        "marketId": "NANDX-202610-PUT-01",
+        "address": "J5fMt8siNeS4Erdw73rQLBXWVk4Dp8J2YQjcZ5GRLN63",
+        "mint": "HgRGMkqNJ4UDTyJXsWeSMPGziSXTt2LT3EXSfD2MMwKr",
+        "paused": true,
+        "termsMatch": true,
+        "ordinaryOracleState": null,
+        "issued": "0",
+        "consumed": "0",
+        "burned": "0"
+      },
+      {
+        "marketId": "RAMX-202611-CALL-01",
+        "address": "1rx3BUBk9gGUXnqiv8f2MkXH6PXA9aPWtqAy8Mgn4WA",
+        "mint": "G5SGGpBaM1YrGyaNxpiif9KSbvZshe3W39W8zdH8NqMe",
+        "paused": true,
+        "termsMatch": true,
+        "ordinaryOracleState": "exact-empty-SourceSubmission",
+        "issued": "0",
+        "consumed": "0",
+        "burned": "0"
+      },
+      {
+        "marketId": "RAMX-202611-PUT-01",
+        "address": "DPFir3v6KheGCNyu8nDjrCrffpussmyiXiagwT847mBf",
+        "mint": "6Cj5iGUfthAZ2LBsCaW84c3pPStkQptn5dRxWAKhDkFH",
+        "paused": true,
+        "termsMatch": true,
+        "ordinaryOracleState": "exact-empty-SourceSubmission",
+        "issued": "0",
+        "consumed": "0",
+        "burned": "0"
+      },
+      {
+        "marketId": "NANDX-202611-CALL-01",
+        "address": "4MSYzbQzR2e2V1QcA5Hc95cPKu8c333Dhzgu5NTE9rSJ",
+        "mint": "7Y23eXHupNDocHUV3ZguuM7JVqWvj6sgGeoidpocteYK",
+        "paused": true,
+        "termsMatch": true,
+        "ordinaryOracleState": "exact-empty-SourceSubmission",
+        "issued": "0",
+        "consumed": "0",
+        "burned": "0"
+      },
+      {
+        "marketId": "NANDX-202611-PUT-01",
+        "address": "GutoDnU31QSF9WsnGCLRpBUxUjUWLwfLxCK4C6vC3mSo",
+        "mint": "7VLWQVhBAKFPHE1jgxDSnW6t53t85bRobzAfMDR5XrK3",
+        "paused": true,
+        "termsMatch": true,
+        "ordinaryOracleState": "exact-empty-SourceSubmission",
+        "issued": "0",
+        "consumed": "0",
+        "burned": "0"
+      },
+      {
+        "marketId": "RAMX-202612-CALL-01",
+        "address": "4nPxnzDxF2gerp9q2gNtSn1ZQ9ChWFeCwdwzn3gwmLPE",
+        "mint": "9ki6u2RaVCJ5LKf3Hp6QGKaU4p36oEwvVDgY6KAj4wnb",
+        "paused": true,
+        "termsMatch": true,
+        "ordinaryOracleState": "absent",
+        "issued": "0",
+        "consumed": "0",
+        "burned": "0"
+      }
+    ]
+  },
+  "sourceCoverage": {
+    "contextSlot": 494067150,
+    "sourceCount": 400.0,
+    "rows": [
+      {
+        "market": "RAMX-202609-CALL",
+        "sourceCount": 52,
+        "requiredSkuCount": 52,
+        "coveredSkuCount": 52,
+        "coverageFinalized": true,
+        "phase": "Scramble"
+      },
+      {
+        "market": "RAMX-202609-PUT",
+        "sourceCount": 52,
+        "requiredSkuCount": 52,
+        "coveredSkuCount": 52,
+        "coverageFinalized": true,
+        "phase": "Scramble"
+      },
+      {
+        "market": "NANDX-202609-CALL",
+        "sourceCount": 48,
+        "requiredSkuCount": 48,
+        "coveredSkuCount": 48,
+        "coverageFinalized": true,
+        "phase": "Scramble"
+      },
+      {
+        "market": "NANDX-202609-PUT",
+        "sourceCount": 48,
+        "requiredSkuCount": 48,
+        "coveredSkuCount": 48,
+        "coverageFinalized": true,
+        "phase": "Scramble"
+      },
+      {
+        "market": "RAMX-202610-CALL",
+        "sourceCount": 52,
+        "requiredSkuCount": 52,
+        "coveredSkuCount": 52,
+        "coverageFinalized": true,
+        "phase": "Scramble"
+      },
+      {
+        "market": "RAMX-202610-PUT",
+        "sourceCount": 52,
+        "requiredSkuCount": 52,
+        "coveredSkuCount": 52,
+        "coverageFinalized": true,
+        "phase": "Scramble"
+      },
+      {
+        "market": "NANDX-202610-CALL",
+        "sourceCount": 48,
+        "requiredSkuCount": 48,
+        "coveredSkuCount": 48,
+        "coverageFinalized": true,
+        "phase": "Scramble"
+      },
+      {
+        "market": "NANDX-202610-PUT",
+        "sourceCount": 48,
+        "requiredSkuCount": 48,
+        "coveredSkuCount": 48,
+        "coverageFinalized": true,
+        "phase": "Scramble"
+      }
+    ]
+  },
+  "executorScheduleUtc": {
+    "recipe": "2026-09-06T18:03:38.0000000Z",
+    "opening": "2026-09-06T19:03:38.0000000Z",
+    "game": "2026-09-06T20:03:38.0000000Z"
+  },
+  "freshContractBalances": true,
+  "oldPositionsImported": false,
+  "demoLiquidityFunded": false,
+  "applicationRolloutPerformed": false,
+  "remaining": [
+    "Finalize recipes in the resolution period",
+    "Complete opening and active weights",
+    "Enter Game for eight markets",
+    "Retire fresh AMBA mint authority and verify the final receipt"
+  ]
+}

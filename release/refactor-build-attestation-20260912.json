@@ -1,0 +1,64 @@
+{
+  "schema": "ameba-spread-observed-build-pair-v1",
+  "sourceBaseCommit": "b1931fecff5229da232f06e9c5c43b1d6328806d",
+  "buildFeatures": [
+    "devnet-v3-governance-controller",
+    "devnet-solo-backfill-2026"
+  ],
+  "buildScope": "same-checkout-separate-targets",
+  "originalBuildReceipt": {
+    "sourceCommit": "b1931fecff5229da232f06e9c5c43b1d6328806d",
+    "bytes": 1385312,
+    "sha256": "903c58504f44e8820e5c9f99765b26be15a97504ec5fdd0855f3668f29927fee",
+    "twoBuildsMatch": true,
+    "sourceInventorySha256": "f1bc9c110a42bcc2ef36ca86b361934f7fb42dfdf4f1e65ea5c1c0950c5101c8",
+    "features": [
+      "devnet-v3-governance-controller",
+      "devnet-solo-backfill-2026"
+    ],
+    "publishedReleaseReceipt": "release/refactor-finalized-release-20260912.json",
+    "publishedReleaseReceiptSha256": "25c0d64067ba524399e7de0dd71bead780cb5080f446a4b2bb08a0cb3c0fa59a"
+  },
+  "originalBuildReceiptSha256": "968a0b9ef21287154d8594def49937f34a74293bfe4d6e50dea46c5e8eecbdd9",
+  "sbf": {
+    "bytes": 1385312,
+    "sha256": "903c58504f44e8820e5c9f99765b26be15a97504ec5fdd0855f3668f29927fee",
+    "twoBuildsMatch": true,
+    "independentCleanCheckoutsAttested": false,
+    "builds": [
+      {
+        "bytes": 1385312,
+        "sha256": "903c58504f44e8820e5c9f99765b26be15a97504ec5fdd0855f3668f29927fee",
+        "nativeRustInputsSha256": "f1bc9c110a42bcc2ef36ca86b361934f7fb42dfdf4f1e65ea5c1c0950c5101c8",
+        "log": "release/candidates/writer-dlmm-20260911/sbf-build-1.log",
+        "logSha256": "fb343bb827792afb382161b8d7e7df6d1a908a352cd165f405af133db86d702a",
+        "cachedTargetDirectory": true,
+        "sourceCommit": "c5704c8ffe413d5f32e25c1e5475c15cb01cf84b",
+        "target": "cached-build-1"
+      },
+      {
+        "bytes": 1385312,
+        "sha256": "903c58504f44e8820e5c9f99765b26be15a97504ec5fdd0855f3668f29927fee",
+        "nativeRustInputsSha256": "f1bc9c110a42bcc2ef36ca86b361934f7fb42dfdf4f1e65ea5c1c0950c5101c8",
+        "log": "release/candidates/writer-dlmm-20260911/sbf-build-2.log",
+        "logSha256": "92ce6bd4310c79481dd84a4f1b4b42ca78b74313becce3a1946cd9bfda91454b",
+        "cachedTargetDirectory": true,
+        "sourceCommit": "c5704c8ffe413d5f32e25c1e5475c15cb01cf84b",
+        "target": "cached-build-2"
+      }
+    ],
+    "toolchains": {
+      "os": "Windows host; Rust/SBF in WSL Ubuntu-22.04",
+      "node": "24.14.0",
+      "npm": "11.9.0",
+      "typescript": "5.9.3",
+      "esbuild": "0.27.7",
+      "hostRustc": "1.90.0",
+      "hostCargo": "1.90.0",
+      "cargoBuildSbf": "4.0.0",
+      "platformTools": "v1.53",
+      "sbfRustc": "1.89.0"
+    },
+    "command": "CARGO_TARGET_DIR=<separate-target-directory> cargo-build-sbf --manifest-path programs/light_token_minter/Cargo.toml --arch v1 --tools-version v1.53 --skip-tools-install --sbf-out-dir <artifact-output> --no-default-features --features devnet-v3-governance-controller,devnet-solo-backfill-2026 -- --locked"
+  }
+}

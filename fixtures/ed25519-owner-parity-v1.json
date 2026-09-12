@@ -1,0 +1,41 @@
+{
+  "schema": "ameba-ed25519-owner-parity-v1",
+  "cases": [
+    {
+      "name": "canonical-wallet",
+      "address": "AKnL4NNf3DGWZJS6cPknBuEGnVsV4A4m5tgebLHaRSZ9",
+      "compressedPointHex": "8a88e3dd7409f195fd52db2d3cba5d72ca6709bf1d94121bf3748801b40f6f5c",
+      "expectedOnCurve": true
+    },
+    {
+      "name": "noncanonical-y-equals-p",
+      "address": "H242rsh5hzpvDdct56PG5YPQbKUT37EmySQLoQqrYUJr",
+      "compressedPointHex": "edffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7f",
+      "expectedOnCurve": false
+    },
+    {
+      "name": "noncanonical-y-equals-p-plus-one",
+      "address": "H5xSWNRAbqKddKjrabehyU8drL3Dk4LgZJiEJc9rGGyC",
+      "compressedPointHex": "eeffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7f",
+      "expectedOnCurve": false
+    },
+    {
+      "name": "invalid-x-zero-sign-bit",
+      "address": "4uQeVj5tqViQh7yWWGStvkEG1Zmhx6uasJtWCJziohZ",
+      "compressedPointHex": "0100000000000000000000000000000000000000000000000000000000000080",
+      "expectedOnCurve": false
+    },
+    {
+      "name": "non-square-y-h242-regression",
+      "address": "H242zoLseDtm7kLNz4TBtPXr4V4qCMsKoARgfQCyYUJr",
+      "compressedPointHex": "ee0000ae9251ab07f9a52184e03bc5c117f000a2d10eb96500f4c4fabe7464cf",
+      "expectedOnCurve": false
+    },
+    {
+      "name": "non-square-y-h5xs-regression",
+      "address": "H5xSoSxmVBCRiB52x9XBQG3zTYPp1xbFDY3T9QBiGGyC",
+      "compressedPointHex": "ef0001783337cd842c466e05f97d8486dfba10890d092f1b08773a35a690f7bf",
+      "expectedOnCurve": false
+    }
+  ]
+}

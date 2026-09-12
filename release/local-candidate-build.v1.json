@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "kind": "published-native-finalized-deployment-inputs",
+  "qualified": false,
+  "deployed": true,
+  "packageName": "ameba-sdk",
+  "packageVersion": "0.2.0",
+  "sdkSource": {
+    "baseCommit": "d87f008dda35ef32e1a01f5bfb6aa3ec3601b020",
+    "sourceCommit": null,
+    "sourceInventory": "release/local-candidate-source-inventory.v1.json",
+    "sourceInventorySha256": "b0a762474b62273a43d73d5779d4b1f96df5fc48fd917d1057ee721834ef02cf"
+  },
+  "nativePackage": {
+    "name": "@amoeba/spread-release-tools",
+    "sourceCommit": "397bd8403c7803574597a7ff3650a303b92f96c0",
+    "dependencySpec": "file:vendor/amoeba-spread-release-tools-397bd8403c78-writer-dlmm.tgz",
+    "path": "vendor/amoeba-spread-release-tools-397bd8403c78-writer-dlmm.tgz",
+    "bytes": 1154606,
+    "sha256": "de8d9feb83f009bd4744b74285f8b379e3dea8c8059e2c86013d56613e038872",
+    "npmSha1": "245b51ede2d6d14ed4097c850ae367f711840189",
+    "npmIntegrity": "sha512-hnBjBK0A5Oz7zZnmB2cGIS6sc8r3SeggSPJD3I1AFXbT4qX/QNIaywJLrw7b+RyWA4AfeEdcksCTpZSWsxl4QA==",
+    "entryCount": 718,
+    "unpackedBytes": 8532644
+  },
+  "nativePackageSource": {
+    "repository": "SPACE999978/ameba_spread",
+    "sourceCommit": "397bd8403c7803574597a7ff3650a303b92f96c0",
+    "sourceTree": "954664bfa2cac76581649cff3bbc4686fd9412c6",
+    "sourceInventory": "release/local-candidate-native-source-inventory.v1.json",
+    "sourceInventorySha256": "2cdd2254f0717903c83e94463cba556e80f5172692f5b5f3177a824bd9f44ad9"
+  },
+  "nativeSource": {
+    "baseCommit": "2dcf2d3b47081825bc0752ecc5a330c09a01b331",
+    "sourceCommit": "397bd8403c7803574597a7ff3650a303b92f96c0",
+    "sourceTree": "954664bfa2cac76581649cff3bbc4686fd9412c6",
+    "rustInputsSha256": "25eb0d1ba0ab4deeb8f6dfed68dcda842c247a88d9a1f9b32b1ed0f60fccec7f",
+    "sourceInventory": "release/oracle-carry-native-source-inputs-20260911.json",
+    "sourceInventorySha256": "8f2c1744362b8005ed143068ffa5cca3ab554a60b8111ef9ba298327c34f296e",
+    "sourceInventoryAlgorithm": "sha256-of-immutable-inventory-file",
+    "cargoGitRevision": "397bd8403c7803574597a7ff3650a303b92f96c0"
+  },
+  "nativeSbf": {
+    "fileName": "light_token_minter.so",
+    "bytes": 1385312,
+    "sha256": "c0b6cf87f788cac0b88b604a51aa2e20ad8497d784a990d03bde3e8c1ed89afc"
+  },
+  "retainedLiveRelease": {
+    "descriptor": "release/current-deployment.v1.json",
+    "runtime": "vendor/GOVERNED_RUNTIME_PROVENANCE.json"
+  },
+  "nativeBuildReceipt": {
+    "path": "release/local-candidate-native-build.v1.json",
+    "sha256": "889d8162f57a45a73f94e055c738d4cb31972e26f94c80d3e2fa3ce15631fb48"
+  },
+  "priorLocalBuildArtifacts": {
+    "scope": "fingerprints only; not an attestation of the new publication or deployment",
+    "nativeRustInputsSha256": "8785bc844f1264b0ad74dff79520cff0b56b91566d7235b533c355c25b899258",
+    "compressedEvidenceVerifier": {
+      "bytes": 2287576,
+      "sha256": "9b3a300e75de975c4bbc247526a4676d94511d709f99a8afb720f4adad8dca74",
+      "target": "x86_64-unknown-linux-gnu",
+      "executionPerformed": false
+    },
+    "nativeSbf": {
+      "bytes": 1351456,
+      "sha256": "6a47719f1c053c6727bf4e8050b1e704362c811b3d28e3a68ec02791644d4b3d",
+      "architecture": "v1",
+      "features": [
+        "devnet-v3-governance-controller",
+        "devnet-solo-backfill-2026"
+      ],
+      "executionPerformed": false
+    }
+  },
+  "qualificationScope": "Build identity does not claim behavioral qualification; runtime admission binds the separate finalized release records.",
+  "finalizedDeployment": {
+    "descriptor": "release/spread-refactor-final-20260912.json",
+    "evidence": "release/refactor-deployment-evidence-20260912.json",
+    "sourceCommit": "b1931fecff5229da232f06e9c5c43b1d6328806d",
+    "artifactSha256": "903c58504f44e8820e5c9f99765b26be15a97504ec5fdd0855f3668f29927fee",
+    "payloadSha256": "903c58504f44e8820e5c9f99765b26be15a97504ec5fdd0855f3668f29927fee",
+    "deployedSlot": 497328581,
+    "finalizedSlot": 497359082,
+    "gateEpoch": "24"
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 1,
+  "digestDomain": "ameba_lean:current_finalized_observation:v1",
+  "digestAlgorithm": "sha256",
+  "canonicalEncoding": "domain-utf8-nul-then-ordered-name-value-netstrings",
+  "canonicalPreimageByteLength": 1130,
+  "canonicalPreimageHex": "616d6562615f6c65616e3a63757272656e745f66696e616c697a65645f6f62736572766174696f6e3a76310031333a736368656d6156657273696f6e2c313a312c31373a6f62736572766174696f6e536f757263652c32313a63757272656e745f66696e616c697a65645f7270632c31303a636f6d6d69746d656e742c393a66696e616c697a65642c31343a6f627365727665644174536c6f742c393a3438323731383735332c32303a63757272656e7446696e616c697a6564536c6f742c393a3438323731383735332c32383a6f62736572766564426c6f636b54696d65556e69785365636f6e64732c31303a313738373532393630302c31383a737461746550726f76696465722e6b696e642c31353a736f6c616e615f6a736f6e5f7270632c32303a737461746550726f76696465722e6f726967696e2c32393a68747470733a2f2f6170692e6465766e65742e736f6c616e612e636f6d2c32363a737461746550726f76696465722e6f726967696e5368613235362c36343a336434323361336364663136643435613035306163303462643161663839326466326162613362653538356132333436323339323737343339303931393635382c32353a737461746550726f76696465722e67656e65736973486173682c34343a457457545241425a61597136694d6665594b6f75527531363656553278716131776361576f78506b725a42472c31393a6f7264657265644163636f756e74436f756e742c313a322c32363a6f7264657265644163636f756e74735b305d2e616464726573732c34343a433867704b6a6e50737334534b706a68427046474e4837636244323658437a535768636a6a366746346478372c32343a6f7264657265644163636f756e74735b305d2e6f776e65722c35313a7075626b65793a3969706b42436a4566654a444d4636414672657a526d4444486d626e6d65797634356366584e71416e5773482c32393a6f7264657265644163636f756e74735b305d2e65786563757461626c652c353a66616c73652c32393a6f7264657265644163636f756e74735b305d2e646174614c656e6774682c333a3238352c32393a6f7264657265644163636f756e74735b305d2e646174615368613235362c37313a7368613235363a646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464642c32363a6f7264657265644163636f756e74735b315d2e616464726573732c34333a483579575976325977746358427a5a6a624e45377471657963623874524c565a4745435948394177667a712c32343a6f7264657265644163636f756e74735b315d2e6f776e65722c343a6e756c6c2c32393a6f7264657265644163636f756e74735b315d2e65786563757461626c652c343a6e756c6c2c32393a6f7264657265644163636f756e74735b315d2e646174614c656e6774682c343a6e756c6c2c32393a6f7264657265644163636f756e74735b315d2e646174615368613235362c343a6e756c6c2c",
+  "logicalFields": [
+    {
+      "name": "schemaVersion",
+      "value": "1"
+    },
+    {
+      "name": "observationSource",
+      "value": "current_finalized_rpc"
+    },
+    {
+      "name": "commitment",
+      "value": "finalized"
+    },
+    {
+      "name": "observedAtSlot",
+      "value": "482718753"
+    },
+    {
+      "name": "currentFinalizedSlot",
+      "value": "482718753"
+    },
+    {
+      "name": "observedBlockTimeUnixSeconds",
+      "value": "1787529600"
+    },
+    {
+      "name": "stateProvider.kind",
+      "value": "solana_json_rpc"
+    },
+    {
+      "name": "stateProvider.origin",
+      "value": "https://api.devnet.solana.com"
+    },
+    {
+      "name": "stateProvider.originSha256",
+      "value": "3d423a3cdf16d45a050ac04bd1af892df2aba3be585a23462392774390919658"
+    },
+    {
+      "name": "stateProvider.genesisHash",
+      "value": "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG"
+    },
+    {
+      "name": "orderedAccountCount",
+      "value": "2"
+    },
+    {
+      "name": "orderedAccounts[0].address",
+      "value": "C8gpKjnPss4SKpjhBpFGNH7cbD26XCzSWhcjj6gF4dx7"
+    },
+    {
+      "name": "orderedAccounts[0].owner",
+      "value": "pubkey:9ipkBCjEfeJDMF6AFrezRmDDHmbnmeyv45cfXNqAnWsH"
+    },
+    {
+      "name": "orderedAccounts[0].executable",
+      "value": "false"
+    },
+    {
+      "name": "orderedAccounts[0].dataLength",
+      "value": "285"
+    },
+    {
+      "name": "orderedAccounts[0].dataSha256",
+      "value": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+    },
+    {
+      "name": "orderedAccounts[1].address",
+      "value": "H5yWYv2YwtcXBzZjbNE7tqeycb8tRLVZGECYH9Awfzq"
+    },
+    {
+      "name": "orderedAccounts[1].owner",
+      "value": "null"
+    },
+    {
+      "name": "orderedAccounts[1].executable",
+      "value": "null"
+    },
+    {
+      "name": "orderedAccounts[1].dataLength",
+      "value": "null"
+    },
+    {
+      "name": "orderedAccounts[1].dataSha256",
+      "value": "null"
+    }
+  ],
+  "providerOriginVectors": {
+    "accepted": [
+      {
+        "origin": "https://api.devnet.solana.com",
+        "originSha256": "3d423a3cdf16d45a050ac04bd1af892df2aba3be585a23462392774390919658"
+      },
+      {
+        "origin": "https://rpc.example.com:8899",
+        "originSha256": "314c9bb80ded0dae3dd1fd8ac25831289847c61fbea21d4b70f010cf4644f45a"
+      },
+      {
+        "origin": "https://127.0.0.1:8899",
+        "originSha256": "7cf81bb5d0cb00cb6dbdc1ebaa78ff4d904e4e4747b729364c71d739e0361094"
+      },
+      {
+        "origin": "https://xn--bcher-kva.example",
+        "originSha256": "edcf346bca2dce514f29462537e7cfb50b206c547164e91957db04ff75d03607"
+      }
+    ],
+    "rejected": [
+      { "origin": "http://rpc.example.com", "reason": "https_required" },
+      { "origin": "https://RPC.example.com", "reason": "lowercase_ascii_host_required" },
+      { "origin": "https://rpc.example.com:443", "reason": "default_port_must_be_omitted" },
+      { "origin": "https://rpc.example.com:0", "reason": "port_out_of_range" },
+      { "origin": "https://rpc.example.com:65536", "reason": "port_out_of_range" },
+      { "origin": "https://rpc.example.com:08899", "reason": "port_not_canonical_decimal" },
+      { "origin": "https://rpc.example.com:abc", "reason": "port_not_decimal" },
+      { "origin": "https://rpc.example.com:8899:1", "reason": "multiple_colons" },
+      { "origin": "https://[::1]:8899", "reason": "ipv6_not_v1" },
+      { "origin": "https://user@rpc.example.com", "reason": "userinfo_forbidden" },
+      { "origin": "https://rpc.example.com/", "reason": "trailing_slash_forbidden" },
+      { "origin": "https://rpc.example.com/path", "reason": "path_forbidden" },
+      { "origin": "https://rpc.example.com?token=x", "reason": "query_forbidden" }
+    ]
+  },
+  "observation": {
+    "schemaVersion": 1,
+    "observationSource": "current_finalized_rpc",
+    "commitment": "finalized",
+    "observedAtSlot": "482718753",
+    "currentFinalizedSlot": "482718753",
+    "observedBlockTimeUnixSeconds": "1787529600",
+    "stateProvider": {
+      "kind": "solana_json_rpc",
+      "origin": "https://api.devnet.solana.com",
+      "originSha256": "3d423a3cdf16d45a050ac04bd1af892df2aba3be585a23462392774390919658",
+      "genesisHash": "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG"
+    },
+    "orderedAccounts": [
+      {
+        "address": "C8gpKjnPss4SKpjhBpFGNH7cbD26XCzSWhcjj6gF4dx7",
+        "owner": "9ipkBCjEfeJDMF6AFrezRmDDHmbnmeyv45cfXNqAnWsH",
+        "executable": false,
+        "dataLength": "285",
+        "dataSha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+      },
+      {
+        "address": "H5yWYv2YwtcXBzZjbNE7tqeycb8tRLVZGECYH9Awfzq",
+        "owner": null,
+        "executable": null,
+        "dataLength": null,
+        "dataSha256": null
+      }
+    ],
+    "currentObservationDigest": "513bc8098c21c9a7c59a3af7fb6d7e61c5dfb30fd970f878dc8bb70f0554d37b"
+  },
+  "expectedCurrentObservationDigest": "513bc8098c21c9a7c59a3af7fb6d7e61c5dfb30fd970f878dc8bb70f0554d37b"
+}

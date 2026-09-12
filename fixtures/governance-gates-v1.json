@@ -1,0 +1,40 @@
+{
+  "schema": "ameba.sdk.governance-gates.fixture.v1",
+  "cluster": "devnet",
+  "genesisHash": "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG",
+  "observedAtSlot": 492266411,
+  "targetProgramId": "9ipkBCjEfeJDMF6AFrezRmDDHmbnmeyv45cfXNqAnWsH",
+  "targetProgramData": "2DBN762WGdNc85xiVdvQX7Lo4TXAq3WhVz9mBQcaU3a3",
+  "accounts": [
+    {
+      "identityGeneration": 1,
+      "address": "4xsWiYnxBmWPY51YY3QJc1JVfQxz3wk7dyfgmsYfkueV",
+      "owner": "CzyGUEVtLg2FTWdZmQ6KZCydw73KutLtE6c5PJgnxQqa",
+      "executable": false,
+      "dataBase64": "QUdWR0FUMDEB/QECy9JrXr1LvayKllVpqo8fMk6MpVs3YnfaU2vXy6ATQL2BlEsZwSQj0YiZGuygZY1JCNUxiwZHkZVfe8xYCGDvUBH6YAcyiLwiBll3qwmKdiWynMwgy/cbFt/FRoyUKcCsAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH2zOR0AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "dataSha256": "442f9708578f917394b829c17fad0655701c07438f1769577e0e3f353775be52",
+      "status": "EmergencyFrozen",
+      "epoch": "1"
+    },
+    {
+      "identityGeneration": 2,
+      "address": "CiszKKUZAUAb4DrZF8FBUJf136SVLY73d6J2MdyrinLL",
+      "owner": "FqCshwTvCzQRZYHFiX96nwiG93xwgWRMyCj5onvoo7Lm",
+      "executable": false,
+      "dataBase64": "QUdWR0FUMDEB/wEAsSY5E1y/r/l565ayxZ4Ha0/I/5483dBypb9rklnT3wOBlEsZwSQj0YiZGuygZY1JCNUxiwZHkZVfe8xYCGDvUBH6YAcyiLwiBll3qwmKdiWynMwgy/cbFt/FRoyUKcCsAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADnOAVKH8uthZBf5z4ijghiB325nMUFxFewkXOWFKymHAAA",
+      "dataSha256": "c0448b07caa4edf93fb85530ef42620abb9fe332067c83bd4d09e8bc860ef60e",
+      "status": "Active",
+      "epoch": "2"
+    },
+    {
+      "identityGeneration": 3,
+      "address": "Cdym9p7FvtxEAjF8XuCqSrishB7LmBDXaZGDMMgWczu",
+      "owner": "8fhNi6QHU5TYNhoPDM4vs89ZBztnpxp3LnBXRgkBVKtx",
+      "executable": false,
+      "dataBase64": "QUdWR0FUMDEB/gECyiQYf2jOrwYujv1DQ6cRHussQQ8tsoTRqiqRb3aF+KYZvjKRD6S6/5VJ/U6x4gEcORL8JtlXd/e5pxFGqPpXJmy5gtZXOrTHrTFa3PXHV/DdomVzXQ5lvHedkIKzGlNcAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGOYbx0AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "dataSha256": "2fccc8c4dc6953343c6cdf3b95cee15ab681efe684dfaf3eda39e8f035abdbfd",
+      "status": "EmergencyFrozen",
+      "epoch": "1"
+    }
+  ]
+}

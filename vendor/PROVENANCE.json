@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 5,
+  "protocol": "ameba_spread",
+  "role": "historical-reader-semantic-baseline",
+  "currentWriteEligible": false,
+  "currentLiveDeploymentManifest": "release/release-train.v1.json",
+  "stateNamespace": "ameba-spread-v2",
+  "sourceCommit": "1b2230d96e51f6582155d8284900fbfc11ff1f18",
+  "sourceTag": "v0.1.0-rc.44",
+  "releaseAttested": true,
+  "packageName": "@amoeba/spread-release-tools",
+  "packageVersion": "0.1.0",
+  "packageCommit": "1b2230d96e51f6582155d8284900fbfc11ff1f18",
+  "dependencySpec": "file:vendor/amoeba-spread-release-tools-0.1.0.tgz",
+  "packageArtifact": {
+    "path": "vendor/amoeba-spread-release-tools-0.1.0.tgz",
+    "bytes": 952250,
+    "sha256": "ca6d861d8b576a3df3de14892f01a10a59bcab6bedf9f3643b7f0a8a7ccf5d7c",
+    "npmSha1": "446ea085be2e3b7c2ad091351c0f9f86a41f166e",
+    "npmIntegrity": "sha512-uFE/K3lq2vMis9kcu5lh302hKuyHeeb84tvzhT7HHJyPSS5bJyuqb05X8LT0EFCDwthHjgB34PRzzrHhBkAIZw==",
+    "unpackedBytes": 7272616,
+    "entryCount": 581,
+    "sourceDependencySpec": "github:SPACE999978/ameba_spread#1b2230d96e51f6582155d8284900fbfc11ff1f18",
+    "license": {
+      "spdx": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "7cfd738c53d61c79f07e348f622bf7707c9084237054d37fbe07788a75f5881c"
+    }
+  },
+  "deployment": {
+    "programId": "9ipkBCjEfeJDMF6AFrezRmDDHmbnmeyv45cfXNqAnWsH",
+    "programData": "2DBN762WGdNc85xiVdvQX7Lo4TXAq3WhVz9mBQcaU3a3",
+    "payloadBytes": 1142664,
+    "payloadSha256": "3bc781297d83e72faad1c63274f7f3745ef46bb60dcff16dd28a045b734a6c0b",
+    "deployedSlot": 487702729,
+    "finalizedVerificationContextSlot": 487703026
+  },
+  "deploymentEvidence": {
+    "buildReceipt": {
+      "path": "vendor/RC44_LIVE_BUILD_RECEIPT.json",
+      "sha256": "3747c4fefbd233eb87e329516ab2981ae4017c6fe606d7cf497efa3e8973a322"
+    },
+    "deploymentReceipt": {
+      "path": "vendor/RC44_LIVE_DEPLOYMENT_RECEIPT.json",
+      "internalSha256": "c131deef09c3959829b339c9e8093db69d3fd1e735ace5b017631b064fc93f31",
+      "fileSha256": "8e90997c06c1eae7c7a5424d85c0836657727018b04c7a8a68135edb3cfdad94"
+    },
+    "finalizedProgramDataPoststate": {
+      "sourceRunFile": "programdata-post-upgrade.bin",
+      "contextSlot": 487703026,
+      "rawBytes": 1241821,
+      "rawSha256": "5eef434e2b02d70e3776fe2b7b624be3e87d56884ab74145929fbe1d65b3fb02",
+      "payloadCapacityBytes": 1241776,
+      "payloadCapacitySha256": "bcc76952d9f57a63b0853a372c57bb32e90b0d851d7ba90c252d88be73b54191"
+    }
+  },
+  "leanAdmission": {
+    "repository": "SPACE999978/ameba_lean",
+    "observationFixture": {
+      "sourcePath": "docs/fixtures/current-finalized-observation-v1.json",
+      "packagedPath": "fixtures/current-finalized-observation-v1.json",
+      "bytes": 7544,
+      "sha256": "0663e45137344dff86517d03b3106fd009e96d63de0eb1d2e0140f87c5eb067f"
+    },
+    "unavailableFixture": {
+      "sourcePath": "edge/test/fixtures/current-state-unavailable.json",
+      "packagedPath": "fixtures/current-state-unavailable-v1.json",
+      "bytes": 119,
+      "sha256": "a25b86fffb085a3b0d3e8a2e69375320803607f4eed888de8c678cb46a696a51"
+    },
+    "writerFixture": {
+      "sourcePath": "fixtures/writer_sleeve_math_v1.json",
+      "packagedPath": "fixtures/writer_sleeve_math_v1.json",
+      "bytes": 5393,
+      "sha256": "2a6da8a7d76b85cfc73e6395ade978e944679a000d4f8e181b85118b725c2f58"
+    },
+    "contract": {
+      "sourcePath": "docs/CURRENT_FINALIZED_OBSERVATION.md",
+      "bytes": 5539,
+      "sha256": "6e2db740446df288b4685113afce7193cef83e476603fd96b76cf08501ca1457"
+    }
+  },
+  "requiredPackageExports": [
+    "./oracle-dlmm",
+    "./compressed-state",
+    "./dlmm-accounts",
+    "./dlmm-instructions",
+    "./writer-sleeve-instructions",
+    "./writer-sleeve-accounts",
+    "./dlmm-light-interface",
+    "./dlmm-math",
+    "./dlmm-planner",
+    "./product-sku-manifest",
+    "./reference-client",
+    "./token-primitives",
+    "./oracle-current-v3-funding"
+  ],
+  "currentGovernanceFiles": [
+    "vendor/governance/ramx_product_sku_manifest.v1.json",
+    "vendor/governance/nandx_product_sku_manifest.v1.json"
+  ],
+  "files": {
+    "vendor/governance/ramx_product_sku_manifest.v1.json": {
+      "sha256": "a4382c10d8d45d45f222f30be8ff8dfc250dd0c67e55c8078777f65bc6369c7c",
+      "source": "governance/ramx_product_sku_manifest.v1.json"
+    },
+    "vendor/governance/nandx_product_sku_manifest.v1.json": {
+      "sha256": "d34f4f05e7025e66e651ae017503a223a71898d5567efd0f6dc70416408203e9",
+      "source": "governance/nandx_product_sku_manifest.v1.json"
+    }
+  }
+}

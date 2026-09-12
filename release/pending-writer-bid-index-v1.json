@@ -1,0 +1,45 @@
+{
+  "schema": "sdk-writer-bid-index-candidate-v1",
+  "status": "staged-not-deployed",
+  "currentWriteEligible": false,
+  "sourceCommit": "d739bcd15068fb79e0b32d0c4eda02703c6417d4",
+  "instructionManifestSha256": "54c121382e3cc28d15ad049f63e737814d8845d9739510fedcba28c9dec5bfb3",
+  "packageArtifact": {
+    "path": "vendor/amoeba-spread-release-tools-d739bcd-candidate.tgz",
+    "sha256": "7d37ebfe9148f978e43b86e01db2a455d2fd7589e2a8744d77e14e7834f81b6f",
+    "bytes": 1061455,
+    "npmIntegrity": "sha512-6tmYAGBaoVUH8H5scKrS95AHUA1qjLwma6oVZ4imk1dUBa4pp6Amwz63JaV+AzZSfW4BI1VoG5Qu3Urmv1Y+8w==",
+    "entryCount": 629,
+    "unpackedBytes": 7881357
+  },
+  "artifact": {
+    "bytes": 1236592,
+    "sha256": "0dd6a6def09a8fc690572bf5a430157644b9b1e5ebac60a2f07c481a3bf0d22d"
+  },
+  "plannedProgramDataPayload": {
+    "bytes": 1241504,
+    "sha256": "23f6d99a47cc79d2babad6758531664414cfc51df313ae82ea2cfd6c32829f87",
+    "mandatoryZeroPaddingBytes": 4912,
+    "finalizedReceipt": null
+  },
+  "phaseContract": {
+    "instructionTag": 249,
+    "phases": [
+      {
+        "phase": 0,
+        "resultBytes": 10000
+      },
+      {
+        "phase": 1,
+        "resultBytes": 14936
+      }
+    ],
+    "separateTransactions": true,
+    "commitAfterBothConfirmed": true
+  },
+  "pending": [
+    "Parent final deployed receipt and exact full ProgramData account hash/slot",
+    "Final upstream release descriptor matching separate ELF and full payload identities",
+    "Qualified package/source bindings and remote/local main integration after parent handoff"
+  ]
+}

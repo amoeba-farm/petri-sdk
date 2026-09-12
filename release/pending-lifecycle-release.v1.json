@@ -1,0 +1,57 @@
+{
+  "schema": "sdk-pending-lifecycle-release-v1",
+  "status": "finalized-identity-awaiting-tools-and-business-audit",
+  "currentWriteEligible": false,
+  "sourceInventorySha256": "b5133f3c1d63144cc43d8f3ded8e282a77548d2b3e000920f26dc5e632cbaa5b",
+  "fixturePath": "fixtures/v3-lifecycle-identity-20260906.json",
+  "toolsSourceCommit": null,
+  "toolsPackageArtifact": null,
+  "finalDescriptorSha256": null,
+  "deployment": {
+    "artifactSourceCommit": "737b7cd6dafbcdbee08a367fe6b1d83fc82810b9",
+    "artifactBytes": 1237696,
+    "artifactSha256": "6977f9258ceb6f818ba5dd4b7aaef114de44160cec34867a798b0f1867edda5b",
+    "programId": "2jVQSPny9eFoaG1ZWoJVAezQ5VgqJtF8rQCQXMktuBVw",
+    "programDataAddress": "8KR6hgcQehz32jm7CvrAriYNhvT2Bu9JuUWHce81J1oh",
+    "programAccountBytes": 36,
+    "programAccountSha256": "83be84ac424d864aacf03e489ff8fe3f0a6957e8726c8f9c48f572df6b522e75",
+    "programDataAccountBytes": 1241549,
+    "programDataAccountSha256": "5e8c3ee65724dabb027f946d88b96a1ace1f6000891b10f007f474844134841b",
+    "programDataPayloadBytes": 1241504,
+    "programDataPayloadSha256": "106dd7e174da6172b701e96b7bdbbc6450932dc6f24bdae39ae7cb8a2b3fbb6c",
+    "mandatoryZeroPaddingBytes": 3808,
+    "programDataSlot": 494288143,
+    "minimumContextSlot": 494294359,
+    "finalizedObservationSlot": 494297168,
+    "observedAt": "2026-09-06T23:17:03.694Z",
+    "genesisHash": "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG"
+  },
+  "controller": {
+    "artifactSourceCommit": "590e3cd65d429338757aca1ca7f21e9bcd012b94",
+    "artifactBytes": 202616,
+    "artifactSha256": "50d409bceaebef4ce3edcee9e757b4f995e0405a482ad32f3272e13aa94dca47",
+    "programDataAccountBytes": 202661,
+    "programDataAccountSha256": "15baa3040bf20d1b0909ca43195c0f47cb6ab3ec0a710d1e007d962c2e577b8a",
+    "deployedSlot": "494196733"
+  },
+  "gate": {
+    "bump": 254,
+    "status": 0,
+    "config": "Ec5H8jsGvaLU3T3gp6qTayPjY2qF3geBbVKWz4rsaEHB",
+    "targetProgram": "2jVQSPny9eFoaG1ZWoJVAezQ5VgqJtF8rQCQXMktuBVw",
+    "programdata": "8KR6hgcQehz32jm7CvrAriYNhvT2Bu9JuUWHce81J1oh",
+    "epoch": "9",
+    "activeProposal": "11111111111111111111111111111111",
+    "freezeSlot": "0",
+    "reason": 0,
+    "lastCompletedProposal": "2Xs8mjfe2ycPqWkggs1NRDFQ8ADLdPsAXwh9txaRFXQ4",
+    "accountSha256": "589bac537d11d31197a29324b89765f79cddb459a8e0b2f9a8a433b9555fa90f",
+    "finalizedObservationSlot": 494297168
+  },
+  "pending": [
+    "Final upstream tools archive and tools source commit",
+    "Final descriptor and independent business audit",
+    "Complete SDK import and fail-closed qualification"
+  ],
+  "historicalRuntimeProjectionRetained": true
+}

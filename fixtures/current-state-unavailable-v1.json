@@ -1,0 +1,5 @@
+{
+  "ok": false,
+  "message": "current Market discovery is not authoritative",
+  "code": "CURRENT_STATE_UNAVAILABLE"
+}

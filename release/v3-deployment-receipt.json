@@ -1,0 +1,198 @@
+{
+  "schema": "ameba-fresh-spread-v3-devnet-receipt-v1",
+  "verifiedAt": "2026-09-06T02:58:13.416Z",
+  "genesis": "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG",
+  "stateRpcOrigin": "https://api.devnet.solana.com",
+  "finalizedSlot": 493855641,
+  "controller": {
+    "programId": "8fhNi6QHU5TYNhoPDM4vs89ZBztnpxp3LnBXRgkBVKtx",
+    "programData": "7eW9UXcCDrpEAQ93fP7o2zgGMKhAKi3zJLihELjR8xYd",
+    "authority": "Frc28QFQxqUxF9HPgzcmm5VkqorqUb2LeLPE5uKU6Ycp",
+    "deployedSlot": "493850815",
+    "artifactBytes": 190736,
+    "artifactSha256": "ccde2782b50301290d52387662c4979cc19e186ce0e7461305d4b71598c75e77",
+    "sourceCommit": "4e9ae8b897f867fe0b4b689226feb34696772581"
+  },
+  "spread": {
+    "programId": "2jVQSPny9eFoaG1ZWoJVAezQ5VgqJtF8rQCQXMktuBVw",
+    "programData": "8KR6hgcQehz32jm7CvrAriYNhvT2Bu9JuUWHce81J1oh",
+    "authority": "4hsEKyThDv85YA4HjUaGWn2nWnVbM5V23XcLrEX3UKzn",
+    "deployedSlot": "493847461",
+    "artifactBytes": 1149952,
+    "artifactSha256": "eb03f12a626ce69909c21a2a38c441840fc051ed11f31ee824ae663247859f7a",
+    "sourceCommit": "889f7228c6e770ccb2aae5340fd80604ee68738c"
+  },
+  "council": {
+    "config": "Ec5H8jsGvaLU3T3gp6qTayPjY2qF3geBbVKWz4rsaEHB",
+    "seats": [
+      "pSutXCyMTkwvzG1kpiHXULkVKyzz8NPSNgnjLgwNcTu",
+      "4vrxWeSfCoJA8KvzCcWGgG4C5S4gPYrLaRWysycJeVpz",
+      "DgMGtSjUg1wXPZuPBT6HqGN3qRLVBJCqYrv31XtcwcBR",
+      "4SJyALW3CinnBrFUzHeJL6v5KM12hw2FGLL1wbVTVfn8",
+      "Cmd42MrYC7CVyQNGq7GRkTqR3jQ8cBPKzjzDpsc5eNW4"
+    ],
+    "threshold": 3,
+    "councilEpoch": "1",
+    "timingVersion": "2",
+    "timing": {
+      "reviewSlots": "4000000",
+      "delaySlots": "4500",
+      "expirySlots": "7000000"
+    }
+  },
+  "timingCalibration": {
+    "observedAt": "2026-09-06T02:40:05.630Z",
+    "sampleCount": 60,
+    "sampleSeconds": 3600,
+    "numSlots": 21724,
+    "secondsPerSlot": 0.1657153378751611,
+    "estimatedApprovalDays": 7.672006383109309,
+    "estimatedDelaySeconds": 745.7190204382249,
+    "slotBasedNotWallClockGuaranteed": true
+  },
+  "gate": {
+    "address": "Cdym9p7FvtxEAjF8XuCqSrishB7LmBDXaZGDMMgWczu",
+    "status": "EmergencyFrozen",
+    "epoch": "1",
+    "freezeSlot": "493852771",
+    "reason": 1
+  },
+  "controllerUpgrade": {
+    "proposal": "8gbV8ZfEgRFL7kbPXropkjvrnktcTrCMA8zyCGq27bXQ",
+    "created": "493843678",
+    "reviewEnd": "495355678",
+    "notBefore": "493848178",
+    "executedSlot": "493850815",
+    "approvalCount": 3,
+    "verifiedChunks": 12
+  },
+  "loaderSizing": {
+    "mode": "top-level-before-proposal",
+    "before": {
+      "slot": "493766087",
+      "authority": "Frc28QFQxqUxF9HPgzcmm5VkqorqUb2LeLPE5uKU6Ycp",
+      "capacity": 169912,
+      "sha256": "6e48e439f2f3532d5b82505b231aac5e88ffadd462b063a93f78b1c75b6fd4b7"
+    },
+    "after": {
+      "slot": "493842974",
+      "authority": "Frc28QFQxqUxF9HPgzcmm5VkqorqUb2LeLPE5uKU6Ycp",
+      "capacity": 190736,
+      "sha256": "8cba570777fb75d0f476cbfaa7366d1d249bc96eb69c5457da75010d674122c1"
+    },
+    "delta": 20824
+  },
+  "supersededAttempt": {
+    "proposalId": "1",
+    "submittedExtension": false,
+    "cancelledByThreeSeats": true,
+    "bufferClosedToTreasury": true,
+    "simulationFailure": "Program 8fhNi6QHU5TYNhoPDM4vs89ZBztnpxp3LnBXRgkBVKtx failed: Program BPFLoaderUpgradeab1e11111111111111111111111 not supported by inner instructions"
+  },
+  "signatures": [
+    {
+      "stage": "create-timing",
+      "signature": "37RsACDgdTaVtmPwPbjf54Cm9RDdns3FqiNnpNprwjxdk1K9WLeV8yyKmjmkW8wAvAroJxbQ73Mz86fN8566eNV1",
+      "messageHash": "0f9062ff8557434b589421a277ccd71eb467b6239928b100c1c584353bebe6dc",
+      "finalizedSlot": 493850018
+    },
+    {
+      "stage": "approve-timing",
+      "signature": "3qWQxhPwz3vqnCrHWnQns7Rc62kLSsmHptp7rer81n42VX3BhVUVWT6ngH5YtUajJhB7woTVvzADof5RfPMfyuWB",
+      "messageHash": "bb49d6a20b527e20921addce97da995a239428a158e2a6fb608b4c32fada02fd",
+      "finalizedSlot": 493852203
+    },
+    {
+      "stage": "execute-timing",
+      "signature": "ibGhvCtyq9ckxGMDCUaGX7Z7ve7JNJhQcg985gi6j4qi3AtL2M8rgZUb8FjvRMUnBe1TY7jLFzimNspnx5xbvcb",
+      "messageHash": "059eea0606d0e7fbdf4a74c90740bca495db469e6d11b9b83351eb77f34421df",
+      "finalizedSlot": 493854686
+    },
+    {
+      "stage": "extend-top-level",
+      "signature": "iSKGEKZgAVDch3br9yxMTC4Q7kgNTY1VqYyfDbWgHQmZnEsvJApcBW987tg3ShWofEhPMfsSgGL2h9nveurRqPu",
+      "messageHash": "e3c24c5001446bbfdf0ed0e3b22055eb3d416e1f73296546aa40b1cd33155f14",
+      "finalizedSlot": 493842974
+    },
+    {
+      "stage": "create-controller",
+      "signature": "3h1A3pGLoyhswGpTbHF2wPRh2GiCKe8eWQAyLP8vV6XSiu7i9oK4EW8gUgrgowYYf28pujXf5Vczt6rTpWmjAv2Q",
+      "messageHash": "7faa47c40fc0e75448de35129e85b5dda118e7ec74877c5b090fdcfdea2114a7",
+      "finalizedSlot": 493843678
+    },
+    {
+      "stage": "approve-controller",
+      "signature": "4pMdVsioY1ybu9GheXhRqBwtkxYVYoU3U2jQgcbDJi2vqPpqUq3gdiT2D12dCSKnutk115YZJFX3iDSMvLAPqmmd",
+      "messageHash": "38fa48af5b5ce7444a6a9589cc4d141efc061508a477a3d77cc76d787bb0f6ca",
+      "finalizedSlot": 493848609
+    },
+    {
+      "stage": "execute-controller",
+      "signature": "3AEzL8F468GoXwEJm1mbppkr5H9Ffb2D3kgtWNVpVvJAW7JomeK9FeQzZfnmdFdRXoioxksg453ysDMTGqNjHYT9",
+      "messageHash": "6eeb236c136a9296747552d80fbe2e682ab8dca94326894d9a071f177d0fc49a",
+      "finalizedSlot": 493850815
+    },
+    {
+      "stage": "register-spread",
+      "signature": "4k1KZMKGbkVyWXBqdz4BLfRHcHTKLpk4F9aEMew5qmJbLcdgacczK1zXvuwjDimgHR5asTkEtqyZpueHessZYWJ7",
+      "messageHash": "ff71ec12e5bd58d4dc58bd704538f42d5321cc9e7a4338b2c2f6e55c1d718fc7",
+      "finalizedSlot": 493852771
+    },
+    {
+      "stage": "deploy-spread",
+      "signature": "58fMBadchukfb4J3q1jK39yiSVHg4mfrkAQxByHXPDgWBNstq3ZoxvgoMXraAmXpxR7HvkzRgd31QRfpEcCUW7g7",
+      "finalizedSlot": 493847461
+    },
+    {
+      "stage": "superseded-cancel-controller",
+      "signature": "2FJStw5zbZMg7yim8NpjRHrY5GZrS5tjJUC3MKfqTf1gvxAS6vUqEj2bm6rrUqRUxUUM1KL4ayFMQVgnUzCu9S7B",
+      "messageHash": "deca0611ce518d9f9d0a77dcfaec668eaf9da8af8b8bf033d01f6068b70b237d",
+      "finalizedSlot": 493841011
+    },
+    {
+      "stage": "superseded-close-controller-buffer",
+      "signature": "2GsdsJCJ98XrQE2FU5u7qBeZ1Y6hbeKW8amE4LDnfKvVnpmr7VXF77e9hPnVEizFnRybo5m5SamVG2QUMYtziKr",
+      "messageHash": "ebd0da6aa9ad73667c6a185d04ea04f212ccf77b6d304bcfc1ed12320b2de557",
+      "finalizedSlot": 493841197
+    }
+  ],
+  "stopBoundary": {
+    "integrated": false,
+    "activated": false,
+    "bootstrapped": false,
+    "migrated": false,
+    "spreadOwnedAccounts": 0
+  },
+  "existingDeployments": {
+    "controllerImmutable": true,
+    "spreadAuthority": "CqFREUP84XzdUC6WeDZrzTBXLwnfMQM2K9MvwdhApXt4"
+  },
+  "verification": {
+    "rustCoreTests": 4,
+    "actualSbfRehearsals": [
+      "controller self-upgrade",
+      "target adoption, extension and upgrade",
+      "fresh Spread frozen gate"
+    ],
+    "typescriptTests": 2,
+    "typescriptBuild": true,
+    "byteIdenticalRepeatBuilds": true,
+    "independentCleanBuilds": false,
+    "checkedExtensionFeatureDisabledInRehearsal": true,
+    "liveFrozenGateError": 6263,
+    "artifactChecks": {
+      "diagnostics": 63,
+      "uniqueUnlinkedFunctions": 17,
+      "diagnosticSymbolsInFinalElf": 0,
+      "controller": {
+        "bytes": 190736,
+        "sha256": "ccde2782b50301290d52387662c4979cc19e186ce0e7461305d4b71598c75e77"
+      },
+      "spread": {
+        "bytes": 1149952,
+        "sha256": "eb03f12a626ce69909c21a2a38c441840fc051ed11f31ee824ae663247859f7a"
+      }
+    },
+    "fullHistoricalReleaseSuite": false
+  }
+}

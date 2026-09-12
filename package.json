@@ -1,0 +1,142 @@
+{
+  "name": "ameba-sdk",
+  "version": "0.2.0",
+  "description": "Typed Ameba SDK with byte-qualified current reads, strict governance identity, and historical RC44 semantics",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amoeba-farm/petri-sdk.git"
+  },
+  "homepage": "https://github.com/amoeba-farm/petri-sdk#readme",
+  "bugs": {
+    "url": "https://github.com/amoeba-farm/petri-sdk/issues"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "browser": {
+    "./dist/protocol/index.js": "./dist/protocol/browser.js"
+  },
+  "exports": {
+    ".": {
+      "browser": {
+        "types": "./dist/browser.d.ts",
+        "default": "./dist/browser.js"
+      },
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./client": {
+      "types": "./dist/client-entry.d.ts",
+      "import": "./dist/client-entry.js",
+      "default": "./dist/client-entry.js"
+    },
+    "./protocol": {
+      "browser": {
+        "types": "./dist/protocol/browser.d.ts",
+        "default": "./dist/protocol/browser.js"
+      },
+      "types": "./dist/protocol/index.d.ts",
+      "import": "./dist/protocol/index.js",
+      "default": "./dist/protocol/index.js"
+    },
+    "./wallet": {
+      "browser": {
+        "types": "./dist/wallet.d.ts",
+        "default": "./dist/wallet.js"
+      },
+      "types": "./dist/wallet.d.ts",
+      "import": "./dist/wallet.js",
+      "default": "./dist/wallet.js"
+    },
+    "./operator": {
+      "types": "./dist/operator/index.d.ts",
+      "import": "./dist/operator/index.js",
+      "default": "./dist/operator/index.js"
+    },
+    "./petri": {
+      "types": "./dist/petri/index.d.ts",
+      "import": "./dist/petri/index.js",
+      "default": "./dist/petri/index.js"
+    },
+    "./petri/operations": {
+      "types": "./dist/petri/operations.d.ts",
+      "import": "./dist/petri/operations.js",
+      "default": "./dist/petri/operations.js"
+    },
+    "./fixtures/current-finalized-observation-v1.json": "./fixtures/current-finalized-observation-v1.json",
+    "./fixtures/current-state-unavailable-v1.json": "./fixtures/current-state-unavailable-v1.json",
+    "./fixtures/writer_sleeve_math_v1.json": "./fixtures/writer_sleeve_math_v1.json",
+    "./fixtures/governance-gates-v1.json": "./fixtures/governance-gates-v1.json",
+    "./release-train.json": "./release/release-train.v1.json",
+    "./package.json": "./package.json",
+    "./candidate-build.json": "./release/local-candidate-build.v1.json"
+  },
+  "files": [
+    "CHANGELOG.md",
+    "CODE_OF_CONDUCT.md",
+    "NOTICE",
+    "SECURITY.md",
+    "SUPPORT.md",
+    "THIRD_PARTY_NOTICES.md",
+    "dist/**/*.js",
+    "dist/**/*.d.ts",
+    "dist/**/*.json",
+    "docs/*.md",
+    "fixtures/*.json",
+    "release/*.json",
+    "vendor/*.json",
+    "vendor/amoeba-spread-release-tools-0.1.0.tgz",
+    "vendor/amoeba-spread-release-tools-30bf62d-scoped.tgz",
+    "vendor/governance/ramx_product_sku_manifest.v1.json",
+    "vendor/governance/nandx_product_sku_manifest.v1.json",
+    "README.md",
+    "LICENSE",
+    "vendor/amoeba-spread-release-tools-397bd8403c78-writer-dlmm.tgz"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node scripts/build-wallet-browser.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "engines": {
+    "node": ">=22 <25"
+  },
+  "keywords": [
+    "ameba",
+    "amoeba",
+    "petri",
+    "sdk",
+    "typescript",
+    "javascript",
+    "solana"
+  ],
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true,
+    "registry": "https://registry.npmjs.org/"
+  },
+  "packageManager": "npm@10.9.8",
+  "dependencies": {
+    "@amoeba/spread-historical-rc44": "file:vendor/amoeba-spread-release-tools-0.1.0.tgz",
+    "@amoeba/spread-release-tools": "file:vendor/amoeba-spread-release-tools-397bd8403c78-writer-dlmm.tgz",
+    "@lightprotocol/stateless.js": "0.23.3",
+    "@solana/web3.js": "1.98.4"
+  },
+  "bundledDependencies": [
+    "@amoeba/spread-historical-rc44",
+    "@amoeba/spread-release-tools"
+  ],
+  "devDependencies": {
+    "@types/node": "22.20.1",
+    "esbuild": "0.28.2",
+    "typescript": "5.9.3"
+  },
+  "directories": {
+    "doc": "docs",
+    "example": "examples",
+    "test": "test"
+  },
+  "author": ""
+}

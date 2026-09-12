@@ -1,0 +1,218 @@
+{
+  "schemaVersion": 1,
+  "arithmeticVersion": "writer-sleeve-math-v1",
+  "liabilityRounding": "ceil-after-complete-book-numerator",
+  "scales": {
+    "contractAtoms": "1000000",
+    "ratioPpm": "1000000"
+  },
+  "seriesStorageCapacity": "32",
+  "maxSeries": "20",
+  "maxCandidatePoints": "128",
+  "reserveCases": [
+    {
+      "name": "neutral-20-call-15-put-book",
+      "lowerTailMaxSettlementAtomic": "88000000",
+      "upperTailMinSettlementAtomic": "112000000",
+      "series": [
+        {
+          "kind": "CallSpread",
+          "strikePriceAtomic": "100000000",
+          "capPriceAtomic": "112000000",
+          "externalOiAtoms": "20000000"
+        },
+        {
+          "kind": "PutSpread",
+          "strikePriceAtomic": "100000000",
+          "capPriceAtomic": "88000000",
+          "externalOiAtoms": "15000000"
+        }
+      ],
+      "expectedCandidates": [
+        "0",
+        "87999999",
+        "88000000",
+        "88000001",
+        "99999999",
+        "100000000",
+        "100000001",
+        "111999999",
+        "112000000",
+        "112000001"
+      ],
+      "expectedLiabilityNumerators": [
+        "180000000000000",
+        "180000000000000",
+        "180000000000000",
+        "179999985000000",
+        "15000000",
+        "0",
+        "20000000",
+        "239999980000000",
+        "240000000000000",
+        "240000000000000"
+      ],
+      "expectedLiabilityAtoms": [
+        "180000000",
+        "180000000",
+        "180000000",
+        "179999985",
+        "15",
+        "0",
+        "20",
+        "239999980",
+        "240000000",
+        "240000000"
+      ],
+      "expectedReserveAtoms": "240000000",
+      "expectedLowerTailReserveAtoms": "180000000",
+      "expectedUpperTailReserveAtoms": "240000000"
+    },
+    {
+      "name": "aggregate-rounding-interior-per-series-floor-counterexample",
+      "lowerTailMaxSettlementAtomic": "9",
+      "upperTailMinSettlementAtomic": "17",
+      "series": [
+        {
+          "kind": "CallSpread",
+          "strikePriceAtomic": "16",
+          "capPriceAtomic": "19",
+          "externalOiAtoms": "100000"
+        },
+        {
+          "kind": "CallSpread",
+          "strikePriceAtomic": "7",
+          "capPriceAtomic": "14",
+          "externalOiAtoms": "600000"
+        },
+        {
+          "kind": "PutSpread",
+          "strikePriceAtomic": "17",
+          "capPriceAtomic": "9",
+          "externalOiAtoms": "600000"
+        }
+      ],
+      "expectedCandidates": [
+        "0",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20"
+      ],
+      "expectedLiabilityNumerators": [
+        "4800000",
+        "4800000",
+        "4800000",
+        "5400000",
+        "6000000",
+        "6000000",
+        "6000000",
+        "6000000",
+        "5400000",
+        "4800000",
+        "4300000",
+        "4400000",
+        "4500000",
+        "4500000"
+      ],
+      "expectedLiabilityAtoms": [
+        "5",
+        "5",
+        "5",
+        "6",
+        "6",
+        "6",
+        "6",
+        "6",
+        "6",
+        "5",
+        "5",
+        "5",
+        "5",
+        "5"
+      ],
+      "expectedReserveAtoms": "6",
+      "expectedLowerTailReserveAtoms": "6",
+      "expectedUpperTailReserveAtoms": "5"
+    }
+  ],
+  "closeCases": [
+    {
+      "name": "ten-percent-whole-book-close",
+      "assetsAtoms": "365000000",
+      "flatSupplyAtoms": "115000000",
+      "flatToBurnAtoms": "11500000",
+      "lowerTailMaxSettlementAtomic": "88000000",
+      "upperTailMinSettlementAtomic": "112000000",
+      "series": [
+        {
+          "kind": "CallSpread",
+          "strikePriceAtomic": "100000000",
+          "capPriceAtomic": "112000000",
+          "externalOiAtoms": "20000000"
+        },
+        {
+          "kind": "PutSpread",
+          "strikePriceAtomic": "100000000",
+          "capPriceAtomic": "88000000",
+          "externalOiAtoms": "15000000"
+        }
+      ],
+      "expectedRequiredClaimAtoms": ["2000000", "1500000"],
+      "expectedReserveBeforeAtoms": "240000000",
+      "expectedReserveAfterAtoms": "216000000",
+      "expectedReserveReleasedAtoms": "24000000",
+      "expectedStatewiseSafeWithdrawalAtoms": "36500000",
+      "expectedStatewiseBindingSettlementAtomic": "0",
+      "expectedWithdrawalAtoms": "11500000"
+    }
+  ],
+  "policyCases": [],
+  "auctionCases": [],
+  "settlementCases": [
+    {
+      "name": "aggregate-rounding-dust-follows-series-book-order",
+      "settlementPriceAtomic": "11",
+      "series": [
+        {
+          "kind": "CallSpread",
+          "strikePriceAtomic": "10",
+          "capPriceAtomic": "20",
+          "externalOiAtoms": "400000"
+        },
+        {
+          "kind": "CallSpread",
+          "strikePriceAtomic": "10",
+          "capPriceAtomic": "20",
+          "externalOiAtoms": "400000"
+        }
+      ],
+      "expectedSeriesLiabilityAtoms": ["1", "0"],
+      "expectedLongLiabilityAtoms": "1",
+      "claimChunks": [
+        {
+          "seriesIndex": "0",
+          "remainingBeforeAtoms": "400000",
+          "consumedAtoms": "100000",
+          "expectedAllocationAtoms": "0"
+        },
+        {
+          "seriesIndex": "0",
+          "remainingBeforeAtoms": "300000",
+          "consumedAtoms": "300000",
+          "expectedAllocationAtoms": "1"
+        }
+      ]
+    }
+  ],
+  "errorCases": []
+}

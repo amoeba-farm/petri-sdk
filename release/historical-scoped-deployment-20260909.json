@@ -1,0 +1,89 @@
+{
+  "deployment": {
+    "kind": "finalized-account-deployment-identity",
+    "provenance": "finalized-rpc-account",
+    "releaseLabel": "spread-devnet-v3-scoped-settlement-20260909",
+    "cluster": "devnet",
+    "genesisHash": "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG",
+    "stateNamespace": "ameba-spread-v2",
+    "sourceCommit": "30bf62d0ec431d76e93790b048a309e9d0d34c33",
+    "artifactSourceCommit": "3b30cce8f0b67c34751a9680c118cab61d752a3f",
+    "programId": "2jVQSPny9eFoaG1ZWoJVAezQ5VgqJtF8rQCQXMktuBVw",
+    "programDataAddress": "8KR6hgcQehz32jm7CvrAriYNhvT2Bu9JuUWHce81J1oh",
+    "programAccountBytes": 36,
+    "programAccountSha256": "83be84ac424d864aacf03e489ff8fe3f0a6957e8726c8f9c48f572df6b522e75",
+    "programDataAccountBytes": 1257349,
+    "programDataAccountSha256": "da6fe55c85a27f2789c6ada0f3dc2056e127dd32d062859b2e483493e66af632",
+    "programDataPayloadBytes": 1257304,
+    "programDataPayloadSha256": "6e02dd9ebf15c8d6cee2274f40c17e156fb2b5b3c1f4fc1b3e86bc586208caba",
+    "artifactBytes": 1257304,
+    "artifactSha256": "6e02dd9ebf15c8d6cee2274f40c17e156fb2b5b3c1f4fc1b3e86bc586208caba",
+    "mandatoryZeroPaddingBytes": 0,
+    "programDataSlot": 495476689,
+    "upgradeAuthority": {
+      "mode": "external-authority",
+      "address": "4hsEKyThDv85YA4HjUaGWn2nWnVbM5V23XcLrEX3UKzn"
+    },
+    "writeCompatibility": "governance-gate-v1",
+    "liveReadProfileId": "ameba-spread-v2-deployed-3b30cce8",
+    "buildFeatures": [
+      "devnet-v3-governance-controller",
+      "devnet-solo-backfill-2026"
+    ],
+    "minimumContextSlot": 495537060,
+    "finalizedObservationSlot": 495537060,
+    "observedAt": "2026-09-09T08:23:46.401Z",
+    "receiptPath": "release/scoped-deployment-evidence-20260909.json",
+    "descriptorPath": "release/spread-scoped-final-20260909.json"
+  },
+  "governance": {
+    "identityGeneration": 3,
+    "live": true,
+    "environment": "devnet",
+    "controllerProgramId": "8fhNi6QHU5TYNhoPDM4vs89ZBztnpxp3LnBXRgkBVKtx",
+    "controllerProgramData": "7eW9UXcCDrpEAQ93fP7o2zgGMKhAKi3zJLihELjR8xYd",
+    "controllerConfigPda": "Ec5H8jsGvaLU3T3gp6qTayPjY2qF3geBbVKWz4rsaEHB",
+    "protocolGatePda": "Cdym9p7FvtxEAjF8XuCqSrishB7LmBDXaZGDMMgWczu",
+    "targetProgramId": "2jVQSPny9eFoaG1ZWoJVAezQ5VgqJtF8rQCQXMktuBVw",
+    "targetProgramData": "8KR6hgcQehz32jm7CvrAriYNhvT2Bu9JuUWHce81J1oh",
+    "controllerSourceCommit": "590e3cd65d429338757aca1ca7f21e9bcd012b94",
+    "artifactSha256": "50d409bceaebef4ce3edcee9e757b4f995e0405a482ad32f3272e13aa94dca47",
+    "programDataSha256": "15baa3040bf20d1b0909ca43195c0f47cb6ab3ec0a710d1e007d962c2e577b8a",
+    "deploymentReceiptSha256": "a6d42b990e0391fbce23ff55ebec63035cc08d6b54219c2ea190ccb1e39cd46d",
+    "mainnetAllowed": false,
+    "upgradeAuthority": {
+      "mode": "governed-authority",
+      "address": "Frc28QFQxqUxF9HPgzcmm5VkqorqUb2LeLPE5uKU6Ycp"
+    },
+    "bridgeAbi": {
+      "gateDiscriminatorAscii": "AGVGAT01",
+      "gateLength": 192,
+      "gateVersion": 1,
+      "tailMagicAscii": "AGV1",
+      "tailLength": 16,
+      "tailVersion": 1
+    },
+    "pinnedObservation": {
+      "status": "Active",
+      "epoch": "15",
+      "accountSha256": "2c8f1145b56e5743eb48c90d1ab033979201f03462246dc4850826070e0c70e2",
+      "observedAt": "2026-09-09T08:23:46.401Z",
+      "observedAtOrAfterSlot": 495537060,
+      "provenance": "finalized-rpc-account"
+    },
+    "identityManifestSha256": "c8207cb4175756230e3f3b257498d89720122e6075767e83990ad7d645decf73"
+  },
+  "marketPreparation": {
+    "status": "final-parity-evidence-pending",
+    "complete": false,
+    "tradeReady": false,
+    "marketObservationSlot": null,
+    "sourceCoverageObservationSlot": null,
+    "contractSupply": null,
+    "allMarketsPaused": null,
+    "lightDlmmInitialization": "council-configuration-finalized-market-replay-incomplete",
+    "oldPositionsImported": false
+  },
+  "priorReleaseReference": "release/spread-trader-final-20260908.json",
+  "qualificationScope": "exact deployed program and native client source; business action eligibility remains live and action-specific"
+}

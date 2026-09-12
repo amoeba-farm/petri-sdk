@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "receiptType": "amoeba-spread-live-feature-build",
+  "protocol": "ameba_spread",
+  "release": "v0.1.0-rc.43",
+  "source": {
+    "repository": "https://github.com/SPACE999978/ameba_spread.git",
+    "commit": "3412b0adda98d4bc408c4bbb86683e907fd89b5e",
+    "tag": "v0.1.0-rc.43",
+    "cleanCheckout": true
+  },
+  "program": {
+    "name": "light_token_minter",
+    "sourcePath": "programs/light_token_minter"
+  },
+  "build": {
+    "command": "cargo-build-sbf --arch v1 --offline --sbf-out-dir <isolated-output> -- --no-default-features --features devnet-solo-backfill-2026 --locked",
+    "arch": "v1",
+    "offline": true,
+    "locked": true,
+    "noDefaultFeatures": true,
+    "features": [
+      "devnet-solo-backfill-2026"
+    ],
+    "toolchain": {
+      "cargoBuildSbf": "4.0.0",
+      "platformTools": "1.53",
+      "sbfRustc": "1.89.0",
+      "solanaCli": "4.0.0"
+    }
+  },
+  "artifact": {
+    "file": "light_token_minter.so",
+    "bytes": 1223504,
+    "sha256": "a880180ccfbe1472bb9fd6bcc7bd205c1da7769bf03d7521f6ebb1df6089ebac"
+  },
+  "reproducibility": {
+    "independentBuilds": 2,
+    "isolatedSourceClones": true,
+    "isolatedCargoTargets": true,
+    "byteIdentical": true,
+    "builds": [
+      {
+        "ordinal": 1,
+        "bytes": 1223504,
+        "sha256": "a880180ccfbe1472bb9fd6bcc7bd205c1da7769bf03d7521f6ebb1df6089ebac"
+      },
+      {
+        "ordinal": 2,
+        "bytes": 1223504,
+        "sha256": "a880180ccfbe1472bb9fd6bcc7bd205c1da7769bf03d7521f6ebb1df6089ebac"
+      }
+    ]
+  }
+}

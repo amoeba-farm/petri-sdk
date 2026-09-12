@@ -1,0 +1,200 @@
+{
+  "schema": "ameba-spread-devnet-v3-integration-v1",
+  "releaseId": "spread-devnet-v3-backfill-20260906",
+  "network": {
+    "cluster": "devnet",
+    "genesisHash": "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG"
+  },
+  "spread": {
+    "programId": "2jVQSPny9eFoaG1ZWoJVAezQ5VgqJtF8rQCQXMktuBVw",
+    "programData": "8KR6hgcQehz32jm7CvrAriYNhvT2Bu9JuUWHce81J1oh",
+    "authority": "4hsEKyThDv85YA4HjUaGWn2nWnVbM5V23XcLrEX3UKzn",
+    "deployedSlot": "494031585",
+    "artifactBytes": 1231264,
+    "artifactSha256": "bf05c3c19a5c1f7d3c3c4db157106d2b868fcb507b1171728645c40b57936e0a",
+    "sourceCommit": "e57473cea72f387e5d877d70e9495f07bebfcdaa"
+  },
+  "controller": {
+    "programId": "8fhNi6QHU5TYNhoPDM4vs89ZBztnpxp3LnBXRgkBVKtx",
+    "programData": "7eW9UXcCDrpEAQ93fP7o2zgGMKhAKi3zJLihELjR8xYd",
+    "authority": "Frc28QFQxqUxF9HPgzcmm5VkqorqUb2LeLPE5uKU6Ycp",
+    "deployedSlot": "493850815",
+    "artifactBytes": 190736,
+    "artifactSha256": "ccde2782b50301290d52387662c4979cc19e186ce0e7461305d4b71598c75e77",
+    "sourceCommit": "4e9ae8b897f867fe0b4b689226feb34696772581"
+  },
+  "councilConfig": "Ec5H8jsGvaLU3T3gp6qTayPjY2qF3geBbVKWz4rsaEHB",
+  "gateAddress": "Cdym9p7FvtxEAjF8XuCqSrishB7LmBDXaZGDMMgWczu",
+  "buildFeatures": [
+    "devnet-v3-governance-controller",
+    "devnet-solo-backfill-2026"
+  ],
+  "stateNamespace": "ameba-spread-v2",
+  "abi": {
+    "gateBytes": 192,
+    "epochTailBytes": 16,
+    "instructionManifest": "docs/governance/generated/phase-3-instruction-manifest-v1.json",
+    "instructionManifestSha256": "fd55b2b2e7cb2669144c68917604552836b552cb31e79f4f6504a9e1684d91a3",
+    "readProfile": "ameba-spread-v2-deployed-e57473ce",
+    "businessSourceCommit": "e57473cea72f387e5d877d70e9495f07bebfcdaa",
+    "semanticReaderBaselineCommit": "1b2230d96e51f6582155d8284900fbfc11ff1f18",
+    "writerAuctionVersion": 1
+  },
+  "deploymentReceipt": "docs/governance/devnet-v3-market-preparation-20260906.json",
+  "observedState": {
+    "verifiedAt": "2026-09-06T12:47:52.051Z",
+    "finalizedSlot": null,
+    "minimumContextSlot": 494031585,
+    "gate": {
+      "address": "Cdym9p7FvtxEAjF8XuCqSrishB7LmBDXaZGDMMgWczu",
+      "status": "Active",
+      "epoch": "3",
+      "freezeSlot": "0",
+      "reason": 0
+    },
+    "timing": {
+      "reviewSlots": "4000000",
+      "delaySlots": "4500",
+      "expirySlots": "7000000"
+    },
+    "marketPreparation": {
+      "status": "awaiting-recipe-resolution",
+      "complete": false,
+      "marketCount": 13,
+      "sourceCount": 400,
+      "coverageManifestCount": 8,
+      "contractSupply": "0",
+      "allMarketsPaused": true,
+      "marketObservationSlot": 494048406,
+      "sourceCoverageObservationSlot": 494067150,
+      "earliestLifecycleUtc": {
+        "recipe": "2026-09-06T18:03:38.0000000Z",
+        "opening": "2026-09-06T19:03:38.0000000Z",
+        "game": "2026-09-06T20:03:38.0000000Z"
+      },
+      "tradeReady": false,
+      "lightDlmmInitialization": "blocked-controller-PDA-authorization",
+      "oldPositionsImported": false
+    }
+  },
+  "runtimePolicy": {
+    "requireFinalizedActiveGate": true,
+    "requireInitializedBusinessState": true,
+    "productionEnabled": false
+  },
+  "bootstrap": {
+    "status": "market-preparation-in-progress-final-receipt-absent",
+    "historicalPolicy": "config/devnet_bootstrap.v1.json",
+    "historicalPolicyReplayPermitted": false,
+    "freshAmbaMint": "63qhg3zF3vmPpPF5y5Yb1cvG9UmWjP5Z5r9S7weG65hQ"
+  },
+  "provenance": {
+    "spreadDeploymentCommit": "26a6a341c43e33375e669373626ff33dbba88dc9",
+    "controllerDeploymentCommit": "715feb9b9e3b3b43e26e7219acd345d873fbe57b",
+    "independentCleanBuildsAttested": false
+  },
+  "accountEvidence": {
+    "spreadProgram": {
+      "address": "2jVQSPny9eFoaG1ZWoJVAezQ5VgqJtF8rQCQXMktuBVw",
+      "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+      "executable": true,
+      "bytes": 36,
+      "sha256": "83be84ac424d864aacf03e489ff8fe3f0a6957e8726c8f9c48f572df6b522e75",
+      "dataBase64Path": "docs/governance/evidence/v3-spread-devnet-20260905/spreadProgram.base64",
+      "finalizedSlot": 493855641,
+      "observationKind": "historical-unchanged-program-link"
+    },
+    "spreadProgramData": {
+      "address": "8KR6hgcQehz32jm7CvrAriYNhvT2Bu9JuUWHce81J1oh",
+      "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+      "executable": false,
+      "bytes": 1231309,
+      "sha256": "e820bd332c7238fd2d270e17ae18fac30c2189530d1427ba8c7f8ee595c104a2",
+      "observationKind": "deterministically-reconstructed-from-committed-checkpoint-and-hash-verified-artifact",
+      "headerBase64": "AwAAAOFSch0AAAAAATcLFo/lq5Rap3D5t5tjgcmcrZzDUG0llVcY/e1Ym0t3",
+      "payloadSha256": "bf05c3c19a5c1f7d3c3c4db157106d2b868fcb507b1171728645c40b57936e0a",
+      "checkpointPath": "docs/governance/devnet-v3-market-preparation-20260906.json",
+      "minimumContextSlot": 494031585,
+      "finalizedObservationSlot": null
+    }
+  },
+  "governanceIdentity": {
+    "canonical": {
+      "releaseId": "spread-devnet-v3-backfill-20260906",
+      "network": {
+        "cluster": "devnet",
+        "genesisHash": "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG"
+      },
+      "councilConfig": "Ec5H8jsGvaLU3T3gp6qTayPjY2qF3geBbVKWz4rsaEHB",
+      "gateAddress": "Cdym9p7FvtxEAjF8XuCqSrishB7LmBDXaZGDMMgWczu",
+      "buildFeatures": [
+        "devnet-v3-governance-controller",
+        "devnet-solo-backfill-2026"
+      ],
+      "stateNamespace": "ameba-spread-v2",
+      "controllerProgramId": "8fhNi6QHU5TYNhoPDM4vs89ZBztnpxp3LnBXRgkBVKtx",
+      "targetProgramId": "2jVQSPny9eFoaG1ZWoJVAezQ5VgqJtF8rQCQXMktuBVw",
+      "gateBytes": 192,
+      "tailBytes": 16
+    },
+    "sha256": "77ebc16d5c60712306322b25b2800f3cb0873be57e279dc72e8052a5e98d9e0f",
+    "hashEncoding": "sorted-key compact UTF-8 JSON"
+  },
+  "historicalDeploymentReceipt": "docs/governance/evidence/v3-spread-devnet-20260905/receipt.json",
+  "historicalAccountEvidence": {
+    "controllerProgram": {
+      "address": "8fhNi6QHU5TYNhoPDM4vs89ZBztnpxp3LnBXRgkBVKtx",
+      "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+      "executable": true,
+      "bytes": 36,
+      "sha256": "03976f8d382d44b62e3c53959fedefe7e1b9c0f30c90921553194ebb8159310d",
+      "dataBase64Path": "docs/governance/evidence/v3-spread-devnet-20260905/controllerProgram.base64",
+      "finalizedSlot": 493855641
+    },
+    "controllerProgramData": {
+      "address": "7eW9UXcCDrpEAQ93fP7o2zgGMKhAKi3zJLihELjR8xYd",
+      "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+      "executable": false,
+      "bytes": 190781,
+      "sha256": "5ec4bea7e10b2f8a3f16db6fda631612ef7887a0a1b41c4666dfa7e87fb6711e",
+      "dataBase64Path": "docs/governance/evidence/v3-spread-devnet-20260905/controllerProgramData.base64",
+      "finalizedSlot": 493855641
+    },
+    "council": {
+      "address": "Ec5H8jsGvaLU3T3gp6qTayPjY2qF3geBbVKWz4rsaEHB",
+      "owner": "8fhNi6QHU5TYNhoPDM4vs89ZBztnpxp3LnBXRgkBVKtx",
+      "executable": false,
+      "bytes": 384,
+      "sha256": "8daa5c546a489088bd72941d6e3dbf795f30e591943518629d39d264f9208de8",
+      "dataBase64Path": "docs/governance/evidence/v3-spread-devnet-20260905/council.base64",
+      "finalizedSlot": 493855641
+    },
+    "spreadProgram": {
+      "address": "2jVQSPny9eFoaG1ZWoJVAezQ5VgqJtF8rQCQXMktuBVw",
+      "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+      "executable": true,
+      "bytes": 36,
+      "sha256": "83be84ac424d864aacf03e489ff8fe3f0a6957e8726c8f9c48f572df6b522e75",
+      "dataBase64Path": "docs/governance/evidence/v3-spread-devnet-20260905/spreadProgram.base64",
+      "finalizedSlot": 493855641
+    },
+    "spreadProgramData": {
+      "address": "8KR6hgcQehz32jm7CvrAriYNhvT2Bu9JuUWHce81J1oh",
+      "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+      "executable": false,
+      "bytes": 1149997,
+      "sha256": "07588919a741169170f467498e3ddb7a2c686234c90d8ff76c381ceb3eaaae88",
+      "dataBase64Path": "docs/governance/evidence/v3-spread-devnet-20260905/spreadProgramData.base64",
+      "finalizedSlot": 493855641
+    },
+    "gate": {
+      "address": "Cdym9p7FvtxEAjF8XuCqSrishB7LmBDXaZGDMMgWczu",
+      "owner": "8fhNi6QHU5TYNhoPDM4vs89ZBztnpxp3LnBXRgkBVKtx",
+      "executable": false,
+      "bytes": 192,
+      "sha256": "2fccc8c4dc6953343c6cdf3b95cee15ab681efe684dfaf3eda39e8f035abdbfd",
+      "dataBase64Path": "docs/governance/evidence/v3-spread-devnet-20260905/gate.base64",
+      "finalizedSlot": 493855641
+    }
+  }
+}

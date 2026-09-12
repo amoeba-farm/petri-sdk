@@ -1,0 +1,89 @@
+{
+  "deployment": {
+    "kind": "finalized-account-deployment-identity",
+    "provenance": "finalized-rpc-account",
+    "releaseLabel": "spread-refactor-20260912",
+    "cluster": "devnet",
+    "genesisHash": "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG",
+    "stateNamespace": "ameba-spread-v2",
+    "sourceCommit": "397bd8403c7803574597a7ff3650a303b92f96c0",
+    "artifactSourceCommit": "b1931fecff5229da232f06e9c5c43b1d6328806d",
+    "programId": "2jVQSPny9eFoaG1ZWoJVAezQ5VgqJtF8rQCQXMktuBVw",
+    "programDataAddress": "8KR6hgcQehz32jm7CvrAriYNhvT2Bu9JuUWHce81J1oh",
+    "programAccountBytes": 36,
+    "programAccountSha256": "83be84ac424d864aacf03e489ff8fe3f0a6957e8726c8f9c48f572df6b522e75",
+    "programDataAccountBytes": 1385357,
+    "programDataAccountSha256": "df5e426d74dadcca84c42e999489ad3089421fe99c4ad5fc718e4b18eee5e610",
+    "programDataPayloadBytes": 1385312,
+    "programDataPayloadSha256": "903c58504f44e8820e5c9f99765b26be15a97504ec5fdd0855f3668f29927fee",
+    "artifactBytes": 1385312,
+    "artifactSha256": "903c58504f44e8820e5c9f99765b26be15a97504ec5fdd0855f3668f29927fee",
+    "mandatoryZeroPaddingBytes": 0,
+    "programDataSlot": 497328581,
+    "upgradeAuthority": {
+      "mode": "external-authority",
+      "address": "4hsEKyThDv85YA4HjUaGWn2nWnVbM5V23XcLrEX3UKzn"
+    },
+    "writeCompatibility": "governance-gate-v1",
+    "liveReadProfileId": "ameba-spread-v2-deployed-b1931fec",
+    "buildFeatures": [
+      "devnet-v3-governance-controller",
+      "devnet-solo-backfill-2026"
+    ],
+    "minimumContextSlot": 497359082,
+    "finalizedObservationSlot": 497359082,
+    "observedAt": "2026-09-12T20:19:29.568Z",
+    "receiptPath": "release/refactor-deployment-evidence-20260912.json",
+    "descriptorPath": "release/spread-refactor-final-20260912.json"
+  },
+  "governance": {
+    "identityGeneration": 3,
+    "live": true,
+    "environment": "devnet",
+    "controllerProgramId": "8fhNi6QHU5TYNhoPDM4vs89ZBztnpxp3LnBXRgkBVKtx",
+    "controllerProgramData": "7eW9UXcCDrpEAQ93fP7o2zgGMKhAKi3zJLihELjR8xYd",
+    "controllerConfigPda": "Ec5H8jsGvaLU3T3gp6qTayPjY2qF3geBbVKWz4rsaEHB",
+    "protocolGatePda": "Cdym9p7FvtxEAjF8XuCqSrishB7LmBDXaZGDMMgWczu",
+    "targetProgramId": "2jVQSPny9eFoaG1ZWoJVAezQ5VgqJtF8rQCQXMktuBVw",
+    "targetProgramData": "8KR6hgcQehz32jm7CvrAriYNhvT2Bu9JuUWHce81J1oh",
+    "controllerSourceCommit": "6b6518c280211c9fc14ea393051092bc3d0b2318",
+    "artifactSha256": "93392770af3d0251092d736c3ab8718349b8f5811527bab402ea7a235e947d96",
+    "programDataSha256": "1470f1ac6a1c57a310c128d5da0f2f2ff56a62c94cc401f0a3be6d968c7a779c",
+    "deploymentReceiptSha256": "6fba0fb69384d2a2aad3bbd2b8049df1d940b26c26dcc735282a620be24e4f76",
+    "mainnetAllowed": false,
+    "upgradeAuthority": {
+      "mode": "governed-authority",
+      "address": "Frc28QFQxqUxF9HPgzcmm5VkqorqUb2LeLPE5uKU6Ycp"
+    },
+    "bridgeAbi": {
+      "gateDiscriminatorAscii": "AGVGAT01",
+      "gateLength": 192,
+      "gateVersion": 1,
+      "tailMagicAscii": "AGV1",
+      "tailLength": 16,
+      "tailVersion": 1
+    },
+    "pinnedObservation": {
+      "status": "Active",
+      "epoch": "24",
+      "accountSha256": "a4fabe984158fed49b8470148ab1f915d8cbd5cc6cc5fd22aeee607abf5a90a1",
+      "observedAt": "2026-09-12T20:19:29.568Z",
+      "observedAtOrAfterSlot": 497359082,
+      "provenance": "finalized-rpc-account"
+    },
+    "identityManifestSha256": "c8207cb4175756230e3f3b257498d89720122e6075767e83990ad7d645decf73"
+  },
+  "marketPreparation": {
+    "status": "final-parity-evidence-pending",
+    "complete": false,
+    "tradeReady": false,
+    "marketObservationSlot": null,
+    "sourceCoverageObservationSlot": null,
+    "contractSupply": null,
+    "allMarketsPaused": null,
+    "lightDlmmInitialization": "council-configuration-finalized-market-replay-incomplete",
+    "oldPositionsImported": false
+  },
+  "priorReleaseReference": "release/spread-oracle-carry-final-20260911.json",
+  "qualificationScope": "exact finalized program/native-source identity; action eligibility remains live and action-specific"
+}

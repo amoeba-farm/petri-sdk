@@ -1,0 +1,98 @@
+{
+  "deployment": {
+    "kind": "finalized-account-deployment-identity",
+    "provenance": "finalized-rpc-account",
+    "releaseLabel": "spread-devnet-v3-trader-blockers-20260908",
+    "cluster": "devnet",
+    "genesisHash": "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG",
+    "stateNamespace": "ameba-spread-v2",
+    "sourceCommit": "44ec51ba4a9fdda2bbc02c801f7d1cb7e3f9f22f",
+    "artifactSourceCommit": "416016e4a6fe172eeda2fe1e5f6b99aa98f8e104",
+    "programId": "2jVQSPny9eFoaG1ZWoJVAezQ5VgqJtF8rQCQXMktuBVw",
+    "programDataAddress": "8KR6hgcQehz32jm7CvrAriYNhvT2Bu9JuUWHce81J1oh",
+    "programAccountBytes": 36,
+    "programAccountSha256": "83be84ac424d864aacf03e489ff8fe3f0a6957e8726c8f9c48f572df6b522e75",
+    "programDataAccountBytes": 1241549,
+    "programDataAccountSha256": "0f7d623a185aba39bb3e035ca70df67e948256f5fe5149f1889d1c01e122d7e0",
+    "programDataPayloadBytes": 1241504,
+    "programDataPayloadSha256": "a3b8c3539ba5ce71bcc9c1dfbf15eb8522855284cc8ba0cbf4735ee04b8e2aa2",
+    "artifactBytes": 1238040,
+    "artifactSha256": "95f5412402740e6c0a66711e3bfedda6c8fe30975d9b9057db54345a001546d4",
+    "mandatoryZeroPaddingBytes": 3464,
+    "programDataSlot": 495051680,
+    "upgradeAuthority": {
+      "mode": "external-authority",
+      "address": "4hsEKyThDv85YA4HjUaGWn2nWnVbM5V23XcLrEX3UKzn"
+    },
+    "writeCompatibility": "governance-gate-v1",
+    "liveReadProfileId": "ameba-spread-v2-deployed-416016e4",
+    "buildFeatures": [
+      "devnet-v3-governance-controller",
+      "devnet-solo-backfill-2026"
+    ],
+    "minimumContextSlot": 495056847,
+    "finalizedObservationSlot": 495057130,
+    "observedAt": "2026-09-08T10:17:42.717Z",
+    "receiptPath": "release/spread-trader-activation-20260908.json",
+    "descriptorPath": "release/spread-trader-final-20260908.json"
+  },
+  "governance": {
+    "identityGeneration": 3,
+    "live": true,
+    "environment": "devnet",
+    "controllerProgramId": "8fhNi6QHU5TYNhoPDM4vs89ZBztnpxp3LnBXRgkBVKtx",
+    "controllerProgramData": "7eW9UXcCDrpEAQ93fP7o2zgGMKhAKi3zJLihELjR8xYd",
+    "controllerConfigPda": "Ec5H8jsGvaLU3T3gp6qTayPjY2qF3geBbVKWz4rsaEHB",
+    "protocolGatePda": "Cdym9p7FvtxEAjF8XuCqSrishB7LmBDXaZGDMMgWczu",
+    "targetProgramId": "2jVQSPny9eFoaG1ZWoJVAezQ5VgqJtF8rQCQXMktuBVw",
+    "targetProgramData": "8KR6hgcQehz32jm7CvrAriYNhvT2Bu9JuUWHce81J1oh",
+    "controllerSourceCommit": "590e3cd65d429338757aca1ca7f21e9bcd012b94",
+    "artifactSha256": "50d409bceaebef4ce3edcee9e757b4f995e0405a482ad32f3272e13aa94dca47",
+    "programDataSha256": "15baa3040bf20d1b0909ca43195c0f47cb6ab3ec0a710d1e007d962c2e577b8a",
+    "deploymentReceiptSha256": "a6d42b990e0391fbce23ff55ebec63035cc08d6b54219c2ea190ccb1e39cd46d",
+    "mainnetAllowed": false,
+    "upgradeAuthority": {
+      "mode": "governed-authority",
+      "address": "Frc28QFQxqUxF9HPgzcmm5VkqorqUb2LeLPE5uKU6Ycp"
+    },
+    "bridgeAbi": {
+      "gateDiscriminatorAscii": "AGVGAT01",
+      "gateLength": 192,
+      "gateVersion": 1,
+      "tailMagicAscii": "AGV1",
+      "tailLength": 16,
+      "tailVersion": 1
+    },
+    "pinnedObservation": {
+      "status": "Active",
+      "epoch": "12",
+      "accountSha256": "a8c531af501196392c75e06b779ccdc86b605ecdd0c1f12cde6d9bd051a227a4",
+      "observedAt": "2026-09-08T10:17:42.717Z",
+      "observedAtOrAfterSlot": 495057130,
+      "provenance": "finalized-rpc-account"
+    },
+    "identityManifestSha256": "c8207cb4175756230e3f3b257498d89720122e6075767e83990ad7d645decf73"
+  },
+  "marketPreparation": {
+    "status": "final-parity-evidence-pending",
+    "complete": false,
+    "tradeReady": false,
+    "marketObservationSlot": null,
+    "sourceCoverageObservationSlot": null,
+    "contractSupply": null,
+    "allMarketsPaused": null,
+    "lightDlmmInitialization": "council-configuration-finalized-market-replay-incomplete",
+    "oldPositionsImported": false
+  },
+  "codeOnlyPreservation": {
+    "mode": "active-state-code-only-v1",
+    "invariantSha256": "c39d4d2f5b8d7631fa0d2eb6dc9409673d11977a87eee8db197ea47a305d5521",
+    "programAccounts": 3359,
+    "externalAccounts": 181,
+    "evidence": "docs/governance/evidence/v3-trader-blockers-20260908"
+  },
+  "historicalBusinessParityReference": {
+    "descriptorPath": "release/spread-trader-final-20260908.json",
+    "field": "historicalBusinessParity"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "receiptType": "amoeba-spread-live-deployment-correspondence",
+  "protocol": "ameba_spread",
+  "release": "v0.1.0-rc.43",
+  "sourceCommit": "3412b0adda98d4bc408c4bbb86683e907fd89b5e",
+  "cluster": "devnet",
+  "rpcUrl": "https://api.devnet.solana.com",
+  "commitment": "finalized",
+  "buildReceipt": {
+    "path": "vendor/RC43_LIVE_BUILD_RECEIPT.json",
+    "sha256": "31468988d1fc3f2518bb0ada77ae75431ab761478f1a247c01ce3866d9b019fe"
+  },
+  "program": {
+    "address": "9ipkBCjEfeJDMF6AFrezRmDDHmbnmeyv45cfXNqAnWsH",
+    "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+    "executable": true,
+    "bytes": 36,
+    "loaderTag": 2,
+    "linkedProgramData": "2DBN762WGdNc85xiVdvQX7Lo4TXAq3WhVz9mBQcaU3a3"
+  },
+  "programData": {
+    "address": "2DBN762WGdNc85xiVdvQX7Lo4TXAq3WhVz9mBQcaU3a3",
+    "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+    "executable": false,
+    "bytes": 1241821,
+    "loaderTag": 3,
+    "headerBytes": 45,
+    "deployedSlot": 486141932,
+    "upgradeAuthority": "D5jhTM3kYHdKixrc52Kn657gBHytQLhQqsTmJBcNFVdq",
+    "fullAccountSha256": "348859e29dea8e8456d9fd21806a5582eaf0207d3b825b0187cc000a079fd5f7",
+    "payloadCapacityBytes": 1241776,
+    "payloadCapacitySha256": "673430c0197c32bfc783369354bb38bf1d724b7c54e36922073e6f2c564c53e5"
+  },
+  "deployment": {
+    "transactionSignature": "5PiwfUdzFqheUp6cfJKaYjTfA5VcQ3j3JyFf5cnzmSyK4prTTnwsCqLkhN113JszKJW5rVuZCjdFgUvdjPG6E1u4",
+    "slot": 486141932,
+    "blockTime": 1787305294,
+    "transactionError": null,
+    "finalized": true
+  },
+  "verification": {
+    "contextSlot": 486481548,
+    "artifactBytes": 1223504,
+    "artifactSha256": "a880180ccfbe1472bb9fd6bcc7bd205c1da7769bf03d7521f6ebb1df6089ebac",
+    "programDataPrefixMatchesArtifact": true,
+    "allocationTailBytes": 18272,
+    "allocationTailAllZero": true,
+    "independentBuilds": 2,
+    "independentBuildsByteIdentical": true
+  },
+  "integrity": {
+    "algorithm": "sha256",
+    "scope": "UTF-8 JSON.stringify(receipt without integrity, null, 2) plus LF",
+    "payloadSha256": "d403bad659ab8678064057283988ab3ac26e7d39ab368e65e22073131b9a1ed3"
+  }
+}

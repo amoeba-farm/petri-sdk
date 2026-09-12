@@ -1,0 +1,13 @@
+{
+    "schemaVersion": 1,
+    "preset": "writer-auction-v2-full-inventory-v1",
+    "writerPlanSchemaVersion": 2,
+    "setupMode": "release_compute",
+    "instructionTags": [14, 15, 200],
+    "setupProgramId": "ComputeBudget111111111111111111111111111111",
+    "setupInstructionDataBase64": ["AQAAAQA=", "AsBcFQA="],
+    "setupAccountCount": 0,
+    "setupSignerRoleCount": 0,
+    "actionBatchIndex": 0,
+    "actionInstructionCount": 1
+}

@@ -1,0 +1,772 @@
+use super::*;
+use crate::instruction::{CleanupWriterCustodyV1Params, ReconcileWriterSupplyV1Params};
+
+const RECONCILE_WRITER_SUPPLY_ACCOUNT_COUNT: usize = 16;
+const CLEANUP_WRITER_CUSTODY_ACCOUNT_COUNT: usize = 9;
+const RECONCILE_TARGET_SERIES: u8 = 0;
+const RECONCILE_TARGET_FLAT: u8 = 1;
+
+fn optional_canonical_token_amount(
+    info: &AccountInfo,
+    expected_key: &Pubkey,
+    expected_mint: &Pubkey,
+    expected_owner: &Pubkey,
+) -> Result<u64, ProgramError> {
+    if info.key != expected_key {
+        return Err(VaultError::InvalidPda.into());
+    }
+    if info.owner == &system_program::id() && !info.executable && info.data_len() == 0 {
+        return Ok(0);
+    }
+    validate_vault_token_account(info, expected_mint, expected_owner)?;
+    Ok(validate_token_account(info)?.amount)
+}
+
+fn cumulative_allocation_delta(
+    initial_supply: u64,
+    remaining_before: u64,
+    consumed_now: u64,
+    initial_liability: u64,
+) -> Result<u64, ProgramError> {
+    crate::writer_sleeve_math::cumulative_allocation_delta(
+        initial_supply,
+        remaining_before,
+        consumed_now,
+        initial_liability,
+    )
+    .map_err(|error| match error {
+        WriterMathError::InvalidCloseAmount => VaultError::WriterSupplyMismatch.into(),
+        _ => VaultError::ArithmeticOverflow.into(),
+    })
+}
+
+fn apply_long_forfeiture(
+    sleeve: &mut WriterSleeveV1,
+    record: &mut WriterSeriesRecordV1,
+    burned_external_atoms: u64,
+) -> ProgramResult {
+    if burned_external_atoms == 0 || sleeve.status != WriterSleeveStatus::SettlementFinalized {
+        return Ok(());
+    }
+    let allocation = cumulative_allocation_delta(
+        record.settlement_external_oi_snapshot_atoms,
+        record.external_open_interest_atoms,
+        burned_external_atoms,
+        record.settlement_liability_initial_atoms,
+    )?;
+    if allocation > record.settlement_liability_remaining_atoms
+        || allocation > sleeve.long_liability_remaining_atoms
+        || allocation > sleeve.accounted_asset_atoms
+    {
+        return Err(VaultError::WriterSolvencyViolation.into());
+    }
+    record.settlement_liability_remaining_atoms = record
+        .settlement_liability_remaining_atoms
+        .checked_sub(allocation)
+        .ok_or(VaultError::ArithmeticOverflow)?;
+    sleeve.long_liability_remaining_atoms = sleeve
+        .long_liability_remaining_atoms
+        .checked_sub(allocation)
+        .ok_or(VaultError::ArithmeticOverflow)?;
+    sleeve.accounted_asset_atoms = sleeve
+        .accounted_asset_atoms
+        .checked_sub(allocation)
+        .ok_or(VaultError::ArithmeticOverflow)?;
+    sleeve.stranded_surplus_atoms = sleeve
+        .stranded_surplus_atoms
+        .checked_add(allocation)
+        .ok_or(VaultError::ArithmeticOverflow)?;
+    Ok(())
+}
+
+fn apply_flat_direct_burn(sleeve: &mut WriterSleeveV1, burned_atoms: u64) -> ProgramResult {
+    if burned_atoms == 0 {
+        return Ok(());
+    }
+    if burned_atoms > sleeve.flat_par_supply_atoms {
+        return Err(VaultError::WriterSupplyMismatch.into());
+    }
+    if sleeve.status == WriterSleeveStatus::SettlementFinalized {
+        let allocation = cumulative_allocation_delta(
+            sleeve.flat_supply_snapshot_atoms,
+            sleeve.flat_claim_supply_remaining_atoms,
+            burned_atoms,
+            sleeve.flat_residual_initial_atoms,
+        )?;
+        if allocation > sleeve.flat_residual_remaining_atoms
+            || allocation > sleeve.accounted_asset_atoms
+        {
+            return Err(VaultError::WriterSolvencyViolation.into());
+        }
+        sleeve.flat_claim_supply_remaining_atoms = sleeve
+            .flat_claim_supply_remaining_atoms
+            .checked_sub(burned_atoms)
+            .ok_or(VaultError::ArithmeticOverflow)?;
+        sleeve.flat_residual_remaining_atoms = sleeve
+            .flat_residual_remaining_atoms
+            .checked_sub(allocation)
+            .ok_or(VaultError::ArithmeticOverflow)?;
+        sleeve.accounted_asset_atoms = sleeve
+            .accounted_asset_atoms
+            .checked_sub(allocation)
+            .ok_or(VaultError::ArithmeticOverflow)?;
+        sleeve.stranded_surplus_atoms = sleeve
+            .stranded_surplus_atoms
+            .checked_add(allocation)
+            .ok_or(VaultError::ArithmeticOverflow)?;
+    } else {
+        if burned_atoms > sleeve.writer_principal_atoms {
+            return Err(VaultError::WriterSupplyMismatch.into());
+        }
+        sleeve.writer_principal_atoms = sleeve
+            .writer_principal_atoms
+            .checked_sub(burned_atoms)
+            .ok_or(VaultError::ArithmeticOverflow)?;
+    }
+    sleeve.flat_par_supply_atoms = sleeve
+        .flat_par_supply_atoms
+        .checked_sub(burned_atoms)
+        .ok_or(VaultError::ArithmeticOverflow)?;
+    Ok(())
+}
+
+fn reconciliation_allowed(sleeve: &WriterSleeveV1, target_kind: u8) -> bool {
+    match target_kind {
+        RECONCILE_TARGET_FLAT => match sleeve.status {
+            WriterSleeveStatus::Funding => {
+                sleeve.active_auction.is_none() && sleeve.active_close_request.is_none()
+            }
+            WriterSleeveStatus::Active => sleeve.active_close_request.is_none(),
+            WriterSleeveStatus::CloseStaging => {
+                sleeve.active_auction.is_none() && sleeve.active_close_request.is_some()
+            }
+            WriterSleeveStatus::Expired | WriterSleeveStatus::SettlementFinalized => {
+                sleeve.active_auction.is_none() && sleeve.active_close_request.is_none()
+            }
+            WriterSleeveStatus::Draft
+            | WriterSleeveStatus::PolicyFrozen
+            | WriterSleeveStatus::Closed => false,
+        },
+        RECONCILE_TARGET_SERIES => match sleeve.status {
+            WriterSleeveStatus::Active => sleeve.active_close_request.is_none(),
+            WriterSleeveStatus::Expired | WriterSleeveStatus::SettlementFinalized => {
+                sleeve.active_auction.is_none() && sleeve.active_close_request.is_none()
+            }
+            WriterSleeveStatus::Draft
+            | WriterSleeveStatus::PolicyFrozen
+            | WriterSleeveStatus::Funding
+            | WriterSleeveStatus::CloseStaging
+            | WriterSleeveStatus::Closed => false,
+        },
+        _ => false,
+    }
+}
+
+fn recompute_reconciled_writer_metrics(
+    sleeve: &mut WriterSleeveV1,
+    book: &WriterSeriesBookV1,
+    snapshot: &WriterPolicySnapshotV1,
+    security_cap_atoms: u64,
+) -> ProgramResult {
+    // Holder burns are irreversible. Series reconciliation can only reduce external liability;
+    // Flat reconciliation forfeits principal while A and every long liability remain unchanged.
+    // Reapplying admission-only solvency/drawdown gates here could reject the accounting update
+    // and permanently leave physical supply below its recorded value. Exact reserve, tails, and
+    // the aggregate security cap are still recomputed, while later issuance/close flows continue
+    // to enforce all admission gates against the reconciled state.
+    recompute_writer_metrics(sleeve, book, snapshot, Some(security_cap_atoms), false)
+}
+
+#[inline(never)]
+fn reconcile_series_settlement_status(
+    sleeve_status: WriterSleeveStatus,
+    record: &mut WriterSeriesRecordV1,
+) -> ProgramResult {
+    if sleeve_status != WriterSleeveStatus::SettlementFinalized {
+        return Ok(());
+    }
+    if !matches!(
+        record.settlement_status,
+        WriterSeriesSettlementStatus::Frozen | WriterSeriesSettlementStatus::Exhausted
+    ) || (record.settlement_status == WriterSeriesSettlementStatus::Exhausted
+        && record.external_open_interest_atoms != 0)
+    {
+        return Err(VaultError::InvalidWriterSeriesBook.into());
+    }
+    record.settlement_status = if record.external_open_interest_atoms == 0 {
+        WriterSeriesSettlementStatus::Exhausted
+    } else {
+        WriterSeriesSettlementStatus::Frozen
+    };
+    Ok(())
+}
+
+pub(super) fn process_reconcile_writer_supply(
+    program_id: &Pubkey,
+    accounts: &[AccountInfo],
+    params: ReconcileWriterSupplyV1Params,
+) -> ProgramResult {
+    if accounts.len() != RECONCILE_WRITER_SUPPLY_ACCOUNT_COUNT {
+        return Err(VaultError::InvalidAccountList.into());
+    }
+    if !matches!(
+        params.target_kind,
+        RECONCILE_TARGET_SERIES | RECONCILE_TARGET_FLAT
+    ) {
+        return Err(VaultError::InvalidInstructionData.into());
+    }
+    let cranker_info = &accounts[0];
+    let config_info = &accounts[1];
+    let sleeve_info = &accounts[2];
+    let group_info = &accounts[3];
+    let book_info = &accounts[4];
+    let snapshot_info = &accounts[5];
+    let target_authority_info = &accounts[6];
+    let target_mint_info = &accounts[7];
+    let staging_info = &accounts[8];
+    let custody_info = &accounts[9];
+    let interface_info = &accounts[10];
+    let light_program_info = &accounts[11];
+    let cpi_authority_info = &accounts[12];
+    let token_program_info = &accounts[13];
+    let system_program_info = &accounts[14];
+    if !cranker_info.is_signer {
+        return Err(ProgramError::MissingRequiredSignature);
+    }
+    validate_writer_program_accounts(
+        light_program_info,
+        cpi_authority_info,
+        token_program_info,
+        system_program_info,
+    )?;
+    let config = load_canonical_vault_config(program_id, config_info)?;
+    let WriterPolicyContext {
+        group,
+        mut sleeve,
+        mut book,
+        snapshot,
+    } = load_writer_policy_context(
+        program_id,
+        sleeve_info,
+        group_info,
+        book_info,
+        snapshot_info,
+        None,
+    )?;
+    if sleeve.vault_config != *config_info.key
+        || sleeve.policy_snapshot != *snapshot_info.key
+        || !reconciliation_allowed(&sleeve, params.target_kind)
+    {
+        return Err(VaultError::InvalidWriterLifecycle.into());
+    }
+
+    let lp_policy = dlmm::load_optional_policy(program_id, &accounts[15], sleeve_info, &sleeve)?;
+    match params.target_kind {
+        RECONCILE_TARGET_SERIES => {
+            let index = usize::from(params.series_index);
+            if index >= usize::from(book.series_count) {
+                return Err(VaultError::InvalidWriterSeriesBook.into());
+            }
+            let record = &mut book.records[index];
+            if record.market != *target_authority_info.key
+                || record.contract_mint != *target_mint_info.key
+            {
+                return Err(VaultError::InvalidWriterSeriesBook.into());
+            }
+            let mut market = load_valid_market(program_id, target_authority_info)?;
+            if market.market_id != record.series_id
+                || market.instrument.underlying_id != group.underlying_id
+                || market.instrument.expiry_ts != group.expiry_ts
+                || market.long_contract_mint != Some(*target_mint_info.key)
+            {
+                return Err(VaultError::InvalidWriterSeriesBook.into());
+            }
+            let mint = validate_canonical_market_mint(
+                target_authority_info,
+                &mut market,
+                target_mint_info,
+                0,
+            )?;
+            validate_spl_interface_account(target_mint_info.key, interface_info)?;
+            let expected_staging =
+                derive_contract_mint_staging_pda(program_id, target_authority_info.key).0;
+            let staging_atoms = optional_canonical_token_amount(
+                staging_info,
+                &expected_staging,
+                target_mint_info.key,
+                target_authority_info.key,
+            )?;
+            let retirement_atoms = optional_canonical_token_amount(
+                custody_info,
+                &record.retirement_custody,
+                target_mint_info.key,
+                sleeve_info.key,
+            )?;
+            let observed_issuer = staging_atoms
+                .checked_add(retirement_atoms)
+                .and_then(|amount| amount.checked_add(lp_policy.as_ref()
+                    .map_or(0, |policy| policy.series_pool_inventory_atoms[usize::from(params.series_index)])))
+                .ok_or(VaultError::ArithmeticOverflow)?;
+            if mint.supply > record.total_physical_supply_atoms
+                || observed_issuer < record.issuer_controlled_atoms
+                || observed_issuer > mint.supply
+            {
+                return Err(VaultError::WriterSupplyMismatch.into());
+            }
+            let new_external = mint
+                .supply
+                .checked_sub(observed_issuer)
+                .ok_or(VaultError::ArithmeticOverflow)?;
+            if new_external > record.external_open_interest_atoms {
+                return Err(VaultError::WriterSupplyMismatch.into());
+            }
+            let external_decrease = record
+                .external_open_interest_atoms
+                .checked_sub(new_external)
+                .ok_or(VaultError::ArithmeticOverflow)?;
+            let physical_decrease = record
+                .total_physical_supply_atoms
+                .checked_sub(mint.supply)
+                .ok_or(VaultError::ArithmeticOverflow)?;
+            let custody_increase = observed_issuer
+                .checked_sub(record.issuer_controlled_atoms)
+                .ok_or(VaultError::ArithmeticOverflow)?;
+            if external_decrease
+                != physical_decrease
+                    .checked_add(custody_increase)
+                    .ok_or(VaultError::ArithmeticOverflow)?
+                || market_outstanding_contract_amount(&market)?
+                    != record.external_open_interest_atoms.checked_add(lp_policy.as_ref()
+                        .map_or(0, |policy| policy.series_pool_inventory_atoms[usize::from(params.series_index)]))
+                        .ok_or(VaultError::ArithmeticOverflow)?
+                || market
+                    .mint_accounting
+                    .total_issued
+                    .checked_sub(market.mint_accounting.total_burned)
+                    != Some(record.total_physical_supply_atoms)
+            {
+                return Err(VaultError::WriterSupplyMismatch.into());
+            }
+            // Both an external direct burn and an unsolicited transition into irrevocable
+            // issuer custody consume a post-settlement holder allocation without paying anyone.
+            apply_long_forfeiture(&mut sleeve, record, external_decrease)?;
+            market.mint_accounting.total_consumed = market
+                .mint_accounting
+                .total_consumed
+                .checked_add(external_decrease)
+                .ok_or(VaultError::ArithmeticOverflow)?;
+            market.mint_accounting.total_burned = market
+                .mint_accounting
+                .total_burned
+                .checked_add(physical_decrease)
+                .ok_or(VaultError::ArithmeticOverflow)?;
+            record.total_physical_supply_atoms = mint.supply;
+            record.issuer_controlled_atoms = observed_issuer;
+            record.external_open_interest_atoms = new_external;
+            reconcile_series_settlement_status(sleeve.status, record)?;
+            record.custody_status = if observed_issuer == 0 {
+                WriterSeriesCustodyStatus::Absent
+            } else {
+                WriterSeriesCustodyStatus::Open
+            };
+            let _ = validate_canonical_market_mint(
+                target_authority_info,
+                &mut market,
+                target_mint_info,
+                0,
+            )?;
+            store_state(target_authority_info, &market)?;
+        }
+        RECONCILE_TARGET_FLAT => {
+            if params.series_index != 0
+                || *target_authority_info.key != *sleeve_info.key
+                || *target_mint_info.key != sleeve.flat_mint
+                || *staging_info.key != sleeve.flat_staging
+                || *custody_info.key != sleeve.flat_burn_custody
+                || *interface_info.key != sleeve.flat_spl_interface
+            {
+                return Err(VaultError::InvalidAccountList.into());
+            }
+            let mint = validate_mint_account(target_mint_info, token_program_info.key)?;
+            if !mint.is_initialized
+                || mint.decimals != MarketMintAccounting::CANONICAL_DECIMALS
+                || mint.mint_authority != COption::Some(*sleeve_info.key)
+                || mint.freeze_authority != COption::None
+                || mint.supply > sleeve.flat_par_supply_atoms
+            {
+                return Err(VaultError::WriterSupplyMismatch.into());
+            }
+            validate_spl_interface_account(target_mint_info.key, interface_info)?;
+            let staging_atoms = optional_canonical_token_amount(
+                staging_info,
+                &sleeve.flat_staging,
+                target_mint_info.key,
+                sleeve_info.key,
+            )?;
+            let burn_atoms = optional_canonical_token_amount(
+                custody_info,
+                &sleeve.flat_burn_custody,
+                target_mint_info.key,
+                sleeve_info.key,
+            )?;
+            if staging_atoms != 0 || burn_atoms != 0 {
+                return Err(VaultError::WriterSupplyMismatch.into());
+            }
+            let direct_burn = sleeve
+                .flat_par_supply_atoms
+                .checked_sub(mint.supply)
+                .ok_or(VaultError::ArithmeticOverflow)?;
+            apply_flat_direct_burn(&mut sleeve, direct_burn)?;
+        }
+        _ => return Err(VaultError::InvalidInstructionData.into()),
+    }
+
+    book.book_digest = writer_book_digest(&book);
+    book.last_updated_slot = Clock::get()?.slot;
+    if sleeve.status == WriterSleeveStatus::SettlementFinalized {
+        let partition_remaining = sleeve
+            .long_liability_remaining_atoms
+            .checked_add(sleeve.flat_residual_remaining_atoms)
+            .ok_or(VaultError::ArithmeticOverflow)?;
+        if sleeve.accounted_asset_atoms != partition_remaining {
+            return Err(VaultError::WriterSolvencyViolation.into());
+        }
+        // Settlement removes price uncertainty. The live reserve is now the frozen long-class
+        // ledger; tail and oracle-security measures no longer have an unsettled exposure to
+        // recompute. Re-running the pre-settlement envelope here would overwrite the partition.
+        sleeve.exact_reserve_atoms = sleeve.long_liability_remaining_atoms;
+        sleeve.lower_tail_reserve_atoms = 0;
+        sleeve.upper_tail_reserve_atoms = 0;
+        sleeve.security_exposure_atoms = 0;
+    } else if let Some(policy) = lp_policy.as_ref() {
+        dlmm::update_cash_metrics(&mut sleeve, &group, &book, &snapshot, policy, false)?;
+    } else {
+        recompute_reconciled_writer_metrics(
+            &mut sleeve,
+            &book,
+            &snapshot,
+            group.security_cap_atoms,
+        )?;
+    }
+    sleeve.last_updated_slot = book.last_updated_slot;
+    if config.usdc_mint != sleeve.settlement_mint {
+        return Err(VaultError::InvalidWriterSleeve.into());
+    }
+    store_state(book_info, &book)?;
+    store_state(sleeve_info, &sleeve)
+}
+
+#[cfg(test)]
+#[allow(clippy::items_after_test_module)]
+mod tests {
+    use super::*;
+    use crate::constants::{WRITER_MAX_LIVE_SERIES, WRITER_RATIO_SCALE_PPM};
+    use crate::state::OptionKind;
+
+    fn reconciliation_fixture() -> (WriterSleeveV1, WriterSeriesBookV1, WriterPolicySnapshotV1) {
+        let policy_hash = [0x61; 32];
+        let mut book = WriterSeriesBookV1 {
+            is_initialized: true,
+            account_discriminator: WriterSeriesBookV1::ACCOUNT_DISCRIMINATOR,
+            account_version: WriterSeriesBookV1::ACCOUNT_VERSION,
+            series_count: 1,
+            max_series: WRITER_MAX_LIVE_SERIES as u8,
+            frozen: true,
+            ..WriterSeriesBookV1::default()
+        };
+        book.records[0] = WriterSeriesRecordV1 {
+            active: true,
+            option_kind: OptionKind::CallSpread,
+            series_id: [1; 32],
+            market: Pubkey::new_unique(),
+            contract_mint: Pubkey::new_unique(),
+            retirement_custody: Pubkey::new_unique(),
+            strike_price_atomic: 100_000_000,
+            cap_or_floor_price_atomic: 112_000_000,
+            contract_size_atoms: MarketMintAccounting::CANONICAL_ATOMIC_SCALE,
+            max_payout_per_contract_atoms: 12_000_000,
+            payoff_digest: [2; 32],
+            ..WriterSeriesRecordV1::EMPTY
+        };
+        let sleeve = WriterSleeveV1 {
+            policy_version: 1,
+            policy_hash,
+            writer_principal_atoms: 1,
+            accounted_asset_atoms: 1,
+            flat_par_supply_atoms: 1,
+            series_count: 1,
+            status: WriterSleeveStatus::Active,
+            security_mode: WriterSecurityMode::GrossExternalMaxPayout,
+            ..WriterSleeveV1::default()
+        };
+        let snapshot = WriterPolicySnapshotV1 {
+            policy_version: 1,
+            policy_hash,
+            series_family_hash: writer_series_family_hash(&book),
+            security_mode: WriterSecurityMode::GrossExternalMaxPayout,
+            reserve_rounding_mode: WriterReserveRoundingMode::AggregateBookCeiling,
+            auction_priority_rule: WriterAuctionPriorityRule::PayAsBidPriceThenSeriesProRata,
+            max_series: WRITER_MAX_LIVE_SERIES as u8,
+            drawdown_scale: WRITER_RATIO_SCALE_PPM,
+            worst_drawdown_limit: WRITER_RATIO_SCALE_PPM,
+            upper_drawdown_limit: WRITER_RATIO_SCALE_PPM,
+            lower_drawdown_limit: WRITER_RATIO_SCALE_PPM,
+            lower_tail_max_settlement_atomic: 88_000_000,
+            upper_tail_min_settlement_atomic: 112_000_000,
+            ..WriterPolicySnapshotV1::default()
+        };
+        (sleeve, book, snapshot)
+    }
+
+    #[test]
+    fn reconciliation_lifecycle_matrix_is_target_aware() {
+        let statuses = [
+            WriterSleeveStatus::Draft,
+            WriterSleeveStatus::PolicyFrozen,
+            WriterSleeveStatus::Funding,
+            WriterSleeveStatus::Active,
+            WriterSleeveStatus::CloseStaging,
+            WriterSleeveStatus::Expired,
+            WriterSleeveStatus::SettlementFinalized,
+            WriterSleeveStatus::Closed,
+        ];
+        let pointer_cases = [(false, false), (true, false), (false, true), (true, true)];
+        let flat_allowed = [
+            (WriterSleeveStatus::Funding, false, false),
+            (WriterSleeveStatus::Active, false, false),
+            (WriterSleeveStatus::Active, true, false),
+            (WriterSleeveStatus::CloseStaging, false, true),
+            (WriterSleeveStatus::Expired, false, false),
+            (WriterSleeveStatus::SettlementFinalized, false, false),
+        ];
+        let series_allowed = [
+            (WriterSleeveStatus::Active, false, false),
+            (WriterSleeveStatus::Active, true, false),
+            (WriterSleeveStatus::Expired, false, false),
+            (WriterSleeveStatus::SettlementFinalized, false, false),
+        ];
+        let mut sleeve = WriterSleeveV1::default();
+        for status in statuses {
+            for (has_auction, has_close) in pointer_cases {
+                sleeve.status = status;
+                sleeve.active_auction = has_auction.then(Pubkey::new_unique);
+                sleeve.active_close_request = has_close.then(Pubkey::new_unique);
+                assert_eq!(
+                    reconciliation_allowed(&sleeve, RECONCILE_TARGET_FLAT),
+                    flat_allowed.contains(&(status, has_auction, has_close)),
+                    "unexpected Flat admission for {status:?}, auction={has_auction}, close={has_close}"
+                );
+                assert_eq!(
+                    reconciliation_allowed(&sleeve, RECONCILE_TARGET_SERIES),
+                    series_allowed.contains(&(status, has_auction, has_close)),
+                    "unexpected Series admission for {status:?}, auction={has_auction}, close={has_close}"
+                );
+            }
+        }
+        assert!(!reconciliation_allowed(&sleeve, u8::MAX));
+    }
+
+    #[test]
+    fn post_settlement_series_reconciliation_terminalizes_zero_external_interest() {
+        let mut record = WriterSeriesRecordV1 {
+            settlement_status: WriterSeriesSettlementStatus::Frozen,
+            external_open_interest_atoms: 1,
+            ..WriterSeriesRecordV1::EMPTY
+        };
+        reconcile_series_settlement_status(WriterSleeveStatus::SettlementFinalized, &mut record)
+            .unwrap();
+        assert_eq!(
+            record.settlement_status,
+            WriterSeriesSettlementStatus::Frozen
+        );
+
+        record.external_open_interest_atoms = 0;
+        reconcile_series_settlement_status(WriterSleeveStatus::SettlementFinalized, &mut record)
+            .unwrap();
+        assert_eq!(
+            record.settlement_status,
+            WriterSeriesSettlementStatus::Exhausted
+        );
+        reconcile_series_settlement_status(WriterSleeveStatus::SettlementFinalized, &mut record)
+            .unwrap();
+
+        record.external_open_interest_atoms = 1;
+        assert_eq!(
+            reconcile_series_settlement_status(
+                WriterSleeveStatus::SettlementFinalized,
+                &mut record,
+            ),
+            Err(VaultError::InvalidWriterSeriesBook.into())
+        );
+    }
+
+    #[test]
+    fn flat_forfeiture_can_zero_principal_without_rejecting_reconciliation() {
+        let (mut sleeve, book, snapshot) = reconciliation_fixture();
+        apply_flat_direct_burn(&mut sleeve, 1).unwrap();
+        assert_eq!(sleeve.writer_principal_atoms, 0);
+        assert_eq!(sleeve.flat_par_supply_atoms, 0);
+        assert!(recompute_writer_metrics(&mut sleeve, &book, &snapshot, Some(0), true).is_err());
+        recompute_reconciled_writer_metrics(&mut sleeve, &book, &snapshot, 0).unwrap();
+        assert_eq!(sleeve.exact_reserve_atoms, 0);
+        assert_eq!(sleeve.security_exposure_atoms, 0);
+    }
+
+    #[test]
+    fn partial_flat_burn_repairs_metrics_without_reapplying_drawdown_admission() {
+        let (mut sleeve, mut book, snapshot) = reconciliation_fixture();
+        const CONTRACT_ATOMS: u64 = MarketMintAccounting::CANONICAL_ATOMIC_SCALE;
+        const MAX_PAYOUT_ATOMS: u64 = 12_000_000;
+        book.records[0].external_open_interest_atoms = CONTRACT_ATOMS;
+        book.records[0].total_physical_supply_atoms = CONTRACT_ATOMS;
+        sleeve.writer_principal_atoms = MAX_PAYOUT_ATOMS;
+        sleeve.flat_par_supply_atoms = MAX_PAYOUT_ATOMS;
+        sleeve.accounted_asset_atoms = MAX_PAYOUT_ATOMS;
+
+        recompute_writer_metrics(&mut sleeve, &book, &snapshot, Some(MAX_PAYOUT_ATOMS), true)
+            .unwrap();
+        assert_eq!(sleeve.exact_reserve_atoms, MAX_PAYOUT_ATOMS);
+        assert_eq!(sleeve.security_exposure_atoms, MAX_PAYOUT_ATOMS);
+
+        apply_flat_direct_burn(&mut sleeve, 1).unwrap();
+        assert_eq!(sleeve.writer_principal_atoms, MAX_PAYOUT_ATOMS - 1);
+        assert_eq!(sleeve.flat_par_supply_atoms, MAX_PAYOUT_ATOMS - 1);
+        assert_eq!(sleeve.accounted_asset_atoms, MAX_PAYOUT_ATOMS);
+        assert!(recompute_writer_metrics(
+            &mut sleeve,
+            &book,
+            &snapshot,
+            Some(MAX_PAYOUT_ATOMS),
+            true,
+        )
+        .is_err());
+
+        recompute_reconciled_writer_metrics(&mut sleeve, &book, &snapshot, MAX_PAYOUT_ATOMS)
+            .unwrap();
+        assert_eq!(sleeve.exact_reserve_atoms, MAX_PAYOUT_ATOMS);
+        assert_eq!(sleeve.security_exposure_atoms, MAX_PAYOUT_ATOMS);
+        assert!(recompute_reconciled_writer_metrics(
+            &mut sleeve,
+            &book,
+            &snapshot,
+            MAX_PAYOUT_ATOMS - 1,
+        )
+        .is_err());
+    }
+}
+
+pub(super) fn process_cleanup_writer_custody(
+    program_id: &Pubkey,
+    accounts: &[AccountInfo],
+    params: CleanupWriterCustodyV1Params,
+) -> ProgramResult {
+    if accounts.len() != CLEANUP_WRITER_CUSTODY_ACCOUNT_COUNT {
+        return Err(VaultError::InvalidAccountList.into());
+    }
+    let cranker_info = &accounts[0];
+    let sleeve_info = &accounts[1];
+    let book_info = &accounts[2];
+    let market_info = &accounts[3];
+    let mint_info = &accounts[4];
+    let custody_info = &accounts[5];
+    let token_program_info = &accounts[6];
+    let system_program_info = &accounts[7];
+    if !cranker_info.is_signer || !cranker_info.is_writable {
+        return Err(ProgramError::MissingRequiredSignature);
+    }
+    if *token_program_info.key != spl_token_program_id()
+        || *system_program_info.key != system_program::id()
+    {
+        return Err(VaultError::InvalidAccountList.into());
+    }
+    let mut sleeve = load_writer_sleeve_without_group_meta(program_id, sleeve_info)?;
+    let lp_policy = dlmm::load_optional_policy(program_id, &accounts[8], sleeve_info, &sleeve)?;
+    let mut book = load_writer_series_book(
+        program_id,
+        book_info,
+        sleeve_info.key,
+        &sleeve.settlement_group,
+    )?;
+    if sleeve.series_book != *book_info.key
+        || sleeve.active_close_request.is_some()
+        || sleeve.active_auction.is_some()
+        || matches!(
+            sleeve.status,
+            WriterSleeveStatus::Draft | WriterSleeveStatus::Closed
+        )
+    {
+        return Err(VaultError::InvalidWriterLifecycle.into());
+    }
+    let index = usize::from(params.series_index);
+    if index >= usize::from(book.series_count) {
+        return Err(VaultError::InvalidWriterSeriesBook.into());
+    }
+    let record = &mut book.records[index];
+    if record.market != *market_info.key
+        || record.contract_mint != *mint_info.key
+        || record.retirement_custody != *custody_info.key
+    {
+        return Err(VaultError::InvalidWriterSeriesBook.into());
+    }
+    let mut market = load_valid_market(program_id, market_info)?;
+    let mint_before = validate_canonical_market_mint(market_info, &mut market, mint_info, 0)?;
+    validate_vault_token_account(custody_info, mint_info.key, sleeve_info.key)?;
+    let amount = validate_token_account(custody_info)?.amount;
+    if amount == 0 || amount > record.issuer_controlled_atoms {
+        return Err(VaultError::WriterSupplyMismatch.into());
+    }
+    let sleeve_bump = [sleeve.bump];
+    let sleeve_signer_seeds = writer_sleeve_signer_seeds(&sleeve.settlement_group, &sleeve_bump);
+    invoke_token_burn_checked(
+        token_program_info,
+        custody_info,
+        mint_info,
+        sleeve_info,
+        amount,
+        MarketMintAccounting::CANONICAL_DECIMALS,
+        &[&sleeve_signer_seeds],
+    )?;
+    market.mint_accounting.total_burned = market
+        .mint_accounting
+        .total_burned
+        .checked_add(amount)
+        .ok_or(VaultError::ArithmeticOverflow)?;
+    record.total_physical_supply_atoms = record
+        .total_physical_supply_atoms
+        .checked_sub(amount)
+        .ok_or(VaultError::ArithmeticOverflow)?;
+    record.issuer_controlled_atoms = record
+        .issuer_controlled_atoms
+        .checked_sub(amount)
+        .ok_or(VaultError::ArithmeticOverflow)?;
+    if record.issuer_controlled_atoms == 0 {
+        record.custody_status = WriterSeriesCustodyStatus::Closed;
+    }
+    let mint_after = validate_mint_account(mint_info, token_program_info.key)?;
+    if mint_before.supply.checked_sub(mint_after.supply) != Some(amount)
+        || market_outstanding_contract_amount(&market)? != record.external_open_interest_atoms
+            .checked_add(lp_policy.as_ref().map_or(0, |policy| policy.series_pool_inventory_atoms[index]))
+            .ok_or(VaultError::ArithmeticOverflow)?
+        || market
+            .mint_accounting
+            .total_issued
+            .checked_sub(market.mint_accounting.total_burned)
+            != Some(record.total_physical_supply_atoms)
+    {
+        return Err(VaultError::WriterSupplyMismatch.into());
+    }
+    funding::close_sleeve_token_custody(
+        &sleeve,
+        sleeve_info,
+        custody_info,
+        cranker_info,
+        token_program_info,
+    )?;
+    let slot = Clock::get()?.slot;
+    book.book_digest = writer_book_digest(&book);
+    book.last_updated_slot = slot;
+    sleeve.last_updated_slot = slot;
+    store_state(market_info, &market)?;
+    store_state(book_info, &book)?;
+    store_state(sleeve_info, &sleeve)
+}

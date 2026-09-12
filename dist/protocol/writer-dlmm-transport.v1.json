@@ -1,0 +1,20 @@
+{
+    "schemaVersion": 1,
+    "preset": "writer-liquidity-v1-candidate",
+    "qualified": false,
+    "writerPlanSchemaVersion": 2,
+    "setupMode": "writer_liquidity_compute",
+    "instructionTag": 159,
+    "heapFrameBytes": 65536,
+    "computeUnitLimit": 1400000,
+    "setupProgramId": "ComputeBudget111111111111111111111111111111",
+    "setupInstructionNames": ["RequestHeapFrame", "SetComputeUnitLimit"],
+    "setupInstructionDataBase64": ["AQAAAQA=", "AsBcFQA="],
+    "setupAccountCount": 0,
+    "setupSignerRoleCount": 0,
+    "actionBatchIndex": 0,
+    "actionInstructionCount": 1,
+    "maximumTransactionBytes": 1232,
+    "maximumLookupTables": 1,
+    "maximumLookupAddresses": 256
+}

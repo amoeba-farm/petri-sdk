@@ -1,0 +1,9 @@
+Ameba SDK for the Amoeba project
+
+This product consumes the exported `@amoeba/spread-release-tools` package for
+the finalized ameba_spread v0.1.0-rc.44 Devnet protocol at commit
+1b2230d96e51f6582155d8284900fbfc11ff1f18.
+
+The protocol release, exact package-delivery commit, dependency specification,
+required package exports, governed-data SHA-256 hashes, and release-attestation
+status are recorded in vendor/PROVENANCE.json.

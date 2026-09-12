@@ -1,0 +1,20 @@
+{
+  "schema": "sdk-final-integration-status-v1",
+  "status": "integrated-final-reruns-skipped-at-user-request",
+  "toolsSourceCommit": "05142b0fb939b0c6b549a7aa470281dee6b06333",
+  "toolsArchive": {
+    "path": "vendor/amoeba-spread-release-tools-05142b0-final.tgz",
+    "bytes": 1071183,
+    "sha256": "08758889f61e71c15d047d16c80dce8cff733ff05ca783ee4383421282beec76",
+    "npmSha1": "81c13ccb6fe0cc6dd6b9629e7d4cc4228db542c9",
+    "npmIntegrity": "sha512-BTtHiiZF9UFGQWFsSIsLDOddcFf2F63jsvY88tHn9be5glDwq7ICJ0i1HGuAIPzbUWxTwvKTVcESH5eFycWjpA==",
+    "unpackedBytes": 7961079,
+    "entryCount": 629
+  },
+  "descriptorSha256": "516f8275c6866c25e4df351f2914e1992fae9725f2bf01425bd84fac9c02847e",
+  "businessAuditSha256": "145c0fd63278fa997b144e7e5960d47eb5c73bba821b814f2835bd4ddb43462a",
+  "finalChecksExecuted": [],
+  "qualificationRerunPerformed": false,
+  "runtimePermissionGranted": false,
+  "applicationRolloutPerformed": false
+}

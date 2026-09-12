@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "kind": "immutable-native-package-publication",
+  "sourceCommit": "397bd8403c7803574597a7ff3650a303b92f96c0",
+  "sourceTree": "954664bfa2cac76581649cff3bbc4686fd9412c6",
+  "nativePackage": {
+    "name": "@amoeba/spread-release-tools",
+    "sourceCommit": "397bd8403c7803574597a7ff3650a303b92f96c0",
+    "dependencySpec": "file:vendor/amoeba-spread-release-tools-397bd8403c78-writer-dlmm.tgz",
+    "path": "vendor/amoeba-spread-release-tools-397bd8403c78-writer-dlmm.tgz",
+    "bytes": 1154606,
+    "sha256": "de8d9feb83f009bd4744b74285f8b379e3dea8c8059e2c86013d56613e038872",
+    "npmSha1": "245b51ede2d6d14ed4097c850ae367f711840189",
+    "npmIntegrity": "sha512-hnBjBK0A5Oz7zZnmB2cGIS6sc8r3SeggSPJD3I1AFXbT4qX/QNIaywJLrw7b+RyWA4AfeEdcksCTpZSWsxl4QA==",
+    "entryCount": 718,
+    "unpackedBytes": 8532644
+  },
+  "packagedFilesMatchSource": true,
+  "nativePackageSourceInventorySha256": "2cdd2254f0717903c83e94463cba556e80f5172692f5b5f3177a824bd9f44ad9",
+  "sbfSourceCorrespondenceAttested": true,
+  "deploymentCorrespondenceVerified": false,
+  "nativeInstructionManifest": {
+    "sourcePath": "docs/governance/generated/phase-3-instruction-manifest-v1.json",
+    "path": "release/oracle-carry-native-instruction-manifest-20260911.json",
+    "sha256": "1aed01b9e8b251a01996ac880511d84fd42db48d259d385557a38de662387736"
+  },
+  "artifactSourceCommit": "2dcf2d3b47081825bc0752ecc5a330c09a01b331",
+  "nativeCandidate": {
+    "sourcePath": "coordinator-observed-build-pair",
+    "path": "release/oracle-carry-build-attestation-20260911.json",
+    "sha256": "0af08eeeffa272a6a5658e1952661516ada2e049584710849e5e80ad79f9fc2b"
+  },
+  "nativeSourceInputs": {
+    "sourcePath": "coordinator-native-source-inputs.json",
+    "path": "release/oracle-carry-native-source-inputs-20260911.json",
+    "sha256": "8f2c1744362b8005ed143068ffa5cca3ab554a60b8111ef9ba298327c34f296e"
+  }
+}

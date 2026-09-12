@@ -1,0 +1,9 @@
+# Finalized lifecycle identity, pending SDK import
+
+The pending release is recorded in `release/pending-lifecycle-release.v1.json`, with six losslessly compressed actual finalized account snapshots in `fixtures/v3-lifecycle-identity-20260906.json`. All 18 source bundle payloads were verified against inventory SHA-256 b5133f3c1d63144cc43d8f3ded8e282a77548d2b3e000920f26dc5e632cbaa5b before staging. The fixture retains exact inventory, identity and composite receipt bytes; large census payloads remain in the original public bundle and are not duplicated here.
+
+Spread ELF source is 737b7cd6dafbcdbee08a367fe6b1d83fc82810b9. ELF length 1,237,696, allocated payload 1,241,504 and mandatory zero padding 3,808 are distinct pins. Deployment slot is 494288143. The dated identity snapshot at slot 494297168 observes Active gate epoch 9 and unchanged controller source 590e3cd65d429338757aca1ca7f21e9bcd012b94. It contains no business-state readiness proof.
+
+The final tools commit, tools archive and descriptor pins are deliberately null. Existing runtime projections, historical receipts and the older d739 preparation record remain unchanged as prior evidence; they do not describe this new ELF. The SDK remains unavailable. Final integration must replace those runtime projections coherently with the forthcoming descriptor/package, rather than mixing the new ELF with old tools provenance. A received receipt's attestation statements are preserved as source evidence, not independently promoted by this staging step.
+
+The lifecycle evidence tests verify account hashes, the actual gate, loader header, ELF prefix, exact zero padding and fail-closed candidate status. The earlier zero-Active/terminal-Settled regression remains intact. Final integration will transition candidate-only unavailable assertions to synthetic negative cases, as described in the publication ordering handoff.

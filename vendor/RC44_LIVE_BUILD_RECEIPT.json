@@ -1,0 +1,57 @@
+{
+  "artifact": {
+    "mtimeNs": 1787632818701680086,
+    "path": "programs/light_token_minter/target/deploy/light_token_minter.so",
+    "sha256": "3bc781297d83e72faad1c63274f7f3745ef46bb60dcff16dd28a045b734a6c0b",
+    "sizeBytes": 1142664
+  },
+  "createdAtUnixNs": 1787632863666632603,
+  "inputs": {
+    "aggregateSha256": "f5e25ac65bed43db389660c947bf26f499fbae85b36a002e26b11f9e12bc22d5",
+    "fileCount": 387,
+    "path": "programs/light_token_minter/target/deploy/build-input-inventory.json",
+    "sha256": "d60af4895e47e966318572628699759bd78828264e6b6d142c32a2ffc20e8e13"
+  },
+  "productionBuild": {
+    "cargoFeatures": [],
+    "independentBuildCount": 2,
+    "noDefaultFeatures": true,
+    "offline": true,
+    "reproducibleSha256": "3bc781297d83e72faad1c63274f7f3745ef46bb60dcff16dd28a045b734a6c0b",
+    "sbfArchitecture": "v1",
+    "sbfToolchain": {
+      "platformTools": "v1.53",
+      "sbfRustTools": "1.89.0"
+    },
+    "testSbfEnabled": false
+  },
+  "schemaVersion": 2,
+  "sessionId": "718e5b75-a578-4238-9d31-1f0ca72611b6",
+  "sourceCommit": "1b2230d96e51f6582155d8284900fbfc11ff1f18",
+  "sourceTag": "v0.1.0-rc.44",
+  "tests": {
+    "allTargetsPassed": true,
+    "fullLightArtifactSuitePassed": true,
+    "hostPassed": true,
+    "includesIgnoredLightTests": true,
+    "lightArtifactAggregateSha256": "8f1ab4b2e457a6d92829ee70569806687ce92d856c8117d754c4f06d25b5fb4c",
+    "lightAttestationPath": "programs/light_token_minter/target/deploy/light-artifact-suite-attestation.json",
+    "lightAttestationSha256": "49702927a2a19ec19fb475d666797f302b8385ca6efd2f2529c121e2c961428c",
+    "lightFixtureAggregateSha256": "75b702570e9ca7d56450c706758c57e8d0504e6245897252ba754fbb020c6804",
+    "lightProvingKeyAggregateSha256": "dcc4f1088c10420a411b5217a361e6ec8deb5ad44544d401a8fd9d63a2289b45",
+    "lightTestThreads": 1,
+    "typescriptOperatorChecksPassed": true
+  },
+  "toolVersions": {
+    "cargo": "cargo 1.90.0 (840b83a10 2025-07-30)",
+    "cargoBuildSbf": "cargo-build-sbf 4.0.0\nplatform-tools v1.53\nrustc 1.89.0",
+    "git": "git version 2.34.1",
+    "light": "@lightprotocol/zk-compression-cli/0.28.4 wsl-x64 node-v22.23.1",
+    "node": "v22.23.1",
+    "npm": "10.9.8",
+    "python": "Python 3.10.12",
+    "rustc": "rustc 1.90.0 (1159e78c4 2025-09-14)",
+    "rustfmt": "rustfmt 1.8.0-stable (1159e78c47 2025-09-14)",
+    "solana": "solana-cli 4.0.0 (src:2a165e7a; feat:dda54cf7, client:Agave)"
+  }
+}

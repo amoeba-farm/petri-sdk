@@ -1,0 +1,480 @@
+{
+  "schema": "ameba.sdk.release-train.v1",
+  "schemaVersion": 1,
+  "preparedDate": "2026-09-11",
+  "packageSource": {
+    "repository": "SPACE999978/ameba_sdk",
+    "implementationBaseCommit": "57e328e078d02c48a4b692628b790f51ed7ce1f0",
+    "candidateCommit": null,
+    "status": "unreleased-candidate"
+  },
+  "protocolPlanSource": {
+    "sdkCommit": "b2cd10739ecb9419115980425920d6b576caf78e",
+    "scope": "historical-rc44-portable-plans",
+    "currentWriteEligible": false
+  },
+  "sourceHeads": {
+    "sdkBase": "57e328e078d02c48a4b692628b790f51ed7ce1f0",
+    "spread": "397bd8403c7803574597a7ff3650a303b92f96c0",
+    "governance": "bfb79641641009839e8e73fd92ee45fda51314e5",
+    "lean": "745d6ddb376b3d646e391038e4af5e21a61eceb9",
+    "cli": "d47907ae215e338412d33859e71c25f034d3f24b"
+  },
+  "readerSemanticBaseline": {
+    "kind": "historical-reader-semantic-baseline",
+    "stateNamespace": "ameba-spread-v2",
+    "spreadRelease": "v0.1.0-rc.44",
+    "spreadSourceCommit": "1b2230d96e51f6582155d8284900fbfc11ff1f18",
+    "sdkProtocolPlanCommit": "b2cd10739ecb9419115980425920d6b576caf78e",
+    "spreadPackage": {
+      "name": "@amoeba/spread-release-tools",
+      "version": "0.1.0",
+      "sourceCommit": "1b2230d96e51f6582155d8284900fbfc11ff1f18",
+      "artifactSha256": "ca6d861d8b576a3df3de14892f01a10a59bcab6bedf9f3643b7f0a8a7ccf5d7c"
+    },
+    "deployment": {
+      "programId": "9ipkBCjEfeJDMF6AFrezRmDDHmbnmeyv45cfXNqAnWsH",
+      "programDataAddress": "2DBN762WGdNc85xiVdvQX7Lo4TXAq3WhVz9mBQcaU3a3",
+      "deployedSlot": 487702729,
+      "programPayloadBytes": 1142664,
+      "programPayloadSha256": "3bc781297d83e72faad1c63274f7f3745ef46bb60dcff16dd28a045b734a6c0b",
+      "upgradeAuthority": {
+        "mode": "external-authority",
+        "address": "D5jhTM3kYHdKixrc52Kn657gBHytQLhQqsTmJBcNFVdq"
+      }
+    },
+    "currentWriteEligible": false
+  },
+  "finalizedLiveDeployment": {
+    "kind": "finalized-account-deployment-identity",
+    "provenance": "finalized-rpc-account",
+    "releaseLabel": "spread-refactor-20260912",
+    "cluster": "devnet",
+    "genesisHash": "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG",
+    "stateNamespace": "ameba-spread-v2",
+    "sourceCommit": "397bd8403c7803574597a7ff3650a303b92f96c0",
+    "artifactSourceCommit": "b1931fecff5229da232f06e9c5c43b1d6328806d",
+    "programId": "2jVQSPny9eFoaG1ZWoJVAezQ5VgqJtF8rQCQXMktuBVw",
+    "programDataAddress": "8KR6hgcQehz32jm7CvrAriYNhvT2Bu9JuUWHce81J1oh",
+    "programAccountBytes": 36,
+    "programAccountSha256": "83be84ac424d864aacf03e489ff8fe3f0a6957e8726c8f9c48f572df6b522e75",
+    "programDataAccountBytes": 1385357,
+    "programDataAccountSha256": "df5e426d74dadcca84c42e999489ad3089421fe99c4ad5fc718e4b18eee5e610",
+    "programDataPayloadBytes": 1385312,
+    "programDataPayloadSha256": "903c58504f44e8820e5c9f99765b26be15a97504ec5fdd0855f3668f29927fee",
+    "artifactBytes": 1385312,
+    "artifactSha256": "903c58504f44e8820e5c9f99765b26be15a97504ec5fdd0855f3668f29927fee",
+    "mandatoryZeroPaddingBytes": 0,
+    "programDataSlot": 497328581,
+    "upgradeAuthority": {
+      "mode": "external-authority",
+      "address": "4hsEKyThDv85YA4HjUaGWn2nWnVbM5V23XcLrEX3UKzn"
+    },
+    "writeCompatibility": "governance-gate-v1",
+    "liveReadProfileId": "ameba-spread-v2-deployed-b1931fec",
+    "buildFeatures": [
+      "devnet-v3-governance-controller",
+      "devnet-solo-backfill-2026"
+    ],
+    "minimumContextSlot": 497359082,
+    "finalizedObservationSlot": 497359082,
+    "observedAt": "2026-09-12T20:19:29.568Z",
+    "receiptPath": "release/refactor-deployment-evidence-20260912.json",
+    "descriptorPath": "release/spread-refactor-final-20260912.json"
+  },
+  "selectedGovernanceGeneration": 3,
+  "liveGovernanceIdentity": {
+    "identityGeneration": 3,
+    "live": true,
+    "environment": "devnet",
+    "controllerProgramId": "8fhNi6QHU5TYNhoPDM4vs89ZBztnpxp3LnBXRgkBVKtx",
+    "controllerProgramData": "7eW9UXcCDrpEAQ93fP7o2zgGMKhAKi3zJLihELjR8xYd",
+    "controllerConfigPda": "Ec5H8jsGvaLU3T3gp6qTayPjY2qF3geBbVKWz4rsaEHB",
+    "protocolGatePda": "Cdym9p7FvtxEAjF8XuCqSrishB7LmBDXaZGDMMgWczu",
+    "targetProgramId": "2jVQSPny9eFoaG1ZWoJVAezQ5VgqJtF8rQCQXMktuBVw",
+    "targetProgramData": "8KR6hgcQehz32jm7CvrAriYNhvT2Bu9JuUWHce81J1oh",
+    "controllerSourceCommit": "6b6518c280211c9fc14ea393051092bc3d0b2318",
+    "artifactSha256": "93392770af3d0251092d736c3ab8718349b8f5811527bab402ea7a235e947d96",
+    "programDataSha256": "1470f1ac6a1c57a310c128d5da0f2f2ff56a62c94cc401f0a3be6d968c7a779c",
+    "deploymentReceiptSha256": "6fba0fb69384d2a2aad3bbd2b8049df1d940b26c26dcc735282a620be24e4f76",
+    "mainnetAllowed": false,
+    "upgradeAuthority": {
+      "mode": "governed-authority",
+      "address": "Frc28QFQxqUxF9HPgzcmm5VkqorqUb2LeLPE5uKU6Ycp"
+    },
+    "bridgeAbi": {
+      "gateDiscriminatorAscii": "AGVGAT01",
+      "gateLength": 192,
+      "gateVersion": 1,
+      "tailMagicAscii": "AGV1",
+      "tailLength": 16,
+      "tailVersion": 1
+    },
+    "pinnedObservation": {
+      "status": "Active",
+      "epoch": "24",
+      "accountSha256": "a4fabe984158fed49b8470148ab1f915d8cbd5cc6cc5fd22aeee607abf5a90a1",
+      "observedAt": "2026-09-12T20:19:29.568Z",
+      "observedAtOrAfterSlot": 497359082,
+      "provenance": "finalized-rpc-account"
+    },
+    "identityManifestSha256": "c8207cb4175756230e3f3b257498d89720122e6075767e83990ad7d645decf73"
+  },
+  "reviewedCandidateGovernanceIdentity": {
+    "identityGeneration": 2,
+    "live": false,
+    "environment": "devnet",
+    "controllerProgramId": "FqCshwTvCzQRZYHFiX96nwiG93xwgWRMyCj5onvoo7Lm",
+    "controllerProgramData": "7CTZKJSkPG6TEbEeB6jweKCBP47GBDcwpqmL5b534jed",
+    "controllerConfigPda": "CvWy6F8YAB1FZD9kuDFBpKU11V1w93nbXXizFobSmYR8",
+    "protocolGatePda": "CiszKKUZAUAb4DrZF8FBUJf136SVLY73d6J2MdyrinLL",
+    "targetProgramId": "9ipkBCjEfeJDMF6AFrezRmDDHmbnmeyv45cfXNqAnWsH",
+    "targetProgramData": "2DBN762WGdNc85xiVdvQX7Lo4TXAq3WhVz9mBQcaU3a3",
+    "controllerSourceCommit": "b54648cf4753a8093ac0e21a0dceb0db8eebb29b",
+    "identityManifestSha256": "d9e3cb29f7b11345bc4a1f381017231693e25f7ac2e4ec8a093430cb35540326",
+    "artifactSha256": "6c833854f4d7b9b37264c214673a321b4ef62b59fd7fd4733c26eaaa3bd2e157",
+    "programDataSha256": "d42c14178ca92dacc6af30ffa98e3c08029cf1b54102ad197fe1ab16a8bd16ba",
+    "immutabilityReceiptSha256": "dab00a14070413968532c9c28ab96b33ca6bf84b6b841c0f10e191b529b93208",
+    "spreadBridgePlanSha256": "f1c2d6790e84c843852ea780e0f2f6ea7a3e8a4155a8fecf849748a86342b69e",
+    "independentReviewCount": 2,
+    "productionUseAuthorized": true,
+    "mainnetAllowed": false,
+    "activationEvidence": null,
+    "upgradeAuthority": {
+      "mode": "immutable-none",
+      "address": null
+    },
+    "pinnedObservation": {
+      "status": "Active",
+      "epoch": "2",
+      "accountSha256": "c0448b07caa4edf93fb85530ef42620abb9fe332067c83bd4d09e8bc860ef60e",
+      "observedAtOrAfterSlot": 492266411
+    }
+  },
+  "fixtures": {
+    "governanceGates": {
+      "path": "fixtures/governance-gates-v1.json",
+      "sha256": "19401693c8295a4ec84ad75fcd561ccc7ae55bf5484f476ede2f27d4ccab08bf"
+    },
+    "currentFinalizedObservation": {
+      "path": "fixtures/current-finalized-observation-v1.json",
+      "sha256": "0663e45137344dff86517d03b3106fd009e96d63de0eb1d2e0140f87c5eb067f"
+    },
+    "writerSemantics": {
+      "path": "fixtures/writer_sleeve_math_v1.json",
+      "sha256": "2a6da8a7d76b85cfc73e6395ade978e944679a000d4f8e181b85118b725c2f58"
+    }
+  },
+  "toolchain": {
+    "nodeMajors": [
+      22,
+      24
+    ],
+    "npm": "10.9.8",
+    "typescript": "5.9.3"
+  },
+  "ci": {
+    "cliParityCommit": "d47907ae215e338412d33859e71c25f034d3f24b",
+    "cliSdkCompatibilityCommit": "57e328e078d02c48a4b692628b790f51ed7ce1f0",
+    "spreadSemanticCommit": "1b2230d96e51f6582155d8284900fbfc11ff1f18",
+    "pullRequestSecrets": false,
+    "dependencyLifecycleScripts": false
+  },
+  "writeRelease": {
+    "status": "available",
+    "compatibility": "governance-gate-v1",
+    "governanceIdentityGeneration": 3,
+    "spreadReleaseCommit": "397bd8403c7803574597a7ff3650a303b92f96c0",
+    "spreadPackageArtifactSha256": "de8d9feb83f009bd4744b74285f8b379e3dea8c8059e2c86013d56613e038872",
+    "instructionManifestSha256": "1aed01b9e8b251a01996ac880511d84fd42db48d259d385557a38de662387736",
+    "programDataPayloadSha256": "903c58504f44e8820e5c9f99765b26be15a97504ec5fdd0855f3668f29927fee",
+    "assignedInstructionTags": [
+      0,
+      2,
+      3,
+      9,
+      10,
+      11,
+      30,
+      59,
+      63,
+      64,
+      65,
+      75,
+      80,
+      81,
+      84,
+      86,
+      87,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      96,
+      109,
+      110,
+      113,
+      116,
+      121,
+      122,
+      124,
+      128,
+      129,
+      131,
+      133,
+      135,
+      136,
+      137,
+      138,
+      139,
+      140,
+      141,
+      154,
+      155,
+      156,
+      157,
+      158,
+      159,
+      161,
+      162,
+      163,
+      164,
+      165,
+      166,
+      167,
+      168,
+      169,
+      170,
+      171,
+      173,
+      174,
+      175,
+      176,
+      177,
+      178,
+      179,
+      180,
+      181,
+      182,
+      183,
+      184,
+      185,
+      186,
+      187,
+      190,
+      191,
+      192,
+      193,
+      194,
+      195,
+      196,
+      197,
+      198,
+      199,
+      200,
+      201,
+      202,
+      203,
+      205,
+      207,
+      208,
+      209,
+      210,
+      213,
+      215,
+      216,
+      217,
+      218,
+      219,
+      220,
+      221,
+      222,
+      223,
+      224,
+      225,
+      226,
+      227,
+      228,
+      229,
+      230,
+      231,
+      232,
+      233,
+      234,
+      235,
+      236,
+      237,
+      238,
+      239,
+      240,
+      241,
+      242,
+      243,
+      244,
+      245,
+      246,
+      247,
+      248,
+      249,
+      250,
+      251,
+      252,
+      253,
+      254,
+      255
+    ],
+    "writerOperationTransport": {
+      "schemaVersion": 1,
+      "preset": "writer-auction-v2-full-inventory-v1",
+      "writerPlanSchemaVersion": 2,
+      "setupMode": "release_compute",
+      "instructionTags": [
+        14,
+        15,
+        200
+      ],
+      "setupProgramId": "ComputeBudget111111111111111111111111111111",
+      "setupInstructionDataBase64": [
+        "AQAAAQA=",
+        "AsBcFQA="
+      ],
+      "setupAccountCount": 0,
+      "setupSignerRoleCount": 0,
+      "actionBatchIndex": 0,
+      "actionInstructionCount": 1
+    },
+    "writerOperationTransportSha256": "07cb128836a19005cfe4220154750ed8f20f4ac7203a4110908f561e58382e25",
+    "writerDlmmTransport": {
+      "schemaVersion": 1,
+      "preset": "writer-liquidity-v1-candidate",
+      "qualified": false,
+      "writerPlanSchemaVersion": 2,
+      "setupMode": "writer_liquidity_compute",
+      "instructionTag": 159,
+      "heapFrameBytes": 65536,
+      "computeUnitLimit": 1400000,
+      "setupProgramId": "ComputeBudget111111111111111111111111111111",
+      "setupInstructionNames": [
+        "RequestHeapFrame",
+        "SetComputeUnitLimit"
+      ],
+      "setupInstructionDataBase64": [
+        "AQAAAQA=",
+        "AsBcFQA="
+      ],
+      "setupAccountCount": 0,
+      "setupSignerRoleCount": 0,
+      "actionBatchIndex": 0,
+      "actionInstructionCount": 1,
+      "maximumTransactionBytes": 1232,
+      "maximumLookupTables": 1,
+      "maximumLookupAddresses": 256
+    },
+    "writerDlmmTransportSha256": "f34bf779fa19744f32cdd2fc7c6cddd3e95d1809ca1105137bed1f48e76393de",
+    "packageCompatibility": "retained-native-artifact"
+  },
+  "authorization": {
+    "channel": "preproduction",
+    "environment": "devnet",
+    "deploymentEnabled": false,
+    "upgradeAuthorized": false,
+    "authorityHandoffAuthorized": false,
+    "productionEnabled": false,
+    "mainnetEnabled": false,
+    "branchOrReviewIsAuthority": false
+  },
+  "rollback": {
+    "mutationPolicy": "fail-closed",
+    "readerFallback": "historical-rc44-semantic-decoders-only"
+  },
+  "packageBuildIdentity": {
+    "schemaVersion": 1,
+    "kind": "published-native-finalized-deployment-inputs",
+    "qualified": false,
+    "deployed": true,
+    "packageName": "ameba-sdk",
+    "packageVersion": "0.2.0",
+    "sdkSource": {
+      "baseCommit": "d87f008dda35ef32e1a01f5bfb6aa3ec3601b020",
+      "sourceCommit": null,
+      "sourceInventory": "release/local-candidate-source-inventory.v1.json",
+      "sourceInventorySha256": "b0a762474b62273a43d73d5779d4b1f96df5fc48fd917d1057ee721834ef02cf"
+    },
+    "nativePackage": {
+      "name": "@amoeba/spread-release-tools",
+      "sourceCommit": "397bd8403c7803574597a7ff3650a303b92f96c0",
+      "dependencySpec": "file:vendor/amoeba-spread-release-tools-397bd8403c78-writer-dlmm.tgz",
+      "path": "vendor/amoeba-spread-release-tools-397bd8403c78-writer-dlmm.tgz",
+      "bytes": 1154606,
+      "sha256": "de8d9feb83f009bd4744b74285f8b379e3dea8c8059e2c86013d56613e038872",
+      "npmSha1": "245b51ede2d6d14ed4097c850ae367f711840189",
+      "npmIntegrity": "sha512-hnBjBK0A5Oz7zZnmB2cGIS6sc8r3SeggSPJD3I1AFXbT4qX/QNIaywJLrw7b+RyWA4AfeEdcksCTpZSWsxl4QA==",
+      "entryCount": 718,
+      "unpackedBytes": 8532644
+    },
+    "nativePackageSource": {
+      "repository": "SPACE999978/ameba_spread",
+      "sourceCommit": "397bd8403c7803574597a7ff3650a303b92f96c0",
+      "sourceTree": "954664bfa2cac76581649cff3bbc4686fd9412c6",
+      "sourceInventory": "release/local-candidate-native-source-inventory.v1.json",
+      "sourceInventorySha256": "2cdd2254f0717903c83e94463cba556e80f5172692f5b5f3177a824bd9f44ad9"
+    },
+    "nativeSource": {
+      "baseCommit": "2dcf2d3b47081825bc0752ecc5a330c09a01b331",
+      "sourceCommit": "397bd8403c7803574597a7ff3650a303b92f96c0",
+      "sourceTree": "954664bfa2cac76581649cff3bbc4686fd9412c6",
+      "rustInputsSha256": "25eb0d1ba0ab4deeb8f6dfed68dcda842c247a88d9a1f9b32b1ed0f60fccec7f",
+      "sourceInventory": "release/oracle-carry-native-source-inputs-20260911.json",
+      "sourceInventorySha256": "8f2c1744362b8005ed143068ffa5cca3ab554a60b8111ef9ba298327c34f296e",
+      "sourceInventoryAlgorithm": "sha256-of-immutable-inventory-file",
+      "cargoGitRevision": "397bd8403c7803574597a7ff3650a303b92f96c0"
+    },
+    "nativeSbf": {
+      "fileName": "light_token_minter.so",
+      "bytes": 1385312,
+      "sha256": "c0b6cf87f788cac0b88b604a51aa2e20ad8497d784a990d03bde3e8c1ed89afc"
+    },
+    "retainedLiveRelease": {
+      "descriptor": "release/current-deployment.v1.json",
+      "runtime": "vendor/GOVERNED_RUNTIME_PROVENANCE.json"
+    },
+    "nativeBuildReceipt": {
+      "path": "release/local-candidate-native-build.v1.json",
+      "sha256": "889d8162f57a45a73f94e055c738d4cb31972e26f94c80d3e2fa3ce15631fb48"
+    },
+    "priorLocalBuildArtifacts": {
+      "scope": "fingerprints only; not an attestation of the new publication or deployment",
+      "nativeRustInputsSha256": "8785bc844f1264b0ad74dff79520cff0b56b91566d7235b533c355c25b899258",
+      "compressedEvidenceVerifier": {
+        "bytes": 2287576,
+        "sha256": "9b3a300e75de975c4bbc247526a4676d94511d709f99a8afb720f4adad8dca74",
+        "target": "x86_64-unknown-linux-gnu",
+        "executionPerformed": false
+      },
+      "nativeSbf": {
+        "bytes": 1351456,
+        "sha256": "6a47719f1c053c6727bf4e8050b1e704362c811b3d28e3a68ec02791644d4b3d",
+        "architecture": "v1",
+        "features": [
+          "devnet-v3-governance-controller",
+          "devnet-solo-backfill-2026"
+        ],
+        "executionPerformed": false
+      }
+    },
+    "qualificationScope": "Build identity does not claim behavioral qualification; runtime admission binds the separate finalized release records.",
+    "finalizedDeployment": {
+      "descriptor": "release/spread-refactor-final-20260912.json",
+      "evidence": "release/refactor-deployment-evidence-20260912.json",
+      "sourceCommit": "b1931fecff5229da232f06e9c5c43b1d6328806d",
+      "artifactSha256": "903c58504f44e8820e5c9f99765b26be15a97504ec5fdd0855f3668f29927fee",
+      "payloadSha256": "903c58504f44e8820e5c9f99765b26be15a97504ec5fdd0855f3668f29927fee",
+      "deployedSlot": 497328581,
+      "finalizedSlot": 497359082,
+      "gateEpoch": "24"
+    }
+  },
+  "currentWriteEligible": true
+}

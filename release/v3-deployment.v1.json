@@ -1,0 +1,65 @@
+{
+  "deployment": {
+    "kind": "finalized-live-byte-observation",
+    "provenance": "deployment-receipt-and-finalized-bytes",
+    "releaseLabel": "spread-devnet-v3-20260905",
+    "cluster": "devnet",
+    "genesisHash": "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG",
+    "stateNamespace": "ameba-spread-v2",
+    "sourceCommit": "9c10f249d0133adf329da701cda72343d27bbb11",
+    "artifactSourceCommit": "889f7228c6e770ccb2aae5340fd80604ee68738c",
+    "buildFeature": "devnet-v3-governance-controller",
+    "programId": "2jVQSPny9eFoaG1ZWoJVAezQ5VgqJtF8rQCQXMktuBVw",
+    "programAccountBytes": 36,
+    "programAccountSha256": "83be84ac424d864aacf03e489ff8fe3f0a6957e8726c8f9c48f572df6b522e75",
+    "programDataAddress": "8KR6hgcQehz32jm7CvrAriYNhvT2Bu9JuUWHce81J1oh",
+    "programDataAccountBytes": 1149997,
+    "programDataAccountSha256": "07588919a741169170f467498e3ddb7a2c686234c90d8ff76c381ceb3eaaae88",
+    "programDataPayloadBytes": 1149952,
+    "programDataPayloadSha256": "eb03f12a626ce69909c21a2a38c441840fc051ed11f31ee824ae663247859f7a",
+    "programDataSlot": 493847461,
+    "finalizedVerificationContextSlot": 493855641,
+    "upgradeAuthority": {
+      "mode": "external-authority",
+      "address": "4hsEKyThDv85YA4HjUaGWn2nWnVbM5V23XcLrEX3UKzn"
+    },
+    "deploymentReceiptSignature": "58fMBadchukfb4J3q1jK39yiSVHg4mfrkAQxByHXPDgWBNstq3ZoxvgoMXraAmXpxR7HvkzRgd31QRfpEcCUW7g7",
+    "writeCompatibility": "governance-gate-v1",
+    "liveReadProfileId": "ameba-spread-v2-deployed-889f7228"
+  },
+  "governance": {
+    "identityGeneration": 3,
+    "live": true,
+    "environment": "devnet",
+    "controllerProgramId": "8fhNi6QHU5TYNhoPDM4vs89ZBztnpxp3LnBXRgkBVKtx",
+    "controllerProgramData": "7eW9UXcCDrpEAQ93fP7o2zgGMKhAKi3zJLihELjR8xYd",
+    "controllerConfigPda": "Ec5H8jsGvaLU3T3gp6qTayPjY2qF3geBbVKWz4rsaEHB",
+    "protocolGatePda": "Cdym9p7FvtxEAjF8XuCqSrishB7LmBDXaZGDMMgWczu",
+    "targetProgramId": "2jVQSPny9eFoaG1ZWoJVAezQ5VgqJtF8rQCQXMktuBVw",
+    "targetProgramData": "8KR6hgcQehz32jm7CvrAriYNhvT2Bu9JuUWHce81J1oh",
+    "controllerSourceCommit": "4e9ae8b897f867fe0b4b689226feb34696772581",
+    "artifactSha256": "ccde2782b50301290d52387662c4979cc19e186ce0e7461305d4b71598c75e77",
+    "programDataSha256": "5ec4bea7e10b2f8a3f16db6fda631612ef7887a0a1b41c4666dfa7e87fb6711e",
+    "deploymentReceiptSha256": "29e8a361ccb775cf59f4af02d52b290832e20c7714e1ed42caabbb1e05f1de4c",
+    "mainnetAllowed": false,
+    "upgradeAuthority": {
+      "mode": "governed-authority",
+      "address": "Frc28QFQxqUxF9HPgzcmm5VkqorqUb2LeLPE5uKU6Ycp"
+    },
+    "bridgeAbi": {
+      "gateDiscriminatorAscii": "AGVGAT01",
+      "gateLength": 192,
+      "gateVersion": 1,
+      "tailMagicAscii": "AGV1",
+      "tailLength": 16,
+      "tailVersion": 1
+    },
+    "pinnedObservation": {
+      "status": "EmergencyFrozen",
+      "epoch": "1",
+      "accountSha256": "2fccc8c4dc6953343c6cdf3b95cee15ab681efe684dfaf3eda39e8f035abdbfd",
+      "observedAtOrAfterSlot": 493939200
+    },
+    "identityManifestSha256": "cb0ef064715a8022db1068c01d426be8567176064eceade360a4a40a2435e846"
+  }
+}
