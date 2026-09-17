@@ -1000,7 +1000,7 @@ export async function discoverCurrentMarkets(connection, options = {}) {
     const programId = new PublicKey(DEFAULT_AMEBA_SPREAD_PROGRAM_ID);
     const accounts = await connection.getProgramAccounts(programId, {
         commitment: "finalized",
-        filters: [{ dataSize: CURRENT_MARKET_ACCOUNT_SIZE }],
+        filters: [{ dataSize: options.marketLayout === "g3" ? 279 : CURRENT_MARKET_ACCOUNT_SIZE }],
     });
     if (accounts.length > limit) {
         throw new AmebaProtocolDeploymentError("current market discovery exceeded its bounded result limit", {
@@ -1010,6 +1010,7 @@ export async function discoverCurrentMarkets(connection, options = {}) {
     const decoded = accounts
         .filter((entry) => entry.account.owner.equals(programId) && !entry.account.executable)
         .map((entry) => decodeCurrentMarketAccount({
+        marketLayout: options.marketLayout,
         address: entry.pubkey,
         data: entry.account.data,
         owner: entry.account.owner,

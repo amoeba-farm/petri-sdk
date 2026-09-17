@@ -3581,7 +3581,7 @@
       "format": "esm"
     },
     "dist/protocol/current.js": {
-      "bytes": 53858,
+      "bytes": 53940,
       "imports": [
         {
           "path": "node_modules/buffer/index.js",

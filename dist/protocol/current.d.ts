@@ -357,6 +357,8 @@ export declare function decodeCurrentSettlementSignerSetAccount(input: DecodeCur
 export interface CurrentMarketDiscoveryOptions {
     readonly commitment?: Commitment;
     readonly limit?: number;
+    /** Exact deployed generation; omission preserves historical discovery. */
+    readonly marketLayout?: "historical-v2" | "g3";
 }
 export interface CurrentMarketDiscoveryResult {
     readonly deployment: typeof CURRENT_PROTOCOL_DEPLOYMENT;

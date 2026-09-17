@@ -2457,6 +2457,7 @@ export async function readCurrentOracleState(input) {
     }
     else {
         const discovered = await discoverCurrentMarkets(input.connection, {
+            marketLayout: input.marketLayout,
             commitment: finalizedCommitment(input.commitment),
             limit: 256,
         });

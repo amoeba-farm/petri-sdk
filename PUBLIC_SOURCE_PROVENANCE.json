@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sdkSourceCommit": "bdf18c44968ff8f0fc299562273dabf779635e95",
+  "sdkSourceCommit": "24299ed4e392ddba4a9ca5c2f3dd123bbb43c08f",
   "spreadSourceCommit": "7d22fd9a55199b54c099b842ec705571abeb27ac",
   "historicalSpreadSourceCommit": "397bd8403c7803574597a7ff3650a303b92f96c0",
   "distributionOnlyChanges": true,
@@ -44,11 +44,11 @@
     },
     {
       "file": "dist/browser-bundle/wallet.js",
-      "sha256": "d0f2fdc07632e99b70180086db8f573a6fe096db623b7e4bb291e34c40e1dae4"
+      "sha256": "fd6dcafdfcecc21b7b50af46e5cc90d7d7b7493b9824f129f7dd2477ca9d0a25"
     },
     {
       "file": "dist/browser-bundle/wallet.meta.json",
-      "sha256": "3872a155ee395f5461b6178a9a942d0c9dca16d8be99d101dbf9b6ccec57c8ed"
+      "sha256": "5538f010b2dc4c821054f28ba9114db076a6dd07f915a103171e44ff1a0f9a05"
     },
     {
       "file": "dist/browser.d.ts",
@@ -360,7 +360,7 @@
     },
     {
       "file": "dist/mainnet/adapter.d.ts.map",
-      "sha256": "a35c9c7b07e72a9934366d8927e4f659d230020a813c3172512aab3b1eba5698"
+      "sha256": "897a28ade77f61768017a9ad46bcaa4843fa4acbf0bc263ea5e841c6638c4ee0"
     },
     {
       "file": "dist/mainnet/adapter.js",
@@ -552,15 +552,15 @@
     },
     {
       "file": "dist/protocol/current-adapter.d.ts.map",
-      "sha256": "6182062303ddfd576424902f26687e33a3133bd3db196b669c657dff5e1c4a6f"
+      "sha256": "caf13167bf8f6fdc3b90ac082118704ce852f234f0934e60cb546061b11fc5da"
     },
     {
       "file": "dist/protocol/current-adapter.js",
-      "sha256": "729846a64a5dd3a464e25be0ee768b9c8c74cd20ac52cfba5f248e3b52717416"
+      "sha256": "620f40fed02843724841a1e1ee251f954d261bf849b0557a157653dcdbe85d47"
     },
     {
       "file": "dist/protocol/current-adapter.js.map",
-      "sha256": "f5bc1cd27a85e3a37cef6fa98c4c4b858e16e81899823ae83f45d94e62e901b9"
+      "sha256": "95bb74a7ee1ede56008601e65dc1018da30bf665f0fa4456d1a0bfbe8d989cb2"
     },
     {
       "file": "dist/protocol/current-build-identity.d.ts",
@@ -1108,19 +1108,19 @@
     },
     {
       "file": "dist/protocol/current.d.ts",
-      "sha256": "583a70a7d5bb220cec9688d52a1d510494b8b2b8e44d0cda94e0b60837acb938"
+      "sha256": "fd5efe39696faf7b547a25a885c7a3b932e4922ef68d99328c39fd4297a84cb9"
     },
     {
       "file": "dist/protocol/current.d.ts.map",
-      "sha256": "ea1909101a87de760ff70de87d98c43065c6b575d637a48c61963828920531b6"
+      "sha256": "dfaa33e976c888da9e9af9b0b94050b62aa1605aec59593a688b66bc97ed0ffa"
     },
     {
       "file": "dist/protocol/current.js",
-      "sha256": "a7a555419540ee15b7506914c306793220f8d48cf8d346cc54f74b01bb89d1cc"
+      "sha256": "22e9f42005c46c494a5cb64dad382136579c76f73fa72091a0fac23f9bd942e7"
     },
     {
       "file": "dist/protocol/current.js.map",
-      "sha256": "ed355bbefafd28ada5698c386f238f4547094851a3719c894220a532b114ee7e"
+      "sha256": "dcc0c86562622a4465d44fa9de3e140ab4b964626a32bdaf4b83d3ba888a5392"
     },
     {
       "file": "dist/protocol/deployment-payload-internal.d.ts",
@@ -2020,7 +2020,7 @@
     },
     {
       "file": "release/local-candidate-build.v1.json",
-      "sha256": "e5f26e2092b722a0385babea727d050a3cee58dea2ff209439e65ae2c4899926"
+      "sha256": "eb17121bb8e083df80b20d1383186dc41ae9378294e751b80368d2d992ea9f9a"
     },
     {
       "file": "release/local-candidate-native-build.v1.json",
@@ -2032,7 +2032,7 @@
     },
     {
       "file": "release/local-candidate-source-inventory.v1.json",
-      "sha256": "0358187fa9ee8fdb8b4288e00e7dbfd605ee560350ae832b5521cbc9ed55c957"
+      "sha256": "e9a74edb1c824d8b99021fb8fbdfeeb87842aa2b2bd089e2d28f44d2033f22ce"
     },
     {
       "file": "release/mainnet-deployment-evidence-20260916.json",
@@ -2084,7 +2084,7 @@
     },
     {
       "file": "release/release-train.v1.json",
-      "sha256": "f03ef487dc7d4656a82956fb640560e4f3fa8d3e434c215d657fc9d54ace36d2"
+      "sha256": "fbb5ea12c19b37937f21831efe0f838ed31dbfc397e64b7f78c5a3d602020d1a"
     },
     {
       "file": "release/scoped-build-attestation-20260909.json",
@@ -2376,7 +2376,7 @@
     },
     {
       "file": "src/protocol/current-adapter.ts",
-      "sha256": "33b4a3d81cb1d3e3f5186f54e0c1ece595592fe0244af9456db676aa1218b727"
+      "sha256": "142e102d203219742969d15c42804805cf9aedd68754610f9186a041fe76a66a"
     },
     {
       "file": "src/protocol/current-build-identity.ts",
@@ -2516,7 +2516,7 @@
     },
     {
       "file": "src/protocol/current.ts",
-      "sha256": "0cfdfc0a7cc6ee06e5b0e3ee7a6daf72888e15285e0c0c65a14611eb25ffd539"
+      "sha256": "b32fd05187d3a7d1577dbc0dee20ce09bf6ee7e4dcb2f59a4aa86c9a8d120023"
     },
     {
       "file": "src/protocol/deployment-payload-internal.ts",

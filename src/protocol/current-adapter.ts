@@ -3661,6 +3661,7 @@ export async function readCurrentOracleState(
     if (read.market !== null) marketFacts.push({ address: read.address, market: read.market });
   } else {
     const discovered = await discoverCurrentMarkets(input.connection, {
+      marketLayout: input.marketLayout,
       commitment: finalizedCommitment(input.commitment),
       limit: 256,
     });

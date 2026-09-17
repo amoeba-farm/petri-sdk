@@ -397,10 +397,10 @@
     "packageName": "ameba-sdk",
     "packageVersion": "0.2.0",
     "sdkSource": {
-      "baseCommit": "a21b324a7a64da87046c7650355b80ea20c47540",
+      "baseCommit": "bdf18c44968ff8f0fc299562273dabf779635e95",
       "sourceCommit": null,
       "sourceInventory": "release/local-candidate-source-inventory.v1.json",
-      "sourceInventorySha256": "6f1c1dd12af8eef5c337d6283e5418cf7b76abbbafe8d68e5300d4960cc96e4f"
+      "sourceInventorySha256": "ae07ab9e14299c7c834e1b695d755817ce66757974f8e844cbfcd114e2bf61ad"
     },
     "nativePackage": {
       "name": "@amoeba/spread-release-tools",

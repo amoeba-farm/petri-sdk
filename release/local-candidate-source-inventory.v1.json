@@ -15,18 +15,18 @@
     },
     {
       "path": ".gitattributes",
-      "bytes": 313,
-      "sha256": "48a4ef86172f386b73158df75bd0d246da6ca682322f1cc691c36c13d9c39afd"
+      "bytes": 299,
+      "sha256": "96bb78b583d2d35499160ce5401c0fd051fead907f978a235178d95b91737066"
     },
     {
       "path": ".github/workflows/ci.yml",
-      "bytes": 7845,
-      "sha256": "fbc5ae2485ec6e10570e26d0c0013965281ab8ac071a35ea55f38b640aaf8c81"
+      "bytes": 8182,
+      "sha256": "a6f599fa431be3908f8cad6484411d2fc4db5342e5485cb1fadf4fb5a2297478"
     },
     {
       "path": ".gitignore",
-      "bytes": 676,
-      "sha256": "9eee86ca4335be5c0b4e395d8abfbea6878eb2c91d32827a5a9022882dc26ee9"
+      "bytes": 647,
+      "sha256": "40ce0d3bbe0fc6953df3c3992263b64a305da93eda34986a26cd9b14d3cceb5c"
     },
     {
       "path": "CHANGELOG.md",
@@ -50,8 +50,8 @@
     },
     {
       "path": "Cargo.toml",
-      "bytes": 1720,
-      "sha256": "4bde0bef0e653d4a5c0ae62d5f5b3ffdd5b04fd0d23eb23ab72d2b7f9610f746"
+      "bytes": 1695,
+      "sha256": "c8ca0e9fa302e5b8169b53f8f2237913d9dcfe9216baa2f057a687fb4a0fc0af"
     },
     {
       "path": "LICENSE",
@@ -355,13 +355,18 @@
     },
     {
       "path": "docs/g3-integration/COVERAGE.json",
-      "bytes": 9701,
-      "sha256": "b893928614c70cd32484541f8e506ba2485d334db0dee9144475ec5acd8ac9bc"
+      "bytes": 9441,
+      "sha256": "34a4dc76e1a21f1e79913b1c0c16a0fd24f3b8f5f4d6134bb83a80e6f01ce971"
     },
     {
       "path": "docs/g3-integration/IMPLEMENTATION.md",
-      "bytes": 5526,
-      "sha256": "3dd1167df17406c0de1be194c1adb331cf56092150c012f83f96db9fb7d29027"
+      "bytes": 5490,
+      "sha256": "9ba12ba2ad9166e8793eafbff28505e5fb5a3611e72e5b410e1c8fdd903e6d4c"
+    },
+    {
+      "path": "docs/g3-integration/USER_OPERATIONS.md",
+      "bytes": 2134,
+      "sha256": "09800fa007cf32271edc93f537efe5dc2275015872892331140d6d18817071c3"
     },
     {
       "path": "docs/g3-integration/evidence/g3-browser-build.txt",
@@ -449,6 +454,16 @@
       "sha256": "f166a8956f1816148bc558cb3c628f084e6d012b4214e09cdb9b9d6d3e2f3e59"
     },
     {
+      "path": "docs/mainnet-four-hour-binding-qualification.md",
+      "bytes": 1159,
+      "sha256": "ac46267451f315dcb614c1c5c007b2d9878f83b6a121fb33e16762d062f6a1e9"
+    },
+    {
+      "path": "docs/mainnet-integration.md",
+      "bytes": 4699,
+      "sha256": "70462829ef93da5a3a8a77ebf033bce3e477ac9ca8a9f4d2e993a77891580576"
+    },
+    {
       "path": "docs/oracle-carry-read-release-20260911.md",
       "bytes": 1470,
       "sha256": "777bbc246105f6803896e597e8dd46041615af1833c3621bb6151ff3c0543966"
@@ -502,6 +517,11 @@
       "path": "fixtures/ed25519-owner-parity-v1.json",
       "bytes": 1551,
       "sha256": "8a8cbdc11bc2eb7948a9ae2fb3cdf3ac8d9cbd0d1ced25c0b42fd47c0240680e"
+    },
+    {
+      "path": "fixtures/g3-native-operation-vectors.json",
+      "bytes": 63944,
+      "sha256": "317896d2365a707d2c8008de303b29942c5873523b59be30fdbf4e20c7b4a20b"
     },
     {
       "path": "fixtures/g3-receipt-payout-vectors.json",
@@ -585,13 +605,13 @@
     },
     {
       "path": "package-lock.json",
-      "bytes": 49323,
-      "sha256": "853b841ee6fe484afc59a8d93e436cd1fc9bab868d54dbcc805de7c6f4ff208c"
+      "bytes": 47893,
+      "sha256": "45e1927dc5eb2e3d803fec60da24c3cf90b5585db646aee695f6d511b32b7e80"
     },
     {
       "path": "package.json",
-      "bytes": 7994,
-      "sha256": "57decf808a29f746433ee75675aa2ba349f9cdfd530cc03a0d2e42c3b3e23719"
+      "bytes": 8206,
+      "sha256": "1259a562bd74367a63057a724d7a0bd66ce186900ec54caa63c0a41363ca848c"
     },
     {
       "path": "release/current-deployment.v1.json",
@@ -610,8 +630,8 @@
     },
     {
       "path": "release/g3-integration-lock.v1.json",
-      "bytes": 2729,
-      "sha256": "d166d66e553834075395e87b6f1eac98f1e13deb4459462169c37db05f16c0af"
+      "bytes": 2632,
+      "sha256": "a39e094ad1387b512bb215ea1923f934fb693bedaf2688c0c62617265bf626ae"
     },
     {
       "path": "release/g3-local-test-profile.rs",
@@ -657,6 +677,16 @@
       "path": "release/local-candidate-native-source-inventory.v1.json",
       "bytes": 131806,
       "sha256": "1cd1b5fb488bb6fd4ff31ac7e15827a6f79298a3b8389cd2df58ebdf5ccff0fe"
+    },
+    {
+      "path": "release/mainnet-deployment-evidence-20260916.json",
+      "bytes": 1763,
+      "sha256": "5fc19ed5b4438c2d51cd99e01bc1c513b706d7580e7103fc1f75c748f7cd052f"
+    },
+    {
+      "path": "release/mainnet-profile.v1.json",
+      "bytes": 3477,
+      "sha256": "02255e077d5255e0688b10d87e57be49bef5cff2aa70da0238b561672113e1e9"
     },
     {
       "path": "release/oracle-carry-build-attestation-20260911.json",
@@ -805,8 +835,8 @@
     },
     {
       "path": "rust/src/backend.rs",
-      "bytes": 12631,
-      "sha256": "56b6c531c93dc9b38deabcd8a8beced3c14980585524c89f8e847304c75d7824"
+      "bytes": 12260,
+      "sha256": "6692cac2776efcd209ee886cdbc8d88584ce83662f30d1140497697b09b7d4db"
     },
     {
       "path": "rust/src/collective_lookup_table.rs",
@@ -820,18 +850,18 @@
     },
     {
       "path": "rust/src/current_finalized_observation.rs",
-      "bytes": 21746,
-      "sha256": "62459c8e9e413968ca85ab1ff5983ec2688fd1a4bfaff8a4eca4261b3d93572e"
+      "bytes": 21186,
+      "sha256": "eda5908e0e92c8f47e32d6320bbbb34596fa1921e766a4133f08886dc055f1a2"
     },
     {
       "path": "rust/src/endpoints.rs",
-      "bytes": 8668,
-      "sha256": "6a86140da58706983bfc1908c1a5b7d3aa75494088a6594c97d613477746dcae"
+      "bytes": 8391,
+      "sha256": "ea2bd70fbb9f6298d8e21fa1b8ce71bb4892f604231b69e568580a267c1772ae"
     },
     {
       "path": "rust/src/flat_transfer_operation.rs",
-      "bytes": 35990,
-      "sha256": "a3083a6fad09789445fc7684ecf026e7c2ca5fc6aa871a7f74226801da04b58a"
+      "bytes": 35071,
+      "sha256": "26daa6626213d76d54446659204f8a89a9dc2700c07475bbc0206cc6e0841fbe"
     },
     {
       "path": "rust/src/g3.rs",
@@ -839,9 +869,19 @@
       "sha256": "733bf5abe6f9544c18b07c9200f36afd0d675f931bb42223223fe9842f5c223d"
     },
     {
+      "path": "rust/src/g3_message.rs",
+      "bytes": 4993,
+      "sha256": "c0c9f79323f5ab68f0ebeba3cee4f4ff2ebc7e803eaae444c81a44cce6684f87"
+    },
+    {
+      "path": "rust/src/g3_operation.rs",
+      "bytes": 11574,
+      "sha256": "35d719fb69c19cf0c42973e9213962bf9fafe574801d6f59c33b95f7463e86f6"
+    },
+    {
       "path": "rust/src/governance.rs",
-      "bytes": 12030,
-      "sha256": "de6332e8f4e8c5a8ce0f4573177fab0ca7867546709cb4d40119a1aa20c2e09c"
+      "bytes": 11698,
+      "sha256": "dca568bfe6e486594866ab69eb57b57766109a5ed93232465243357564efbaf7"
     },
     {
       "path": "rust/src/governed_operation.rs",
@@ -850,23 +890,23 @@
     },
     {
       "path": "rust/src/governed_operation/tests.rs",
-      "bytes": 37072,
-      "sha256": "357eac3477cbd3062b1d333c7436bde3b6303180aaefae4016fd5f365d4fad11"
+      "bytes": 37649,
+      "sha256": "c2b56100ac052987ebf64854a56daaef8dca31ddfc80e3bb37582cd24b98c627"
     },
     {
       "path": "rust/src/governed_operation/tests/flat.rs",
-      "bytes": 4493,
-      "sha256": "b75fc188f2cecbdfb7f0493c8273b67c9709bb2b523cae1adae6fc22ad882f83"
+      "bytes": 4371,
+      "sha256": "5563dd2ba1d8d2f637b58e78402e2adb555455ba4d6bcc0627b413ab4e6440b4"
     },
     {
       "path": "rust/src/lib.rs",
-      "bytes": 2382,
-      "sha256": "5be7cd5096d9f7e5bc5afaf21523b08f6d2c42ed3735547c3e7a77edaf839b5e"
+      "bytes": 2404,
+      "sha256": "e16500e2bda3af63047f5aab5587573dab0aafdf4a1ba2f95938ac86e561b110"
     },
     {
       "path": "rust/src/position_action.rs",
-      "bytes": 4602,
-      "sha256": "29dba9a27b303e25095de66d943d3830ad63cebb0b82c24b8d772ea2abaa9426"
+      "bytes": 4472,
+      "sha256": "35c1600cf574f4d976e73faaad0737f5c4dd66e81e6f7d3e99e2b3eecfd40c4d"
     },
     {
       "path": "rust/src/protocol.rs",
@@ -875,8 +915,8 @@
     },
     {
       "path": "rust/src/trade_ticket.rs",
-      "bytes": 11043,
-      "sha256": "ce6756c27dcb03c8830962aaf533d25d87e41ab22fa72308589d9d1967a98ff4"
+      "bytes": 10748,
+      "sha256": "024f942fb79363215336ae019c0e49f087db72488d036d430f5048f4a672d79f"
     },
     {
       "path": "rust/src/writer_dlmm.rs",
@@ -910,8 +950,8 @@
     },
     {
       "path": "scripts/build-wallet-browser.mjs",
-      "bytes": 718,
-      "sha256": "ced5275b25d759b37ce816bd50208368bf786f3fd8aaae30305412049a46b122"
+      "bytes": 694,
+      "sha256": "74456262ab76d9ef7b8a2805834abc18b607dce24c8b5fb55c59de71fa3ba50f"
     },
     {
       "path": "scripts/capture-existing-scoped-deployment.mjs",
@@ -1010,8 +1050,8 @@
     },
     {
       "path": "scripts/check-rust-protocol.mjs",
-      "bytes": 3961,
-      "sha256": "f98cc022fa20a95fd3ad04449932b7722b453a343de16287545af68cd81c50e9"
+      "bytes": 3887,
+      "sha256": "4950f22161084f26dc3bf390136a0295769fc2b758c89ca895946b2df39b4baf"
     },
     {
       "path": "scripts/check-security.mjs",
@@ -1085,8 +1125,8 @@
     },
     {
       "path": "scripts/generate-g3-receipt-vectors.mjs",
-      "bytes": 1092,
-      "sha256": "a14a5bf5d44e7b68a2b10c3730a1505120f4d908e72e82292d2e51fbbe50c23b"
+      "bytes": 1091,
+      "sha256": "5886fb2f7a7c3b1fcbd3faaa4a01676dc1c47e6df952eca6b2746b77d6e64398"
     },
     {
       "path": "scripts/installed-runtime-archive.mjs",
@@ -1124,6 +1164,11 @@
       "sha256": "00fa8ad1c1f5b095cb60d61edbcdc64dcb2f24034487ff0af684d97c8f5ddcf3"
     },
     {
+      "path": "scripts/record-mainnet-observation.mjs",
+      "bytes": 2521,
+      "sha256": "dfe29ec7c98707dc3caa184d42331e8ca27520244ee515321368146489659e2f"
+    },
+    {
       "path": "scripts/refresh-package-build-identity.mjs",
       "bytes": 2426,
       "sha256": "99cf034cd2490fa50ced90a8fa808f9da786f9ba4a9d856474644902ec70c6ae"
@@ -1145,8 +1190,8 @@
     },
     {
       "path": "scripts/security-policy.mjs",
-      "bytes": 10025,
-      "sha256": "d734ec2c19038334c4b0c481202ded6304a8fafc64f89eae39a8cc9bd8754f2c"
+      "bytes": 10059,
+      "sha256": "6d5a909a1a18c234aa011eaf8f05bc0b4dc2e09439a52bcc9ee1c469722c4e30"
     },
     {
       "path": "scripts/update-current-http-fixture.mjs",
@@ -1157,6 +1202,11 @@
       "path": "scripts/update-existing-scoped-release.mjs",
       "bytes": 8805,
       "sha256": "bfdb4e78d84df70bb3b0b0930db22fd822fba922b16ed86bbe11a85b3a0d91a4"
+    },
+    {
+      "path": "scripts/update-mainnet-binding.mjs",
+      "bytes": 2055,
+      "sha256": "80894cf1dc5c14b80bed6b62bde3f0cae7d51792e5c9c47469a0ee973d190e85"
     },
     {
       "path": "scripts/update-release-package-measurement.mjs",
@@ -1185,8 +1235,8 @@
     },
     {
       "path": "src/client.ts",
-      "bytes": 187971,
-      "sha256": "fb3eeec36baafe2519c1518a4c0dda03dca446c83ad4a4dcddb761079b18f7ea"
+      "bytes": 190262,
+      "sha256": "feb9575efeb4432eae07d6f6a46517c45ebc4f7444802d8c4fe71298eae99954"
     },
     {
       "path": "src/current-finalized-observation.ts",
@@ -1205,8 +1255,8 @@
     },
     {
       "path": "src/g3/browser.ts",
-      "bytes": 4111,
-      "sha256": "7d2779a400419eaa53e00ac862a5a3a3a25790cfad6fe217a8abd01cafdfb7e2"
+      "bytes": 4987,
+      "sha256": "028050cf16a13dcf5b0b5038ea8bbc19d4d4a9b863e8d254395a8eefb30b2caf"
     },
     {
       "path": "src/g3/evidence.ts",
@@ -1215,23 +1265,68 @@
     },
     {
       "path": "src/g3/index.ts",
-      "bytes": 945,
-      "sha256": "8f33ee44b669711957c9811990bca8f1e46215cc494ac4425f82b00361d91ec9"
+      "bytes": 1042,
+      "sha256": "8af5e67dba65008f29611a6dfea71d1de663eae1d9fdc6a3297e974d7ec1f49d"
+    },
+    {
+      "path": "src/g3/mainnet-browser.ts",
+      "bytes": 7915,
+      "sha256": "4a3d8c025869ae1d1b88af465939b7454e5b394e4b8e4ddbfb0a8778a848db52"
+    },
+    {
+      "path": "src/g3/market.ts",
+      "bytes": 1875,
+      "sha256": "43a6084c8fe574e80aee1dbb9181878e84388b56216878202bcb1bb48bd28ec1"
     },
     {
       "path": "src/g3/membership.ts",
-      "bytes": 4975,
-      "sha256": "b2411cfdd72c89985b448a087f65f8aa3c1d986cd87caf872c4abaf00eb616d0"
+      "bytes": 4974,
+      "sha256": "1593d2b036898ada3a8ac8c0e504c220a71f9a8dd37e6f8de64e044de4560191"
+    },
+    {
+      "path": "src/g3/operations.ts",
+      "bytes": 9040,
+      "sha256": "a1452edaa142c70538ccfd7fbc88cee2b060e049eb7ee89d5bf0066ffa1ef514"
+    },
+    {
+      "path": "src/g3/resolver.ts",
+      "bytes": 8249,
+      "sha256": "4613b858906c5538ab73cdb61085bbf9454de22f079c6ea115e31bd0968ba3fd"
     },
     {
       "path": "src/g3/runtime.ts",
-      "bytes": 5665,
-      "sha256": "b3023c39c4a05dc0598eb45b5e50b16ea2450ff3396399aefc4b143d384ae408"
+      "bytes": 7037,
+      "sha256": "09d8c8d7a9fdc3cf1a376fd20c0738d8d1051ee1cf9ae36c357ad2f1dd947864"
+    },
+    {
+      "path": "src/g3/semantic-swap.ts",
+      "bytes": 6394,
+      "sha256": "84f9b6a2715935caca79596ae4a6de8c342a57f044d6a1c610eac7bfb398c31f"
+    },
+    {
+      "path": "src/g3/transaction.ts",
+      "bytes": 1736,
+      "sha256": "c321dd43cb67ab1abebc462406c47820e685d35e7c59e4965373fbd44ae729ff"
     },
     {
       "path": "src/index.ts",
       "bytes": 274,
       "sha256": "066f9619eaefd55aa677ad66476a945ff35ad8b6748726bab674e23ac53fd47b"
+    },
+    {
+      "path": "src/mainnet/adapter.ts",
+      "bytes": 2020,
+      "sha256": "5a3e08d94fea5d71472ac45f247dead11c3e80149be9331677cc625459729662"
+    },
+    {
+      "path": "src/mainnet/index.ts",
+      "bytes": 4377,
+      "sha256": "4c8336e340ce57efb5abfd091373b8b6e541994626ea000d2d4db9a4172e051d"
+    },
+    {
+      "path": "src/mainnet/profile.ts",
+      "bytes": 3622,
+      "sha256": "555375f260a089d5b2c95eb063a1b739c501da84b311faa05caf27623fa64fa8"
     },
     {
       "path": "src/operator/current-oracle-opening.ts",
@@ -1280,8 +1375,8 @@
     },
     {
       "path": "src/protocol/current-adapter.ts",
-      "bytes": 223978,
-      "sha256": "4b922a575f436fe26fe348f9d5b557c2cf2bc0f646208379c69889438a0e2560"
+      "bytes": 221030,
+      "sha256": "142e102d203219742969d15c42804805cf9aedd68754610f9186a041fe76a66a"
     },
     {
       "path": "src/protocol/current-build-identity.ts",
@@ -1290,8 +1385,8 @@
     },
     {
       "path": "src/protocol/current-builders.ts",
-      "bytes": 36814,
-      "sha256": "75d4678374e574eb3ef9a84e510374b5b55453f60ff51b880a6ec475c43236fc"
+      "bytes": 36433,
+      "sha256": "66ba1c1eb77adc1f3b5f3cf920f34d2f8fc1090e1c6c537c884251dc1ea07506"
     },
     {
       "path": "src/protocol/current-chain.ts",
@@ -1310,13 +1405,13 @@
     },
     {
       "path": "src/protocol/current-governed-release-internal.ts",
-      "bytes": 12747,
-      "sha256": "850a1a5592943529e8b2f6f7a3cd65b6981930c021c7295d6afa55d80f5883d3"
+      "bytes": 12545,
+      "sha256": "5758f3ec350947c88ec319d5135a3d9cda5da198fa255d4b4212f8d10b2f2415"
     },
     {
       "path": "src/protocol/current-governed-write-internal.ts",
-      "bytes": 25043,
-      "sha256": "0e4c00f3831e4b615a9a3e32e44162523a608f76d721be5d77f4419dcf8845f4"
+      "bytes": 24384,
+      "sha256": "24d87af5e5cce12efb4fa6d11b6012a6a0007ae0bda90526569d872e9d595415"
     },
     {
       "path": "src/protocol/current-governed-write.ts",
@@ -1375,23 +1470,23 @@
     },
     {
       "path": "src/protocol/current-oracle-membership-internal.ts",
-      "bytes": 6009,
-      "sha256": "df78aa02e9562158228459254957f85b418a7d83cd392c0e58222ca4f748272a"
+      "bytes": 5894,
+      "sha256": "f68655f35af7a68eed1c8c051990e28077d24aff3835b6d743aa93ae8e7d13a3"
     },
     {
       "path": "src/protocol/current-oracle-membership.ts",
-      "bytes": 13838,
-      "sha256": "af0d3edfeef9cb76cfed55ad7ad60b0ece7c1071866064a0e5c8cee804383121"
+      "bytes": 13637,
+      "sha256": "3bedf5650c1a9f1a34d26856bb8a03cadab843dd376c5680e7ce2f3b642403ec"
     },
     {
       "path": "src/protocol/current-oracle-planner.ts",
-      "bytes": 166725,
-      "sha256": "78cbd279b6cdc9d275a1d6cd51b10c9c050d85f460c4aa9359dd48253e40f1ae"
+      "bytes": 163724,
+      "sha256": "4952bbc697f4a48d1fef11bc2e548ceb251ee1d576ab2e8214a1e2c599ca8115"
     },
     {
       "path": "src/protocol/current-oracle-public.ts",
-      "bytes": 32028,
-      "sha256": "79df6bcba7c13265992170c2aee4a68edf4cb6c541376cc47fde64ec930c886f"
+      "bytes": 31420,
+      "sha256": "d13209fd98763a77d81d38ba79f6507c7ff5d8dc13e5bf50c2801795d84e6aa8"
     },
     {
       "path": "src/protocol/current-oracle-reward-evidence.ts",
@@ -1410,8 +1505,8 @@
     },
     {
       "path": "src/protocol/current-oracle-staking.ts",
-      "bytes": 16208,
-      "sha256": "8bce6cf91ff43e1754fa58c53103a01c1021978ba1358e5c60260674c4c555d0"
+      "bytes": 16009,
+      "sha256": "8840b3b3910ffd26dcdfb8c4d083133ec235eca3e51a7de7b063b87fea159225"
     },
     {
       "path": "src/protocol/current-oracle.ts",
@@ -1425,8 +1520,8 @@
     },
     {
       "path": "src/protocol/current-photon.ts",
-      "bytes": 114683,
-      "sha256": "d95964033de1986aede887ac2f5cc87ec440ccebb05fb8c30b847b44b4832813"
+      "bytes": 113296,
+      "sha256": "7ef042054dfd4290454b56ff747a055e3f6f15fdd92509b88dde77e903abc342"
     },
     {
       "path": "src/protocol/current-position-expiry.ts",
@@ -1455,8 +1550,8 @@
     },
     {
       "path": "src/protocol/current.ts",
-      "bytes": 60648,
-      "sha256": "fd29e141781051ad54e06f5b2dd94c36446ddba188f0b0cbe9053d1dddd1ac6e"
+      "bytes": 62114,
+      "sha256": "b32fd05187d3a7d1577dbc0dee20ce09bf6ee7e4dcb2f59a4aa86c9a8d120023"
     },
     {
       "path": "src/protocol/deployment-payload-internal.ts",
@@ -1465,8 +1560,8 @@
     },
     {
       "path": "src/protocol/flat-transfer-operation.ts",
-      "bytes": 27913,
-      "sha256": "87c906f35d4b0a727aa47b4959ffafba00d75ee195c757767560dac7157fd185"
+      "bytes": 27285,
+      "sha256": "82fc110fc173faada52c3edfc5a3fde66a6179f88f28dfb268a134cee9d34307"
     },
     {
       "path": "src/protocol/governance.ts",
@@ -1490,8 +1585,8 @@
     },
     {
       "path": "src/protocol/index.ts",
-      "bytes": 22116,
-      "sha256": "053272df9275ba2533d5682af7087cc819882a52f4488e856aaa2602a6908fb8"
+      "bytes": 21533,
+      "sha256": "7dde942e3a4c0e776969bdfb5c8de5a3fc5625ea1ab456d556bf2144864dff87"
     },
     {
       "path": "src/protocol/public-key-value.ts",
@@ -1520,8 +1615,8 @@
     },
     {
       "path": "src/protocol/writer-dlmm-quote.ts",
-      "bytes": 7918,
-      "sha256": "45914f1407109250469712a7c15df213480dcb21855c6f747b02d6d5f9536995"
+      "bytes": 7814,
+      "sha256": "84d04c4c289d83a5aef7cb2692de8f583971a52723b31f3a0b21f08b6c746beb"
     },
     {
       "path": "src/protocol/writer-dlmm-transport.ts",
@@ -1560,13 +1655,13 @@
     },
     {
       "path": "src/protocol/writer-sleeve.ts",
-      "bytes": 4992,
-      "sha256": "ceef2c0a46fbc5f7edc55c6b3fe580e4df902b337f3156c8cf47438a17b6119f"
+      "bytes": 4885,
+      "sha256": "ec8fd33efdc0030d939f860ae7a9ab262921a1ef923fde61c52b8d6370b91ee5"
     },
     {
       "path": "src/types.ts",
-      "bytes": 29691,
-      "sha256": "5d4cae6baf4e6d7b4bde1cf64100cb9b29680c3728c5ce34fb329f06f71d56d0"
+      "bytes": 30453,
+      "sha256": "5f857b8b10f94969a59444a842b8ce7c61063080ce7361402e6f3d43beadf56f"
     },
     {
       "path": "src/version.ts",
@@ -1625,8 +1720,8 @@
     },
     {
       "path": "src/wallet/swap-accounts.ts",
-      "bytes": 8293,
-      "sha256": "a97581c815b8e6f89f5c213a347441a4054d420e1f4e78e9130849076991d6b4"
+      "bytes": 8169,
+      "sha256": "6e56e58908951ab4201610ccb2a592e71a109aee16bb68770538a816357a3454"
     },
     {
       "path": "src/wallet/transaction.ts",
@@ -1755,8 +1850,8 @@
     },
     {
       "path": "test/current-oracle-planner-parity.test.mjs",
-      "bytes": 65711,
-      "sha256": "dc8fbdc70a0ffca42adf963fe9e52d5e30a0186091ae8a2bc430903080be7f13"
+      "bytes": 65771,
+      "sha256": "6aeff028247f1a709bc2456ba87655d0fc1350af39b7966853daff1da921b3fc"
     },
     {
       "path": "test/current-oracle-semantics.test.mjs",
@@ -1765,8 +1860,8 @@
     },
     {
       "path": "test/current-oracle-tag205.test.mjs",
-      "bytes": 108871,
-      "sha256": "1b7fc534245adf721a9407317a17a05bd0dd2a83a41ea7dd9d5d5c53fc581a97"
+      "bytes": 108931,
+      "sha256": "ee53639f25735b1421f0c3f04b313e7dd70f6d464d712ad76987e523e54ff945"
     },
     {
       "path": "test/current-photon-redirect.test.mjs",
@@ -1775,8 +1870,8 @@
     },
     {
       "path": "test/current-photon.test.mjs",
-      "bytes": 32021,
-      "sha256": "2cef3acd31e37fc950e8c6ec76cd5076ce3ed63f67d562db383aa5fa3491f574"
+      "bytes": 32879,
+      "sha256": "caad3a2a51ca20c52d0a149b5f4e5a38d94eccb136d06fa899cbde24a93fe854"
     },
     {
       "path": "test/current-position-action.test.mjs",
@@ -1805,8 +1900,23 @@
     },
     {
       "path": "test/g3-integration.test.mjs",
-      "bytes": 8100,
-      "sha256": "ac9e263ed3a22212070a663bb31f777edb5ab81207a9885954c41765e06102be"
+      "bytes": 8034,
+      "sha256": "1899887d78637206c73b6fa7ffc2d60a1395ac7dc73c35b97b9043a1200e508e"
+    },
+    {
+      "path": "test/g3-operation-plans.test.mjs",
+      "bytes": 7478,
+      "sha256": "03fe6ca2c1f2dfe5a51e7d71a17c265b60e4940f9f0ae77baccf1021f6165869"
+    },
+    {
+      "path": "test/g3-semantic-swap.test.mjs",
+      "bytes": 7533,
+      "sha256": "643e6785c11598bdfa0d232e9c82a7dc549318b3330a7124d62d3a5fb1f84a54"
+    },
+    {
+      "path": "test/g3-transactions.test.mjs",
+      "bytes": 1948,
+      "sha256": "1c78f328351c8a0c6ac7873c31ac4a6c08b2faffd50ca77478fd01c28e463dd0"
     },
     {
       "path": "test/governance-release-train.test.mjs",
@@ -1959,6 +2069,21 @@
       "sha256": "f1c7f71df59f9b3006d4e3e233c69cc70243da200114abe67afa4f067ea503ca"
     },
     {
+      "path": "test/mainnet-browser.test.mjs",
+      "bytes": 4897,
+      "sha256": "130d74f05cbedb0ce10ddee27531bec9b51aba02966df8c75fcba6b56a3c4d67"
+    },
+    {
+      "path": "test/mainnet-oracle-month-reader.test.mjs",
+      "bytes": 7227,
+      "sha256": "dfa6497d22fb8531c1650d9a2457076cf9ce582a3d734f671ead2237a7922f35"
+    },
+    {
+      "path": "test/mainnet.test.mjs",
+      "bytes": 2474,
+      "sha256": "e725bc9c5489fc667fbdd851fa8865e85579390cf0e103849580cfc90a8b41d3"
+    },
+    {
       "path": "test/operator-exports.test.mjs",
       "bytes": 1268,
       "sha256": "f4489d17990745ec6a822693de7431583176c4b39607dca964db7960d19f2b34"
@@ -2025,8 +2150,8 @@
     },
     {
       "path": "test/v3-chain-identity-http.test.mjs",
-      "bytes": 3152,
-      "sha256": "7503923ca4af25305999655b744ca457f7b268af53d6acfef6d4828bce12bc58"
+      "bytes": 4804,
+      "sha256": "1805bd77fc0540e1b9d27c80babb51c49c5d4bd4f1417af367440e7f1e600f98"
     },
     {
       "path": "test/v3-close-builder.test.mjs",
@@ -2046,17 +2171,17 @@
     {
       "path": "test/wallet-liquidity-cleanup.test.mjs",
       "bytes": 6586,
-      "sha256": "3ed91e7405844c87f90809dede440dc14aec83373931ceb9368920aeca4308c3"
+      "sha256": "848f8b8880886a25b8306f2150c4df9947cd46f21a1b313a5424877f701f4dfe"
     },
     {
       "path": "test/wallet-public-materializer.test.mjs",
-      "bytes": 67899,
-      "sha256": "2d33ee62d5e6eebe33ebfb93b0f7bbefa0f913715ee8036644b654da0cc37ac0"
+      "bytes": 67865,
+      "sha256": "d78220a1ff361f779e3bbd382fe4d43ed953e65b54eb362a2278878b0bc37773"
     },
     {
       "path": "test/writer-bid-index-candidate.test.mjs",
-      "bytes": 3611,
-      "sha256": "0da0041d03f27ebd9eabf5ec202daad1b01ed5aef0ac1c8729de416e8132b988"
+      "bytes": 929,
+      "sha256": "e47a5ce6497bd751a1c3234f5da7b4ad4a9de0b2d49c21e4beaba3db05aa6c57"
     },
     {
       "path": "test/writer-operation-plan.test.mjs",
@@ -2184,5 +2309,5 @@
       "sha256": "a4382c10d8d45d45f222f30be8ff8dfc250dd0c67e55c8078777f65bc6369c7c"
     }
   ],
-  "sha256": "6f1c1dd12af8eef5c337d6283e5418cf7b76abbbafe8d68e5300d4960cc96e4f"
+  "sha256": "ae07ab9e14299c7c834e1b695d755817ce66757974f8e844cbfcd114e2bf61ad"
 }
