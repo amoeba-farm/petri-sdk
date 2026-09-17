@@ -1,0 +1,260 @@
+{
+  "schema": "amoeba.g3.integration-coverage.v1",
+  "complete": false,
+  "workstreams": [
+    {
+      "id": "M01",
+      "status": "partial: exact candidate/archive/artifact bindings; production tuple absent"
+    },
+    {
+      "id": "M02",
+      "status": "implemented: current archives and separate historical aliases; installed package smoke required"
+    },
+    {
+      "id": "M03",
+      "status": "partial: local observed gate/executable only"
+    },
+    {
+      "id": "M04",
+      "status": "partial: source layouts and canonical G3 exports; retained operation DTOs need migration"
+    },
+    {
+      "id": "M05",
+      "status": "partial: official constructors registered; full prepare/sign/relay pipeline pending"
+    },
+    {
+      "id": "M06",
+      "status": "partial: independent source leaf decoding; genuine proof replay pending"
+    },
+    {
+      "id": "M07",
+      "status": "partial: bounded SDK membership pages; backend full history/median paging pending"
+    },
+    {
+      "id": "M08",
+      "status": "partial: next-chunk evidence helper and canonical independent reader exports"
+    },
+    {
+      "id": "M09",
+      "status": "partial: funded order exports/builders; HTTP admission and combined routing pending"
+    },
+    {
+      "id": "M10",
+      "status": "partial: receipt exports/builders/math; HTTP lifecycle integration pending"
+    },
+    {
+      "id": "M11",
+      "status": "pending: end-to-end settlement and signer handoff integration"
+    },
+    {
+      "id": "M12",
+      "status": "pending: scheduler and verdict/clock projections"
+    },
+    {
+      "id": "M13",
+      "status": "partial: quota/history/CAS/uncertain retention and migration; full lost-submit relay rehearsal pending"
+    },
+    {
+      "id": "M14",
+      "status": "partial: checked payout facade and differential vectors; remaining admissions pending"
+    },
+    {
+      "id": "M15",
+      "status": "partial: SDK/browser/Rust G3 surfaces; full existing API pipeline pending"
+    },
+    {
+      "id": "M16",
+      "status": "partial: source snapshot schema/cache scope; full indexer/volume cutover pending"
+    },
+    {
+      "id": "M17",
+      "status": "incomplete: focused tests only; no joined SBF rehearsal"
+    },
+    {
+      "id": "M18",
+      "status": "partial: candidate evidence and bindings; final qualification pending"
+    }
+  ],
+  "integrationCases": [
+    {
+      "id": "IC-01",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-02",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-03",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-04",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-05",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-06",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-07",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-08",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-09",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-10",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-11",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-12",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-13",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-14",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-15",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-16",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-17",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-18",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-19",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-20",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-21",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-22",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-23",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-24",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-25",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-26",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-27",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-28",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-29",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-30",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-31",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-32",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-33",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-34",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-35",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    },
+    {
+      "id": "IC-36",
+      "status": "full-case-not-executed",
+      "mappedEvidence": "Focused unit, storage or differential checks do not discharge this complete integration case."
+    }
+  ]
+}

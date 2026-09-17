@@ -1,3 +1,7 @@
+import { MAINNET_PROFILE, observeMainnetDeployment } from "../mainnet/index.js";
+import { decodeOraclePlayerLedgerBalance } from "@amoeba/spread-historical-v2/oracle-dlmm";
+import { deriveOraclePlayerLedgerPda } from "@amoeba/spread-historical-v2/oracle-dlmm";
+import { ORACLE_PLAYER_LEDGER_PDA_SEED } from "@amoeba/spread-historical-v2/oracle-dlmm";
 import { currentOracleActivationSetup, currentOracleActivationSetupManifests } from "./current-oracle-staking-setup.js";
 import { currentOracleStakingProofFacts } from "./current-oracle-staking-proof.js";
 import { deriveCollectiveSettlementDelegatePda } from "./writer-sleeve.js";
@@ -11,11 +15,11 @@ import { AmebaProtocolError } from "../errors.js";
 import { computeCurrentFinalizedObservationDigest, validateCurrentFinalizedObservation, } from "../current-finalized-observation.js";
 import { CURRENT_MARKET_ACCOUNT_SIZE, CURRENT_ORACLE_MONTH_ACCOUNT_SIZE, CURRENT_ORACLE_PRE_LISTING_WINDOW_SECONDS, CURRENT_PROTOCOL_CLUSTER, CURRENT_PROTOCOL_DEPLOYMENT, CURRENT_PROTOCOL_DEVNET_GENESIS_HASH, CURRENT_PROTOCOL_RELEASE, CURRENT_PROTOCOL_SOURCE_COMMIT, CURRENT_SETTLEMENT_RECORD_V2_ACCOUNT_SIZE, CURRENT_USER_COLLATERAL_ACCOUNT_SIZE, CURRENT_VAULT_CONFIG_ACCOUNT_SIZE, decodeCurrentMarketAccount as decodeStrictMarket, decodeCurrentContractMintAccount, decodeCurrentLightSplInterfaceAccount, decodeCurrentOracleActiveWeightManifestAccount, decodeCurrentOracleMonthAccount, decodeCurrentOracleSkuCoverageManifestAccount, decodeCurrentSettlementRecordV2Account, decodeCurrentUserCollateralAccount, decodeCurrentVaultConfigAccount, discoverCurrentMarkets, validateUninitializedCurrentOracleMonthData, } from "./current.js";
 import { buildInitUserCollateralInstruction, buildWithdrawCollateralInstruction, decodeCurrentExecuteCompressedStateV1, } from "./current-instructions.js";
-import { CURRENT_STATE_NAMESPACE_SEED, DEFAULT_AMEBA_SPREAD_PROGRAM_ID, LIGHT_TOKEN_CPI_AUTHORITY, LIGHT_TOKEN_PROGRAM_ID, LIGHT_TOKEN_RENT_SPONSOR, ORACLE_PLAYER_LEDGER_PDA_SEED, SPL_TOKEN_PROGRAM_ID, } from "@amoeba/spread-release-tools/oracle-dlmm";
-import { buildDepositCollateralInstruction, decodeOraclePlayerLedgerBalance, } from "@amoeba/spread-release-tools/oracle-dlmm";
-import { deriveContractMintPda, deriveContractMintStagingPda, deriveLightSplInterfacePda, deriveMarketPda, deriveOracleMonthPda, deriveOraclePlayerLedgerPda, deriveOracleSkuCoverageManifestPda, deriveSettlementRecordV2Pda, deriveUserCollateralPda, deriveVaultConfigPda, fixedBytes32, hashBuffers, } from "@amoeba/spread-release-tools/oracle-dlmm";
+import { CURRENT_STATE_NAMESPACE_SEED, DEFAULT_AMEBA_SPREAD_PROGRAM_ID, LIGHT_TOKEN_CPI_AUTHORITY, LIGHT_TOKEN_PROGRAM_ID, LIGHT_TOKEN_RENT_SPONSOR, SPL_TOKEN_PROGRAM_ID, } from "@amoeba/spread-release-tools/oracle-dlmm";
+import { buildDepositCollateralInstruction, } from "@amoeba/spread-release-tools/oracle-dlmm";
+import { deriveContractMintPda, deriveContractMintStagingPda, deriveLightSplInterfacePda, deriveMarketPda, deriveOracleMonthPda, deriveOracleSkuCoverageManifestPda, deriveSettlementRecordV2Pda, deriveUserCollateralPda, deriveVaultConfigPda, fixedBytes32, hashBuffers, } from "@amoeba/spread-release-tools/oracle-dlmm";
 import { deriveOracleActiveWeightManifestPda } from "@amoeba/spread-release-tools/oracle-dlmm";
-import { AMOEBA_DLMM_BIN_PAGE_ACCOUNT_SIZE, AMOEBA_DLMM_POSITION_ACCOUNT_SIZE, AMOEBA_DLMM_POSITION_ACCOUNT_DISCRIMINATOR, AMOEBA_DLMM_POSITION_DISCRIMINATOR, AMOEBA_DLMM_SHARE_PAGE_ACCOUNT_SIZE, MAX_AMOEBA_DLMM_PAGES, bitmapPageIndexes, decodeAmoebaDlmmBinPage, decodeAmoebaDlmmPool, decodeAmoebaDlmmPosition, decodeAmoebaDlmmSharePage, deriveAmoebaDlmmAuthorityPda, deriveAmoebaDlmmBinPagePda, deriveAmoebaDlmmPoolPda, deriveAmoebaDlmmPositionPda, deriveAmoebaDlmmSharePagePda, deriveAmoebaDlmmVaultPda, } from "@amoeba/spread-release-tools/dlmm-accounts";
+import { AMOEBA_DLMM_POOL_ACCOUNT_SIZE, AMOEBA_DLMM_BIN_PAGE_ACCOUNT_SIZE, AMOEBA_DLMM_POSITION_ACCOUNT_SIZE, AMOEBA_DLMM_POSITION_ACCOUNT_DISCRIMINATOR, AMOEBA_DLMM_POSITION_DISCRIMINATOR, AMOEBA_DLMM_SHARE_PAGE_ACCOUNT_SIZE, MAX_AMOEBA_DLMM_PAGES, bitmapPageIndexes, decodeAmoebaDlmmBinPage, decodeAmoebaDlmmPool, decodeAmoebaDlmmPosition, decodeAmoebaDlmmSharePage, deriveAmoebaDlmmAuthorityPda, deriveAmoebaDlmmBinPagePda, deriveAmoebaDlmmPoolPda, deriveAmoebaDlmmPositionPda, deriveAmoebaDlmmSharePagePda, deriveAmoebaDlmmVaultPda, } from "@amoeba/spread-release-tools/dlmm-accounts";
 import { buildCollectiveAmoebaDlmmSwapExactInInstruction, } from "@amoeba/spread-release-tools/dlmm-instructions";
 import { getAmoebaDlmmBinPage, getAmoebaDlmmSharePage, } from "@amoeba/spread-release-tools/dlmm-light-interface";
 import { quoteAmoebaDlmmExactIn as quoteAmoebaDlmmPlannerExactIn, } from "@amoeba/spread-release-tools/dlmm-planner";
@@ -123,7 +127,8 @@ function validateCurrentColdLoadInstruction(input) {
     const packedLeafIndex = bytes.readUInt32LE(cursor);
     cursor += 4;
     const kind = bytes[cursor++];
-    const shape = input.data.length === 384 ? { kind: 0, bodyLength: 376, identityOffset: -1, identityLength: 0 }
+    const shape = input.data.length === AMOEBA_DLMM_POOL_ACCOUNT_SIZE
+        ? { kind: 0, bodyLength: AMOEBA_DLMM_POOL_ACCOUNT_SIZE - 8, identityOffset: -1, identityLength: 0 }
         : input.data.length === 602 ? { kind: 1, bodyLength: 594, identityOffset: 38, identityLength: 2 }
             : input.data.length === 594 ? { kind: 2, bodyLength: 586, identityOffset: 38, identityLength: 2 }
                 : input.data.length === 637 ? { kind: 3, bodyLength: 629, identityOffset: 70, identityLength: 8 }
@@ -266,6 +271,7 @@ function decodeOptionalCurrentOracleMonthTarget(input) {
     }
     requireProgramAccount("OracleMonth", info, input.programId, CURRENT_ORACLE_MONTH_ACCOUNT_SIZE);
     return decodeCurrentOracleMonthAccount({
+        marketLayout: input.marketLayout,
         address: input.address,
         data: info.data,
         owner: info.owner,
@@ -392,8 +398,9 @@ export async function readCurrentMarketAccount(input) {
     if (info === null) {
         return { ...identity(), marketId: input.marketId, expiryId: input.expiryId, address, found: false, market: null };
     }
-    requireProgramAccount("Market", info, input.programId, CURRENT_MARKET_ACCOUNT_SIZE);
+    requireProgramAccount("Market", info, input.programId, input.marketLayout === "g3" ? 279 : CURRENT_MARKET_ACCOUNT_SIZE);
     const market = decodeStrictMarket({
+        marketLayout: input.marketLayout,
         address,
         data: info.data,
         owner: info.owner,
@@ -431,11 +438,11 @@ function validateCurrentAmoebaDlmmPoolValue(pool, input) {
         || pool.maximumPriceQuoteAtomic !== input.market.maxPayoutPerContract
         || pool.maximumBinId !== expectedMaximumBinId
         || pool.maximumPriceQuoteAtomic !== pool.tickSizeQuoteAtomic * BigInt(pool.maximumBinId)
-        || pool.swapFeeBps !== input.market.takerFeeBps
+        || 0 !== input.market.takerFeeBps
         || pool.maximumBinsPerSwap !== input.market.maxFillsPerInstruction
         || pool.maximumBinsPerSwap < 1
         || pool.maximumBinsPerSwap > 8
-        || pool.protocolFeeShareBps > 10_000) {
+        || 0 > 10_000) {
         throw new CurrentSdkOperationError("CURRENT_DLMM_POOL_INVARIANT_INVALID", "DLMM pool is not bound to current market economics");
     }
     return Object.freeze({ ...pool, ...identity() });
@@ -881,6 +888,7 @@ export async function readCurrentAmoebaDlmmPool(input) {
     }
     requireProgramAccount("OracleMonth", monthInfo, input.programId, CURRENT_ORACLE_MONTH_ACCOUNT_SIZE);
     const oracleMonth = decodeCurrentOracleMonthAccount({
+        marketLayout: input.marketLayout,
         address: oracleMonthAddress,
         data: monthInfo.data,
         owner: monthInfo.owner,
@@ -1186,10 +1194,20 @@ async function requiredMarket(input) {
 function isNonzeroHash(value) {
     return value.some((byte) => byte !== 0);
 }
+function currentScheduleTotalSeconds(scheduleVersion) {
+    if (scheduleVersion === 2)
+        return CURRENT_ORACLE_PRE_LISTING_WINDOW_SECONDS;
+    if (scheduleVersion === 3)
+        return 4n * 3600n;
+    if (scheduleVersion === 4)
+        return 0n;
+    return null;
+}
 function hasCurrentRulebookSchedule(month) {
-    return month.scheduleVersion === 2
+    const totalSeconds = currentScheduleTotalSeconds(month.scheduleVersion);
+    return totalSeconds !== null
         && month.scrambleStartTs !== 0n
-        && month.listingTs === month.scrambleStartTs + CURRENT_ORACLE_PRE_LISTING_WINDOW_SECONDS;
+        && month.listingTs === month.scrambleStartTs + totalSeconds;
 }
 function hasCurrentCanonicalWeightScheme(month) {
     return month.weightSchemeVersion === 1
@@ -1198,7 +1216,7 @@ function hasCurrentCanonicalWeightScheme(month) {
 }
 function hasCurrentActiveWeightScheme(month) {
     return month.activeWeightInitializationVersion === 1
-        && month.activeWeightSchemeVersion === 1
+        && month.activeWeightSchemeVersion === 2
         && month.activeWeightGroupCount > 0
         && isNonzeroHash(month.activeWeightManifestHash);
 }
@@ -1225,7 +1243,10 @@ function isCurrentActiveWeightManifestFinal(month, manifest) {
 function isCurrentIssueSkuCoverageFinal(month, coverage, activeManifest) {
     if (coverage === null || activeManifest === null || !isCurrentActiveWeightManifestFinal(month, activeManifest))
         return false;
-    const expectedListing = coverage.plannedScrambleStartTs + CURRENT_ORACLE_PRE_LISTING_WINDOW_SECONDS;
+    const scheduleSeconds = currentScheduleTotalSeconds(month.scheduleVersion);
+    if (scheduleSeconds === null)
+        return false;
+    const expectedListing = coverage.plannedScrambleStartTs + scheduleSeconds;
     return coverage.coverageFinalized
         && coverage.coverageCompleteTs !== 0n
         && coverage.coveredSkuCount === coverage.requiredSkuCount
@@ -1239,7 +1260,7 @@ function isCurrentIssueSkuCoverageFinal(month, coverage, activeManifest) {
 async function resolvedPoolBytes(input, poolAddress, payer, collector, resolver = currentColdResolver(input.photonConnection, input.programId, payer, collector)) {
     const hot = await input.connection.getAccountInfo(poolAddress, finalizedCommitment(input.commitment));
     if (hot !== null) {
-        requireProgramAccount("AmoebaDlmmPool", hot, input.programId, 384);
+        requireProgramAccount("AmoebaDlmmPool", hot, input.programId, AMOEBA_DLMM_POOL_ACCOUNT_SIZE);
         return hot.data;
     }
     const cold = resolver === undefined ? null : await resolver.resolveColdAccount(poolAddress);
@@ -2462,6 +2483,7 @@ export async function readCurrentOracleState(input) {
             market,
             oracleMonthAddress,
             oracleMonth: decodeCurrentOracleMonthAccount({
+                marketLayout: input.marketLayout,
                 address: oracleMonthAddress,
                 data: info.data,
                 owner: info.owner,
@@ -2503,6 +2525,7 @@ export async function buildCurrentOracleDraft(input) {
     const expectedOracleMonth = deriveOracleMonthPda({ marketPda: marketAddress, expiryTs: refreshed.market.expiryTs, programId: input.programId });
     const oracleMonthInfo = await input.connection.getAccountInfo(expectedOracleMonth, finalizedCommitment(input.commitment));
     const oracleMonth = decodeOptionalCurrentOracleMonthTarget({
+        marketLayout: input.marketLayout,
         info: oracleMonthInfo,
         address: expectedOracleMonth,
         expiryTs: refreshed.market.expiryTs,
@@ -3186,12 +3209,13 @@ export function createCurrentSdkAdapter(input) {
     const oracleCompressedStateLookupTable = snapshotCurrentOracleLookupTableAuthorization(input.oracleCompressedStateLookupTable);
     if (programId.toBase58() !== DEFAULT_AMEBA_SPREAD_PROGRAM_ID
         || input.namespace !== CURRENT_STATE_NAMESPACE
-        || input.cluster !== CURRENT_PROTOCOL_CLUSTER
+        || (input.cluster !== CURRENT_PROTOCOL_CLUSTER && input.cluster !== "mainnet-beta")
         || input.releaseTag !== CURRENT_PROTOCOL_RELEASE
         || input.releaseCommit !== CURRENT_PROTOCOL_SOURCE_COMMIT) {
         throw new CurrentSdkOperationError("CURRENT_ADAPTER_IDENTITY_INVALID", "adapter identity is not exact rc.44 Devnet");
     }
     const context = (commitment) => ({
+        marketLayout: input.cluster === "mainnet-beta" ? "g3" : "historical-v2",
         connection: input.connection,
         programId,
         namespace: CURRENT_STATE_NAMESPACE,
@@ -3231,7 +3255,13 @@ export function createCurrentSdkAdapter(input) {
             return attestationCache.facts;
         if (attestationInFlight?.observedSlot === observedSlot)
             return attestationInFlight.promise;
-        const pending = readCurrentDeploymentFacts(context()).then((facts) => {
+        const pending = (input.cluster === "mainnet-beta" ? observeMainnetDeployment(input.connection).then(observed => ({
+            ...identity(), genesisHash: observed.genesisHash, programId: MAINNET_PROFILE.programId,
+            programExists: true, programExecutable: true, programDataAddress: MAINNET_PROFILE.programData,
+            programDataExists: true, programDataBytes: MAINNET_PROFILE.artifactBytes + 45,
+            upgradeAuthority: MAINNET_PROFILE.upgradeAuthority, programDataSlot: MAINNET_PROFILE.deployedSlot,
+            programPayloadBytes: MAINNET_PROFILE.artifactBytes, programPayloadSha256: MAINNET_PROFILE.artifactSha256, verified: true,
+        })) : readCurrentDeploymentFacts(context())).then((facts) => {
             attestationCache = { observedSlot, facts };
             return facts;
         });
@@ -3275,6 +3305,7 @@ export function createCurrentSdkAdapter(input) {
         readCurrentAmoebaDlmmPool: (value) => afterAttestation(() => readCurrentAmoebaDlmmPool(bound({ marketId: value.marketId, expiryId: value.expiryId }, value.commitment))),
         decodeCurrentMarketAccount: (value) => decodeStrictMarket({
             ...value,
+            marketLayout: input.cluster === "mainnet-beta" ? "g3" : "historical-v2",
             namespace: CURRENT_STATE_NAMESPACE,
             programId,
         }),

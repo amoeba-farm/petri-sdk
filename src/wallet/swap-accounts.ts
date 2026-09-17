@@ -14,6 +14,7 @@ const POOL_DISCRIMINATOR = TEXT.encode("ADPOOLV1");
 const POOL_ACCOUNT_DISCRIMINATOR = TEXT.encode("ADP");
 const PAGE_DISCRIMINATOR = TEXT.encode("ADPAGEV1");
 const PAGE_ACCOUNT_DISCRIMINATOR = TEXT.encode("ABP");
+const POOL_ACCOUNT_SIZE = 364;
 const BINS_PER_PAGE = 32;
 const MAX_BINS = 2_048;
 const MAX_PAGES = 64;
@@ -48,7 +49,7 @@ export function decodeCurrentWalletDlmmPool(
   accounts: ReadonlyMap<string, AccountInfo<Uint8Array> | null>,
 ): CurrentWalletDlmmPool {
   const { reader, bump } = start(
-    requireProgramAccount(accounts, address, 384, "DLMM pool"),
+    requireProgramAccount(accounts, address, POOL_ACCOUNT_SIZE, "DLMM pool"),
     POOL_DISCRIMINATOR,
     POOL_ACCOUNT_DISCRIMINATOR,
     "DLMM pool",
@@ -70,11 +71,7 @@ export function decodeCurrentWalletDlmmPool(
   const initializedPages = bitmapPages(reader.u64());
   const bidPages = bitmapPages(reader.u64());
   const askPages = bitmapPages(reader.u64());
-  const swapFeeBps = reader.u16();
-  const protocolFeeShareBps = reader.u16();
   const maximumBinsPerSwap = reader.u8();
-  reader.u64();
-  reader.u64();
   reader.u64();
   reader.u64();
   reader.u32();
@@ -94,8 +91,7 @@ export function decodeCurrentWalletDlmmPool(
     || optionVault.equals(quoteVault) || expiryTs === 0n || tickSize === 0n
     || maximumBinId < 1 || maximumBinId > MAX_BINS
     || maximumPrice !== tickSize * BigInt(maximumBinId)
-    || maximumBinsPerSwap < 1 || maximumBinsPerSwap > 8
-    || swapFeeBps > 1_000 || protocolFeeShareBps > 10_000 || status > 4
+    || maximumBinsPerSwap < 1 || maximumBinsPerSwap > 8 || status > 4
     || initializedPages.some((page) => page > maximumPage)
     || bidPages.some((page) => !initializedPages.includes(page))
     || askPages.some((page) => !initializedPages.includes(page))

@@ -1,6 +1,6 @@
 # Petri SDK
 
-Open-source TypeScript/Rust SDK for Amoeba/Petri (Apache-2.0). This is a Devnet preview.
+Open-source TypeScript/Rust SDK for Amoeba/Petri (Apache-2.0), including the current Mainnet read profile and historical Devnet interfaces.
 
 ## Install
 
@@ -30,19 +30,22 @@ Typed TypeScript and Rust boundaries for Amoeba protocol reads, governance ident
 
 ## Release status
 
-The current local integration supports the exact governed deployment
-`2jVQSPny9eFoaG1ZWoJVAezQ5VgqJtF8rQCQXMktuBVw`, with deployed Writer auction V1.
-Package capability and runtime permission are separate: frozen gates, missing
-business state and paused vaults refuse materialization before signing.
+The current Mainnet read profile binds governed deployment
+`2jVQSPny9eFoaG1ZWoJVAezQ5VgqJtF8rQCQXMktuBVw`, deployed at slot `447697584`,
+artifact SHA-256 `47966df3fb8f1ff997723ccf8868a031b729fc945ae5110d78ea0104dacfea69`,
+and Active gate epoch 9. Package capability, deployment identity, and trading
+readiness remain separate; the SDK fails closed when exact account or identity
+requirements are absent.
 
 See [V3 integration and public API contract](./docs/V3_LOCAL_INTEGRATION.md).
 Historical RC44 plan metadata and receipts remain explicitly historical. The
 undeployed Writer auction V2 candidate is retained only in Git history and its
 historical design notes; it is excluded from current exports.
 
-The canonical records are [the release train](./release/release-train.v1.json)
-and [upstream V3 manifest](./release/spread-devnet-v3.json). This is a local,
-unpushed integration; no activation, bootstrap or deployment is authorized.
+The canonical records are [the Mainnet profile](./release/mainnet-profile.v1.json),
+[the release train](./release/release-train.v1.json), and
+[upstream V3 manifest](./release/spread-devnet-v3.json). SDK publication does
+not authorize activation, bootstrap, signing, or deployment.
 
 ## Package surfaces
 
@@ -51,40 +54,27 @@ unpushed integration; no activation, bootstrap or deployment is authorized.
 - `ameba-sdk/protocol`: release-train validation, exact 192-byte governance
   gate and 16-byte `AGV1` tail codecs, live deployment qualification,
   historical RC44 decoders/builders, and portable plan validators.
-- `ameba-sdk/wallet`: browser-safe V3 governed prepare-envelope
-  validation and unsigned v0 materialization. It never signs or submits and
-  rejects the current live ProgramData identity.
+- `ameba-sdk/wallet`: browser-safe G3 prepare-envelope validation and unsigned
+  v0 materialization. It never signs or submits.
 - `ameba-sdk/operator`: server-side finalized qualification of the exact
-  Program, ProgramData, and Generation 1 gate in one observation.
+  Program, ProgramData, and Generation 3 gate in one observation.
 - `ameba-sdk/petri`: shell-free command adapter. Reads and planning remain
   callable; every transaction effect is closed until a governed write release
   exists.
 
 Client network access is fixed to `https://api.amoeba.farm` (or loopback for
-local integration). Solana reads use `https://api.amoeba.farm/rpc`; browser
-and Petri consumers cannot select a validator or private provider endpoint.
+local integration). Mainnet direct reads are a separate server-side surface
+that requires an authenticated private Helius endpoint; browser code does not
+receive provider credentials.
 
 ## Identity example
 
 ```js
-import { Connection } from "@solana/web3.js";
-import {
-  CURRENT_LIVE_DEPLOYMENT,
-  HISTORICAL_RC44_READER_BASELINE,
-  SDK_RELEASE_TRAIN,
-  isCurrentWriteReleaseAvailable,
-  readCurrentLiveDeploymentFacts,
-} from "ameba-sdk/protocol";
+import { MAINNET_PROFILE } from "ameba-sdk/mainnet";
 
-console.log(CURRENT_LIVE_DEPLOYMENT.programDataPayloadSha256);
-console.log(HISTORICAL_RC44_READER_BASELINE.spreadRelease);
-console.log(SDK_RELEASE_TRAIN.selectedGovernanceGeneration); // 1
-console.log(isCurrentWriteReleaseAvailable()); // false
-
-const facts = await readCurrentLiveDeploymentFacts({
-  rpc: new Connection("https://api.amoeba.farm/rpc", "finalized"),
-});
-console.log(facts.governance.status, facts.governance.epoch);
+console.log(MAINNET_PROFILE.programId);
+console.log(MAINNET_PROFILE.artifactSha256);
+console.log(MAINNET_PROFILE.gateEpoch); // "9"
 ```
 
 See [Compatibility](./docs/COMPATIBILITY.md),
@@ -95,16 +85,13 @@ See [Compatibility](./docs/COMPATIBILITY.md),
 
 ```sh
 npm ci --ignore-scripts
-npm run check:source
-npm run check:rust
-npm run check:live
+npm run build
+npm run typecheck
+cargo check --locked
 ```
 
-`npm run check:live` performs a read-only finalized request through the
-public Amoeba RPC gateway. The full `npm run release:check` additionally
-requires exact credential-free local mirrors of the private CLI and historical
-Spread repositories; CI creates those mirrors in an isolated credential
-bootstrap step.
+These checks are local and read-only. They do not contact Mainnet or require
+private repository credentials.
 
 The npm package is Apache-2.0. The Rust host crate is intentionally
 non-publishable. No command above deploys, upgrades, transfers authority,

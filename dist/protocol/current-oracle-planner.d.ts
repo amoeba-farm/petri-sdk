@@ -26,6 +26,7 @@ interface OracleSourceState {
     readonly openingSubmitted: boolean;
     readonly lastFinalizedStep: bigint;
     readonly observationCount: number;
+    readonly latestObservationSourceTime: bigint;
     readonly rollingObservationHash: Buffer;
 }
 interface OracleUpdateClaimState {

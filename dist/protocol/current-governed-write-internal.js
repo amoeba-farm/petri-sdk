@@ -1,5 +1,4 @@
 import { isSdkPublicKey } from "./public-key-value.js";
-import { observeFinalizedWriterCloseV1 } from "@amoeba/spread-release-tools/writer-sleeve-accounts";
 import { observeCurrentV3RuntimeV1 } from "./current-v3-runtime.js";
 import { Buffer } from "buffer";
 import { PublicKey, TransactionInstruction, } from "@solana/web3.js";
@@ -67,29 +66,6 @@ export async function materializeBoundCurrentGovernedBuilderV1(input) {
     const binding = await prepareBoundCurrentGovernedWriteV1(input);
     let built;
     try {
-        if (input.builderName === "buildFinalizeWriterCloseV1Instruction") {
-            const fields = builderInput;
-            if (!fields || Object.keys(fields).sort().join(",") !== "owner,ownerUsdcDestination,sleeve"
-                || !isSdkPublicKey(fields.owner) || !isSdkPublicKey(fields.sleeve)
-                || !isSdkPublicKey(fields.ownerUsdcDestination)
-                || !input.rpc.getMultipleAccountsInfoAndContext) {
-                throw new Error("close finalization requires owner, sleeve, destination and finalized batch RPC");
-            }
-            // Issue the opaque upstream capability ourselves after the release/gate check.
-            // Structural caller observations and clones can never become construction authority.
-            const observation = await observeFinalizedWriterCloseV1({
-                connection: {
-                    getGenesisHash: () => input.rpc.getGenesisHash(),
-                    getMultipleAccountsInfoAndContext: (addresses, config) => input.rpc.getMultipleAccountsInfoAndContext(addresses, config),
-                },
-                cluster: binding.spreadGovernance.cluster,
-                governance: binding.spreadGovernance,
-                minimumContextSlot: binding.governance.finalizedObservationSlot,
-                owner: fields.owner, sleeve: fields.sleeve, ownerUsdcDestination: fields.ownerUsdcDestination,
-                programId: binding.governedProgramId,
-            });
-            builderInput = { observation };
-        }
         built = (input.invokeBuilder ?? invokeReleaseBoundCurrentBuilderV1)({
             builderName: input.builderName,
             builderInput,

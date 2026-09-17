@@ -15,14 +15,10 @@ export declare const SDK_PACKAGE_BUILD_IDENTITY: Readonly<{
     nativePackage: {
         name: string;
         sourceCommit: string;
-        dependencySpec: string;
         path: string;
+        dependencySpec: string;
         bytes: number;
         sha256: string;
-        npmSha1: string;
-        npmIntegrity: string;
-        entryCount: number;
-        unpackedBytes: number;
     };
     nativePackageSource: {
         repository: string;
@@ -30,15 +26,15 @@ export declare const SDK_PACKAGE_BUILD_IDENTITY: Readonly<{
         sourceTree: string;
         sourceInventory: string;
         sourceInventorySha256: string;
+        sourceInventoryAlgorithm: string;
     };
     nativeSource: {
-        baseCommit: string;
         sourceCommit: string;
         sourceTree: string;
-        rustInputsSha256: string;
         sourceInventory: string;
         sourceInventorySha256: string;
         sourceInventoryAlgorithm: string;
+        baseCommit: string;
         cargoGitRevision: string;
     };
     nativeSbf: {
@@ -72,7 +68,8 @@ export declare const SDK_PACKAGE_BUILD_IDENTITY: Readonly<{
         };
     };
     qualificationScope: string;
-    finalizedDeployment: {
+    integrationLock: string;
+    historicalFinalizedDeployment: {
         descriptor: string;
         evidence: string;
         sourceCommit: string;
@@ -82,6 +79,7 @@ export declare const SDK_PACKAGE_BUILD_IDENTITY: Readonly<{
         finalizedSlot: number;
         gateEpoch: string;
     };
+    observedCandidateDeployment: null;
 }>;
 /** Derived byte identity, not a caller-configurable availability switch. */
 export declare const SDK_NATIVE_PACKAGE_MATCHES_RETAINED_RELEASE: boolean;

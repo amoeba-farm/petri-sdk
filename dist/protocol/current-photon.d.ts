@@ -18,6 +18,8 @@ export declare class CurrentPhotonError extends AmebaSdkError {
     });
 }
 export interface CreateCurrentPhotonConnectionInput {
+    /** Explicit network selection; Devnet remains the historical default. */
+    readonly network?: "devnet" | "mainnet-beta";
     /** Trusted packaged native verifier for authoritative reads; ordinary transaction transport does not require it. */
     readonly compressedEvidenceVerifier?: CurrentCompressedEvidenceVerifier;
     /** Dedicated Light/Photon endpoint. Its full validated href is retained only by the private RPC transport. */
@@ -104,6 +106,8 @@ export interface CurrentPhotonColdLoadObservation extends AmoebaDlmmColdAccountL
     readonly witness: CurrentPhotonColdLoadWitness;
 }
 export interface CurrentPhotonOwnerQueryConfig {
+    /** Opaque continuation within the same owner/filter/topology scope. */
+    readonly cursor?: string | null;
     /** Mandatory bounded page size. Values above 256 fail closed. */
     readonly limit: BN254;
     readonly filters?: GetCompressedAccountsFilter[];

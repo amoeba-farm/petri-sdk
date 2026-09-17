@@ -1,0 +1,213 @@
+⚠ [235/249] Replayed Ameba.Queries.WriterFundsAdmission.Theorems
+warning: Ameba/Queries/WriterFundsAdmission/Theorems.lean:50:6: This simp argument is unused:
+  true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitWriterFunds, hF, hA, hL, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, false_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/WriterFundsAdmission/Theorems.lean:50:16: This simp argument is unused:
+  false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitWriterFunds, hF, hA, hL, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, true_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/WriterFundsAdmission/Theorems.lean:63:6: This simp argument is unused:
+  true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitWriterFunds, hF, hA, hL, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, false_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/WriterFundsAdmission/Theorems.lean:63:16: This simp argument is unused:
+  false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitWriterFunds, hF, hA, hL, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, true_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/WriterFundsAdmission/Theorems.lean:76:6: This simp argument is unused:
+  true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitWriterFunds, hF, hA, hL, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, false_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/WriterFundsAdmission/Theorems.lean:76:16: This simp argument is unused:
+  false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitWriterFunds, hF, hA, hL, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, true_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [249/268] Replayed Ameba.Queries.WriterDlmmOperation.Theorems
+warning: Ameba/Queries/WriterDlmmOperation/Theorems.lean:22:53: This simp argument is unused:
+  Bool.true_eq_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitWriterDlmmOperation, WriterDlmmOperationAdmissible, hA, hL, hC, hT, Bool.not_true,
+    Bool.not_false, Bool.false_eq_true, eq_self, ite_true, ite_false, reduceCtorEq, true_and, false_and, and_false,
+    and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/WriterDlmmOperation/Theorems.lean:23:41: This simp argument is unused:
+  true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitWriterDlmmOperation, WriterDlmmOperationAdmissible, hA, hL, hC, hT, Bool.not_true,
+    Bool.not_false, Bool.true_eq_false, Bool.false_eq_true, eq_self, ite_true, ite_false, reduceCtorEq, false_and,
+    and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/WriterDlmmOperation/Theorems.lean:23:51: This simp argument is unused:
+  false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitWriterDlmmOperation, WriterDlmmOperationAdmissible, hA, hL, hC, hT, Bool.not_true,
+    Bool.not_false, Bool.true_eq_false, Bool.false_eq_true, eq_self, ite_true, ite_false, reduceCtorEq, true_and,
+    and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [252/268] Replayed Ameba.Queries.WriterDlmmCashAdmission.Theorems
+warning: Ameba/Queries/WriterDlmmCashAdmission/Theorems.lean:41:6: This simp argument is unused:
+  true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitWriterDlmmCash, WriterDlmmCashRejection, hP, hF, hC, hD, hS, ite_true, ite_false,
+    Except.error.injEq, reduceCtorEq, false_and, and_false, and_true, not_true_eq_false, not_false_eq_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/WriterDlmmCashAdmission/Theorems.lean:41:16: This simp argument is unused:
+  false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitWriterDlmmCash, WriterDlmmCashRejection, hP, hF, hC, hD, hS, ite_true, ite_false,
+    Except.error.injEq, reduceCtorEq, true_and, and_false, and_true, not_true_eq_false, not_false_eq_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [329/352] Replayed Ameba.Queries.OracleStakingAdmission.Theorems
+warning: Ameba/Queries/OracleStakingAdmission/Theorems.lean:49:6: This simp argument is unused:
+  true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitOracleStaking, hF, hA, hL, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, false_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/OracleStakingAdmission/Theorems.lean:49:16: This simp argument is unused:
+  false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitOracleStaking, hF, hA, hL, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, true_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/OracleStakingAdmission/Theorems.lean:62:6: This simp argument is unused:
+  true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitOracleStaking, hF, hA, hL, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, false_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/OracleStakingAdmission/Theorems.lean:62:16: This simp argument is unused:
+  false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitOracleStaking, hF, hA, hL, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, true_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/OracleStakingAdmission/Theorems.lean:75:6: This simp argument is unused:
+  true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitOracleStaking, hF, hA, hL, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, false_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/OracleStakingAdmission/Theorems.lean:75:16: This simp argument is unused:
+  false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitOracleStaking, hF, hA, hL, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, true_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [332/352] Replayed Ameba.Queries.OracleDisputeVoteAdmission.Theorems
+warning: Ameba/Queries/OracleDisputeVoteAdmission/Theorems.lean:35:6: This simp argument is unused:
+  true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitOracleDisputeVote, hF, hS, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, false_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/OracleDisputeVoteAdmission/Theorems.lean:35:16: This simp argument is unused:
+  false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitOracleDisputeVote, hF, hS, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, true_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/OracleDisputeVoteAdmission/Theorems.lean:35:27: This simp argument is unused:
+  and_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitOracleDisputeVote, hF, hS, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, true_and, false_and, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/OracleDisputeVoteAdmission/Theorems.lean:35:38: This simp argument is unused:
+  and_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitOracleDisputeVote, hF, hS, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, true_and, false_and, and_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/OracleDisputeVoteAdmission/Theorems.lean:45:6: This simp argument is unused:
+  true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitOracleDisputeVote, hF, hS, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, false_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/OracleDisputeVoteAdmission/Theorems.lean:45:16: This simp argument is unused:
+  false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitOracleDisputeVote, hF, hS, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, true_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/OracleDisputeVoteAdmission/Theorems.lean:55:6: This simp argument is unused:
+  true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitOracleDisputeVote, hF, hS, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, false_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/OracleDisputeVoteAdmission/Theorems.lean:55:16: This simp argument is unused:
+  false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitOracleDisputeVote, hF, hS, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, true_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Compute index regression tests passed.
+ChartProjection benchmark: rows=4800 output=4779 elapsedMs=0
+GuardedChartHistory compact transport benchmark: rows=4800 requestBytes=378270 elapsedMs=56
+GuardedChartHistory three-window batch: rows=4800 elapsedMs=106
+All current ameba_lean tests passed.

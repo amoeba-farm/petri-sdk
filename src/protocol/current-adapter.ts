@@ -1,3 +1,7 @@
+import { MAINNET_PROFILE, observeMainnetDeployment } from "../mainnet/index.js";
+import { decodeOraclePlayerLedgerBalance } from "@amoeba/spread-historical-v2/oracle-dlmm";
+import { deriveOraclePlayerLedgerPda } from "@amoeba/spread-historical-v2/oracle-dlmm";
+import { ORACLE_PLAYER_LEDGER_PDA_SEED } from "@amoeba/spread-historical-v2/oracle-dlmm";
 import { currentOracleActivationSetup, currentOracleActivationSetupManifests } from "./current-oracle-staking-setup.js";
 import { currentOracleStakingProofFacts, type CurrentOracleStakingProofFacts } from "./current-oracle-staking-proof.js";
 import { deriveCollectiveSettlementDelegatePda } from "./writer-sleeve.js";
@@ -96,12 +100,10 @@ import {
   LIGHT_TOKEN_CPI_AUTHORITY,
   LIGHT_TOKEN_PROGRAM_ID,
   LIGHT_TOKEN_RENT_SPONSOR,
-  ORACLE_PLAYER_LEDGER_PDA_SEED,
   SPL_TOKEN_PROGRAM_ID,
 } from "@amoeba/spread-release-tools/oracle-dlmm";
 import {
   buildDepositCollateralInstruction,
-  decodeOraclePlayerLedgerBalance,
 } from "@amoeba/spread-release-tools/oracle-dlmm";
 import {
   deriveContractMintPda,
@@ -109,7 +111,6 @@ import {
   deriveLightSplInterfacePda,
   deriveMarketPda,
   deriveOracleMonthPda,
-  deriveOraclePlayerLedgerPda,
   deriveOracleSkuCoverageManifestPda,
   deriveSettlementRecordV2Pda,
   deriveUserCollateralPda,
@@ -119,6 +120,7 @@ import {
 } from "@amoeba/spread-release-tools/oracle-dlmm";
 import { deriveOracleActiveWeightManifestPda } from "@amoeba/spread-release-tools/oracle-dlmm";
 import {
+  AMOEBA_DLMM_POOL_ACCOUNT_SIZE,
   AMOEBA_DLMM_BIN_PAGE_ACCOUNT_SIZE,
   AMOEBA_DLMM_POSITION_ACCOUNT_SIZE,
   AMOEBA_DLMM_POSITION_ACCOUNT_DISCRIMINATOR,
@@ -246,6 +248,7 @@ export interface CurrentDeploymentIdentity<Deployment = typeof CURRENT_PROTOCOL_
 }
 
 export interface CurrentAdapterContextInput {
+  readonly marketLayout?: "historical-v2" | "g3";
   readonly connection: Connection;
   readonly programId: PublicKey;
   readonly namespace: CurrentStateNamespace;
@@ -299,7 +302,7 @@ export interface CreateCurrentSdkAdapterInput {
   readonly connection: Connection;
   readonly programId: PublicKey | string;
   readonly namespace: CurrentStateNamespace;
-  readonly cluster: "devnet";
+  readonly cluster: "devnet" | "mainnet-beta";
   readonly releaseTag: typeof CURRENT_PROTOCOL_RELEASE;
   readonly releaseCommit: typeof CURRENT_PROTOCOL_SOURCE_COMMIT;
   readonly photonConnection?: CurrentPhotonConnection;
@@ -761,7 +764,8 @@ function validateCurrentColdLoadInstruction(input: {
   const packedLeafIndex = bytes.readUInt32LE(cursor);
   cursor += 4;
   const kind = bytes[cursor++];
-  const shape = input.data.length === 384 ? { kind: 0, bodyLength: 376, identityOffset: -1, identityLength: 0 }
+  const shape = input.data.length === AMOEBA_DLMM_POOL_ACCOUNT_SIZE
+    ? { kind: 0, bodyLength: AMOEBA_DLMM_POOL_ACCOUNT_SIZE - 8, identityOffset: -1, identityLength: 0 }
     : input.data.length === 602 ? { kind: 1, bodyLength: 594, identityOffset: 38, identityLength: 2 }
       : input.data.length === 594 ? { kind: 2, bodyLength: 586, identityOffset: 38, identityLength: 2 }
         : input.data.length === 637 ? { kind: 3, bodyLength: 629, identityOffset: 70, identityLength: 8 }
@@ -917,6 +921,7 @@ function decodeOptionalCurrentOracleMonthTarget(input: {
   readonly info: AccountInfo<Buffer> | null;
   readonly address: PublicKey;
   readonly expiryTs: bigint;
+  readonly marketLayout?: "historical-v2" | "g3";
   readonly namespace: "ameba-spread-v2";
   readonly programId: PublicKey;
 }): CurrentOracleMonthAccount | null {
@@ -933,6 +938,7 @@ function decodeOptionalCurrentOracleMonthTarget(input: {
   }
   requireProgramAccount("OracleMonth", info, input.programId, CURRENT_ORACLE_MONTH_ACCOUNT_SIZE);
   return decodeCurrentOracleMonthAccount({
+    marketLayout: input.marketLayout,
     address: input.address,
     data: info.data,
     owner: info.owner,
@@ -1081,8 +1087,9 @@ export async function readCurrentMarketAccount(
   if (info === null) {
     return { ...identity(), marketId: input.marketId, expiryId: input.expiryId, address, found: false, market: null };
   }
-  requireProgramAccount("Market", info, input.programId, CURRENT_MARKET_ACCOUNT_SIZE);
+  requireProgramAccount("Market", info, input.programId, input.marketLayout === "g3" ? 279 : CURRENT_MARKET_ACCOUNT_SIZE);
   const market = decodeStrictMarket({
+    marketLayout: input.marketLayout,
     address,
     data: info.data,
     owner: info.owner,
@@ -1128,11 +1135,11 @@ function validateCurrentAmoebaDlmmPoolValue(
     || pool.maximumPriceQuoteAtomic !== input.market.maxPayoutPerContract
     || pool.maximumBinId !== expectedMaximumBinId
     || pool.maximumPriceQuoteAtomic !== pool.tickSizeQuoteAtomic * BigInt(pool.maximumBinId)
-    || pool.swapFeeBps !== input.market.takerFeeBps
+    || 0 !== input.market.takerFeeBps
     || pool.maximumBinsPerSwap !== input.market.maxFillsPerInstruction
     || pool.maximumBinsPerSwap < 1
     || pool.maximumBinsPerSwap > 8
-    || pool.protocolFeeShareBps > 10_000
+    || 0 > 10_000
   ) {
     throw new CurrentSdkOperationError("CURRENT_DLMM_POOL_INVARIANT_INVALID", "DLMM pool is not bound to current market economics");
   }
@@ -1685,6 +1692,7 @@ export async function readCurrentAmoebaDlmmPool(
   }
   requireProgramAccount("OracleMonth", monthInfo, input.programId, CURRENT_ORACLE_MONTH_ACCOUNT_SIZE);
   const oracleMonth = decodeCurrentOracleMonthAccount({
+    marketLayout: input.marketLayout,
     address: oracleMonthAddress,
     data: monthInfo.data,
     owner: monthInfo.owner,
@@ -2060,10 +2068,18 @@ function isNonzeroHash(value: Uint8Array): boolean {
   return value.some((byte) => byte !== 0);
 }
 
+function currentScheduleTotalSeconds(scheduleVersion: number): bigint | null {
+  if (scheduleVersion === 2) return CURRENT_ORACLE_PRE_LISTING_WINDOW_SECONDS;
+  if (scheduleVersion === 3) return 4n * 3_600n;
+  if (scheduleVersion === 4) return 0n;
+  return null;
+}
+
 function hasCurrentRulebookSchedule(month: CurrentOracleMonthAccount): boolean {
-  return month.scheduleVersion === 2
+  const totalSeconds = currentScheduleTotalSeconds(month.scheduleVersion);
+  return totalSeconds !== null
     && month.scrambleStartTs !== 0n
-    && month.listingTs === month.scrambleStartTs + CURRENT_ORACLE_PRE_LISTING_WINDOW_SECONDS;
+    && month.listingTs === month.scrambleStartTs + totalSeconds;
 }
 
 function hasCurrentCanonicalWeightScheme(month: CurrentOracleMonthAccount): boolean {
@@ -2074,7 +2090,7 @@ function hasCurrentCanonicalWeightScheme(month: CurrentOracleMonthAccount): bool
 
 function hasCurrentActiveWeightScheme(month: CurrentOracleMonthAccount): boolean {
   return month.activeWeightInitializationVersion === 1
-    && month.activeWeightSchemeVersion === 1
+    && month.activeWeightSchemeVersion === 2
     && month.activeWeightGroupCount > 0
     && isNonzeroHash(month.activeWeightManifestHash);
 }
@@ -2109,7 +2125,9 @@ function isCurrentIssueSkuCoverageFinal(
   activeManifest: CurrentOracleActiveWeightManifestAccount | null,
 ): boolean {
   if (coverage === null || activeManifest === null || !isCurrentActiveWeightManifestFinal(month, activeManifest)) return false;
-  const expectedListing = coverage.plannedScrambleStartTs + CURRENT_ORACLE_PRE_LISTING_WINDOW_SECONDS;
+  const scheduleSeconds = currentScheduleTotalSeconds(month.scheduleVersion);
+  if (scheduleSeconds === null) return false;
+  const expectedListing = coverage.plannedScrambleStartTs + scheduleSeconds;
   return coverage.coverageFinalized
     && coverage.coverageCompleteTs !== 0n
     && coverage.coveredSkuCount === coverage.requiredSkuCount
@@ -2130,7 +2148,7 @@ async function resolvedPoolBytes(
 ): Promise<Uint8Array> {
   const hot = await input.connection.getAccountInfo(poolAddress, finalizedCommitment(input.commitment));
   if (hot !== null) {
-    requireProgramAccount("AmoebaDlmmPool", hot, input.programId, 384);
+    requireProgramAccount("AmoebaDlmmPool", hot, input.programId, AMOEBA_DLMM_POOL_ACCOUNT_SIZE);
     return hot.data;
   }
   const cold = resolver === undefined ? null : await resolver.resolveColdAccount(poolAddress);
@@ -3668,6 +3686,7 @@ export async function readCurrentOracleState(
       market,
       oracleMonthAddress,
       oracleMonth: decodeCurrentOracleMonthAccount({
+        marketLayout: input.marketLayout,
         address: oracleMonthAddress,
         data: info.data,
         owner: info.owner,
@@ -3712,6 +3731,7 @@ export async function buildCurrentOracleDraft(
   const expectedOracleMonth = deriveOracleMonthPda({ marketPda: marketAddress, expiryTs: refreshed.market.expiryTs, programId: input.programId });
   const oracleMonthInfo = await input.connection.getAccountInfo(expectedOracleMonth, finalizedCommitment(input.commitment));
   const oracleMonth = decodeOptionalCurrentOracleMonthTarget({
+    marketLayout: input.marketLayout,
     info: oracleMonthInfo,
     address: expectedOracleMonth,
     expiryTs: refreshed.market.expiryTs,
@@ -4566,13 +4586,14 @@ export function createCurrentSdkAdapter(input: CreateCurrentSdkAdapterInput): Cu
   if (
     programId.toBase58() !== DEFAULT_AMEBA_SPREAD_PROGRAM_ID
     || input.namespace !== CURRENT_STATE_NAMESPACE
-    || input.cluster !== CURRENT_PROTOCOL_CLUSTER
+    || (input.cluster !== CURRENT_PROTOCOL_CLUSTER && input.cluster !== "mainnet-beta")
     || input.releaseTag !== CURRENT_PROTOCOL_RELEASE
     || input.releaseCommit !== CURRENT_PROTOCOL_SOURCE_COMMIT
   ) {
     throw new CurrentSdkOperationError("CURRENT_ADAPTER_IDENTITY_INVALID", "adapter identity is not exact rc.44 Devnet");
   }
   const context = (commitment?: Commitment): CurrentAdapterContextInput => ({
+    marketLayout: input.cluster === "mainnet-beta" ? "g3" : "historical-v2",
     connection: input.connection,
     programId,
     namespace: CURRENT_STATE_NAMESPACE,
@@ -4613,7 +4634,13 @@ export function createCurrentSdkAdapter(input: CreateCurrentSdkAdapterInput): Cu
     }
     if (attestationCache?.observedSlot === observedSlot) return attestationCache.facts;
     if (attestationInFlight?.observedSlot === observedSlot) return attestationInFlight.promise;
-    const pending = readCurrentDeploymentFacts(context()).then((facts) => {
+    const pending = (input.cluster === "mainnet-beta" ? observeMainnetDeployment(input.connection).then(observed => ({
+      ...identity(), genesisHash: observed.genesisHash, programId: MAINNET_PROFILE.programId,
+      programExists: true, programExecutable: true, programDataAddress: MAINNET_PROFILE.programData,
+      programDataExists: true, programDataBytes: MAINNET_PROFILE.artifactBytes + 45,
+      upgradeAuthority: MAINNET_PROFILE.upgradeAuthority, programDataSlot: MAINNET_PROFILE.deployedSlot,
+      programPayloadBytes: MAINNET_PROFILE.artifactBytes, programPayloadSha256: MAINNET_PROFILE.artifactSha256, verified: true,
+    })) : readCurrentDeploymentFacts(context())).then((facts) => {
       attestationCache = { observedSlot, facts };
       return facts;
     });
@@ -4661,6 +4688,7 @@ export function createCurrentSdkAdapter(input: CreateCurrentSdkAdapterInput): Cu
     ))),
     decodeCurrentMarketAccount: (value) => decodeStrictMarket({
       ...value,
+      marketLayout: input.cluster === "mainnet-beta" ? "g3" : "historical-v2",
       namespace: CURRENT_STATE_NAMESPACE,
       programId,
     }),

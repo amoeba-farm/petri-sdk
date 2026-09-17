@@ -1,3 +1,4 @@
+import { Buffer } from "buffer";
 import { PublicKey, type Connection } from "@solana/web3.js";
 import type { IndexOracleRecipeSourceV1Input } from "./current-oracle-membership-internal.js";
 import { type OracleRecipeWeightManifestPreviewBucket } from "@amoeba/spread-release-tools/oracle-dlmm";
@@ -52,6 +53,16 @@ export declare function readCurrentOracleRecipeMembership(input: {
     recipeAddress: PublicKey;
     bucketAddress: PublicKey;
     recipe: import("./current-oracle-membership-internal.js").OracleRecipeSourceIndexSnapshot;
-    bucket: import("./current-oracle-membership-internal.js").OracleBucketSourceIndexSnapshot;
+    bucket: Readonly<{
+        sourceIds: readonly Buffer<ArrayBufferLike>[];
+        month: PublicKey;
+        recipeHash: Buffer;
+        bucketId: Buffer;
+        groupIndex: number;
+        firstSourceIndex: number;
+        bucketWeightBps: number;
+        sourceCount: number;
+    }>;
+    complete: true;
 }>>;
 //# sourceMappingURL=current-oracle-membership.d.ts.map

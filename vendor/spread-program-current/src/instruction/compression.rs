@@ -1,0 +1,573 @@
+use super::*;
+
+const CONTEXTUAL_ACCESS_DOMAIN_BIT: u8 = 0x80;
+// Lossless transport-only elision. The authenticated 216-byte source leaf is unchanged.
+const ZERO_HISTORY_DOMAIN_BIT: u8 = 0x40;
+const SOURCE_HISTORY_OFFSET: usize = 172;
+const CONTEXTUAL_ACCESS_SCHEMA_VERSION: u8 = 0;
+const ORACLE_SOURCE_UPDATE_WIRE_BYTES: usize = 134;
+const ORACLE_JOURNAL_UPDATE_WIRE_BYTES: usize = 36;
+
+fn decode_access_domain(value: u8) -> io::Result<(CompressedStateDomain, bool, bool)> {
+    let contextual = value & CONTEXTUAL_ACCESS_DOMAIN_BIT != 0;
+    let zero_history = value & ZERO_HISTORY_DOMAIN_BIT != 0;
+    let domain = match value & !(CONTEXTUAL_ACCESS_DOMAIN_BIT | ZERO_HISTORY_DOMAIN_BIT) {
+        1 => CompressedStateDomain::OracleSkuCoverageRecord,
+        2 => CompressedStateDomain::OracleUsdcSkuPool,
+        3 => CompressedStateDomain::OracleUsdcSourceReward,
+        4 => CompressedStateDomain::OracleUsdcRewardRegistration,
+        5 => CompressedStateDomain::OracleUsdcRewardReceipt,
+        8 => CompressedStateDomain::OracleSupportPosition,
+        9 => CompressedStateDomain::OracleSourceState,
+        10 => CompressedStateDomain::OracleSourceDescriptor,
+        11 => CompressedStateDomain::OracleSourceObservations,
+        12 => CompressedStateDomain::OracleCarryJournal,
+        13 => CompressedStateDomain::OracleCarryCheckpoint,
+        _ => return Err(io::ErrorKind::InvalidData.into()),
+    };
+    if contextual
+        && !matches!(
+            domain,
+            CompressedStateDomain::OracleSourceState | CompressedStateDomain::OracleCarryJournal
+        )
+    {
+        return Err(io::ErrorKind::InvalidData.into());
+    }
+    if zero_history && (contextual || domain != CompressedStateDomain::OracleSourceState) {
+        return Err(io::ErrorKind::InvalidData.into());
+    }
+    Ok((domain, contextual, zero_history))
+}
+
+fn contextual_access_data<R: io::Read>(
+    reader: &mut R,
+    domain: CompressedStateDomain,
+) -> io::Result<Vec<u8>> {
+    let mut data = vec![0; domain.compact_data_len()];
+    match domain {
+        CompressedStateDomain::OracleSourceState => {
+            let mut wire = [0; ORACLE_SOURCE_UPDATE_WIRE_BYTES];
+            reader.read_exact(&mut wire)?;
+            data[64..96].copy_from_slice(&wire[..32]);
+            data[112..130].copy_from_slice(&wire[32..50]);
+            data[132..172].copy_from_slice(&wire[50..90]);
+            data[172..216].copy_from_slice(&wire[90..]);
+        }
+        CompressedStateDomain::OracleCarryJournal => {
+            let mut wire = [0; ORACLE_JOURNAL_UPDATE_WIRE_BYTES];
+            reader.read_exact(&mut wire)?;
+            data[38..70].copy_from_slice(&wire[..32]);
+            data[102..106].copy_from_slice(&wire[32..]);
+        }
+        _ => return Err(io::ErrorKind::InvalidData.into()),
+    }
+    Ok(data)
+}
+
+#[derive(BorshSerialize, BorshDeserialize, Clone, Debug, PartialEq)]
+pub struct CompressionOutput {
+    pub address_tree_info: PackedAddressTreeInfo,
+    pub output_state_tree_index: u8,
+}
+
+pub(crate) fn deserialize_compression_output(data: &mut &[u8]) -> io::Result<CompressionOutput> {
+    let mut cursor = CheckedCursor::new(data);
+    let value = deserialize_compression_output_cursor(&mut cursor);
+    *data = cursor.finish()?;
+    Ok(value)
+}
+
+#[inline(never)]
+fn deserialize_compression_output_cursor(cursor: &mut CheckedCursor<'_>) -> CompressionOutput {
+    CompressionOutput {
+        address_tree_info: PackedAddressTreeInfo {
+            address_merkle_tree_pubkey_index: cursor.u8(),
+            address_queue_pubkey_index: cursor.u8(),
+            root_index: cursor.u16(),
+        },
+        output_state_tree_index: cursor.u8(),
+    }
+}
+
+#[derive(BorshSerialize, BorshDeserialize, Clone, Debug, PartialEq)]
+pub struct CompressedMarketPageWitness {
+    pub meta: CompressedAccountMeta,
+    pub expected_commitment: [u8; 32],
+    pub page: CompressedMarketPageLeaf,
+}
+
+#[derive(BorshSerialize, BorshDeserialize, Clone, Debug, PartialEq)]
+pub struct CompressedSettlementWitness {
+    pub meta: CompressedAccountMeta,
+    pub expected_commitment: [u8; 32],
+    pub settlement: CompressedSettlementLeaf,
+}
+
+/// How one logical typed PDA participates in an atomic compressed-state session.
+#[derive(Clone, Debug, PartialEq)]
+pub enum CompressedStateAccess {
+    /// Prove and materialize the leaf for the unchanged inner state machine, but reject any write.
+    ReadOnly {
+        account_index: u8,
+        meta: CompressedAccountMetaReadOnly,
+        leaf: CompressedAmebaStateLeaf,
+    },
+    /// Consume the exact old leaf and emit its revision-incremented successor.
+    Mutable {
+        account_index: u8,
+        meta: CompressedAccountMeta,
+        leaf: CompressedAmebaStateLeaf,
+    },
+    /// Capture a typed PDA created by the inner instruction, initialize its compressed address,
+    /// then close and refund the temporary native account before the transaction completes.
+    Initialize {
+        account_index: u8,
+        domain: CompressedStateDomain,
+        output: CompressionOutput,
+    },
+}
+
+impl BorshSerialize for CompressedStateAccess {
+    fn serialize<W: io::Write>(&self, writer: &mut W) -> io::Result<()> {
+        match self {
+            Self::ReadOnly {
+                account_index,
+                meta,
+                leaf,
+            } => {
+                0_u8.serialize(writer)?;
+                account_index.serialize(writer)?;
+                meta.tree_info.serialize(writer)?;
+                serialize_compact_access_leaf(writer, leaf)
+            }
+            Self::Mutable {
+                account_index,
+                meta,
+                leaf,
+            } => {
+                1_u8.serialize(writer)?;
+                account_index.serialize(writer)?;
+                meta.tree_info.serialize(writer)?;
+                meta.output_state_tree_index.serialize(writer)?;
+                serialize_compact_access_leaf(writer, leaf)
+            }
+            Self::Initialize {
+                account_index,
+                domain,
+                output,
+            } => {
+                2_u8.serialize(writer)?;
+                account_index.serialize(writer)?;
+                domain.serialize(writer)?;
+                output.serialize(writer)
+            }
+        }
+    }
+}
+
+impl BorshDeserialize for CompressedStateAccess {
+    fn deserialize_reader<R: io::Read>(reader: &mut R) -> io::Result<Self> {
+        let kind = u8::deserialize_reader(reader)?;
+        let account_index = u8::deserialize_reader(reader)?;
+        match kind {
+            0 => {
+                let tree_info = PackedStateTreeInfo::deserialize_reader(reader)?;
+                let leaf = deserialize_compact_access_leaf(reader)?;
+                Ok(Self::ReadOnly {
+                    account_index,
+                    meta: CompressedAccountMetaReadOnly {
+                        tree_info,
+                        address: [0; 32],
+                    },
+                    leaf,
+                })
+            }
+            1 => {
+                let tree_info = PackedStateTreeInfo::deserialize_reader(reader)?;
+                let output_state_tree_index = u8::deserialize_reader(reader)?;
+                let leaf = deserialize_compact_access_leaf(reader)?;
+                Ok(Self::Mutable {
+                    account_index,
+                    meta: CompressedAccountMeta {
+                        tree_info,
+                        address: [0; 32],
+                        output_state_tree_index,
+                    },
+                    leaf,
+                })
+            }
+            2 => Ok(Self::Initialize {
+                account_index,
+                domain: CompressedStateDomain::deserialize_reader(reader)?,
+                output: CompressionOutput::deserialize_reader(reader)?,
+            }),
+            _ => Err(io::ErrorKind::InvalidData.into()),
+        }
+    }
+}
+
+fn serialize_compact_access_leaf<W: io::Write>(
+    writer: &mut W,
+    leaf: &CompressedAmebaStateLeaf,
+) -> io::Result<()> {
+    if leaf.schema_version != CompressedAmebaStateLeaf::CURRENT_SCHEMA_VERSION
+        || leaf.data.len() != leaf.domain.compact_data_len()
+    {
+        return Err(io::ErrorKind::InvalidData.into());
+    }
+    let zero_history = leaf.domain == CompressedStateDomain::OracleSourceState
+        && leaf.data[SOURCE_HISTORY_OFFSET..].iter().all(|v| *v == 0);
+    if zero_history {
+        ((leaf.domain as u8) | ZERO_HISTORY_DOMAIN_BIT).serialize(writer)?;
+    } else {
+        leaf.domain.serialize(writer)?;
+    }
+    leaf.revision.serialize(writer)?;
+    if zero_history {
+        writer.write_all(&leaf.data[..SOURCE_HISTORY_OFFSET])
+    } else if leaf.domain == CompressedStateDomain::OracleSourceObservations {
+        let wire = crate::observation_wire::pack_compact(&leaf.data)
+            .ok_or_else(|| io::Error::from(io::ErrorKind::InvalidData))?;
+        let wire_len =
+            u16::try_from(wire.len()).map_err(|_| io::Error::from(io::ErrorKind::InvalidData))?;
+        writer.write_all(&wire_len.to_le_bytes())?;
+        writer.write_all(&wire)
+    } else {
+        writer.write_all(&leaf.data)
+    }
+}
+
+fn deserialize_compact_access_leaf<R: io::Read>(
+    reader: &mut R,
+) -> io::Result<CompressedAmebaStateLeaf> {
+    let (domain, contextual, zero_history) = decode_access_domain(u8::deserialize_reader(reader)?)?;
+    let revision = u64::deserialize_reader(reader)?;
+    let data = if contextual {
+        contextual_access_data(reader, domain)?
+    } else if zero_history {
+        let mut data = vec![0; domain.compact_data_len()];
+        reader.read_exact(&mut data[..SOURCE_HISTORY_OFFSET])?;
+        data
+    } else if domain == CompressedStateDomain::OracleSourceObservations {
+        let wire_len = usize::from(u16::deserialize_reader(reader)?);
+        if wire_len == 0 || wire_len > MAX_COMPRESSED_STATE_LEAF_BYTES {
+            return Err(io::ErrorKind::InvalidData.into());
+        }
+        let mut wire = vec![0; wire_len];
+        reader.read_exact(&mut wire)?;
+        crate::observation_wire::unpack_compact(&wire)
+            .ok_or_else(|| io::Error::from(io::ErrorKind::InvalidData))?
+    } else {
+        let mut data = vec![0; domain.compact_data_len()];
+        reader.read_exact(&mut data)?;
+        data
+    };
+    Ok(CompressedAmebaStateLeaf {
+        schema_version: if contextual {
+            CONTEXTUAL_ACCESS_SCHEMA_VERSION
+        } else {
+            CompressedAmebaStateLeaf::CURRENT_SCHEMA_VERSION
+        },
+        domain,
+        canonical_pda: Pubkey::default(),
+        revision,
+        data,
+    })
+}
+
+impl CompressedStateAccess {
+    pub fn account_index(&self) -> u8 {
+        match self {
+            Self::ReadOnly { account_index, .. }
+            | Self::Mutable { account_index, .. }
+            | Self::Initialize { account_index, .. } => *account_index,
+        }
+    }
+
+    pub fn domain(&self) -> CompressedStateDomain {
+        match self {
+            Self::ReadOnly { leaf, .. } | Self::Mutable { leaf, .. } => leaf.domain,
+            Self::Initialize { domain, .. } => *domain,
+        }
+    }
+}
+
+#[inline(always)]
+fn envelope_domain(cursor: &mut CheckedCursor<'_>) -> CompressedStateDomain {
+    match cursor.u8() {
+        1 => CompressedStateDomain::OracleSkuCoverageRecord,
+        2 => CompressedStateDomain::OracleUsdcSkuPool,
+        3 => CompressedStateDomain::OracleUsdcSourceReward,
+        4 => CompressedStateDomain::OracleUsdcRewardRegistration,
+        5 => CompressedStateDomain::OracleUsdcRewardReceipt,
+        8 => CompressedStateDomain::OracleSupportPosition,
+        9 => CompressedStateDomain::OracleSourceState,
+        10 => CompressedStateDomain::OracleSourceDescriptor,
+        11 => CompressedStateDomain::OracleSourceObservations,
+        12 => CompressedStateDomain::OracleCarryJournal,
+        13 => CompressedStateDomain::OracleCarryCheckpoint,
+        _ => {
+            cursor.invalid = true;
+            CompressedStateDomain::OracleSkuCoverageRecord
+        }
+    }
+}
+
+fn envelope_leaf_domain(cursor: &mut CheckedCursor<'_>) -> (CompressedStateDomain, bool, bool) {
+    match decode_access_domain(cursor.u8()) {
+        Ok(value) => value,
+        Err(_) => {
+            cursor.invalid = true;
+            (CompressedStateDomain::OracleSkuCoverageRecord, false, false)
+        }
+    }
+}
+
+fn contextual_access_data_cursor(
+    cursor: &mut CheckedCursor<'_>,
+    domain: CompressedStateDomain,
+) -> Vec<u8> {
+    let wire_len = match domain {
+        CompressedStateDomain::OracleSourceState => ORACLE_SOURCE_UPDATE_WIRE_BYTES,
+        CompressedStateDomain::OracleCarryJournal => ORACLE_JOURNAL_UPDATE_WIRE_BYTES,
+        _ => {
+            cursor.invalid = true;
+            return vec![0; domain.compact_data_len()];
+        }
+    };
+    let wire = cursor.vec(wire_len);
+    let mut reader = wire.as_slice();
+    match contextual_access_data(&mut reader, domain) {
+        Ok(data) if reader.is_empty() => data,
+        _ => {
+            cursor.invalid = true;
+            vec![0; domain.compact_data_len()]
+        }
+    }
+}
+
+fn envelope_leaf(cursor: &mut CheckedCursor<'_>) -> CompressedAmebaStateLeaf {
+    let (domain, contextual, zero_history) = envelope_leaf_domain(cursor);
+    let revision = cursor.u64();
+    let data = if contextual {
+        contextual_access_data_cursor(cursor, domain)
+    } else if zero_history {
+        let mut data = cursor.vec(SOURCE_HISTORY_OFFSET);
+        data.resize(domain.compact_data_len(), 0);
+        data
+    } else if domain == CompressedStateDomain::OracleSourceObservations {
+        let wire_len = usize::from(cursor.u16());
+        if wire_len == 0 || wire_len > MAX_COMPRESSED_STATE_LEAF_BYTES {
+            cursor.invalid = true;
+            vec![0; domain.compact_data_len()]
+        } else {
+            let wire = cursor.vec(wire_len);
+            match crate::observation_wire::unpack_compact(&wire) {
+                Some(data) => data,
+                None => {
+                    cursor.invalid = true;
+                    vec![0; domain.compact_data_len()]
+                }
+            }
+        }
+    } else {
+        cursor.vec(domain.compact_data_len())
+    };
+    CompressedAmebaStateLeaf {
+        schema_version: if contextual {
+            CONTEXTUAL_ACCESS_SCHEMA_VERSION
+        } else {
+            CompressedAmebaStateLeaf::CURRENT_SCHEMA_VERSION
+        },
+        domain,
+        canonical_pda: Pubkey::default(),
+        revision,
+        data,
+    }
+}
+
+fn envelope_access(cursor: &mut CheckedCursor<'_>) -> CompressedStateAccess {
+    let kind = cursor.u8();
+    let account_index = cursor.u8();
+    match kind {
+        0 => CompressedStateAccess::ReadOnly {
+            account_index,
+            meta: CompressedAccountMetaReadOnly {
+                tree_info: deserialize_packed_state_tree_info_cursor(cursor),
+                address: [0; 32],
+            },
+            leaf: envelope_leaf(cursor),
+        },
+        1 => CompressedStateAccess::Mutable {
+            account_index,
+            meta: CompressedAccountMeta {
+                tree_info: deserialize_packed_state_tree_info_cursor(cursor),
+                address: [0; 32],
+                output_state_tree_index: cursor.u8(),
+            },
+            leaf: envelope_leaf(cursor),
+        },
+        2 => CompressedStateAccess::Initialize {
+            account_index,
+            domain: envelope_domain(cursor),
+            output: deserialize_compression_output_cursor(cursor),
+        },
+        _ => {
+            cursor.invalid = true;
+            CompressedStateAccess::Initialize {
+                account_index,
+                domain: CompressedStateDomain::OracleSkuCoverageRecord,
+                output: CompressionOutput {
+                    address_tree_info: PackedAddressTreeInfo::default(),
+                    output_state_tree_index: 0,
+                },
+            }
+        }
+    }
+}
+
+/// Proof-aware transport around one existing instruction. `accounts` are laid out as the exact
+/// inner account prefix, one appended classic system-program account, then the ordinary packed
+/// Light CPI accounts. Public clients build this wrapper internally; the inner payload and state
+/// transition remain unchanged.
+#[derive(Clone, Debug, PartialEq)]
+pub struct ExecuteCompressedStateParams {
+    pub core_account_count: u8,
+    pub rent_payer_index: u8,
+    pub proof: ValidityProof,
+    pub accesses: Vec<CompressedStateAccess>,
+    pub inner_instruction: Vec<u8>,
+}
+
+impl BorshSerialize for ExecuteCompressedStateParams {
+    fn serialize<W: io::Write>(&self, writer: &mut W) -> io::Result<()> {
+        if self.accesses.len() > MAX_COMPRESSED_STATE_SESSION_RECORDS
+            || self.inner_instruction.len() > MAX_COMPRESSED_INNER_INSTRUCTION_BYTES
+            || self.inner_instruction.len() > usize::from(u16::MAX)
+        {
+            return Err(invalid_bounded_length(
+                "compressed state session",
+                self.accesses.len().max(self.inner_instruction.len()),
+                MAX_COMPRESSED_INNER_INSTRUCTION_BYTES,
+            ));
+        }
+        self.core_account_count.serialize(writer)?;
+        self.rent_payer_index.serialize(writer)?;
+        self.proof.serialize(writer)?;
+        (self.accesses.len() as u8).serialize(writer)?;
+        for access in &self.accesses {
+            access.serialize(writer)?;
+        }
+        (self.inner_instruction.len() as u16).serialize(writer)?;
+        writer.write_all(&self.inner_instruction)
+    }
+}
+
+impl BorshDeserialize for ExecuteCompressedStateParams {
+    fn deserialize(data: &mut &[u8]) -> io::Result<Self> {
+        let mut cursor = CheckedCursor::new(data);
+        let core_account_count = cursor.u8();
+        let rent_payer_index = cursor.u8();
+        let proof = deserialize_validity_proof_cursor(&mut cursor);
+        let access_count = usize::from(cursor.u8());
+        if access_count > MAX_COMPRESSED_STATE_SESSION_RECORDS {
+            cursor.invalid = true;
+        }
+        let bounded_access_count = access_count.min(MAX_COMPRESSED_STATE_SESSION_RECORDS);
+        let mut accesses = Vec::with_capacity(bounded_access_count);
+        for _ in 0..bounded_access_count {
+            accesses.push(envelope_access(&mut cursor));
+        }
+        let inner_length = usize::from(cursor.u16());
+        if inner_length > MAX_COMPRESSED_INNER_INSTRUCTION_BYTES {
+            cursor.invalid = true;
+        }
+        let inner_instruction =
+            cursor.vec(inner_length.min(MAX_COMPRESSED_INNER_INSTRUCTION_BYTES));
+        *data = cursor.finish()?;
+        Ok(Self {
+            core_account_count,
+            rent_payer_index,
+            proof,
+            accesses,
+            inner_instruction,
+        })
+    }
+
+    fn deserialize_reader<R: io::Read>(reader: &mut R) -> io::Result<Self> {
+        let core_account_count = u8::deserialize_reader(reader)?;
+        let rent_payer_index = u8::deserialize_reader(reader)?;
+        let proof = ValidityProof::deserialize_reader(reader)?;
+        let access_count = usize::from(u8::deserialize_reader(reader)?);
+        if access_count > MAX_COMPRESSED_STATE_SESSION_RECORDS {
+            return Err(invalid_bounded_length(
+                "compressed_state_accesses",
+                access_count,
+                MAX_COMPRESSED_STATE_SESSION_RECORDS,
+            ));
+        }
+        let mut accesses = Vec::with_capacity(access_count);
+        for _ in 0..access_count {
+            accesses.push(CompressedStateAccess::deserialize_reader(reader)?);
+        }
+        let inner_length = usize::from(u16::deserialize_reader(reader)?);
+        if inner_length > MAX_COMPRESSED_INNER_INSTRUCTION_BYTES {
+            return Err(invalid_bounded_length(
+                "compressed_inner_instruction",
+                inner_length,
+                MAX_COMPRESSED_INNER_INSTRUCTION_BYTES,
+            ));
+        }
+        let mut inner_instruction = vec![0; inner_length];
+        reader.read_exact(&mut inner_instruction)?;
+        Ok(Self {
+            core_account_count,
+            rent_payer_index,
+            proof,
+            accesses,
+            inner_instruction,
+        })
+    }
+}
+
+#[cfg(test)]
+mod zero_history_tests {
+    use super::*;
+    #[test]
+    fn source_history_elision_is_lossless_and_both_decoders_reject_truncation() {
+        let mut leaf = CompressedAmebaStateLeaf {
+            schema_version: CompressedAmebaStateLeaf::CURRENT_SCHEMA_VERSION,
+            domain: CompressedStateDomain::OracleSourceState,
+            canonical_pda: Pubkey::default(),
+            revision: u64::MAX,
+            data: vec![7; 216],
+        };
+        leaf.data[172..].fill(0);
+        let mut wire = vec![];
+        serialize_compact_access_leaf(&mut wire, &leaf).unwrap();
+        assert_eq!(wire.len(), 181);
+        assert_eq!(wire[0], 0x49);
+        assert_eq!(
+            deserialize_compact_access_leaf(&mut wire.as_slice()).unwrap(),
+            leaf
+        );
+        let mut cursor = CheckedCursor::new(&wire);
+        assert_eq!(envelope_leaf(&mut cursor), leaf);
+        assert!(cursor.finish().unwrap().is_empty());
+        assert!(deserialize_compact_access_leaf(&mut &wire[..180]).is_err());
+        let mut cursor = CheckedCursor::new(&wire[..180]);
+        let _ = envelope_leaf(&mut cursor);
+        assert!(cursor.finish().is_err());
+        assert!(decode_access_domain(0xc9).is_err());
+        assert!(decode_access_domain(0x42).is_err());
+        leaf.data[215] = 1;
+        wire.clear();
+        serialize_compact_access_leaf(&mut wire, &leaf).unwrap();
+        assert_eq!(wire.len(), 225);
+        assert_eq!(wire[0], 9);
+        assert_eq!(
+            deserialize_compact_access_leaf(&mut wire.as_slice()).unwrap(),
+            leaf
+        );
+    }
+}

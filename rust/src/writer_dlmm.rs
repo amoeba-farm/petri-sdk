@@ -1,8 +1,8 @@
 //! Candidate source bindings. Requires the matching native dependency before release.
 use solana_program::{instruction::{AccountMeta, Instruction}, pubkey::Pubkey};
 use crate::protocol::{build_current_vault_instruction, CurrentProtocolError, CURRENT_SYSTEM_PROGRAM_ID};
-pub use ameba_spread_program::writer_dlmm_instruction::{BeginWriterDlmmPolicyV1Params, ManageWriterDlmmV1Params};
-pub use ameba_spread_program::state::{WriterDlmmBinV1, WriterDlmmSeriesPolicyV1, WriterDlmmPolicyV1,
+pub use ameba_spread_historical::writer_dlmm_instruction::{BeginWriterDlmmPolicyV1Params, ManageWriterDlmmV1Params};
+pub use ameba_spread_historical::state::{WriterDlmmBinV1, WriterDlmmSeriesPolicyV1, WriterDlmmPolicyV1,
     WriterDlmmPositionV1, derive_writer_dlmm_policy_pda, derive_writer_dlmm_position_pda};
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

@@ -1,0 +1,48 @@
+{
+  "schema": "ameba-mainnet-finalized-observation-v1",
+  "network": "mainnet-beta",
+  "genesisHash": "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d",
+  "observedAt": "2026-09-17T04:12:30.316Z",
+  "slot": 447701131,
+  "accounts": [
+    {
+      "address": "2jVQSPny9eFoaG1ZWoJVAezQ5VgqJtF8rQCQXMktuBVw",
+      "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+      "executable": true,
+      "bytes": 36,
+      "sha256": "83be84ac424d864aacf03e489ff8fe3f0a6957e8726c8f9c48f572df6b522e75"
+    },
+    {
+      "address": "8KR6hgcQehz32jm7CvrAriYNhvT2Bu9JuUWHce81J1oh",
+      "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+      "executable": false,
+      "bytes": 1410349,
+      "sha256": "1388e06542638ff149b4ccd5369f4ebe9f5d1a36860ad1330c1d284c3b336e5d",
+      "payloadBytes": 1410304,
+      "payloadSha256": "20e7bb1c45be1d75fddd75070ab6c08f8dc2d1ffd303f6aaff8322bc1bb2de84",
+      "deployedSlot": 447697584
+    },
+    {
+      "address": "Cdym9p7FvtxEAjF8XuCqSrishB7LmBDXaZGDMMgWczu",
+      "owner": "8fhNi6QHU5TYNhoPDM4vs89ZBztnpxp3LnBXRgkBVKtx",
+      "executable": false,
+      "bytes": 192,
+      "sha256": "9525dc2534343b9c7831253e79565fc5b56f7484f6b2bdb58e0fbf7a1675bec0",
+      "status": 0,
+      "epoch": "9"
+    },
+    {
+      "address": "7eW9UXcCDrpEAQ93fP7o2zgGMKhAKi3zJLihELjR8xYd",
+      "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+      "executable": false,
+      "bytes": 223141,
+      "sha256": "1c24517bb3794c5fdcbe7de8aaa18513641670bd7828deefede6021bc92d5745",
+      "payloadBytes": 223096,
+      "payloadSha256": "53d821d40ea5480f3ca896533b870be22c3bbc5138857680244c4ac45c4dfe77",
+      "deployedSlot": 447481538
+    }
+  ],
+  "photonHealthy": true,
+  "photonReadOnly": true,
+  "photonProofOperationsQualified": false
+}

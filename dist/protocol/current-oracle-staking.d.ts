@@ -1,6 +1,6 @@
 /** Finalized canonical staking reads and native economic planning; no transaction execution. */
 import { PublicKey, type Connection } from "@solana/web3.js";
-import * as native from "@amoeba/spread-release-tools/oracle-dlmm";
+import * as native from "@amoeba/spread-historical-v2/oracle-dlmm";
 import { type CurrentOracleActionRequest } from "./current-oracle-public.js";
 export type CurrentOracleStakingRequest = Extract<CurrentOracleActionRequest, {
     readonly actionType: "queue_stake_amba_for_samba" | "activate_queued_stake_amba_for_samba" | "request_unstake_samba" | "complete_unstake_samba";

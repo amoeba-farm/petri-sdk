@@ -1,3 +1,6 @@
+import * as participation from "@amoeba/spread-release-tools/writer-participation";
+import * as orders from "@amoeba/spread-release-tools/dlmm-orders";
+import * as evidence from "@amoeba/spread-release-tools/oracle-evidence";
 import { PublicKey, TransactionInstruction } from "@solana/web3.js";
 import { AmebaProgramIdMismatchError, AmebaProtocolError } from "../errors.js";
 import { AMOEBA_SPREAD_PROGRAM_ID } from "./identity.js";
@@ -38,13 +41,13 @@ function pinInput(input, builderName) {
     }
     return { ...record, programId: CURRENT_PROGRAM_ID };
 }
-function assertCurrentOutput(value, builderName) {
+function assertCurrentOutput(value, builderName, expectedProgram = CURRENT_PROGRAM_ID) {
     const outputs = Array.isArray(value) ? value : [value];
     for (const output of outputs) {
         if (!(output instanceof TransactionInstruction)) {
             throw new AmebaProgramIdMismatchError(`${builderName} did not return a TransactionInstruction`);
         }
-        if (!output.programId.equals(CURRENT_PROGRAM_ID)) {
+        if (!output.programId.equals(expectedProgram)) {
             throw new AmebaProgramIdMismatchError(`${builderName} emitted a non-current program instruction`, {
                 details: {
                     builderName,
@@ -90,7 +93,7 @@ export function invokeReleaseBoundCurrentBuilderV1(input) {
             code: "CURRENT_GOVERNED_BUILDER_PROGRAM_FORBIDDEN",
         });
     }
-    if (!input.governedProgramId.equals(CURRENT_PROGRAM_ID)) {
+    if (!input.governedProgramId.equals(input.expectedProgramId ?? CURRENT_PROGRAM_ID)) {
         throw new AmebaProtocolError("governed current builder target is not the pinned Spread program", {
             code: "CURRENT_GOVERNED_BUILDER_PROGRAM_INVALID",
         });
@@ -102,7 +105,7 @@ export function invokeReleaseBoundCurrentBuilderV1(input) {
         });
     }
     return Object.freeze({
-        value: assertCurrentOutput(registration.builder({ ...builderInput, programId: input.governedProgramId }), input.builderName),
+        value: assertCurrentOutput(registration.builder({ ...builderInput, programId: input.governedProgramId }), input.builderName, input.expectedProgramId ?? CURRENT_PROGRAM_ID),
         governanceMode: registration.governanceMode,
     });
 }
@@ -125,21 +128,32 @@ export const buildSetMarketPausedInstruction = pinBuilder("buildSetMarketPausedI
 export const buildAddOracleUsdcSkuBudgetInstruction = pinBuilder("buildAddOracleUsdcSkuBudgetInstruction", oracleInstructions.buildAddOracleUsdcSkuBudgetInstruction);
 export const buildBeginOracleUsdcRewardScheduleInstruction = pinBuilder("buildBeginOracleUsdcRewardScheduleInstruction", oracleInstructions.buildBeginOracleUsdcRewardScheduleInstruction);
 export const buildConfigureOracleEconomicsTemplateV2Instruction = pinBuilder("buildConfigureOracleEconomicsTemplateV2Instruction", oracleInstructions.buildConfigureOracleEconomicsTemplateV2Instruction);
-export const buildConfigureOracleMajorTokenInstruction = pinBuilder("buildConfigureOracleMajorTokenInstruction", oracleInstructions.buildConfigureOracleMajorTokenInstruction);
-export const buildDepositOracleMajorTokensInstruction = pinBuilder("buildDepositOracleMajorTokensInstruction", oracleInstructions.buildDepositOracleMajorTokensInstruction);
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildConfigureOracleMajorTokenInstruction = retiredBuilder("buildConfigureOracleMajorTokenInstruction");
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildDepositOracleMajorTokensInstruction = retiredBuilder("buildDepositOracleMajorTokensInstruction");
 export const buildDepositOracleUsdcRewardsInstruction = pinBuilder("buildDepositOracleUsdcRewardsInstruction", oracleInstructions.buildDepositOracleUsdcRewardsInstruction);
 export const buildFinalizeOracleUsdcRewardScheduleInstruction = pinBuilder("buildFinalizeOracleUsdcRewardScheduleInstruction", oracleInstructions.buildFinalizeOracleUsdcRewardScheduleInstruction);
-export const buildInitializeOracleSambaPoolInstruction = pinBuilder("buildInitializeOracleSambaPoolInstruction", oracleInstructions.buildInitializeOracleSambaPoolInstruction);
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildInitializeOracleSambaPoolInstruction = retiredBuilder("buildInitializeOracleSambaPoolInstruction");
 export const buildInitializeOracleUsdcRewardVaultInstruction = pinBuilder("buildInitializeOracleUsdcRewardVaultInstruction", oracleInstructions.buildInitializeOracleUsdcRewardVaultInstruction);
-export const buildWithdrawOracleMajorTokensInstruction = pinBuilder("buildWithdrawOracleMajorTokensInstruction", oracleInstructions.buildWithdrawOracleMajorTokensInstruction);
-export const buildActivateQueuedStakeAmbaForSambaInstruction = pinBuilder("buildActivateQueuedStakeAmbaForSambaInstruction", oracleInstructions.buildActivateQueuedStakeAmbaForSambaInstruction);
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildWithdrawOracleMajorTokensInstruction = retiredBuilder("buildWithdrawOracleMajorTokensInstruction");
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildActivateQueuedStakeAmbaForSambaInstruction = retiredBuilder("buildActivateQueuedStakeAmbaForSambaInstruction");
 export const buildAdminAssistedWithdrawCollateralInstruction = pinBuilder("buildAdminAssistedWithdrawCollateralInstruction", oracleInstructions.buildAdminAssistedWithdrawCollateralInstruction);
-export const buildCancelQueuedStakeAmbaInstruction = pinBuilder("buildCancelQueuedStakeAmbaInstruction", oracleInstructions.buildCancelQueuedStakeAmbaInstruction);
-export const buildCompleteUnstakeSambaInstruction = pinBuilder("buildCompleteUnstakeSambaInstruction", oracleInstructions.buildCompleteUnstakeSambaInstruction);
-export const buildInitializeOracleRewardFunnelInstruction = pinBuilder("buildInitializeOracleRewardFunnelInstruction", oracleInstructions.buildInitializeOracleRewardFunnelInstruction);
-export const buildQueueStakeAmbaForSambaInstruction = pinBuilder("buildQueueStakeAmbaForSambaInstruction", oracleInstructions.buildQueueStakeAmbaForSambaInstruction);
-export const buildRequestUnstakeSambaInstruction = pinBuilder("buildRequestUnstakeSambaInstruction", oracleInstructions.buildRequestUnstakeSambaInstruction);
-export const buildSweepOracleRewardFunnelInstruction = pinBuilder("buildSweepOracleRewardFunnelInstruction", oracleInstructions.buildSweepOracleRewardFunnelInstruction);
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildCancelQueuedStakeAmbaInstruction = retiredBuilder("buildCancelQueuedStakeAmbaInstruction");
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildCompleteUnstakeSambaInstruction = retiredBuilder("buildCompleteUnstakeSambaInstruction");
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildInitializeOracleRewardFunnelInstruction = retiredBuilder("buildInitializeOracleRewardFunnelInstruction");
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildQueueStakeAmbaForSambaInstruction = retiredBuilder("buildQueueStakeAmbaForSambaInstruction");
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildRequestUnstakeSambaInstruction = retiredBuilder("buildRequestUnstakeSambaInstruction");
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildSweepOracleRewardFunnelInstruction = retiredBuilder("buildSweepOracleRewardFunnelInstruction");
 export const buildClaimOracleUsdcRewardInstruction = pinBuilder("buildClaimOracleUsdcRewardInstruction", oracleInstructions.buildClaimOracleUsdcRewardInstruction);
 export const buildFinalizeOracleUsdcRewardEntitlementsInstruction = pinBuilder("buildFinalizeOracleUsdcRewardEntitlementsInstruction", oracleInstructions.buildFinalizeOracleUsdcRewardEntitlementsInstruction);
 export const buildProposeOracleSourceV3Instruction = pinBuilder("buildProposeOracleSourceV3Instruction", oracleInstructions.buildProposeOracleSourceV3Instruction);
@@ -169,7 +183,8 @@ export const buildResolveOracleOpeningClaimChallengeV2Instruction = pinBuilder("
 export const buildSettleFailedOracleMonthEscrowV2Instruction = pinBuilder("buildSettleFailedOracleMonthEscrowV2Instruction", oracleInstructions.buildSettleFailedOracleMonthEscrowV2Instruction);
 export const buildSettleOracleUsdcEscrowInstruction = pinBuilder("buildSettleOracleUsdcEscrowInstruction", oracleInstructions.buildSettleOracleUsdcEscrowInstruction);
 export const buildSubmitOracleOpeningClaimV2Instruction = pinBuilder("buildSubmitOracleOpeningClaimV2Instruction", oracleInstructions.buildSubmitOracleOpeningClaimV2Instruction);
-export const buildAbortStaleOracleUpdateEmergencyDisputeV2Instruction = pinBuilder("buildAbortStaleOracleUpdateEmergencyDisputeV2Instruction", oracleInstructions.buildAbortStaleOracleUpdateEmergencyDisputeV2Instruction);
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildAbortStaleOracleUpdateEmergencyDisputeV2Instruction = retiredBuilder("buildAbortStaleOracleUpdateEmergencyDisputeV2Instruction");
 export const buildCancelStaleOracleUpdateClaimV2Instruction = pinBuilder("buildCancelStaleOracleUpdateClaimV2Instruction", oracleInstructions.buildCancelStaleOracleUpdateClaimV2Instruction);
 export const buildChallengeOracleUpdateClaimV2Instruction = pinBuilder("buildChallengeOracleUpdateClaimV2Instruction", oracleInstructions.buildChallengeOracleUpdateClaimV2Instruction);
 export const buildCommitOracleUpdateClaimV3Instruction = pinBuilder("buildCommitOracleUpdateClaimV3Instruction", oracleInstructions.buildCommitOracleUpdateClaimV3Instruction);
@@ -177,14 +192,21 @@ export const buildFinalizeOracleUpdateClaimV2Instruction = pinBuilder("buildFina
 export const buildRevealOracleUpdateClaimV3Instruction = pinBuilder("buildRevealOracleUpdateClaimV3Instruction", oracleInstructions.buildRevealOracleUpdateClaimV3Instruction);
 export const buildSettleExpiredOracleUpdateCommitmentV3Instruction = pinBuilder("buildSettleExpiredOracleUpdateCommitmentV3Instruction", oracleInstructions.buildSettleExpiredOracleUpdateCommitmentV3Instruction);
 export const buildAbortOracleUsdcRewardScheduleV2Instruction = pinBuilder("buildAbortOracleUsdcRewardScheduleV2Instruction", oracleInstructions.buildAbortOracleUsdcRewardScheduleV2Instruction);
-export const buildCommitOracleEmergencyVoteV3Instruction = pinBuilder("buildCommitOracleEmergencyVoteV3Instruction", oracleInstructions.buildCommitOracleEmergencyVoteV3Instruction);
-export const buildRegisterOracleSambaWinningVoteInstruction = pinBuilder("buildRegisterOracleSambaWinningVoteInstruction", oracleInstructions.buildRegisterOracleSambaWinningVoteInstruction);
-export const buildResolveOracleEmergencyDisputeV2Instruction = pinBuilder("buildResolveOracleEmergencyDisputeV2Instruction", oracleInstructions.buildResolveOracleEmergencyDisputeV2Instruction);
-export const buildResolveOracleEmergencyDisputeV4Instruction = pinBuilder("buildResolveOracleEmergencyDisputeV4Instruction", oracleInstructions.buildResolveOracleEmergencyDisputeV4Instruction);
-export const buildRevealOracleEmergencyVoteV2Instruction = pinBuilder("buildRevealOracleEmergencyVoteV2Instruction", oracleInstructions.buildRevealOracleEmergencyVoteV2Instruction);
-export const buildSettleOracleSambaEmergencyVoteV2Instruction = pinBuilder("buildSettleOracleSambaEmergencyVoteV2Instruction", oracleInstructions.buildSettleOracleSambaEmergencyVoteV2Instruction);
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildCommitOracleEmergencyVoteV3Instruction = retiredBuilder("buildCommitOracleEmergencyVoteV3Instruction");
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildRegisterOracleSambaWinningVoteInstruction = retiredBuilder("buildRegisterOracleSambaWinningVoteInstruction");
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildResolveOracleEmergencyDisputeV2Instruction = retiredBuilder("buildResolveOracleEmergencyDisputeV2Instruction");
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildResolveOracleEmergencyDisputeV4Instruction = retiredBuilder("buildResolveOracleEmergencyDisputeV4Instruction");
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildRevealOracleEmergencyVoteV2Instruction = retiredBuilder("buildRevealOracleEmergencyVoteV2Instruction");
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildSettleOracleSambaEmergencyVoteV2Instruction = retiredBuilder("buildSettleOracleSambaEmergencyVoteV2Instruction");
 export const buildTimeoutUnsupportedOracleSourceV2Instruction = pinBuilder("buildTimeoutUnsupportedOracleSourceV2Instruction", oracleInstructions.buildTimeoutUnsupportedOracleSourceV2Instruction);
-export const buildTryOpenOracleEmergencyDisputeV2Instruction = pinBuilder("buildTryOpenOracleEmergencyDisputeV2Instruction", oracleInstructions.buildTryOpenOracleEmergencyDisputeV2Instruction);
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildTryOpenOracleEmergencyDisputeV2Instruction = retiredBuilder("buildTryOpenOracleEmergencyDisputeV2Instruction");
 export const buildCloseOracleMonthInstruction = pinBuilder("buildCloseOracleMonthInstruction", oracleInstructions.buildCloseOracleMonthInstruction);
 export const buildFinalizeOracleMonthInstruction = pinBuilder("buildFinalizeOracleMonthInstruction", oracleInstructions.buildFinalizeOracleMonthInstruction);
 export const buildInitializeAmoebaDlmmLightConfigInstruction = pinBuilder("buildInitializeAmoebaDlmmLightConfigInstruction", dlmmInstructions.buildInitializeAmoebaDlmmLightConfigInstruction);
@@ -213,33 +235,62 @@ export const buildInitializeWriterSleeveV1Instruction = pinBuilder("buildInitial
 export const buildRegisterWriterSeriesV1Instruction = pinBuilder("buildRegisterWriterSeriesV1Instruction", writerInstructions.buildRegisterWriterSeriesV1Instruction);
 export const buildSealWriterPolicyV1Instruction = pinBuilder("buildSealWriterPolicyV1Instruction", writerInstructions.buildSealWriterPolicyV1Instruction);
 export const buildOpenWriterFundingV1Instruction = pinBuilder("buildOpenWriterFundingV1Instruction", writerInstructions.buildOpenWriterFundingV1Instruction);
-export const buildDepositWriterPrincipalV1Instruction = pinBuilder("buildDepositWriterPrincipalV1Instruction", writerInstructions.buildDepositWriterPrincipalV1Instruction);
-export const buildWithdrawWriterPrincipalV1Instruction = pinBuilder("buildWithdrawWriterPrincipalV1Instruction", writerInstructions.buildWithdrawWriterPrincipalV1Instruction);
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildDepositWriterPrincipalV1Instruction = retiredBuilder("buildDepositWriterPrincipalV1Instruction");
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildWithdrawWriterPrincipalV1Instruction = retiredBuilder("buildWithdrawWriterPrincipalV1Instruction");
 export const buildActivateWriterSleeveV1Instruction = pinBuilder("buildActivateWriterSleeveV1Instruction", writerInstructions.buildActivateWriterSleeveV1Instruction);
 export const buildSetCollectiveMarketPausedV1Instruction = pinBuilder("buildSetCollectiveMarketPausedV1Instruction", writerInstructions.buildSetCollectiveMarketPausedV1Instruction);
 export const buildReconcileWriterSupplyV1Instruction = pinBuilder("buildReconcileWriterSupplyV1Instruction", writerInstructions.buildReconcileWriterSupplyV1Instruction);
 export const buildCleanupWriterCustodyV1Instruction = pinBuilder("buildCleanupWriterCustodyV1Instruction", writerInstructions.buildCleanupWriterCustodyV1Instruction);
-export const buildCommitWriterAuctionV1Instruction = pinBuilder("buildCommitWriterAuctionV1Instruction", writerInstructions.buildCommitWriterAuctionV1Instruction);
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildCommitWriterAuctionV1Instruction = retiredBuilder("buildCommitWriterAuctionV1Instruction");
 /** Build one phase only; confirm phase 0 and phase 1 in separate transactions before commit. */
-export const buildPrepareWriterBidIndexV1Instruction = pinBuilder("buildPrepareWriterBidIndexV1Instruction", writerInstructions.buildPrepareWriterBidIndexV1Instruction);
-export const buildPlaceWriterBidV1Instruction = pinBuilder("buildPlaceWriterBidV1Instruction", writerInstructions.buildPlaceWriterBidV1Instruction);
-export const buildCancelOrRefundWriterBidV1Instruction = pinBuilder("buildCancelOrRefundWriterBidV1Instruction", writerInstructions.buildCancelOrRefundWriterBidV1Instruction);
-export const buildRevealWriterAuctionV1Instruction = pinBuilder("buildRevealWriterAuctionV1Instruction", writerInstructions.buildRevealWriterAuctionV1Instruction);
-export const buildPlanWriterAuctionChunkV1Instruction = pinBuilder("buildPlanWriterAuctionChunkV1Instruction", writerInstructions.buildPlanWriterAuctionChunkV1Instruction);
-export const buildExecuteWriterAuctionFillV1Instruction = pinBuilder("buildExecuteWriterAuctionFillV1Instruction", writerInstructions.buildExecuteWriterAuctionFillV1Instruction);
-export const buildFinalizeOrAbortWriterAuctionV1Instruction = pinBuilder("buildFinalizeOrAbortWriterAuctionV1Instruction", writerInstructions.buildFinalizeOrAbortWriterAuctionV1Instruction);
-export const buildBeginWriterCloseV1Instruction = pinBuilder("buildBeginWriterCloseV1Instruction", writerInstructions.buildBeginWriterCloseV1Instruction);
-export const buildDepositWriterCloseBasketV1Instruction = pinBuilder("buildDepositWriterCloseBasketV1Instruction", writerInstructions.buildDepositWriterCloseBasketV1Instruction);
-export const buildFinalizeWriterCloseV1Instruction = pinBuilder("buildFinalizeWriterCloseV1Instruction", writerInstructions.buildFinalizeWriterCloseV1Instruction);
-export const buildProcessWriterCloseSeriesCancellationV1Instruction = pinBuilder("buildProcessWriterCloseSeriesCancellationV1Instruction", writerInstructions.buildProcessWriterCloseSeriesCancellationV1Instruction);
-export const buildProcessWriterCloseFlatCancellationV1Instruction = pinBuilder("buildProcessWriterCloseFlatCancellationV1Instruction", writerInstructions.buildProcessWriterCloseFlatCancellationV1Instruction);
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildPrepareWriterBidIndexV1Instruction = retiredBuilder("buildPrepareWriterBidIndexV1Instruction");
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildPlaceWriterBidV1Instruction = retiredBuilder("buildPlaceWriterBidV1Instruction");
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildCancelOrRefundWriterBidV1Instruction = retiredBuilder("buildCancelOrRefundWriterBidV1Instruction");
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildRevealWriterAuctionV1Instruction = retiredBuilder("buildRevealWriterAuctionV1Instruction");
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildPlanWriterAuctionChunkV1Instruction = retiredBuilder("buildPlanWriterAuctionChunkV1Instruction");
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildExecuteWriterAuctionFillV1Instruction = retiredBuilder("buildExecuteWriterAuctionFillV1Instruction");
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildFinalizeOrAbortWriterAuctionV1Instruction = retiredBuilder("buildFinalizeOrAbortWriterAuctionV1Instruction");
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildBeginWriterCloseV1Instruction = retiredBuilder("buildBeginWriterCloseV1Instruction");
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildDepositWriterCloseBasketV1Instruction = retiredBuilder("buildDepositWriterCloseBasketV1Instruction");
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildFinalizeWriterCloseV1Instruction = retiredBuilder("buildFinalizeWriterCloseV1Instruction");
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildProcessWriterCloseSeriesCancellationV1Instruction = retiredBuilder("buildProcessWriterCloseSeriesCancellationV1Instruction");
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildProcessWriterCloseFlatCancellationV1Instruction = retiredBuilder("buildProcessWriterCloseFlatCancellationV1Instruction");
 export const buildPublishWriterGroupSettlementV1Instruction = pinBuilder("buildPublishWriterGroupSettlementV1Instruction", writerInstructions.buildPublishWriterGroupSettlementV1Instruction);
 export const buildFinalizeWriterSleeveSettlementV1Instruction = pinBuilder("buildFinalizeWriterSleeveSettlementV1Instruction", writerInstructions.buildFinalizeWriterSleeveSettlementV1Instruction);
 export const buildClaimCollectiveLongV1Instruction = pinBuilder("buildClaimCollectiveLongV1Instruction", writerInstructions.buildClaimCollectiveLongV1Instruction);
-export const buildClaimWriterFlatResidualV1Instruction = pinBuilder("buildClaimWriterFlatResidualV1Instruction", writerInstructions.buildClaimWriterFlatResidualV1Instruction);
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildClaimWriterFlatResidualV1Instruction = retiredBuilder("buildClaimWriterFlatResidualV1Instruction");
 export const buildCloseWriterSleeveV1Instruction = pinBuilder("buildCloseWriterSleeveV1Instruction", writerInstructions.buildCloseWriterSleeveV1Instruction);
-export const buildCollectAmoebaDlmmProtocolFeesInstruction = pinBuilder("buildCollectAmoebaDlmmProtocolFeesInstruction", dlmmInstructions.buildCollectAmoebaDlmmProtocolFeesInstruction);
+/** @deprecated Retired G3 operation; never registered for construction. */
+export const buildCollectAmoebaDlmmProtocolFeesInstruction = retiredBuilder("buildCollectAmoebaDlmmProtocolFeesInstruction");
 export const buildCloseAmoebaDlmmPoolInstruction = pinBuilder("buildCloseAmoebaDlmmPoolInstruction", dlmmInstructions.buildCloseAmoebaDlmmPoolInstruction);
 export const buildExecuteScopedCollectiveSettlementV1Instruction = pinBuilder("buildExecuteScopedCollectiveSettlementV1Instruction", writerInstructions.buildExecuteScopedCollectiveSettlementV1Instruction);
 export const buildExecuteScopedPositionSettlementV1Instruction = pinBuilder("buildExecuteScopedPositionSettlementV1Instruction", dlmmInstructions.buildExecuteScopedPositionSettlementV1Instruction);
+function retiredBuilder(name) {
+    return (() => { throw new AmebaProtocolError(`${name} was retired by G3; use contribution receipts, funded public orders, or the council interface`, { code: "G3_OPERATION_RETIRED" }); });
+}
+export const buildContributeWriterInstruction = pinBuilder("buildContributeWriterInstruction", participation.buildContributeWriterInstruction);
+export const buildTransferWriterContributionInstruction = pinBuilder("buildTransferWriterContributionInstruction", participation.buildTransferWriterContributionInstruction);
+export const buildSplitWriterContributionInstruction = pinBuilder("buildSplitWriterContributionInstruction", participation.buildSplitWriterContributionInstruction);
+export const buildClaimWriterContributionInstruction = pinBuilder("buildClaimWriterContributionInstruction", participation.buildClaimWriterContributionInstruction);
+export const buildCloseWriterContributionInstruction = pinBuilder("buildCloseWriterContributionInstruction", participation.buildCloseWriterContributionInstruction);
+export const buildExpireUnactivatedWriterV3Instruction = pinBuilder("buildExpireUnactivatedWriterV3Instruction", participation.buildExpireUnactivatedWriterV3Instruction);
+export const buildDlmmOrderInstruction = pinBuilder("buildDlmmOrderInstruction", orders.buildDlmmOrderInstruction);
+export const buildOracleEvidenceUploadInstructions = pinBuilder("buildOracleEvidenceUploadInstructions", evidence.buildOracleEvidenceUpload);
+export const buildCloseOracleEvidenceDraftInstruction = pinBuilder("buildCloseOracleEvidenceDraftInstruction", evidence.buildCloseOracleEvidenceDraft);
 //# sourceMappingURL=current-builders.js.map

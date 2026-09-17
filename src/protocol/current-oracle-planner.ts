@@ -1,3 +1,16 @@
+import { deriveOracleSambaVoteVaultPda } from "@amoeba/spread-historical-v2/oracle-dlmm";
+import { deriveOracleSambaEmergencyPotPda } from "@amoeba/spread-historical-v2/oracle-dlmm";
+import { deriveOracleEmergencyVoteV3Pda } from "@amoeba/spread-historical-v2/oracle-dlmm";
+import { deriveOracleSambaMintPda } from "@amoeba/spread-historical-v2/oracle-dlmm";
+import { ORACLE_EMERGENCY_VOTE_V3_PDA_SEED } from "@amoeba/spread-historical-v2/oracle-dlmm";
+import { ORACLE_MAX_V3_VOTERS } from "@amoeba/spread-historical-v2/oracle-dlmm";
+import { deriveOracleSambaEmergencyPotTokenAccount } from "@amoeba/spread-historical-v2/oracle-dlmm";
+import { deriveOracleEmergencyDisputeV3Pda } from "@amoeba/spread-historical-v2/oracle-dlmm";
+import { deriveOracleStakingPoolPda } from "@amoeba/spread-historical-v2/oracle-dlmm";
+import { ORACLE_STAKING_POOL_PDA_SEED } from "@amoeba/spread-historical-v2/oracle-dlmm";
+import { ORACLE_SAMBA_EMERGENCY_POT_PDA_SEED } from "@amoeba/spread-historical-v2/oracle-dlmm";
+import { ORACLE_EMERGENCY_DISPUTE_V3_PDA_SEED } from "@amoeba/spread-historical-v2/oracle-dlmm";
+import { oracleEmergencyVoteV3CommitHash } from "@amoeba/spread-historical-v2/oracle-dlmm";
 import { Buffer } from "buffer";
 import { createHash } from "node:crypto";
 import {
@@ -60,10 +73,7 @@ import {
 import * as currentOracleInstructionBuilders from "@amoeba/spread-release-tools/oracle-dlmm";
 import {
   CURRENT_STATE_NAMESPACE_SEED,
-  ORACLE_EMERGENCY_DISPUTE_V3_PDA_SEED,
-  ORACLE_EMERGENCY_VOTE_V3_PDA_SEED,
   ORACLE_ECONOMICS_CONFIG_PDA_SEED,
-  ORACLE_MAX_V3_VOTERS,
   ORACLE_ACTIVE_WEIGHT_MANIFEST_PDA_SEED,
   ORACLE_OPENING_CLAIM_PDA_SEED,
   ORACLE_MATURITY_LADDER_PDA_SEED,
@@ -84,8 +94,6 @@ import {
   ORACLE_RESOLUTION_FREEZE_WINDOW_SECONDS,
   ORACLE_ROLLING_MATURITY_MONTHS,
   ORACLE_SETTLEMENT_GRACE_SECONDS,
-  ORACLE_STAKING_POOL_PDA_SEED,
-  ORACLE_SAMBA_EMERGENCY_POT_PDA_SEED,
   SPL_TOKEN_PROGRAM_ID,
 } from "@amoeba/spread-release-tools/oracle-dlmm";
 import {
@@ -93,25 +101,18 @@ import {
   deriveOracleEconomicsConfigPda,
   deriveOracleMaturityLadderRegistryPda,
   deriveOracleProductSkuManifestPda,
-  deriveOracleSambaMintPda,
   deriveOracleSourcePda,
-  deriveOracleStakingPoolPda,
-  deriveOracleSambaVoteVaultPda,
   deriveOracleSkuCoverageManifestPda,
   deriveOracleSkuCoverageRecordPda,
   deriveUserCollateralPda,
   deriveVaultConfigPda,
 } from "@amoeba/spread-release-tools/oracle-dlmm";
-import { deriveOracleMajorTokenConfigPda } from "@amoeba/spread-release-tools/oracle-dlmm";
+import { deriveOracleMajorTokenConfigPda } from "@amoeba/spread-historical-v2/oracle-dlmm";
 import { oracleCanonicalLocatorHash } from "@amoeba/spread-release-tools/oracle-dlmm";
 import {
   deriveOracleActiveWeightManifestPda,
-  deriveOracleEmergencyDisputeV3Pda,
-  deriveOracleEmergencyVoteV3Pda,
   deriveOracleOpeningClaimChallengePda,
   deriveOracleOpeningClaimPda,
-  deriveOracleSambaEmergencyPotPda,
-  deriveOracleSambaEmergencyPotTokenAccount,
   deriveOracleSourceChallengeGuardPda,
   deriveOracleSourceChallengePda,
   deriveOracleSupportPositionPda,
@@ -124,7 +125,6 @@ import {
   deriveOracleUsdcRewardVaultTokenAccount,
   deriveOracleUsdcSkuPoolPda,
   deriveOracleUsdcSourceRewardPda,
-  oracleEmergencyVoteV3CommitHash,
   oracleUpdateArchiveUrlHash,
   oracleUpdateClaimV2CommitHash,
   oracleUpdateEvidenceHash,
@@ -403,6 +403,7 @@ interface OracleSourceState {
   readonly openingSubmitted: boolean;
   readonly lastFinalizedStep: bigint;
   readonly observationCount: number;
+  readonly latestObservationSourceTime: bigint;
   readonly rollingObservationHash: Buffer;
 }
 
@@ -722,7 +723,7 @@ async function readSourceByAddress(
   collectDescriptor = descriptorRequired,
 ): Promise<OracleSourceState> {
   const stateObservation = await requiredCompressedObservation(input, address, CompressedStateDomain.OracleSourceState, "OracleSourceState");
-  const reader = new Reader(stateObservation.leaf.data, "CompactOracleSourceState", 205);
+  const reader = new Reader(stateObservation.leaf.data, "CompactOracleSourceState", 216);
   const storedSourceId = reader.bytes(32, "source_id");
   const bucketId = reader.bytes(32, "bucket_id");
   const proposer = reader.pubkey("proposer");
@@ -735,7 +736,8 @@ async function readSourceByAddress(
   const openingSubmitted = reader.bool("opening_submitted");
   reader.bytes(32, "opening_evidence_hash");
   const lastFinalizedStep = reader.u64("last_finalized_step");
-  const observationCount = reader.u8("observation_count");
+  const observationCount = reader.u32("observation_count");
+  const latestObservationSourceTime = reader.u64("latest_observation_source_time");
   const rollingObservationHash = reader.bytes(32, "rolling_observation_hash");
   reader.finish();
   let sourceTypeHash: Buffer = Buffer.from(ZERO_32);
@@ -764,7 +766,7 @@ async function readSourceByAddress(
   ) {
     throw new CurrentOraclePlannerError("CURRENT_ORACLE_ACCOUNT_IDENTITY_MISMATCH", "OracleSource embedded identities are invalid");
   }
-  return { address, month: input.oracleMonthAddress, sourceId: storedSourceId, bucketId, sourceTypeHash, canonicalLocatorHash, sourceDefinitionHash, proposer, currentState, listingBondLocked, supportStakeTotal, bucketWeightBps, status, openingSubmitted, lastFinalizedStep, observationCount, rollingObservationHash };
+  return { address, month: input.oracleMonthAddress, sourceId: storedSourceId, bucketId, sourceTypeHash, canonicalLocatorHash, sourceDefinitionHash, proposer, currentState, listingBondLocked, supportStakeTotal, bucketWeightBps, status, openingSubmitted, lastFinalizedStep, observationCount, latestObservationSourceTime, rollingObservationHash };
 }
 
 async function requireAcquireableSourceChallengeGuard(
@@ -2712,7 +2714,7 @@ export async function prepareCurrentOracleAction(input: CurrentOraclePlannerCont
       const voterToken = getAssociatedTokenAddressSync(sambaMint, owner, false, SPL_TOKEN_PROGRAM_ID);
       validateVoterSambaToken({ address: voterToken, info: await input.connection.getAccountInfo(voterToken, input.commitment), mint: sambaMint, owner, minimum: amount });
       const commitHash = oracleEmergencyVoteV3CommitHash({ programId: input.programId, emergencyDisputePda: dispute.address, disputeId, voter: owner, sambaAmount: amount, sambaMintPda: sambaMint, choice, salt: parseCurrentOracleHex32(request.secretSaltHex, "secretSaltHex") });
-      instruction = oracleInstructionBuilders.buildCommitOracleEmergencyVoteV3Instruction({ programId: input.programId, params: { commitHash, sambaAmount: amount }, accounts: { voter: owner, voterSambaTokenAccount: voterToken, emergencyDisputePda: dispute.address } });
+      instruction = retiredOracleVote({ programId: input.programId, params: { commitHash, sambaAmount: amount }, accounts: { voter: owner, voterSambaTokenAccount: voterToken, emergencyDisputePda: dispute.address } });
       instructionName = "CommitOracleEmergencyVoteV3"; tag = 176; Object.assign(actionFacts, { dispute: dispute.address.toBase58(), pot: pot.address.toBase58(), vote: voteAddress.toBase58(), commitHashHex: commitHash.toString("hex"), sambaAmountAtomic: amount.toString(), snapshotSambaSupplyAtomic: staking.sambaSupply.toString() });
       break;
     }
@@ -2741,7 +2743,7 @@ export async function prepareCurrentOracleAction(input: CurrentOraclePlannerCont
         || !vote.pot.equals(pot.address)
         || !vote.commitHash.equals(expected)
       ) throw new CurrentOraclePlannerError("CURRENT_ORACLE_EMERGENCY_INVALID", "emergency reveal does not match the current vote commitment/window/accounting");
-      instruction = oracleInstructionBuilders.buildRevealOracleEmergencyVoteV2Instruction({ programId: input.programId, params: { choice, salt }, accounts: { voter: owner, emergencyDisputePda: dispute.address } });
+      instruction = retiredOracleVote({ programId: input.programId, params: { choice, salt }, accounts: { voter: owner, emergencyDisputePda: dispute.address } });
       instructionName = "RevealOracleEmergencyVoteV2"; tag = 177; Object.assign(actionFacts, { dispute: dispute.address.toBase58(), vote: vote.address.toBase58(), commitmentVerified: true });
       break;
     }
@@ -2995,3 +2997,5 @@ export async function readCurrentOracleRewardEntitlementInputs(input: CurrentOra
 
   return { instructionInput, entitlementAmount, schedule, actionFacts };
 }
+
+function retiredOracleVote(_input: unknown): never { throw new Error("G3_OPERATION_RETIRED: token voting was replaced by council ballots"); }

@@ -1,3 +1,4 @@
+import candidate from "../../release/local-candidate-build.v1.json" with { type: "json" };
 // Current finalized evidence is SDK-owned; the immutable native client package keeps
 // its historical deployment descriptor, not an invented contract source revision.
 import upstream from "../../release/spread-refactor-final-20260912.json" with { type: "json" };
@@ -26,6 +27,9 @@ import { CURRENT_VAULT_INSTRUCTION_TAG, CURRENT_AMOEBA_DLMM_INSTRUCTION_TAG } fr
  * allowlist, source commit, package artifact, manifest, or deployed payload.
  */
 export function currentGovernedWriteReleaseV1(): BoundGovernedWriteReleaseV1 {
+  if (candidate.nativePackage.sha256 !== runtimeReceipt.packageArtifact.sha256) {
+    throw new GovernedTransactionValidationError("G3_DEPLOYMENT_BINDING_REQUIRED", "The installed package is not the recorded deployed release; use an observed matching integration profile");
+  }
   const train = SDK_RELEASE_TRAIN as unknown as {
     readonly selectedGovernanceGeneration: unknown;
     readonly liveGovernanceIdentity: unknown;

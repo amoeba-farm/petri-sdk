@@ -17,7 +17,7 @@ import {
   deriveLightAssociatedTokenAddress,
 } from "@amoeba/spread-release-tools/token-primitives";
 import { SPL_TOKEN_PROGRAM_ID } from "@amoeba/spread-release-tools/oracle-dlmm";
-import { deriveWriterFlatMintPda } from "@amoeba/spread-release-tools/writer-sleeve-instructions";
+import { deriveWriterFlatMintPda } from "@amoeba/spread-historical-v2/writer-sleeve-instructions";
 import { buildCurrentCreateLightAtaIdempotentInstruction } from "./current-light-token-instructions.js";
 
 export const FLAT_TRANSFER_OPERATION_PLAN_SCHEMA_VERSION = 1 as const;

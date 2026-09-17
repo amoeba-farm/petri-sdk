@@ -71,7 +71,27 @@
     "./fixtures/governance-gates-v1.json": "./fixtures/governance-gates-v1.json",
     "./release-train.json": "./release/release-train.v1.json",
     "./package.json": "./package.json",
-    "./candidate-build.json": "./release/local-candidate-build.v1.json"
+    "./candidate-build.json": "./release/local-candidate-build.v1.json",
+    "./g3": {
+      "types": "./dist/g3/index.d.ts",
+      "import": "./dist/g3/index.js"
+    },
+    "./g3/browser": {
+      "types": "./dist/g3/browser.d.ts",
+      "import": "./dist/g3/browser.js"
+    },
+    "./g3-integration-lock.json": "./release/g3-integration-lock.v1.json",
+    "./mainnet": {
+      "types": "./dist/mainnet/index.d.ts",
+      "import": "./dist/mainnet/index.js",
+      "default": "./dist/mainnet/index.js"
+    },
+    "./mainnet/profile": {
+      "types": "./dist/mainnet/profile.d.ts",
+      "import": "./dist/mainnet/profile.js",
+      "default": "./dist/mainnet/profile.js"
+    },
+    "./mainnet-profile.json": "./release/mainnet-profile.v1.json"
   },
   "files": [
     "CHANGELOG.md",
@@ -93,7 +113,10 @@
     "vendor/governance/nandx_product_sku_manifest.v1.json",
     "README.md",
     "LICENSE",
-    "vendor/amoeba-spread-release-tools-397bd8403c78-writer-dlmm.tgz"
+    "vendor/amoeba-spread-release-tools-7d22fd9a5519-g3-council.tgz",
+    "vendor/amoeba-spread-release-tools-397bd8403c78-writer-dlmm.tgz",
+    "vendor/amoeba-spread-historical-v2-397bd8403c78.tgz",
+    "release/g3-local-test-profile.rs"
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json && node scripts/build-wallet-browser.mjs",
@@ -120,13 +143,15 @@
   "packageManager": "npm@10.9.8",
   "dependencies": {
     "@amoeba/spread-historical-rc44": "file:vendor/amoeba-spread-release-tools-0.1.0.tgz",
-    "@amoeba/spread-release-tools": "file:vendor/amoeba-spread-release-tools-397bd8403c78-writer-dlmm.tgz",
+    "@amoeba/spread-release-tools": "file:vendor/amoeba-spread-release-tools-7d22fd9a5519-g3-council.tgz",
     "@lightprotocol/stateless.js": "0.23.3",
-    "@solana/web3.js": "1.98.4"
+    "@solana/web3.js": "1.98.4",
+    "@amoeba/spread-historical-v2": "file:vendor/amoeba-spread-historical-v2-397bd8403c78.tgz"
   },
   "bundledDependencies": [
     "@amoeba/spread-historical-rc44",
-    "@amoeba/spread-release-tools"
+    "@amoeba/spread-release-tools",
+    "@amoeba/spread-historical-v2"
   ],
   "devDependencies": {
     "@types/node": "22.20.1",

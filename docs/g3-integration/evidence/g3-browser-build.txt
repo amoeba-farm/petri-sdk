@@ -1,0 +1,8 @@
+
+  dist\browser-bundle\wallet.js  654.5kb
+
+Done in 285ms
+
+  dist\browser-bundle\g3.js  307.0kb
+
+Done in 113ms

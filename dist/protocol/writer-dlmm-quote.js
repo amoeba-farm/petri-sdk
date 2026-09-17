@@ -1,4 +1,4 @@
-import * as native from "@amoeba/spread-release-tools/writer-sleeve-instructions";
+import * as native from "@amoeba/spread-historical-v2/writer-sleeve-instructions";
 import { AmebaProtocolError } from "../errors.js";
 function runtime() {
     const value = native;

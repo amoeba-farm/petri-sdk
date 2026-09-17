@@ -31,25 +31,32 @@ interface CurrentLightStateTreeIdentityDto {
 
 interface CurrentChainIdentityDto {
   readonly stateNamespace: "ameba-spread-v2";
-  readonly cluster: "devnet";
+  readonly cluster: "devnet" | "mainnet-beta";
   readonly genesisHash: string;
   readonly releaseTag: "v0.1.0-rc.44";
   readonly releaseCommit: "1b2230d96e51f6582155d8284900fbfc11ff1f18";
   readonly observedSlot: string;
-  readonly liveReleaseLabel?: "spread-devnet-v3-backfill-20260906";
-  readonly liveSourceCommit?: "b1931fecff5229da232f06e9c5c43b1d6328806d";
-  readonly liveReadProfileId?: "ameba-spread-v2-deployed-b1931fec";
-  readonly reviewedBridgeSourceCommit?: "b1931fecff5229da232f06e9c5c43b1d6328806d";
-  readonly deploymentProvenance?: "committed-checkpoint-and-hash-verified-artifact";
+  readonly liveReleaseLabel?: "spread-devnet-v3-backfill-20260906" | "spread-refactor-20260912" | "spread-mainnet-20260916";
+  readonly liveSourceCommit?: "b1931fecff5229da232f06e9c5c43b1d6328806d" | "b66fbc8f25205d15e39a4f974c22f90bcd6992df";
+  readonly liveReadProfileId?: "ameba-spread-v2-deployed-b1931fec" | "ameba-spread-v2-mainnet-b66fbc8f";
+  readonly reviewedBridgeSourceCommit?: "b1931fecff5229da232f06e9c5c43b1d6328806d" | "b66fbc8f25205d15e39a4f974c22f90bcd6992df";
+  readonly deploymentProvenance?: "committed-checkpoint-and-hash-verified-artifact" | "finalized-rpc-account";
   readonly writeCompatibility?: "governance-gate-v1";
+  readonly governance?: {
+    readonly network: "mainnet-beta"; readonly genesisHash: string; readonly programId: string;
+    readonly controllerProgramId: string; readonly profileSha256: string; readonly observedSlot: number;
+    readonly artifactSha256: string; readonly gate: string; readonly gateStatus: 0 | 1 | 2;
+    readonly epoch: string; readonly gateActive: boolean; readonly tradeReady: false;
+    readonly readinessReason: "MAINNET_MARKET_AND_PHOTON_QUALIFICATION_REQUIRED" | "MAINNET_GATE_NOT_ACTIVE";
+  };
   readonly program: {
     readonly programId: string;
     readonly programDataAddress: string;
-    readonly programDataBytes: 1231309;
+    readonly programDataBytes: number;
     readonly upgradeAuthority: string;
     readonly executable: true;
     readonly deployedSlot: string;
-    readonly payloadBytes: 1231264;
+    readonly payloadBytes: number;
     readonly payloadSha256: string;
     readonly rawAccountSha256?: string;
   };
@@ -324,7 +331,7 @@ export interface CapabilityDescriptor {
 export interface CurrentProtocolIdentityDto {
   readonly programId: "2jVQSPny9eFoaG1ZWoJVAezQ5VgqJtF8rQCQXMktuBVw";
   readonly namespace: "ameba-spread-v2";
-  readonly cluster: "devnet";
+  readonly cluster: "devnet" | "mainnet-beta";
   readonly releaseTag: "v0.1.0-rc.44";
   readonly releaseCommit: "1b2230d96e51f6582155d8284900fbfc11ff1f18";
 }

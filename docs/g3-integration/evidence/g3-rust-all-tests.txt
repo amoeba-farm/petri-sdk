@@ -1,0 +1,194 @@
+   Compiling ameba-sdk v0.2.0 (/mnt/c/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 8.65s
+     Running unittests rust/src/lib.rs (/home/space/.cache/ameba-sdk-g3-integration/debug/deps/ameba_sdk-073af34f031bed3a)
+
+running 65 tests
+test backend::tests::backend_text_is_terminal_safe ... ok
+test backend::tests::timeout_env_keeps_default_when_missing_or_invalid ... ok
+test backend::tests::timeout_env_accepts_positive_milliseconds ... ok
+test current_finalized_observation::tests::unavailable_fixture_is_the_exact_separate_lean_dto ... ok
+test endpoints::tests::current_product_and_full_series_ids_keep_canonical_routes ... ok
+test flat_transfer_operation::tests::canonical_light_layout_and_transfer_policy_are_exact ... ok
+test flat_transfer_operation::tests::flat_mint_requires_the_exact_classic_spl_length ... ok
+test endpoints::tests::path_segments_are_trimmed_and_percent_encoded ... ok
+test governance::tests::gate_mutations_and_noncanonical_status_fail_closed ... ok
+test flat_transfer_operation::tests::official_light_transfer_and_create_bytes_are_exact ... ok
+test current_finalized_observation::tests::matches_the_frozen_lean_vector ... ok
+test governed_operation::tests::envelopes_preserve_signed_bytes_and_reject_all_gate_variants ... ok
+test current_finalized_observation::tests::rejects_missing_nullable_keys_partial_state_and_null_block_time ... ok
+test governance::tests::generation_two_decodes_but_is_not_selected ... ok
+test governance::tests::typescript_fixture_and_rust_decoder_agree ... ok
+test governance::tests::pda_and_tail_vectors_match_typescript ... FAILED
+test backend::tests::backend_url_requires_https_except_for_loopback ... ok
+test governed_operation::tests::explicit_elf_identity_rejects_payload_hash_substitution_and_rehashed_padding ... ok
+test governed_operation::tests::full_transaction_privilege_union_and_exact_compiled_message_are_checked ... ok
+test governed_operation::tests::exact_finalized_observation_and_refresh_are_required ... ok
+test governed_operation::tests::qualified_gate_reader_preserves_frozen_reads_without_write_admission ... ok
+test backend::tests::bounded_reader_rejects_declared_and_streamed_overflow ... ok
+test position_action::tests::position_action_admission_is_exact_and_action_specific ... ok
+test governed_operation::tests::shipping_release_is_qualified_and_generation_substitution_is_rejected ... FAILED
+test protocol::tests::bounded_encoders_reject_oversized_current_payloads ... ok
+test protocol::tests::deployment_and_all_preserved_lane_tags_are_exact ... FAILED
+test protocol::tests::compressed_settlement_and_market_page_builders_preserve_96_116_205 ... ok
+test protocol::tests::emergency_signer_recovery_is_tag_94_with_exact_current_metas ... ok
+test protocol::tests::light_lifecycle_builders_accept_only_exact_current_payloads ... ok
+test protocol::tests::every_program_bound_current_decoder_and_builder_rejects_the_rc29_program ... ok
+test protocol::tests::share_wire_values_remain_u128 ... ok
+test protocol::tests::market_decoder_accepts_only_current_namespaced_identity ... ok
+test protocol::tests::market_and_oracle_decoders_reject_noncurrent_accounting_and_versions ... ok
+test protocol::tests::dlmm_pool_decoder_enforces_current_grid_identities_and_page_accounting ... ok
+test trade_ticket::tests::derives_current_bounds_and_exact_bid_ask_tickets ... ok
+test trade_ticket::tests::rejects_noncanonical_market_quantity_bin_and_deadline ... ok
+test current_finalized_observation::tests::rejects_every_forbidden_provider_origin_form ... ok
+test writer_operation::tests::admitted_writer_semantics_bind_bid_and_flat_claim_and_reject_collective_claim ... ok
+test protocol::tests::collective_swap_has_twenty_three_fixed_metas_then_one_to_eight_reserve_pages ... ok
+test writer_operation::tests::deposit_native_rebuild_binds_interface_to_flat_mint ... ok
+test writer_operation::tests::signer_roles_reject_duplicate_identity_and_missing_required_signer ... ok
+test protocol::tests::compressed_state_candidate_is_identity_only_and_auth_api_is_absent ... ok
+test governed_operation::tests::program_payload_header_padding_gate_and_release_mutations_fail ... ok
+test collective_swap_operation::tests::current_governed_swap_preserves_exact_plan_and_rejects_rehashed_envelope_tampering ... FAILED
+test writer_operation::tests::close_cancellation_native_rebuilds_bind_both_exact_grammars ... ok
+test writer_sleeve::tests::bid_builder_emits_exact_tag_and_ordered_meta_count ... ok
+test writer_sleeve::tests::finalize_close_encodes_complete_ordered_burn_triples ... FAILED
+test writer_sleeve::tests::rc44_writer_layouts_and_tag_domain_are_exact ... ok
+test writer_sleeve::tests::prepare_bid_index_has_exact_normal_tag_and_two_phase_payloads ... ok
+test writer_operation::tests::writer_close_semantics_reject_swapping_two_valid_sleeves ... ok
+test writer_sleeve::tests::writer_pdas_are_namespace_bound_and_deterministic ... ok
+test writer_sleeve::tests::writer_registry_decode_binds_address_bump_and_parent_identities ... ok
+test collective_swap_operation::tests::strict_portable_plan_accepts_bin_zero_and_explicit_request ... FAILED
+test writer_operation::tests::strict_ed25519_owner_admission_matches_web3_shared_vectors ... ok
+test writer_operation::tests::cold_minimum_is_explicit_and_stage_exact ... ok
+test writer_operation::tests::schema_v2_requires_exact_canonical_output_create_and_legacy_rejects_it ... FAILED
+test collective_swap_operation::tests::strict_portable_plan_rejects_rehashed_fixed_meta_and_request_substitution ... ok
+test collective_swap_operation::tests::strict_portable_plan_rejects_unbound_observation_and_replayable_deadline ... ok
+test protocol::tests::swap_rejects_every_deterministic_account_route_and_meta_mutation ... ok
+test g3::tests::canonical_typescript_vectors_match_native_g3_math ... ok
+test governed_operation::tests::release_qualification_requires_complete_mutually_bound_package_evidence ... ok
+test writer_operation::tests::collective_claim_observed_selector_and_commitments_match_typescript ... FAILED
+test writer_operation::tests::typescript_emitted_writer_plans_validate_in_rust_with_exact_parity ... FAILED
+test governed_operation::tests::flat::actual_js_flat_hot_and_absent_destination_require_fresh_exact_signing_accounts ... ok
+test governed_operation::tests::actual_bundled_typescript_bid_build_sign_and_rust_revalidation ... FAILED
+
+failures:
+
+---- governance::tests::pda_and_tail_vectors_match_typescript stdout ----
+
+thread 'governance::tests::pda_and_tail_vectors_match_typescript' (1102260) panicked at rust/src/governance.rs:326:9:
+assertion `left == right` failed
+  left: Err(CurrentWriteAbiUnavailable)
+ right: Ok(())
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- governed_operation::tests::shipping_release_is_qualified_and_generation_substitution_is_rejected stdout ----
+
+thread 'governed_operation::tests::shipping_release_is_qualified_and_generation_substitution_is_rejected' (1102274) panicked at rust/src/governed_operation/tests.rs:139:5:
+assertion failed: current_governed_write_release_v1().is_ok()
+
+---- protocol::tests::deployment_and_all_preserved_lane_tags_are_exact stdout ----
+
+thread 'protocol::tests::deployment_and_all_preserved_lane_tags_are_exact' (1102280) panicked at rust/src/protocol.rs:2821:13:
+assertion `left == right` failed: vault tag membership mismatch for 30
+  left: true
+ right: false
+
+---- collective_swap_operation::tests::current_governed_swap_preserves_exact_plan_and_rejects_rehashed_envelope_tampering stdout ----
+
+thread 'collective_swap_operation::tests::current_governed_swap_preserves_exact_plan_and_rejects_rehashed_envelope_tampering' (1102242) panicked at rust/src/collective_swap_operation.rs:894:90:
+called `Result::unwrap()` on an `Err` value: InvalidPlan("instruction identity or account count is not canonical")
+
+---- writer_sleeve::tests::finalize_close_encodes_complete_ordered_burn_triples stdout ----
+
+thread 'writer_sleeve::tests::finalize_close_encodes_complete_ordered_burn_triples' (1102304) panicked at rust/src/writer_sleeve.rs:1173:9:
+assertion `left == right` failed
+  left: 20
+ right: 19
+
+---- collective_swap_operation::tests::strict_portable_plan_accepts_bin_zero_and_explicit_request stdout ----
+
+thread 'collective_swap_operation::tests::strict_portable_plan_accepts_bin_zero_and_explicit_request' (1102243) panicked at rust/src/collective_swap_operation.rs:849:9:
+assertion failed: matches!(parse_collective_swap_operation_json(&encoded),
+    Err(CollectiveSwapOperationError::InvalidPlan("historical swap plans are offline-only")))
+
+---- writer_operation::tests::schema_v2_requires_exact_canonical_output_create_and_legacy_rejects_it stdout ----
+
+thread 'writer_operation::tests::schema_v2_requires_exact_canonical_output_create_and_legacy_rejects_it' (1102297) panicked at rust/src/writer_operation.rs:4089:9:
+assertion failed: matches!(parse_writer_operation_json(&encoded),
+    Err(WriterOperationError::InvalidPlan("historical writer plans are offline-only")))
+
+---- writer_operation::tests::collective_claim_observed_selector_and_commitments_match_typescript stdout ----
+
+thread 'writer_operation::tests::collective_claim_observed_selector_and_commitments_match_typescript' (1102294) panicked at rust/src/writer_operation.rs:3410:9:
+file:///mnt/c/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19
+        throw new GovernedTransactionValidationError("G3_DEPLOYMENT_BINDING_REQUIRED", "The installed package is not the recorded deployed release; use an observed matching integration profile");
+              ^
+
+GovernedTransactionValidationError: The installed package is not the recorded deployed release; use an observed matching integration profile
+    at currentGovernedWriteReleaseV1 (file:///mnt/c/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19:15)
+    at file:///mnt/c/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/helpers/current-fixture-builders.mjs:8:140
+    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {
+  code: 'G3_DEPLOYMENT_BINDING_REQUIRED',
+  details: undefined,
+  retryable: false,
+  context: {},
+  [cause]: undefined
+}
+
+Node.js v24.14.0
+
+
+---- writer_operation::tests::typescript_emitted_writer_plans_validate_in_rust_with_exact_parity stdout ----
+
+thread 'writer_operation::tests::typescript_emitted_writer_plans_validate_in_rust_with_exact_parity' (1102300) panicked at rust/src/writer_operation.rs:4188:9:
+TypeScript parity emitter failed: file:///mnt/c/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19
+        throw new GovernedTransactionValidationError("G3_DEPLOYMENT_BINDING_REQUIRED", "The installed package is not the recorded deployed release; use an observed matching integration profile");
+              ^
+
+GovernedTransactionValidationError: The installed package is not the recorded deployed release; use an observed matching integration profile
+    at currentGovernedWriteReleaseV1 (file:///mnt/c/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19:15)
+    at file:///mnt/c/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/helpers/current-fixture-builders.mjs:8:140
+    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {
+  code: 'G3_DEPLOYMENT_BINDING_REQUIRED',
+  details: undefined,
+  retryable: false,
+  context: {},
+  [cause]: undefined
+}
+
+Node.js v24.14.0
+
+
+---- governed_operation::tests::actual_bundled_typescript_bid_build_sign_and_rust_revalidation stdout ----
+
+thread 'governed_operation::tests::actual_bundled_typescript_bid_build_sign_and_rust_revalidation' (1102262) panicked at rust/src/governed_operation/tests.rs:567:5:
+(node:1102264) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+file:///mnt/c/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/scripts/emit-governed-writer-rust-fixture.mjs:67
+  flatMint: writer.deriveWriterFlatMintPda(sleeve)[0],
+                   ^
+
+TypeError: writer.deriveWriterFlatMintPda is not a function
+    at file:///mnt/c/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/scripts/emit-governed-writer-rust-fixture.mjs:67:20
+
+Node.js v24.14.0
+
+
+
+failures:
+    collective_swap_operation::tests::current_governed_swap_preserves_exact_plan_and_rejects_rehashed_envelope_tampering
+    collective_swap_operation::tests::strict_portable_plan_accepts_bin_zero_and_explicit_request
+    governance::tests::pda_and_tail_vectors_match_typescript
+    governed_operation::tests::actual_bundled_typescript_bid_build_sign_and_rust_revalidation
+    governed_operation::tests::shipping_release_is_qualified_and_generation_substitution_is_rejected
+    protocol::tests::deployment_and_all_preserved_lane_tags_are_exact
+    writer_operation::tests::collective_claim_observed_selector_and_commitments_match_typescript
+    writer_operation::tests::schema_v2_requires_exact_canonical_output_create_and_legacy_rejects_it
+    writer_operation::tests::typescript_emitted_writer_plans_validate_in_rust_with_exact_parity
+    writer_sleeve::tests::finalize_close_encodes_complete_ordered_burn_triples
+
+test result: FAILED. 55 passed; 10 failed; 0 ignored; 0 measured; 0 filtered out; finished in 12.58s
+
+error: test failed, to rerun pass `--lib`

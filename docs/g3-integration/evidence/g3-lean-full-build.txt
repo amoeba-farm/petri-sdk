@@ -1,0 +1,759 @@
+⚠ [141/161] Replayed Ameba.Queries.WriterFundsAdmission.Theorems
+warning: Ameba/Queries/WriterFundsAdmission/Theorems.lean:50:6: This simp argument is unused:
+  true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitWriterFunds, hF, hA, hL, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, false_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/WriterFundsAdmission/Theorems.lean:50:16: This simp argument is unused:
+  false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitWriterFunds, hF, hA, hL, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, true_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/WriterFundsAdmission/Theorems.lean:63:6: This simp argument is unused:
+  true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitWriterFunds, hF, hA, hL, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, false_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/WriterFundsAdmission/Theorems.lean:63:16: This simp argument is unused:
+  false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitWriterFunds, hF, hA, hL, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, true_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/WriterFundsAdmission/Theorems.lean:76:6: This simp argument is unused:
+  true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitWriterFunds, hF, hA, hL, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, false_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/WriterFundsAdmission/Theorems.lean:76:16: This simp argument is unused:
+  false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitWriterFunds, hF, hA, hL, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, true_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [154/176] Replayed Ameba.Queries.WriterDlmmOperation.Theorems
+warning: Ameba/Queries/WriterDlmmOperation/Theorems.lean:22:53: This simp argument is unused:
+  Bool.true_eq_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitWriterDlmmOperation, WriterDlmmOperationAdmissible, hA, hL, hC, hT, Bool.not_true,
+    Bool.not_false, Bool.false_eq_true, eq_self, ite_true, ite_false, reduceCtorEq, true_and, false_and, and_false,
+    and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/WriterDlmmOperation/Theorems.lean:23:41: This simp argument is unused:
+  true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitWriterDlmmOperation, WriterDlmmOperationAdmissible, hA, hL, hC, hT, Bool.not_true,
+    Bool.not_false, Bool.true_eq_false, Bool.false_eq_true, eq_self, ite_true, ite_false, reduceCtorEq, false_and,
+    and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/WriterDlmmOperation/Theorems.lean:23:51: This simp argument is unused:
+  false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitWriterDlmmOperation, WriterDlmmOperationAdmissible, hA, hL, hC, hT, Bool.not_true,
+    Bool.not_false, Bool.true_eq_false, Bool.false_eq_true, eq_self, ite_true, ite_false, reduceCtorEq, true_and,
+    and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [171/200] Replayed Ameba.Queries.WriterDlmmCashAdmission.Theorems
+warning: Ameba/Queries/WriterDlmmCashAdmission/Theorems.lean:41:6: This simp argument is unused:
+  true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitWriterDlmmCash, WriterDlmmCashRejection, hP, hF, hC, hD, hS, ite_true, ite_false,
+    Except.error.injEq, reduceCtorEq, false_and, and_false, and_true, not_true_eq_false, not_false_eq_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/WriterDlmmCashAdmission/Theorems.lean:41:16: This simp argument is unused:
+  false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitWriterDlmmCash, WriterDlmmCashRejection, hP, hF, hC, hD, hS, ite_true, ite_false,
+    Except.error.injEq, reduceCtorEq, true_and, and_false, and_true, not_true_eq_false, not_false_eq_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [191/286] Built Ameba.Domain.FinalizedTradeEvidence (2.5s)
+✔ [192/287] Built Ameba.Domain.MarketImpliedIndex (2.3s)
+✔ [193/289] Built Ameba.Domain.Internal.OracleOwnerRewardRaw (2.7s)
+✔ [194/289] Built Ameba.Domain.ChartRead (2.4s)
+✔ [195/289] Built Ameba.Queries.SpreadPricing.Model (2.4s)
+✔ [196/289] Built Ameba.Queries.WriterAuctionPlan.Spec (2.3s)
+✔ [197/289] Built Ameba.Adapters.HttpJson.RpcGatewayCanonical (2.6s)
+✔ [198/289] Built Ameba.Queries.WriterAuctionPlan.Exec (2.6s)
+✔ [199/289] Built Ameba.Queries.WriterClosePreview.Spec (2.3s)
+✔ [200/289] Built Ameba.Queries.WriterClosePreview.Exec (2.3s)
+✔ [201/289] Built Ameba.Adapters.HttpJson.CurrentOracleSourceRegistryInput (3.0s)
+✔ [202/289] Built Ameba.Adapters.HttpJson.WriterSleeveJson (3.0s)
+✔ [203/289] Built Ameba.Queries.WriterSettlementPlan.Spec (2.3s)
+✔ [204/289] Built Ameba.Queries.WriterSettlementPlan.Exec (2.4s)
+✔ [205/289] Built Ameba.Adapters.HttpJson.RpcGatewayInput (3.6s)
+✔ [206/289] Built Ameba.Queries.WriterMetrics.Spec (1.0s)
+✔ [207/290] Built Ameba.Queries.FinalizedTrade.Model (2.3s)
+✔ [208/290] Built Ameba.Domain.TradeVolume (2.4s)
+✔ [209/290] Built Ameba.Queries.WriterMetrics.Exec (1.9s)
+✔ [210/290] Built Ameba.Adapters.HttpJson.FinalizedTradeInput (2.6s)
+✔ [211/291] Built Ameba.Domain.CurrentOracleBounty (8.4s)
+✔ [212/291] Built Ameba.Queries.ChartProjection.Spec (1.9s)
+✔ [213/291] Built Ameba.Queries.ChartProjection.Exec (1.0s)
+✔ [214/291] Built Ameba.Queries.SpreadPricing.Spec (1.7s)
+✔ [215/291] Built Ameba.Queries.SpreadPricing.Exec (1.8s)
+✔ [216/292] Built Ameba.Queries.MarketImpliedIndexHistory.Model (2.2s)
+✔ [217/292] Built Ameba.Queries.MarketImpliedIndex.Model (2.7s)
+✔ [218/292] Built Ameba.Domain.Internal.OracleOwnerRewardDecode (2.6s)
+✔ [219/295] Built Ameba.Queries.FinalizedTrade.Spec (1.2s)
+✔ [220/295] Built Ameba.Queries.FinalizedTrade.Exec (1.2s)
+✔ [221/295] Built Ameba.Queries.TradeVolume.Model (1.6s)
+✔ [222/295] Built Ameba.Invariants.WriterOpenInterest (1.6s)
+✔ [223/300] Built Ameba.Adapters.HttpJson.TradeVolumeInput (1.6s)
+✔ [224/300] Built Ameba.Queries.OptionStatistics.Model (1.8s)
+✔ [225/300] Built Ameba.Invariants.WriterSettlement (1.5s)
+✔ [226/300] Built Ameba.Domain.Internal.CurrentOracleBountyPda (2.1s)
+✔ [227/301] Built Ameba.Queries.WriterAuctionPlan.Theorems.Funding (4.4s)
+✔ [228/301] Built Ameba.Queries.WriterAuctionPlan.Theorems.PlanErrors (3.3s)
+✔ [229/301] Built Ameba.Queries.WriterClosePreview.Theorems.Basket (3.1s)
+✔ [230/301] Built Ameba.Queries.WriterClosePreview.Theorems.Arithmetic (3.1s)
+✔ [231/301] Built Ameba.Queries.WriterMetrics.Theorems (2.7s)
+✔ [232/301] Built Ameba.Queries.WriterAuctionPlan.Theorems.Remainder (4.3s)
+✔ [233/301] Built Ameba.Queries.MarketImpliedIndexHistory.Exec (1.1s)
+✔ [234/301] Built Ameba.Queries.ChartProjection.Theorems.Core (1.7s)
+✔ [235/301] Built Ameba.Queries.SpreadPricing.Theorems (1.4s)
+✔ [236/301] Built Ameba.Queries.WriterSettlementPlan.Theorems (3.4s)
+✔ [237/303] Built Ameba.Queries.WriterAuctionPlan.Theorems.Admission (4.3s)
+✔ [238/303] Built Ameba.Invariants.WriterPolicy (1.4s)
+✔ [239/312] Built Ameba.Queries.MarketImpliedIndex.Exec (1.5s)
+✔ [240/313] Built Ameba.Domain.Internal.CurrentOracleBountyClassic (2.3s)
+✔ [241/315] Built Ameba.Queries.MarketImpliedIndex.Spec (1.7s)
+✔ [242/315] Built Ameba.Queries.FinalizedTrade.Theorems (1.1s)
+✔ [243/315] Built Ameba.Queries.TradeVolume.Exec (1.0s)
+✔ [244/315] Built Ameba.Queries.OptionStatistics.Exec (996ms)
+✔ [245/317] Built Ameba.Queries.TradeVolume.Spec (1.1s)
+✔ [246/317] Built Ameba.Queries.OptionStatistics.Spec (1.0s)
+✔ [247/317] Built Ameba.Invariants.WriterClose (1.1s)
+✔ [248/317] Built Ameba.System.Verified.OracleOwnerReward (1.3s)
+✔ [249/317] Built Ameba.Rules.WriterSleeveAccounting.Exec (1.3s)
+✔ [250/318] Built Ameba.Queries.ChartProjection.Theorems.FastPath (1.4s)
+✔ [251/646] Built Ameba.Domain.PaperSimulation (1.5s)
+✔ [252/646] Built Ameba.Queries.ComputeIndex.Model (1.5s)
+✔ [253/646] Built Ameba.App.ApiRoutes.CurrentOraclePolicy (1.9s)
+✔ [254/646] Built Ameba.System.Verified.FinalizedTrade (1.3s)
+✔ [255/646] Built Ameba.Queries.MarketImpliedIndexHistory.Spec (1.4s)
+✔ [256/646] Built Ameba.Queries.OptionStatistics.Theorems (1.3s)
+✔ [257/646] Built Ameba.Invariants.WriterSleeve (1.3s)
+✔ [258/646] Built Ameba.Queries.MarketImpliedIndex.Theorems (1.4s)
+✔ [259/646] Built Ameba.Adapters.HttpJson.CurrentPolicyInput (1.7s)
+✔ [260/646] Built Ameba.Ports.Logger:c.o (421ms)
+✔ [261/646] Built Ameba.Adapters.ConsoleLogger:c.o (227ms)
+✔ [262/646] Built Ameba.Ports.RequestMetrics:c.o (194ms)
+✔ [263/646] Built Ameba.App.RuntimePolicy:c.o (730ms)
+✔ [264/646] Built Ameba.App.Config:c.o (559ms)
+✔ [265/646] Built Ameba.Adapters.MemoryRequestMetrics:c.o (288ms)
+✔ [266/646] Built Ameba.App.State:c.o (213ms)
+✔ [267/646] Built Ameba.Domain.CurrentOracleBountyEvidence (2.2s)
+✔ [268/646] Built Ameba.App.ApiRoutes.Internal:c.o (430ms)
+✔ [269/646] Built Ameba.Domain.Ids:c.o (376ms)
+✔ [270/646] Built Ameba.Domain.Amounts:c.o (290ms)
+✔ [271/646] Built Ameba.Domain.SpreadDeployment:c.o (270ms)
+✔ [272/646] Built Ameba.Domain.SupportedMarketIdentity:c.o (230ms)
+✔ [273/646] Built Ameba.Domain.CurrentPositionAction:c.o (301ms)
+✔ [274/646] Built Ameba.Queries.WriterAuctionPlan.Theorems.Maximum (2.7s)
+✔ [275/646] Built Ameba.Domain.CurrentOperationPolicy:c.o (375ms)
+✔ [276/646] Built Ameba.Queries.AmoebaDlmmMarket.Model:c.o (281ms)
+✔ [277/646] Built Ameba.Queries.AmoebaDlmmMarket.Spec:c.o (168ms)
+✔ [278/646] Built Ameba.Adapters.HttpJson.MonthlyMarketCreationInput (2.2s)
+✔ [279/646] Built Ameba.Queries.AmoebaDlmmMarket.Theorems:c.o (194ms)
+✔ [280/646] Built Ameba.Queries.AmoebaDlmmReadiness.Exec:c.o (156ms)
+✔ [281/646] Built Ameba.Queries.AmoebaDlmmMarket.Exec:c.o (307ms)
+✔ [282/646] Built Ameba.Queries.StableOrder.Spec:c.o (165ms)
+✔ [283/646] Built Ameba.Queries.DlmmOptionMark.Spec:c.o (182ms)
+✔ [284/646] Built Ameba.Queries.StableOrder.Exec:c.o (165ms)
+✔ [285/646] Built Ameba.Queries.StableOrder.Theorems:c.o (205ms)
+✔ [286/646] Built Ameba.Queries.DlmmOptionMark.Theorems.Core:c.o (191ms)
+✔ [287/646] Built Ameba.Queries.DlmmOptionMark.Theorems.Projection:c.o (153ms)
+✔ [288/646] Built Ameba.Adapters.HttpJson:c.o (978ms)
+✔ [289/646] Built Ameba.Queries.DlmmOptionMark.Theorems:c.o (193ms)
+✔ [290/646] Built Ameba.Queries.DlmmOptionBook.Spec:c.o (157ms)
+✔ [291/646] Built Ameba.Queries.AmoebaDlmmReadiness.Model:c.o (704ms)
+✔ [292/646] Built Ameba.Queries.DlmmOptionBook.Model:c.o (670ms)
+✔ [293/646] Built Ameba.Queries.DlmmOptionBook.Theorems:c.o (166ms)
+✔ [294/646] Built Ameba.Queries.CurrentPositionActionAdmission.Spec:c.o (179ms)
+✔ [295/646] Built Ameba.Queries.CurrentPositionActionAdmission.Exec:c.o (196ms)
+✔ [296/646] Built Ameba.Queries.CurrentPositionActionAdmission.Theorems:c.o (262ms)
+✔ [297/646] Built Ameba.Queries.DlmmOptionMark.Model:c.o (830ms)
+✔ [298/646] Built Ameba.Queries.DlmmOptionBook.Exec:c.o (467ms)
+✔ [299/646] Built Ameba.Queries.CurrentPositionActionAdmission.Model:c.o (328ms)
+✔ [300/646] Built Ameba.Queries.CurrentFinalizedObservationAdmission.Model:c.o (233ms)
+✔ [301/646] Built Ameba.Invariants.CurrentFinalizedObservation:c.o (227ms)
+✔ [302/646] Built Ameba.Queries.CurrentFinalizedObservationAdmission.Spec:c.o (183ms)
+✔ [303/646] Built Ameba.Queries.DlmmOptionMark.Exec:c.o (665ms)
+✔ [304/646] Built Ameba.Queries.CurrentFinalizedObservationAdmission.Exec:c.o (192ms)
+✔ [305/646] Built Ameba.Queries.CurrentFinalizedObservationAdmission.Theorems:c.o (232ms)
+✔ [306/646] Built Ameba.Adapters.HttpJson.ChartHistoryInput (2.9s)
+✔ [307/646] Built Ameba.Domain.CurrentOracleMetadataHash:c.o (205ms)
+✔ [308/646] Built Ameba.Queries.TradeVolume.Theorems (2.7s)
+✔ [309/646] Built Ameba.Domain.Sha256:c.o (811ms)
+✔ [310/646] Built Ameba.Domain.OracleSkuMerkle:c.o (530ms)
+✔ [311/646] Built Ameba.Domain.SolanaBase58:c.o (428ms)
+✔ [312/646] Built Ameba.Domain.Internal.CurrentOracleBountyPda:c.o (339ms)
+✔ [313/646] Built Ameba.Domain.Internal.CurrentOraclePda:c.o (575ms)
+✔ [314/646] Built Ameba.Invariants.CurrentOracleSourceRegistry:c.o (328ms)
+✔ [315/646] Built Ameba.Queries.CurrentOracleSourceRegistry.Spec:c.o (225ms)
+✔ [316/646] Built Ameba.Queries.CurrentOracleSourceRegistry.Theorems:c.o (206ms)
+✔ [317/646] Built Ameba.Queries.CurrentOracleSourceRegistry.Exec:c.o (263ms)
+✔ [318/646] Built Ameba.Queries.MonthlyMarketCreationPlan.Spec:c.o (223ms)
+✔ [319/646] Built Ameba.Queries.MonthlyMarketCreationPlan.Theorems:c.o (202ms)
+✔ [320/646] Built Ameba.Queries.ChartProjection.Theorems.Projection (3.0s)
+✔ [321/646] Built Ameba.Domain.CurrentFinalizedObservation:c.o (1.4s)
+✔ [322/646] Built Ameba.Queries.CurrentOracleSourceRegistry.Model:c.o (910ms)
+✔ [323/646] Built Ameba.Queries.MonthlyMarketCreationPlan.Exec:c.o (451ms)
+✔ [324/646] Built Ameba.Domain.Internal.CurrentOracleSeriesClassic:c.o (1.1s)
+✔ [325/646] Built Ameba.Queries.WriterOperationAdmission.Model:c.o (364ms)
+✔ [326/646] Built Ameba.Queries.WriterOperationAdmission.Spec:c.o (271ms)
+✔ [327/646] Built Ameba.Queries.MonthlyMarketCreationPlan.Model:c.o (793ms)
+✔ [328/646] Built Ameba.Domain.WriterAmounts:c.o (644ms)
+✔ [329/646] Built Ameba.Queries.WriterOperationAdmission.Exec:c.o (257ms)
+✔ [330/646] Built Ameba.Queries.WriterOperationAdmission.Theorems:c.o (483ms)
+✔ [331/646] Built Ameba.Queries.WriterCloseStagePlan.Spec:c.o (273ms)
+✔ [332/646] Built Ameba.Queries.WriterCloseStagePlan.Model:c.o (482ms)
+✔ [333/646] Built Ameba.Queries.WriterCloseStagePlan.Theorems:c.o (394ms)
+✔ [334/646] Built Ameba.Queries.CollectiveSwapAdmission.Model:c.o (377ms)
+✔ [335/646] Built Ameba.Queries.CollectiveSwapAdmission.Spec:c.o (246ms)
+✔ [336/646] Built Ameba.Queries.CollectiveSwapAdmission.Exec:c.o (278ms)
+✔ [337/646] Built Ameba.Domain.Internal.CurrentOracleBountyClassic:c.o (1.0s)
+✔ [338/646] Built Ameba.Domain.CollectiveOperation:c.o (1.1s)
+✔ [339/646] Built Ameba.Queries.CollectiveSwapAdmission.Theorems:c.o (280ms)
+✔ [340/646] Built Ameba.Queries.CollectiveActionMask.Spec:c.o (196ms)
+✔ [341/646] Built Ameba.Domain.Internal.CurrentOracleSourceClassic:c.o (2.1s)
+✔ [342/646] Built Ameba.Queries.CollectiveActionMask.Exec:c.o (222ms)
+✔ [343/646] Built Ameba.Queries.CollectiveActionMask.Theorems:c.o (251ms)
+✔ [344/646] Built Ameba.Domain.WriterPolicy:c.o (1.1s)
+✔ [345/646] Built Ameba.Queries.RpcGatewayPolicy.Spec:c.o (232ms)
+✔ [346/646] Built Ameba.Queries.WriterCloseStagePlan.Exec:c.o (1.0s)
+✔ [347/646] Built Ameba.Queries.RpcGatewayPolicy.Exec:c.o (301ms)
+✔ [348/646] Built Ameba.Queries.RpcGatewayPolicy.Theorems.Authority:c.o (241ms)
+✔ [349/646] Built Ameba.Queries.CollectiveActionMask.Model:c.o (640ms)
+✔ [350/646] Built Ameba.Adapters.SolanaBase58:c.o (248ms)
+✔ [351/646] Built Ameba.Domain.MonthlyMarketCreation:c.o (2.1s)
+✔ [352/646] Built Ameba.Domain.WriterDlmm:c.o (387ms)
+✔ [353/646] Built Ameba.Adapters.HttpJson.CurrentFinalizedObservationInput:c.o (818ms)
+✔ [354/646] Built Ameba.Domain.WriterSeries:c.o (722ms)
+✔ [355/646] Built Ameba.Adapters.HttpJson.CurrentOperationAdmissionInput:c.o (1.0s)
+✔ [356/646] Built Ameba.Domain.WriterSleeve:c.o (967ms)
+✔ [357/646] Built Ameba.Domain.CurrentOracleRawAccount:c.o (533ms)
+✔ [358/646] Built Ameba.Queries.AmoebaDlmmReadiness.Spec:c.o (409ms)
+✔ [359/646] Built Ameba.Domain.WriterDlmmRequest:c.o (880ms)
+✔ [360/646] Built Ameba.Domain.CollectiveActionMask:c.o (2.2s)
+✔ [361/646] Built Ameba.Domain.CurrentOracleBounty:c.o (4.1s)
+✔ [362/646] Built Ameba.Queries.WriterReserve.Model:c.o (986ms)
+✔ [363/646] Built Ameba.Domain.RpcGateway:c.o (2.5s)
+✔ [364/646] Built Ameba.Queries.RpcGatewayPolicy.Theorems:c.o (2.6s)
+✔ [365/646] Built Ameba.Queries.WriterOracleSecurity.Model:c.o (556ms)
+✔ [366/646] Built Ameba.Domain.WriterDlmmState:c.o (1.8s)
+✔ [367/646] Built Ameba.Queries.WriterSettlementPlan.Model:c.o (1.0s)
+✔ [368/646] Built Ameba.Domain.Liquidity:c.o (548ms)
+✔ [369/646] Built Ameba.Adapters.HttpJson.WriterSleeveInput:c.o (2.5s)
+✔ [370/646] Built Ameba.Queries.WriterMetrics.Model:c.o (955ms)
+✔ [371/646] Built Ameba.Public:c.o (208ms)
+✔ [372/646] Built Ameba.Queries.WriterClosePreview.Model:c.o (1.5s)
+✔ [373/646] Built Ameba.Rules.WriterSleeveAccounting.Model:c.o (463ms)
+✔ [374/646] Built Ameba.Queries.LiquidityOperationAdmission.Spec:c.o (195ms)
+✔ [375/646] Built Ameba.Queries.LiquidityOperationAdmission.Exec:c.o (181ms)
+✔ [376/646] Built Ameba.Adapters.HttpJson.CurrentOracleRawAccountInput:c.o (434ms)
+✔ [377/646] Built Ameba.Adapters.SolanaWire:c.o (529ms)
+✔ [378/646] Built Ameba.Queries.LiquidityOperationAdmission.Theorems:c.o (182ms)
+✔ [379/646] Built Ameba.System.Verified.Liquidity:c.o (217ms)
+✔ [380/646] Built Ameba.Domain.AmoebaDlmmRead:c.o (6.8s)
+✔ [381/646] Built Ameba.Queries.ExpiryAuthorizationPlan.Spec:c.o (159ms)
+✔ [382/646] Built Ameba.Queries.ExpiryAuthorizationPlan.Exec:c.o (228ms)
+✔ [383/646] Built Ameba.Queries.ExpiryAuthorizationPlan.Model:c.o (294ms)
+✔ [384/646] Built Ameba.Domain.WriterCloseStage:c.o (4.6s)
+✔ [385/646] Built Ameba.Adapters.HttpJson.WriterCloseStageInput:c.o (3.3s)
+✔ [386/646] Built Ameba.Domain.CurrentOracleSourceRegistry:c.o (5.0s)
+✔ [387/646] Built Ameba.Adapters.HttpJson.WriterDlmmInput:c.o (997ms)
+✔ [388/646] Built Ameba.Queries.ExpiryAuthorizationPlan.Theorems:c.o (308ms)
+✔ [389/646] Built Ameba.Domain.AutomationExecution:c.o (758ms)
+✔ [390/646] Built Ameba.Domain.ExpiryAuthorization:c.o (692ms)
+✔ [391/646] Built Ameba.System.Verified.ExpiryAuthorization:c.o (332ms)
+✔ [392/646] Built Ameba.Queries.CurrentPositionExpiryPlan.Spec:c.o (224ms)
+✔ [393/646] Built Ameba.Queries.CurrentPositionExpiryPlan.Theorems:c.o (174ms)
+✔ [394/646] Built Ameba.Adapters.HttpJson.CollectiveActionMaskInput:c.o (1.1s)
+✔ [395/646] Built Ameba.Adapters.HttpJson.ExpiryAuthorizationInput:c.o (470ms)
+✔ [396/646] Built Ameba.Queries.CurrentPositionExpiryPlan.Exec:c.o (265ms)
+✔ [397/646] Built Ameba.System.Verified.PositionExpiry:c.o (202ms)
+✔ [398/646] Built Ameba.Queries.WriterFundsAdmission.Spec:c.o (179ms)
+✔ [399/646] Built Ameba.Queries.WriterFundsAdmission.Exec:c.o (180ms)
+✔ [400/646] Built Ameba.Queries.WriterFundsAdmission.Theorems:c.o (215ms)
+✔ [401/646] Built Ameba.System.Verified.WriterFunds:c.o (236ms)
+✔ [402/646] Built Ameba.Queries.WriterAuctionPlan.Model:c.o (2.7s)
+✔ [403/646] Built Ameba.Queries.CurrentPositionExpiryPlan.Model:c.o (877ms)
+✔ [404/646] Built Ameba.App.ApiRoutes.PositionExpiryJson:c.o (659ms)
+✔ [405/646] Built Ameba.Domain.Internal.WriterDlmmRaw:c.o (512ms)
+✔ [406/646] Built Ameba.Domain.Internal.WriterDlmmCommitment:c.o (430ms)
+✔ [407/646] Built Ameba.Queries.WriterDlmmOperation.Spec:c.o (206ms)
+✔ [408/646] Built Ameba.Queries.WriterDlmmOperation.Exec:c.o (293ms)
+✔ [409/646] Built Ameba.Queries.WriterDlmmOperation.Theorems:c.o (237ms)
+✔ [410/646] Built Ameba.Queries.LiquidityOperationAdmission.Model:c.o (2.7s)
+✔ [411/646] Built Ameba.Invariants.WriterFinancialBook:c.o (373ms)
+✔ [412/646] Built Ameba.Adapters.HttpJson.LiquidityOperationInput:c.o (1.7s)
+✔ [413/646] Built Ameba.Queries.WriterReserve.Spec:c.o (436ms)
+✔ [414/646] Built Ameba.Queries.WriterReserve.Theorems.Point:c.o (218ms)
+✔ [415/646] Built Ameba.Queries.WriterReserve.Internal:c.o (357ms)
+✔ [416/646] Built Ameba.Domain.Internal.WriterDlmmClassic:c.o (1.4s)
+✔ [417/646] Built Ameba.Queries.WriterReserve.Theorems.Completeness:c.o (302ms)
+✔ [418/646] Built Ameba.Domain.Internal.WriterDlmmSidecars:c.o (1.6s)
+✔ [419/646] Built Ameba.Queries.WriterReserve.Theorems.Affine:c.o (370ms)
+✔ [420/646] Built Ameba.Queries.WriterReserve.Theorems.Tails:c.o (360ms)
+✔ [421/646] Built Ameba.Queries.WriterReserve.Theorems.Summary:c.o (295ms)
+✔ [422/646] Built Ameba.Queries.WriterOracleSecurity.Spec:c.o (234ms)
+✔ [423/646] Built Ameba.Queries.WriterFundsAdmission.Model:c.o (1.9s)
+✔ [424/646] Built Ameba.Domain.Internal.WriterDlmmMarket:c.o (1.5s)
+✔ [425/646] Built Ameba.Queries.WriterReserve.Exec:c.o (872ms)
+✔ [426/646] Built Ameba.Queries.WriterOracleSecurity.Exec:c.o (310ms)
+✔ [427/646] Built Ameba.Queries.WriterReserve.Theorems.Reserve:c.o (281ms)
+✔ [428/646] Built Ameba.Queries.WriterReserve.Theorems:c.o (197ms)
+✔ [429/646] Built Ameba.Queries.WriterOracleSecurity.Theorems:c.o (202ms)
+✔ [430/646] Built Ameba.Queries.WriterDlmmCashAdmission.Spec:c.o (178ms)
+✔ [431/646] Built Ameba.Domain.Internal.WriterDlmmDecode:c.o (1.8s)
+✔ [432/646] Built Ameba.Queries.WriterDlmmCashAdmission.Exec:c.o (218ms)
+✔ [433/646] Built Ameba.Queries.WriterDlmmCashAdmission.Theorems:c.o (236ms)
+✔ [434/646] Built Ameba.Queries.WriterPolicy.Spec:c.o (183ms)
+✔ [435/646] Built Ameba.Queries.WriterDlmmOperation.Model:c.o (1.7s)
+✔ [436/646] Built Ameba.System.Verified.WriterDlmmCash:c.o (389ms)
+✔ [437/646] Built Ameba.Queries.WriterPolicy.Theorems:c.o (320ms)
+✔ [438/646] Built Ameba.System.Verified.WriterDlmmPlacement:c.o (313ms)
+✔ [439/646] Built Ameba.Queries.WriterDlmmBudget.Spec:c.o (178ms)
+✔ [440/646] Built Ameba.Queries.WriterDlmmCashAdmission.Model:c.o (568ms)
+✔ [441/646] Built Ameba.System.Verified.WriterDlmmOperation:c.o (348ms)
+✔ [442/646] Built Ameba.Queries.WriterDlmmBudget.Exec:c.o (268ms)
+✔ [443/646] Built Ameba.Queries.WriterDlmmBudget.Theorems:c.o (180ms)
+✔ [444/646] Built Ameba.Queries.WriterDlmmBudget.Model:c.o (465ms)
+✔ [445/646] Built Ameba.System.Verified.WriterDlmmView:c.o (320ms)
+✔ [446/646] Built Ameba.Queries.OracleOwnerRewardProjection.Spec:c.o (170ms)
+✔ [447/646] Built Ameba.Queries.OracleOwnerRewardProjection.Exec:c.o (248ms)
+✔ [448/646] Built Ameba.Queries.OracleOwnerRewardProjection.Theorems:c.o (264ms)
+✔ [449/646] Built Ameba.Queries.WriterPolicy.Exec:c.o (888ms)
+✔ [450/646] Built Ameba.Adapters.HttpJson.WriterDlmmOutput:c.o (606ms)
+✔ [451/646] Built Ameba.Queries.OracleOwnerRewardProjection.Model:c.o (531ms)
+✔ [452/646] Built Ameba.System.Verified.OracleOwnerReward:c.o (333ms)
+✔ [453/646] Built Ameba.Domain.FinalizedTradeEvidence:c.o (384ms)
+✔ [454/646] Built Ameba.Queries.FinalizedTrade.Model:c.o (331ms)
+✔ [455/646] Built Ameba.Queries.FinalizedTrade.Spec:c.o (221ms)
+✔ [456/646] Built Ameba.Queries.FinalizedTrade.Exec:c.o (232ms)
+✔ [457/646] Built Ameba.Queries.FinalizedTrade.Theorems:c.o (204ms)
+✔ [458/646] Built Ameba.Adapters.HttpJson.OracleOwnerRewardInput:c.o (828ms)
+✔ [459/646] Built Ameba.Domain.AutomationRead:c.o (4.2s)
+✔ [460/646] Built Ameba.Adapters.HttpJson.WriterFundsInput:c.o (3.3s)
+✔ [461/646] Built Ameba.Adapters.HttpJson.FinalizedTradeInput:c.o (666ms)
+✔ [462/646] Built Ameba.Queries.TradeVolume.Spec:c.o (218ms)
+✔ [463/646] Built Ameba.Domain.OracleOwnerReward:c.o (1.1s)
+✔ [464/646] Built Ameba.Domain.Internal.OracleOwnerRewardRaw:c.o (833ms)
+✔ [465/646] Built Ameba.Queries.TradeVolume.Model:c.o (271ms)
+✔ [466/646] Built Ameba.Queries.TradeVolume.Exec:c.o (273ms)
+✔ [467/646] Built Ameba.Domain.TradeVolume:c.o (462ms)
+✔ [468/646] Built Ameba.Adapters.HttpJson.TradeVolumeInput:c.o (483ms)
+✔ [469/646] Built Ameba.Domain.MarketImpliedIndex:c.o (412ms)
+✔ [470/646] Built Ameba.Queries.ChartProjection.Spec:c.o (162ms)
+✔ [471/646] Built Ameba.Queries.MarketImpliedIndexHistory.Exec:c.o (258ms)
+✔ [472/646] Built Ameba.Queries.ChartProjection.Theorems.Core:c.o (239ms)
+✔ [473/646] Built Ameba.Queries.OptionStatistics.Spec:c.o (168ms)
+✔ [474/646] Built Ameba.Queries.MarketImpliedIndex.Exec:c.o (442ms)
+✔ [475/646] Built Ameba.Queries.MarketImpliedIndexHistory.Model:c.o (466ms)
+✔ [476/646] Built Ameba.Queries.ChartProjection.Theorems.FastPath:c.o (240ms)
+✔ [477/646] Built Ameba.Queries.ChartProjection.Exec:c.o (482ms)
+✔ [478/646] Built Ameba.Queries.OptionStatistics.Exec:c.o (228ms)
+✔ [479/646] Built Ameba.Queries.SpreadPricing.Spec:c.o (174ms)
+✔ [480/646] Built Ameba.Domain.ChartRead:c.o (624ms)
+✔ [481/646] Built Ameba.Queries.MarketImpliedIndex.Spec:c.o (795ms)
+✔ [482/646] Built Ameba.Queries.SpreadPricing.Theorems:c.o (334ms)
+✔ [483/646] Built Ameba.Queries.OptionStatistics.Model:c.o (746ms)
+✔ [484/646] Built Ameba.Queries.WriterAuctionPlan.Spec:c.o (319ms)
+✔ [485/646] Built Ameba.Queries.SpreadPricing.Exec:c.o (612ms)
+✔ [486/646] Built Ameba.Queries.WriterAuctionPlan.Theorems.Funding:c.o (246ms)
+✔ [487/646] Built Ameba.Queries.WriterAuctionPlan.Theorems.Remainder:c.o (316ms)
+✔ [488/646] Built Ameba.Queries.WriterAuctionPlan.Theorems.PlanErrors:c.o (215ms)
+✔ [489/646] Built Ameba.Queries.MarketImpliedIndex.Model:c.o (1.5s)
+✔ [490/646] Built Ameba.Adapters.HttpJson.WriterSleeveJson:c.o (819ms)
+✔ [491/646] Built Ameba.Queries.WriterAuctionPlan.Theorems.Admission:c.o (334ms)
+✔ [492/646] Built Ameba.Queries.WriterClosePreview.Spec:c.o (335ms)
+✔ [493/646] Built Ameba.Queries.WriterPolicy.Model:c.o (2.0s)
+✔ [494/646] Built Ameba.Adapters.HttpJson.RpcGatewayCanonical:c.o (883ms)
+✔ [495/646] Built Ameba.Queries.WriterClosePreview.Theorems.Basket:c.o (209ms)
+✔ [496/646] Built Ameba.Queries.WriterClosePreview.Theorems.Arithmetic:c.o (209ms)
+✔ [497/646] Built Ameba.Queries.WriterSettlementPlan.Spec:c.o (256ms)
+✔ [498/646] Built Ameba.Queries.WriterSettlementPlan.Theorems:c.o (262ms)
+✔ [499/646] Built Ameba.Queries.WriterMetrics.Spec:c.o (216ms)
+✔ [500/646] Built Ameba.Queries.SpreadPricing.Model:c.o (1.4s)
+✔ [501/646] Built Ameba.Queries.WriterSettlementPlan.Exec:c.o (375ms)
+✔ [502/646] Built Ameba.Queries.WriterMetrics.Exec:c.o (253ms)
+✔ [503/646] Built Ameba.Queries.WriterMetrics.Theorems:c.o (232ms)
+✔ [504/646] Built Ameba.Invariants.WriterOpenInterest:c.o (216ms)
+✔ [505/646] Built Ameba.Invariants.WriterSettlement:c.o (151ms)
+✔ [506/646] Built Ameba.Queries.WriterClosePreview.Exec:c.o (674ms)
+✔ [507/646] Built Ameba.Invariants.WriterPolicy:c.o (182ms)
+✔ [508/646] Built Ameba.Queries.OptionStatistics.Theorems:c.o (175ms)
+✔ [509/646] Built Ameba.Invariants.WriterClose:c.o (243ms)
+✔ [510/646] Built Ameba.System.Verified.FinalizedTrade:c.o (248ms)
+✔ [511/646] Built Ameba.Queries.MarketImpliedIndexHistory.Spec:c.o (287ms)
+✔ [512/646] Built Ameba.Queries.ComputeIndex.Model:c.o (419ms)
+✔ [513/646] Built Ameba.Queries.MarketImpliedIndex.Theorems:c.o (217ms)
+✔ [514/646] Built Ameba.Domain.PaperSimulation:c.o (481ms)
+✔ [515/646] Built Ameba.Queries.WriterAuctionPlan.Exec:c.o (1.7s)
+✔ [516/646] Built Ameba.Queries.WriterAuctionPlan.Theorems.Maximum:c.o (230ms)
+✔ [517/646] Built Ameba.Invariants.WriterSleeve:c.o (604ms)
+✔ [518/646] Built Ameba.Domain.Internal.OracleOwnerRewardDecode:c.o (3.4s)
+✔ [519/646] Built Ameba.Queries.TradeVolume.Theorems:c.o (190ms)
+✔ [520/646] Built Ameba.Domain.WriterFunds:c.o (6.1s)
+✔ [521/646] Built Ameba.Queries.ChartProjection.Theorems.Projection:c.o (197ms)
+✔ [522/646] Built Ameba.App.ApiRoutes.CurrentOraclePolicy:c.o (873ms)
+✔ [523/646] Built Ameba.Adapters.HttpJson.CurrentPolicyInput:c.o (673ms)
+✔ [524/646] Built Ameba.Adapters.HttpJson.RpcGatewayInput:c.o (2.4s)
+✔ [525/646] Built Ameba.Adapters.HttpJson.CurrentOracleSourceRegistryInput:c.o (2.9s)
+✔ [526/646] Built Ameba.Queries.ComputeIndex.Exec (1.0s)
+✔ [527/646] Built Ameba.System.Verified.ChartWrite (2.0s)
+✔ [528/646] Built Ameba.Queries.ComputeIndex.Spec (1.2s)
+✔ [529/646] Built Ameba.System.Verified.MarketImpliedIndex (1.3s)
+✔ [530/646] Built Ameba.Rules.WriterSleeveAccounting.Spec (1.3s)
+✔ [531/647] Built Ameba.Domain.CurrentOracleBountyEvidence:c.o (2.0s)
+✔ [532/647] Built Ameba.Queries.ComputeIndex.Exec:c.o (254ms)
+✔ [533/647] Built Ameba.Queries.ComputeIndex.Spec:c.o (242ms)
+✔ [534/647] Built Ameba.Adapters.HttpJson.ChartHistoryInput:c.o (2.2s)
+✔ [535/647] Built Ameba.Adapters.HttpJson.MonthlyMarketCreationInput:c.o (2.3s)
+✔ [536/647] Built Ameba.System.Verified.MarketImpliedIndex:c.o (174ms)
+✔ [537/647] Built Ameba.Rules.WriterSleeveAccounting.Spec:c.o (141ms)
+✔ [538/647] Built Ameba.System.Verified.ChartWrite:c.o (490ms)
+✔ [539/654] Built Ameba.Adapters.HttpJson.CurrentOracleBountyInput (2.1s)
+✔ [540/654] Built Ameba.Adapters.HttpJson.PaperSimulationInput (2.3s)
+✔ [541/654] Built Ameba.Queries.PaperMarketProjection.Model (2.4s)
+✔ [542/657] Built Ameba.System.Verified.TradeVolume (1.1s)
+✔ [543/657] Built Ameba.Adapters.HttpJson.ChartHistoryWriteInput (1.4s)
+✔ [544/657] Built Ameba.Rules.WriterSleeveAccounting.Exec:c.o (3.3s)
+✔ [545/659] Built Ameba.Queries.ChartProjection.Theorems (1.3s)
+✔ [546/659] Built Ameba.System.Verified.TradeVolume:c.o (181ms)
+✔ [547/659] Built Ameba.Adapters.HttpJson.ChartHistoryWriteInput:c.o (134ms)
+✔ [548/660] Built Ameba.Queries.ChartProjection.Theorems:c.o (125ms)
+✔ [549/661] Built Ameba.Adapters.HttpJson.PaperSimulationInput:c.o (828ms)
+✔ [550/661] Built Ameba.Queries.CurrentOracleBountyProjection.Model (2.9s)
+✔ [551/661] Built Ameba.Queries.AmoebaDlmmReadiness.Theorems (1.2s)
+✔ [552/663] Built Ameba.Queries.ComputeIndex.Theorems (1.5s)
+✔ [553/663] Built Ameba.Queries.PaperMarketProjection.Spec (1.1s)
+✔ [554/667] Built Ameba.Queries.WriterAuctionPlan.Theorems (2.9s)
+✔ [555/667] Built Ameba.Queries.PaperMarketProjection.Exec (1.3s)
+✔ [556/667] Built Ameba.Queries.ComputeIndex.Theorems:c.o (187ms)
+✔ [557/668] Built Ameba.Queries.PaperMarketProjection.Model:c.o (1.5s)
+✔ [559/668] Built Ameba.Domain.OracleStaking (1.8s)
+✔ [560/669] Built Ameba.Queries.WriterAuctionPlan.Theorems:c.o (347ms)
+✔ [561/669] Built Ameba.App.ApiRoutes.GuardedChartHistory (3.0s)
+✔ [562/669] Built Ameba.Queries.PaperMarketProjection.Exec:c.o (477ms)
+✔ [565/669] Built Ameba.Queries.MarketImpliedIndexHistory.Theorems (1.6s)
+✔ [566/670] Built Ameba.Domain.OracleDisputeVote (2.3s)
+✔ [567/671] Built Ameba.Queries.CurrentOracleBountyProjection.Exec (1.7s)
+✔ [568/671] Built Ameba.Adapters.HttpJson.CurrentOracleBountyInput:c.o (2.8s)
+✔ [569/671] Built Ameba.Queries.CurrentOracleBountyProjection.Spec (1.6s)
+✔ [570/671] Built Ameba.System.Verified.ComputeIndex (1.4s)
+✔ [571/671] Built Ameba.Queries.MarketImpliedIndexHistory.Theorems:c.o (212ms)
+✔ [573/672] Built Ameba.App.ApiRoutes.GuardedChartHistory:c.o (564ms)
+✔ [574/672] Built Ameba.App.ApiRoutes.ChartWriter (2.5s)
+✔ [575/672] Built Ameba.Queries.PaperMarketProjection.Theorems (1.4s)
+✔ [576/673] Built Ameba.Queries.CurrentOracleBountyProjection.Spec:c.o (146ms)
+✔ [577/673] Built Ameba.Queries.CurrentOracleBountyProjection.Exec:c.o (353ms)
+✔ [579/678] Built Ameba.Queries.CurrentOracleBountyProjection.Model:c.o (2.3s)
+✔ [580/678] Built Ameba.Test.MonthlyMarketCreation (1.3s)
+✔ [582/680] Built Ameba.System.Verified.ComputeIndex:c.o (318ms)
+✔ [583/680] Built Ameba.App.ApiRoutes.ChartWriter:c.o (433ms)
+✔ [584/682] Built Ameba.Rules.WriterSleeveAccounting.Theorems (3.9s)
+✔ [585/683] Built Ameba.App.ApiRoutes.DevnetPaperSimulation (2.2s)
+✔ [586/684] Built Ameba.System.Verified.MarketImpliedIndexHistory (1.3s)
+✔ [587/684] Built Ameba.Rules.WriterSleeveAccounting.Theorems:c.o (367ms)
+✔ [588/684] Built Ameba.Queries.OracleStakingAdmission.Model (1.0s)
+✔ [589/685] Built Ameba.Adapters.HttpJson.AmoebaDlmmObservationInput:c.o (16s)
+✔ [590/685] Built Ameba.Test.CurrentFinalizedObservation (1.5s)
+✔ [591/685] Built Ameba.Test.FinalizedTrade (1.4s)
+✔ [592/686] Built Ameba.System.Verified.MarketImpliedIndexHistory:c.o (195ms)
+✔ [593/686] Built Ameba.Queries.OracleDisputeVoteAdmission.Model (1.6s)
+✔ [594/687] Built Ameba.App.ApiRoutes.DevnetPaperSimulation:c.o (490ms)
+✔ [595/687] Built Ameba.Test.CollectiveActionMask (1.5s)
+✔ [596/687] Built Ameba.Queries.WriterAuctionPlan.Theorems.Sequential (3.5s)
+✔ [597/688] Built Ameba.Queries.OracleStakingAdmission.Spec (999ms)
+✔ [598/689] Built Ameba.Queries.CurrentOracleBountyProjection.Theorems (2.1s)
+✔ [599/689] Built Ameba.App.ApiRoutes.ComputeIndex (2.0s)
+✔ [600/689] Built Ameba.Queries.OracleStakingAdmission.Exec (1.2s)
+✔ [601/689] Built Ameba.Test.LiquidityOperationAdmission (1.7s)
+✔ [602/690] Built Ameba.Test.WriterCloseStagePlan (2.1s)
+✔ [603/690] Built Ameba.Test.ExpiryAuthorizationPlan (1.4s)
+✔ [604/690] Built Ameba.Test.PaperMarketSimulation (1.3s)
+✔ [605/690] Built Ameba.Queries.WriterClosePreview.Theorems.Outcome (23s)
+✔ [606/690] Built Ameba.Queries.CurrentOracleBountyProjection.Theorems:c.o (227ms)
+✔ [607/691] Built Ameba.Queries.WriterAuctionPlan.Theorems.Sequential:c.o (385ms)
+✔ [608/691] Built Ameba.Test.DlmmOptionMark (1.3s)
+✔ [609/691] Built Ameba.Test.DlmmOptionBook (1.2s)
+✔ [610/695] Built Ameba.Queries.WriterClosePreview.Theorems.Outcome:c.o (132ms)
+✔ [611/695] Built Ameba.App.ApiRoutes.ComputeIndex:c.o (462ms)
+✔ [612/695] Built Ameba.Test.Support.WriterSleeveMathFixture (2.4s)
+✔ [614/749] Built Ameba.Queries.AmoebaDlmmReadiness.Theorems:c.o (123ms)
+✔ [615/749] Built Ameba.Queries.PaperMarketProjection.Spec:c.o (124ms)
+✔ [616/749] Built Ameba.Test.OptionMetrics (1.6s)
+✔ [617/749] Built Ameba.Queries.OracleDisputeVoteAdmission.Spec (1.2s)
+✔ [618/749] Built Ameba.Queries.PaperMarketProjection.Theorems:c.o (152ms)
+✔ [619/749] Built Ameba.Queries.OracleDisputeVoteAdmission.Exec (1.3s)
+✔ [620/749] Built Ameba.Queries.OracleStakingAdmission.Spec:c.o (115ms)
+✔ [621/749] Built Ameba.App.ApiRoutes.MarketImpliedIndexHistory (1.0s)
+✔ [622/749] Built Ameba.Queries.OracleStakingAdmission.Exec:c.o (154ms)
+✔ [623/749] Built Ameba.Test.MarketImpliedIndex (1.3s)
+✔ [624/749] Built Ameba.Queries.WriterReceipt.Spec:c.o (151ms)
+⚠ [625/749] Built Ameba.Queries.OracleStakingAdmission.Theorems (1.3s)
+warning: Ameba/Queries/OracleStakingAdmission/Theorems.lean:49:6: This simp argument is unused:
+  true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitOracleStaking, hF, hA, hL, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, false_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/OracleStakingAdmission/Theorems.lean:49:16: This simp argument is unused:
+  false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitOracleStaking, hF, hA, hL, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, true_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/OracleStakingAdmission/Theorems.lean:62:6: This simp argument is unused:
+  true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitOracleStaking, hF, hA, hL, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, false_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/OracleStakingAdmission/Theorems.lean:62:16: This simp argument is unused:
+  false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitOracleStaking, hF, hA, hL, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, true_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/OracleStakingAdmission/Theorems.lean:75:6: This simp argument is unused:
+  true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitOracleStaking, hF, hA, hL, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, false_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/OracleStakingAdmission/Theorems.lean:75:16: This simp argument is unused:
+  false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitOracleStaking, hF, hA, hL, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, true_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [626/749] Built Ameba.Test.ComputeIndex (1.3s)
+✔ [627/749] Built Ameba.Test.ChartProjection (1.3s)
+✔ [628/749] Built Ameba.Queries.WriterReceipt.Model:c.o (447ms)
+✔ [629/749] Built Ameba.Test.CurrentPositionExpiryPlan (1.3s)
+✔ [630/749] Built Ameba.Queries.WriterReceipt.Exec:c.o (157ms)
+✔ [631/749] Built Ameba.Queries.WriterReceipt.Theorems:c.o (172ms)
+✔ [632/749] Built Ameba.Domain.OracleStaking:c.o (921ms)
+✔ [633/749] Built Ameba.System.Verified.WriterReceipt:c.o (219ms)
+✔ [634/749] Built Ameba.Queries.OracleStakingAdmission.Model:c.o (958ms)
+✔ [635/749] Built Ameba.Queries.OracleDisputeVoteAdmission.Model:c.o (880ms)
+✔ [636/749] Built Ameba.Test.MonthlyMarketCreation:c.o (401ms)
+✔ [637/749] Built Ameba.Test.FinalizedTrade:c.o (350ms)
+✔ [638/749] Built Ameba.Test.HttpJsonBoundary (1.6s)
+✔ [639/749] Built Ameba.Test.CurrentFinalizedObservation:c.o (474ms)
+✔ [640/749] Built Ameba.Test.CurrentOracleBountyProjection (2.0s)
+✔ [641/749] Built Ameba.Test.ExpiryAuthorizationPlan:c.o (397ms)
+✔ [642/749] Built Ameba.Test.PaperMarketSimulation:c.o (361ms)
+✔ [643/749] Built Ameba.Test.DlmmOptionBook:c.o (281ms)
+✔ [644/749] Built Ameba.Test.CollectiveActionMask:c.o (635ms)
+✔ [645/749] Built Ameba.Queries.WriterAuctionPlan.Theorems.Exact (2.6s)
+✔ [646/749] Built Ameba.Queries.OracleDisputeVoteAdmission.Spec:c.o (244ms)
+✔ [647/749] Built Ameba.Queries.OracleDisputeVoteAdmission.Exec:c.o (224ms)
+✔ [648/749] Built Ameba.System.Verified.CurrentProtocol (2.5s)
+✔ [649/749] Built Ameba.Test.LiquidityOperationAdmission:c.o (946ms)
+✔ [650/749] Built Ameba.Queries.WriterClosePreview.Theorems.Plan (2.5s)
+✔ [651/749] Built Ameba.Test.GuardedChartHistoryBoundary (2.4s)
+✔ [652/749] Built Ameba.Queries.OracleStakingAdmission.Theorems:c.o (221ms)
+✔ [653/749] Built Ameba.Test.MarketImpliedIndex:c.o (472ms)
+✔ [654/749] Built Ameba.Test.DlmmOptionMark:c.o (985ms)
+✔ [655/749] Built Ameba.Test.WriterCloseStagePlan:c.o (1.3s)
+✔ [656/749] Built Ameba.Test.ComputeIndex:c.o (492ms)
+✔ [657/749] Built Ameba.Queries.WriterAuctionPlan.Theorems.Exact:c.o (231ms)
+✔ [658/749] Built Ameba.Test.CurrentPositionExpiryPlan:c.o (414ms)
+✔ [659/749] Built Ameba.Test.OptionMetrics:c.o (920ms)
+✔ [660/749] Built Ameba.Test.ChartProjection:c.o (528ms)
+✔ [661/749] Built Ameba.Test.HttpJsonBoundary:c.o (351ms)
+✔ [662/749] Built Ameba.System.Verified.CurrentProtocol:c.o (281ms)
+✔ [663/749] Built Ameba.App.ApiRoutes.MarketImpliedIndexHistory:c.o (1.0s)
+✔ [664/749] Built Ameba.Queries.WriterClosePreview.Theorems.Plan:c.o (274ms)
+✔ [665/749] Built Ameba.Test.CurrentOracleSourceRegistry:c.o (1.9s)
+✔ [666/749] Built Ameba.Test.GuardedChartHistoryBoundary:c.o (545ms)
+✔ [667/749] Built Ameba.Test.CurrentOracleBountyProjection:c.o (835ms)
+✔ [668/749] Built Ameba.Domain.OracleDisputeVote:c.o (2.9s)
+✔ [669/749] Built Ameba.Test.SolanaWire (1.0s)
+⚠ [670/749] Built Ameba.Queries.OracleDisputeVoteAdmission.Theorems (1.4s)
+warning: Ameba/Queries/OracleDisputeVoteAdmission/Theorems.lean:35:6: This simp argument is unused:
+  true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitOracleDisputeVote, hF, hS, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, false_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/OracleDisputeVoteAdmission/Theorems.lean:35:16: This simp argument is unused:
+  false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitOracleDisputeVote, hF, hS, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, true_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/OracleDisputeVoteAdmission/Theorems.lean:35:27: This simp argument is unused:
+  and_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitOracleDisputeVote, hF, hS, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, true_and, false_and, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/OracleDisputeVoteAdmission/Theorems.lean:35:38: This simp argument is unused:
+  and_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitOracleDisputeVote, hF, hS, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, true_and, false_and, and_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/OracleDisputeVoteAdmission/Theorems.lean:45:6: This simp argument is unused:
+  true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitOracleDisputeVote, hF, hS, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, false_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/OracleDisputeVoteAdmission/Theorems.lean:45:16: This simp argument is unused:
+  false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitOracleDisputeVote, hF, hS, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, true_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/OracleDisputeVoteAdmission/Theorems.lean:55:6: This simp argument is unused:
+  true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitOracleDisputeVote, hF, hS, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, false_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Ameba/Queries/OracleDisputeVoteAdmission/Theorems.lean:55:16: This simp argument is unused:
+  false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [admitOracleDisputeVote, hF, hS, hC, ite_true, ite_false, Except.error.injEq, reduceCtorEq,
+    not_true_eq_false, not_false_eq_true, true_and, and_false, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [671/749] Built Ameba.System.Verified.OracleStaking (1.2s)
+✔ [672/749] Built Ameba.Test.SolanaWire:c.o (190ms)
+✔ [673/749] Built Ameba.Queries.OracleDisputeVoteAdmission.Theorems:c.o (125ms)
+✔ [674/749] Built Ameba.System.Verified.OracleStaking:c.o (128ms)
+✔ [675/749] Built Ameba.Test.Support.WriterSleeveMathFixture:c.o (2.7s)
+✔ [676/749] Built Ameba.System.Verified.WriterDlmmActions (1.7s)
+✔ [677/749] Built Ameba.App.ApiRoutes.MarketImpliedIndex (1.0s)
+✔ [678/749] Built Ameba.Test.RpcGatewayPolicy (1.8s)
+✔ [679/749] Built Ameba.System.Verified.OptionMetrics (1.9s)
+✔ [680/749] Built Ameba.App.ApiRoutes.RpcAdmission (1.9s)
+✔ [681/749] Built Ameba.System.Verified.OracleDisputeVote (831ms)
+✔ [682/749] Built Ameba.System.Verified.WriterDlmmActions:c.o (204ms)
+✔ [683/749] Built Ameba.App.ApiRoutes.RpcAdmission:c.o (167ms)
+✔ [684/749] Built Ameba.System.Verified.OracleDisputeVote:c.o (103ms)
+✔ [685/749] Built Ameba.Test.RpcGatewayPolicy:c.o (203ms)
+✔ [686/749] Built Ameba.App.ApiRoutes.CurrentJson (1.9s)
+✔ [687/749] Built Ameba.Queries.WriterClosePreview.Theorems.Global (1.9s)
+✔ [688/749] Built Ameba.App.ApiRoutes.MarketImpliedIndex:c.o (535ms)
+✔ [689/749] Built Ameba.System.Verified.OptionMetrics:c.o (365ms)
+✔ [690/749] Built Ameba.Queries.WriterClosePreview.Theorems.Global:c.o (171ms)
+✔ [691/749] Built Ameba.App.ApiRoutes.CurrentJson:c.o (823ms)
+✔ [692/749] Built Ameba.Queries.WriterClosePreview.Theorems.GlobalCompleteness (1.7s)
+✔ [693/749] Built Ameba.Test.CurrentProductAvailability (1.9s)
+✔ [694/749] Built Ameba.Queries.WriterClosePreview.Theorems.GlobalCompleteness:c.o (156ms)
+✔ [695/749] Built Ameba.App.ApiRoutes.WriterFunds (2.1s)
+✔ [696/749] Built Ameba.App.ApiRoutes.OracleOwnerReward (2.1s)
+✔ [697/749] Built Ameba.App.ApiRoutes.FinalizedTrade (2.1s)
+✔ [698/749] Built Ameba.App.ApiRoutes.TradeVolume (2.1s)
+✔ [699/749] Built Ameba.App.ApiRoutes.OptionMetrics (2.3s)
+✔ [700/749] Built Ameba.App.ApiRoutes.CurrentOracleBounties (2.2s)
+✔ [701/749] Built Ameba.App.ApiRoutes.CurrentOracleSources (2.2s)
+✔ [702/749] Built Ameba.App.ApiRoutes.WriterDlmm (2.3s)
+✔ [703/749] Built Ameba.App.ApiRoutes.OracleOwnerReward:c.o (192ms)
+✔ [704/749] Built Ameba.App.ApiRoutes.FinalizedTrade:c.o (210ms)
+✔ [705/749] Built Ameba.App.ApiRoutes.TradeVolume:c.o (231ms)
+✔ [706/749] Built Ameba.Test.CurrentProductAvailability:c.o (409ms)
+✔ [707/749] Built Ameba.App.ApiRoutes.WriterFunds:c.o (275ms)
+✔ [708/749] Built Ameba.App.ApiRoutes.WriterDlmm:c.o (262ms)
+✔ [709/749] Built Ameba.App.ApiRoutes.OptionMetrics:c.o (477ms)
+✔ [710/749] Built Ameba.App.ApiRoutes.CurrentOracleBounties:c.o (360ms)
+✔ [711/749] Built Ameba.App.ApiRoutes.CurrentOracleSources:c.o (371ms)
+✔ [712/749] Built Ameba.Queries.WriterClosePreview.Theorems.GlobalSafety (1.6s)
+✔ [713/749] Built Ameba.Queries.WriterClosePreview.Theorems.GlobalSafety:c.o (124ms)
+✔ [714/749] Built Ameba.Queries.WriterClosePreview.Theorems (927ms)
+✔ [715/749] Built Ameba.Queries.WriterClosePreview.Theorems:c.o (128ms)
+✔ [716/749] Built Ameba.App.ApiRoutes.CurrentAdmissions (2.4s)
+✔ [717/749] Built Ameba.App.ApiRoutes.CurrentAdmissions:c.o (545ms)
+✔ [718/749] Built Ameba.Test.WriterSleeveMath (1.7s)
+✔ [719/749] Built Ameba.System.Verified.WriterSleeve (2.1s)
+✔ [720/749] Built Ameba.System.Verified.WriterSleeve:c.o (523ms)
+✔ [721/749] Built Ameba.Test.WriterSleeveMath:c.o (1.2s)
+✔ [722/749] Built Ameba.System.Verified.WriterSleeveSecurity (7.6s)
+✔ [723/749] Built Ameba.System.Verified.WriterSleeveSecurity:c.o (403ms)
+✔ [724/749] Built Ameba.App.ApiRoutes.WriterSleeves (19s)
+✔ [725/749] Built Ameba.App.ApiRoutes.WriterSleeves:c.o (2.4s)
+✔ [726/749] Built Ameba.App.ApiRoutes (20s)
+✔ [727/749] Built Ameba.App.ApiRoutes:c.o (4.7s)
+✔ [728/749] Built Ameba.App.Routes (17s)
+✔ [729/749] Built Ameba.App.Routes:c.o (841ms)
+✔ [730/749] Built Ameba.Test.CurrentOracleSourceRoute (7.3s)
+✔ [731/749] Built Ameba.Test.CurrentOracleBountyRoute (7.7s)
+✔ [732/749] Built Ameba.Test.CurrentOracleSourceRoute:c.o (672ms)
+✔ [733/749] Built Ameba.Test.RpcAdmissionBoundary (8.2s)
+✔ [734/749] Built Ameba.Test.WriterSleeveHttpJson (8.3s)
+✔ [735/749] Built Ameba.Test.CurrentOracleBountyRoute:c.o (1.1s)
+✔ [736/749] Built Ameba.App.Server (9.2s)
+✔ [737/749] Built Ameba.Test.WriterSleeveHttpJson:c.o (1.8s)
+✔ [738/749] Built Ameba.Test.RpcAdmissionBoundary:c.o (2.0s)
+✔ [739/749] Built Ameba.All (5.8s)
+✔ [740/749] Built Main (6.0s)
+✔ [741/749] Built Ameba.All:c.o (333ms)
+✔ [742/749] Built Main:c.o (258ms)
+✔ [743/749] Built Ameba.App.Server:c.o (7.1s)
+✔ [744/749] Built ameba_lean:exe (8.6s)
+✔ [745/749] Built Ameba.Test.ChartWriteBoundary (12s)
+✔ [746/749] Built Ameba.Test.ChartWriteBoundary:c.o (564ms)
+✔ [747/749] Built Ameba.Test.Main (15s)
+✔ [748/749] Built Ameba.Test.Main:c.o (1.7s)
+✔ [749/749] Built ameba_lean_tests:exe (8.3s)
+Build completed successfully (749 jobs).

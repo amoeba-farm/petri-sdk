@@ -1,0 +1,18 @@
+(node:110184) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ unsigned metadata candidates cannot reserve another proposer's exact-series source (25.0648ms)
+✔ SQLite Oracle registry transactionally publishes LKG and preserves it on failure (25.381ms)
+✔ persisted projection validation rejects forged metadata and cross-release snapshots (4.6648ms)
+✔ refresh-status authentication is bound to the exact market and expiry (4.4981ms)
+✔ metadata admission prunes expired pending rows but preserves submitted rows (8.2338ms)
+✔ metadata capacity counts exact UTF-8 payload bytes globally and per series (6.6814ms)
+✔ Redis Oracle storage atomically publishes and retains an exact-series LKG (23.0801ms)
+✔ Redis Oracle storage is optional and deployment-scoped (5.5541ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2783.1958

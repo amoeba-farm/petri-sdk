@@ -1,3 +1,9 @@
+import * as participation from "@amoeba/spread-release-tools/writer-participation";
+import * as orders from "@amoeba/spread-release-tools/dlmm-orders";
+import * as evidence from "@amoeba/spread-release-tools/oracle-evidence";
+import type * as historicalOracle from "@amoeba/spread-historical-v2/oracle-dlmm";
+import type * as historicalWriter from "@amoeba/spread-historical-v2/writer-sleeve-instructions";
+import type * as historicalDlmm from "@amoeba/spread-historical-v2/dlmm-instructions";
 import { PublicKey, TransactionInstruction } from "@solana/web3.js";
 import * as currentInstructions from "./current-instructions.js";
 import * as oracleInstructions from "@amoeba/spread-release-tools/oracle-dlmm";
@@ -31,6 +37,7 @@ export declare function invokeReleaseBoundCurrentBuilderV1(input: {
     readonly builderName: string;
     readonly builderInput: unknown;
     readonly governedProgramId: PublicKey;
+    readonly expectedProgramId?: PublicKey;
 }): ReleaseBoundCurrentBuilderOutputV1;
 export declare const buildInitUserCollateralInstruction: CurrentBuilder<typeof currentInstructions.buildInitUserCollateralInstruction>;
 export declare const buildProposeEmergencySettlementSignerRecoveryInstruction: CurrentBuilder<typeof currentInstructions.buildProposeEmergencySettlementSignerRecoveryInstruction>;
@@ -51,21 +58,32 @@ export declare const buildSetMarketPausedInstruction: CurrentBuilder<typeof orac
 export declare const buildAddOracleUsdcSkuBudgetInstruction: CurrentBuilder<typeof oracleInstructions.buildAddOracleUsdcSkuBudgetInstruction>;
 export declare const buildBeginOracleUsdcRewardScheduleInstruction: CurrentBuilder<typeof oracleInstructions.buildBeginOracleUsdcRewardScheduleInstruction>;
 export declare const buildConfigureOracleEconomicsTemplateV2Instruction: CurrentBuilder<typeof oracleInstructions.buildConfigureOracleEconomicsTemplateV2Instruction>;
-export declare const buildConfigureOracleMajorTokenInstruction: CurrentBuilder<typeof oracleInstructions.buildConfigureOracleMajorTokenInstruction>;
-export declare const buildDepositOracleMajorTokensInstruction: CurrentBuilder<typeof oracleInstructions.buildDepositOracleMajorTokensInstruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildConfigureOracleMajorTokenInstruction: CurrentBuilder<typeof historicalOracle.buildConfigureOracleMajorTokenInstruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildDepositOracleMajorTokensInstruction: CurrentBuilder<typeof historicalOracle.buildDepositOracleMajorTokensInstruction>;
 export declare const buildDepositOracleUsdcRewardsInstruction: CurrentBuilder<typeof oracleInstructions.buildDepositOracleUsdcRewardsInstruction>;
 export declare const buildFinalizeOracleUsdcRewardScheduleInstruction: CurrentBuilder<typeof oracleInstructions.buildFinalizeOracleUsdcRewardScheduleInstruction>;
-export declare const buildInitializeOracleSambaPoolInstruction: CurrentBuilder<typeof oracleInstructions.buildInitializeOracleSambaPoolInstruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildInitializeOracleSambaPoolInstruction: CurrentBuilder<typeof historicalOracle.buildInitializeOracleSambaPoolInstruction>;
 export declare const buildInitializeOracleUsdcRewardVaultInstruction: CurrentBuilder<typeof oracleInstructions.buildInitializeOracleUsdcRewardVaultInstruction>;
-export declare const buildWithdrawOracleMajorTokensInstruction: CurrentBuilder<typeof oracleInstructions.buildWithdrawOracleMajorTokensInstruction>;
-export declare const buildActivateQueuedStakeAmbaForSambaInstruction: CurrentBuilder<typeof oracleInstructions.buildActivateQueuedStakeAmbaForSambaInstruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildWithdrawOracleMajorTokensInstruction: CurrentBuilder<typeof historicalOracle.buildWithdrawOracleMajorTokensInstruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildActivateQueuedStakeAmbaForSambaInstruction: CurrentBuilder<typeof historicalOracle.buildActivateQueuedStakeAmbaForSambaInstruction>;
 export declare const buildAdminAssistedWithdrawCollateralInstruction: CurrentBuilder<typeof oracleInstructions.buildAdminAssistedWithdrawCollateralInstruction>;
-export declare const buildCancelQueuedStakeAmbaInstruction: CurrentBuilder<typeof oracleInstructions.buildCancelQueuedStakeAmbaInstruction>;
-export declare const buildCompleteUnstakeSambaInstruction: CurrentBuilder<typeof oracleInstructions.buildCompleteUnstakeSambaInstruction>;
-export declare const buildInitializeOracleRewardFunnelInstruction: CurrentBuilder<typeof oracleInstructions.buildInitializeOracleRewardFunnelInstruction>;
-export declare const buildQueueStakeAmbaForSambaInstruction: CurrentBuilder<typeof oracleInstructions.buildQueueStakeAmbaForSambaInstruction>;
-export declare const buildRequestUnstakeSambaInstruction: CurrentBuilder<typeof oracleInstructions.buildRequestUnstakeSambaInstruction>;
-export declare const buildSweepOracleRewardFunnelInstruction: CurrentBuilder<typeof oracleInstructions.buildSweepOracleRewardFunnelInstruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildCancelQueuedStakeAmbaInstruction: CurrentBuilder<typeof historicalOracle.buildCancelQueuedStakeAmbaInstruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildCompleteUnstakeSambaInstruction: CurrentBuilder<typeof historicalOracle.buildCompleteUnstakeSambaInstruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildInitializeOracleRewardFunnelInstruction: CurrentBuilder<typeof historicalOracle.buildInitializeOracleRewardFunnelInstruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildQueueStakeAmbaForSambaInstruction: CurrentBuilder<typeof historicalOracle.buildQueueStakeAmbaForSambaInstruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildRequestUnstakeSambaInstruction: CurrentBuilder<typeof historicalOracle.buildRequestUnstakeSambaInstruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildSweepOracleRewardFunnelInstruction: CurrentBuilder<typeof historicalOracle.buildSweepOracleRewardFunnelInstruction>;
 export declare const buildClaimOracleUsdcRewardInstruction: CurrentBuilder<typeof oracleInstructions.buildClaimOracleUsdcRewardInstruction>;
 export declare const buildFinalizeOracleUsdcRewardEntitlementsInstruction: CurrentBuilder<typeof oracleInstructions.buildFinalizeOracleUsdcRewardEntitlementsInstruction>;
 export declare const buildProposeOracleSourceV3Instruction: CurrentBuilder<typeof oracleInstructions.buildProposeOracleSourceV3Instruction>;
@@ -94,7 +112,8 @@ export declare const buildResolveOracleOpeningClaimChallengeV2Instruction: Curre
 export declare const buildSettleFailedOracleMonthEscrowV2Instruction: CurrentBuilder<typeof oracleInstructions.buildSettleFailedOracleMonthEscrowV2Instruction>;
 export declare const buildSettleOracleUsdcEscrowInstruction: CurrentBuilder<typeof oracleInstructions.buildSettleOracleUsdcEscrowInstruction>;
 export declare const buildSubmitOracleOpeningClaimV2Instruction: CurrentBuilder<typeof oracleInstructions.buildSubmitOracleOpeningClaimV2Instruction>;
-export declare const buildAbortStaleOracleUpdateEmergencyDisputeV2Instruction: CurrentBuilder<typeof oracleInstructions.buildAbortStaleOracleUpdateEmergencyDisputeV2Instruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildAbortStaleOracleUpdateEmergencyDisputeV2Instruction: CurrentBuilder<typeof historicalOracle.buildAbortStaleOracleUpdateEmergencyDisputeV2Instruction>;
 export declare const buildCancelStaleOracleUpdateClaimV2Instruction: CurrentBuilder<typeof oracleInstructions.buildCancelStaleOracleUpdateClaimV2Instruction>;
 export declare const buildChallengeOracleUpdateClaimV2Instruction: CurrentBuilder<typeof oracleInstructions.buildChallengeOracleUpdateClaimV2Instruction>;
 export declare const buildCommitOracleUpdateClaimV3Instruction: CurrentBuilder<typeof oracleInstructions.buildCommitOracleUpdateClaimV3Instruction>;
@@ -102,14 +121,21 @@ export declare const buildFinalizeOracleUpdateClaimV2Instruction: CurrentBuilder
 export declare const buildRevealOracleUpdateClaimV3Instruction: CurrentBuilder<typeof oracleInstructions.buildRevealOracleUpdateClaimV3Instruction>;
 export declare const buildSettleExpiredOracleUpdateCommitmentV3Instruction: CurrentBuilder<typeof oracleInstructions.buildSettleExpiredOracleUpdateCommitmentV3Instruction>;
 export declare const buildAbortOracleUsdcRewardScheduleV2Instruction: CurrentBuilder<typeof oracleInstructions.buildAbortOracleUsdcRewardScheduleV2Instruction>;
-export declare const buildCommitOracleEmergencyVoteV3Instruction: CurrentBuilder<typeof oracleInstructions.buildCommitOracleEmergencyVoteV3Instruction>;
-export declare const buildRegisterOracleSambaWinningVoteInstruction: CurrentBuilder<typeof oracleInstructions.buildRegisterOracleSambaWinningVoteInstruction>;
-export declare const buildResolveOracleEmergencyDisputeV2Instruction: CurrentBuilder<typeof oracleInstructions.buildResolveOracleEmergencyDisputeV2Instruction>;
-export declare const buildResolveOracleEmergencyDisputeV4Instruction: CurrentBuilder<typeof oracleInstructions.buildResolveOracleEmergencyDisputeV4Instruction>;
-export declare const buildRevealOracleEmergencyVoteV2Instruction: CurrentBuilder<typeof oracleInstructions.buildRevealOracleEmergencyVoteV2Instruction>;
-export declare const buildSettleOracleSambaEmergencyVoteV2Instruction: CurrentBuilder<typeof oracleInstructions.buildSettleOracleSambaEmergencyVoteV2Instruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildCommitOracleEmergencyVoteV3Instruction: CurrentBuilder<typeof historicalOracle.buildCommitOracleEmergencyVoteV3Instruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildRegisterOracleSambaWinningVoteInstruction: CurrentBuilder<typeof historicalOracle.buildRegisterOracleSambaWinningVoteInstruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildResolveOracleEmergencyDisputeV2Instruction: CurrentBuilder<typeof historicalOracle.buildResolveOracleEmergencyDisputeV2Instruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildResolveOracleEmergencyDisputeV4Instruction: CurrentBuilder<typeof historicalOracle.buildResolveOracleEmergencyDisputeV4Instruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildRevealOracleEmergencyVoteV2Instruction: CurrentBuilder<typeof historicalOracle.buildRevealOracleEmergencyVoteV2Instruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildSettleOracleSambaEmergencyVoteV2Instruction: CurrentBuilder<typeof historicalOracle.buildSettleOracleSambaEmergencyVoteV2Instruction>;
 export declare const buildTimeoutUnsupportedOracleSourceV2Instruction: CurrentBuilder<typeof oracleInstructions.buildTimeoutUnsupportedOracleSourceV2Instruction>;
-export declare const buildTryOpenOracleEmergencyDisputeV2Instruction: CurrentBuilder<typeof oracleInstructions.buildTryOpenOracleEmergencyDisputeV2Instruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildTryOpenOracleEmergencyDisputeV2Instruction: CurrentBuilder<typeof historicalOracle.buildTryOpenOracleEmergencyDisputeV2Instruction>;
 export declare const buildCloseOracleMonthInstruction: CurrentBuilder<typeof oracleInstructions.buildCloseOracleMonthInstruction>;
 export declare const buildFinalizeOracleMonthInstruction: CurrentBuilder<typeof oracleInstructions.buildFinalizeOracleMonthInstruction>;
 export declare const buildInitializeAmoebaDlmmLightConfigInstruction: CurrentBuilder<typeof dlmmInstructions.buildInitializeAmoebaDlmmLightConfigInstruction>;
@@ -146,34 +172,60 @@ export declare const buildInitializeWriterSleeveV1Instruction: CurrentBuilder<ty
 export declare const buildRegisterWriterSeriesV1Instruction: CurrentBuilder<typeof writerInstructions.buildRegisterWriterSeriesV1Instruction>;
 export declare const buildSealWriterPolicyV1Instruction: CurrentBuilder<typeof writerInstructions.buildSealWriterPolicyV1Instruction>;
 export declare const buildOpenWriterFundingV1Instruction: CurrentBuilder<typeof writerInstructions.buildOpenWriterFundingV1Instruction>;
-export declare const buildDepositWriterPrincipalV1Instruction: CurrentBuilder<typeof writerInstructions.buildDepositWriterPrincipalV1Instruction>;
-export declare const buildWithdrawWriterPrincipalV1Instruction: CurrentBuilder<typeof writerInstructions.buildWithdrawWriterPrincipalV1Instruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildDepositWriterPrincipalV1Instruction: CurrentBuilder<typeof historicalWriter.buildDepositWriterPrincipalV1Instruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildWithdrawWriterPrincipalV1Instruction: CurrentBuilder<typeof historicalWriter.buildWithdrawWriterPrincipalV1Instruction>;
 export declare const buildActivateWriterSleeveV1Instruction: CurrentBuilder<typeof writerInstructions.buildActivateWriterSleeveV1Instruction>;
 export declare const buildSetCollectiveMarketPausedV1Instruction: CurrentBuilder<typeof writerInstructions.buildSetCollectiveMarketPausedV1Instruction>;
 export declare const buildReconcileWriterSupplyV1Instruction: CurrentBuilder<typeof writerInstructions.buildReconcileWriterSupplyV1Instruction>;
 export declare const buildCleanupWriterCustodyV1Instruction: CurrentBuilder<typeof writerInstructions.buildCleanupWriterCustodyV1Instruction>;
-export declare const buildCommitWriterAuctionV1Instruction: CurrentBuilder<typeof writerInstructions.buildCommitWriterAuctionV1Instruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildCommitWriterAuctionV1Instruction: CurrentBuilder<typeof historicalWriter.buildCommitWriterAuctionV1Instruction>;
 /** Build one phase only; confirm phase 0 and phase 1 in separate transactions before commit. */
-export declare const buildPrepareWriterBidIndexV1Instruction: CurrentBuilder<typeof writerInstructions.buildPrepareWriterBidIndexV1Instruction>;
-export declare const buildPlaceWriterBidV1Instruction: CurrentBuilder<typeof writerInstructions.buildPlaceWriterBidV1Instruction>;
-export declare const buildCancelOrRefundWriterBidV1Instruction: CurrentBuilder<typeof writerInstructions.buildCancelOrRefundWriterBidV1Instruction>;
-export declare const buildRevealWriterAuctionV1Instruction: CurrentBuilder<typeof writerInstructions.buildRevealWriterAuctionV1Instruction>;
-export declare const buildPlanWriterAuctionChunkV1Instruction: CurrentBuilder<typeof writerInstructions.buildPlanWriterAuctionChunkV1Instruction>;
-export declare const buildExecuteWriterAuctionFillV1Instruction: CurrentBuilder<typeof writerInstructions.buildExecuteWriterAuctionFillV1Instruction>;
-export declare const buildFinalizeOrAbortWriterAuctionV1Instruction: CurrentBuilder<typeof writerInstructions.buildFinalizeOrAbortWriterAuctionV1Instruction>;
-export declare const buildBeginWriterCloseV1Instruction: CurrentBuilder<typeof writerInstructions.buildBeginWriterCloseV1Instruction>;
-export declare const buildDepositWriterCloseBasketV1Instruction: CurrentBuilder<typeof writerInstructions.buildDepositWriterCloseBasketV1Instruction>;
-export declare const buildFinalizeWriterCloseV1Instruction: CurrentBuilder<typeof writerInstructions.buildFinalizeWriterCloseV1Instruction>;
-export declare const buildProcessWriterCloseSeriesCancellationV1Instruction: CurrentBuilder<typeof writerInstructions.buildProcessWriterCloseSeriesCancellationV1Instruction>;
-export declare const buildProcessWriterCloseFlatCancellationV1Instruction: CurrentBuilder<typeof writerInstructions.buildProcessWriterCloseFlatCancellationV1Instruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildPrepareWriterBidIndexV1Instruction: CurrentBuilder<typeof historicalWriter.buildPrepareWriterBidIndexV1Instruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildPlaceWriterBidV1Instruction: CurrentBuilder<typeof historicalWriter.buildPlaceWriterBidV1Instruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildCancelOrRefundWriterBidV1Instruction: CurrentBuilder<typeof historicalWriter.buildCancelOrRefundWriterBidV1Instruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildRevealWriterAuctionV1Instruction: CurrentBuilder<typeof historicalWriter.buildRevealWriterAuctionV1Instruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildPlanWriterAuctionChunkV1Instruction: CurrentBuilder<typeof historicalWriter.buildPlanWriterAuctionChunkV1Instruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildExecuteWriterAuctionFillV1Instruction: CurrentBuilder<typeof historicalWriter.buildExecuteWriterAuctionFillV1Instruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildFinalizeOrAbortWriterAuctionV1Instruction: CurrentBuilder<typeof historicalWriter.buildFinalizeOrAbortWriterAuctionV1Instruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildBeginWriterCloseV1Instruction: CurrentBuilder<typeof historicalWriter.buildBeginWriterCloseV1Instruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildDepositWriterCloseBasketV1Instruction: CurrentBuilder<typeof historicalWriter.buildDepositWriterCloseBasketV1Instruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildFinalizeWriterCloseV1Instruction: CurrentBuilder<typeof historicalWriter.buildFinalizeWriterCloseV1Instruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildProcessWriterCloseSeriesCancellationV1Instruction: CurrentBuilder<typeof historicalWriter.buildProcessWriterCloseSeriesCancellationV1Instruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildProcessWriterCloseFlatCancellationV1Instruction: CurrentBuilder<typeof historicalWriter.buildProcessWriterCloseFlatCancellationV1Instruction>;
 export declare const buildPublishWriterGroupSettlementV1Instruction: CurrentBuilder<typeof writerInstructions.buildPublishWriterGroupSettlementV1Instruction>;
 export declare const buildFinalizeWriterSleeveSettlementV1Instruction: CurrentBuilder<typeof writerInstructions.buildFinalizeWriterSleeveSettlementV1Instruction>;
 export declare const buildClaimCollectiveLongV1Instruction: CurrentBuilder<typeof writerInstructions.buildClaimCollectiveLongV1Instruction>;
-export declare const buildClaimWriterFlatResidualV1Instruction: CurrentBuilder<typeof writerInstructions.buildClaimWriterFlatResidualV1Instruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildClaimWriterFlatResidualV1Instruction: CurrentBuilder<typeof historicalWriter.buildClaimWriterFlatResidualV1Instruction>;
 export declare const buildCloseWriterSleeveV1Instruction: CurrentBuilder<typeof writerInstructions.buildCloseWriterSleeveV1Instruction>;
-export declare const buildCollectAmoebaDlmmProtocolFeesInstruction: CurrentBuilder<typeof dlmmInstructions.buildCollectAmoebaDlmmProtocolFeesInstruction>;
+/** @deprecated Retired G3 operation; never registered for construction. */
+export declare const buildCollectAmoebaDlmmProtocolFeesInstruction: CurrentBuilder<typeof historicalDlmm.buildCollectAmoebaDlmmProtocolFeesInstruction>;
 export declare const buildCloseAmoebaDlmmPoolInstruction: CurrentBuilder<typeof dlmmInstructions.buildCloseAmoebaDlmmPoolInstruction>;
 export declare const buildExecuteScopedCollectiveSettlementV1Instruction: CurrentBuilder<typeof writerInstructions.buildExecuteScopedCollectiveSettlementV1Instruction>;
 export declare const buildExecuteScopedPositionSettlementV1Instruction: CurrentBuilder<typeof dlmmInstructions.buildExecuteScopedPositionSettlementV1Instruction>;
+export declare const buildContributeWriterInstruction: CurrentBuilder<typeof participation.buildContributeWriterInstruction>;
+export declare const buildTransferWriterContributionInstruction: CurrentBuilder<typeof participation.buildTransferWriterContributionInstruction>;
+export declare const buildSplitWriterContributionInstruction: CurrentBuilder<typeof participation.buildSplitWriterContributionInstruction>;
+export declare const buildClaimWriterContributionInstruction: CurrentBuilder<typeof participation.buildClaimWriterContributionInstruction>;
+export declare const buildCloseWriterContributionInstruction: CurrentBuilder<typeof participation.buildCloseWriterContributionInstruction>;
+export declare const buildExpireUnactivatedWriterV3Instruction: CurrentBuilder<typeof participation.buildExpireUnactivatedWriterV3Instruction>;
+export declare const buildDlmmOrderInstruction: CurrentBuilder<typeof orders.buildDlmmOrderInstruction>;
+export declare const buildOracleEvidenceUploadInstructions: CurrentBuilder<typeof evidence.buildOracleEvidenceUpload>;
+export declare const buildCloseOracleEvidenceDraftInstruction: CurrentBuilder<typeof evidence.buildCloseOracleEvidenceDraft>;
 export {};
 //# sourceMappingURL=current-builders.d.ts.map

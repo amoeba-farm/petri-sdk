@@ -5,6 +5,7 @@ import { decodeCollectiveOperationPrepareEnvelope } from "./wallet/plans.js";
 import { decodeAndValidateCurrentWalletExpectedIntent } from "./wallet/intent.js";
 import { CURRENT_SPREAD_LIGHT_CPI_AUTHORITY } from "./protocol/current-light-identity.js";
 import { CURRENT_LIVE_DEPLOYMENT } from "./protocol/release-train.js";
+import { MAINNET_PROFILE } from "./mainnet/profile.js";
 import { CAPABILITIES } from "./capabilities.js";
 import { PublicKey, VersionedTransaction } from "@solana/web3.js";
 import { AMOEBA_BACKEND_URL, normalizeAmoebaBackendUrl, } from "./endpoint-policy.js";
@@ -679,15 +680,22 @@ function decodeChainIdentityData(data, context, path) {
     const identityPath = `${path}.identity`;
     const identity = exactObject(data.identity, [
         "stateNamespace", "cluster", "genesisHash", "releaseTag", "releaseCommit", "observedSlot", "program", "collateral", "light",
-        "liveReleaseLabel", "liveSourceCommit", "liveReadProfileId", "reviewedBridgeSourceCommit", "deploymentProvenance", "writeCompatibility",
+        "liveReleaseLabel", "liveSourceCommit", "liveReadProfileId", "reviewedBridgeSourceCommit", "deploymentProvenance", "writeCompatibility", "governance",
     ], ["stateNamespace", "cluster", "genesisHash", "releaseTag", "releaseCommit", "observedSlot", "program"], identityPath, context);
-    for (const [field, expected] of Object.entries({ liveReleaseLabel: CURRENT_LIVE_DEPLOYMENT.releaseLabel, liveSourceCommit: CURRENT_LIVE_DEPLOYMENT.artifactSourceCommit, liveReadProfileId: CURRENT_LIVE_DEPLOYMENT.liveReadProfileId, reviewedBridgeSourceCommit: CURRENT_LIVE_DEPLOYMENT.artifactSourceCommit, deploymentProvenance: CURRENT_LIVE_DEPLOYMENT.provenance, writeCompatibility: CURRENT_LIVE_DEPLOYMENT.writeCompatibility })) {
+    const mainnet = data.protocol.cluster === MAINNET_PROFILE.network;
+    const live = mainnet ? { ...CURRENT_LIVE_DEPLOYMENT, cluster: MAINNET_PROFILE.network,
+        genesisHash: MAINNET_PROFILE.genesisHash, releaseLabel: MAINNET_PROFILE.liveReleaseLabel,
+        artifactSourceCommit: MAINNET_PROFILE.publicSourceCommit, liveReadProfileId: MAINNET_PROFILE.liveReadProfileId,
+        programDataAccountBytes: MAINNET_PROFILE.programDataAccountBytes, programDataSlot: MAINNET_PROFILE.deployedSlot,
+        programDataPayloadBytes: MAINNET_PROFILE.programDataPayloadBytes, programDataPayloadSha256: MAINNET_PROFILE.programDataPayloadSha256,
+        programDataAccountSha256: MAINNET_PROFILE.programDataAccountSha256 } : CURRENT_LIVE_DEPLOYMENT;
+    for (const [field, expected] of Object.entries({ liveReleaseLabel: live.releaseLabel, liveSourceCommit: live.artifactSourceCommit, liveReadProfileId: live.liveReadProfileId, reviewedBridgeSourceCommit: live.artifactSourceCommit, deploymentProvenance: live.provenance, writeCompatibility: live.writeCompatibility })) {
         if (Object.hasOwn(identity, field))
             exactString(identity[field], expected, `${identityPath}.${field}`, context);
     }
     exactString(identity.stateNamespace, CURRENT_PROTOCOL_FIELDS.namespace, `${identityPath}.stateNamespace`, context);
-    exactString(identity.cluster, CURRENT_PROTOCOL_FIELDS.cluster, `${identityPath}.cluster`, context);
-    exactString(identity.genesisHash, CURRENT_DEVNET_GENESIS_HASH, `${identityPath}.genesisHash`, context);
+    exactString(identity.cluster, live.cluster, `${identityPath}.cluster`, context);
+    exactString(identity.genesisHash, live.genesisHash, `${identityPath}.genesisHash`, context);
     exactString(identity.releaseTag, CURRENT_PROTOCOL_FIELDS.releaseTag, `${identityPath}.releaseTag`, context);
     exactString(identity.releaseCommit, CURRENT_PROTOCOL_FIELDS.releaseCommit, `${identityPath}.releaseCommit`, context);
     canonicalU64(identity.observedSlot, `${identityPath}.observedSlot`, context);
@@ -703,16 +711,34 @@ function decodeChainIdentityData(data, context, path) {
     ], programPath, context);
     exactString(program.programId, CURRENT_PROGRAM_ID, `${programPath}.programId`, context);
     exactString(program.programDataAddress, CURRENT_PROGRAM_DATA_ADDRESS, `${programPath}.programDataAddress`, context);
-    if (program.programDataBytes !== CURRENT_LIVE_DEPLOYMENT.programDataAccountBytes)
-        fail(`${programPath}.programDataBytes`, "expected the exact live rc.44 ProgramData allocation", program.programDataBytes, context);
+    if (program.programDataBytes !== live.programDataAccountBytes)
+        fail(`${programPath}.programDataBytes`, "expected the exact selected ProgramData allocation", program.programDataBytes, context);
     exactString(program.upgradeAuthority, CURRENT_UPGRADE_AUTHORITY, `${programPath}.upgradeAuthority`, context);
     exactBoolean(program.executable, true, `${programPath}.executable`, context);
-    exactString(program.deployedSlot, String(CURRENT_LIVE_DEPLOYMENT.programDataSlot), `${programPath}.deployedSlot`, context);
-    if (program.payloadBytes !== CURRENT_LIVE_DEPLOYMENT.programDataPayloadBytes)
-        fail(`${programPath}.payloadBytes`, "expected the pinned rc.44 payload length", program.payloadBytes, context);
-    exactString(program.payloadSha256, CURRENT_PROGRAM_PAYLOAD_SHA256, `${programPath}.payloadSha256`, context);
+    exactString(program.deployedSlot, String(live.programDataSlot), `${programPath}.deployedSlot`, context);
+    if (program.payloadBytes !== live.programDataPayloadBytes)
+        fail(`${programPath}.payloadBytes`, "expected the selected payload length", program.payloadBytes, context);
+    exactString(program.payloadSha256, live.programDataPayloadSha256, `${programPath}.payloadSha256`, context);
     if (Object.hasOwn(program, "rawAccountSha256"))
-        exactString(program.rawAccountSha256, CURRENT_LIVE_DEPLOYMENT.programDataAccountSha256, `${programPath}.rawAccountSha256`, context);
+        exactString(program.rawAccountSha256, live.programDataAccountSha256, `${programPath}.rawAccountSha256`, context);
+    if (Object.hasOwn(identity, "governance")) {
+        if (!mainnet)
+            fail(`${identityPath}.governance`, "Mainnet governance cannot describe Devnet", identity.governance, context);
+        const gp = `${identityPath}.governance`;
+        const fields = ["network", "genesisHash", "programId", "controllerProgramId", "profileSha256", "observedSlot", "artifactSha256", "gate", "gateStatus", "epoch", "gateActive", "tradeReady", "readinessReason"];
+        const governance = exactObject(identity.governance, fields, fields, gp, context);
+        for (const [field, expected] of Object.entries({ network: MAINNET_PROFILE.network, genesisHash: MAINNET_PROFILE.genesisHash,
+            programId: MAINNET_PROFILE.programId, controllerProgramId: MAINNET_PROFILE.controllerProgramId, profileSha256: MAINNET_PROFILE.profileSha256,
+            artifactSha256: MAINNET_PROFILE.artifactSha256, gate: MAINNET_PROFILE.gate }))
+            exactString(governance[field], expected, `${gp}.${field}`, context);
+        if (![0, 1, 2].includes(governance.gateStatus) || typeof governance.observedSlot !== "number"
+            || !Number.isSafeInteger(governance.observedSlot) || governance.observedSlot < MAINNET_PROFILE.deployedSlot)
+            fail(gp, "invalid finalized gate status/slot", governance, context);
+        canonicalU64(governance.epoch, `${gp}.epoch`, context);
+        exactBoolean(governance.gateActive, governance.gateStatus === 0, `${gp}.gateActive`, context);
+        exactBoolean(governance.tradeReady, false, `${gp}.tradeReady`, context);
+        exactString(governance.readinessReason, governance.gateStatus === 0 ? "MAINNET_MARKET_AND_PHOTON_QUALIFICATION_REQUIRED" : "MAINNET_GATE_NOT_ACTIVE", `${gp}.readinessReason`, context);
+    }
     if (!Object.hasOwn(identity, "collateral") && !Object.hasOwn(identity, "light"))
         return;
     const collateralPath = `${identityPath}.collateral`;
@@ -2376,7 +2402,7 @@ function validateExactJsonProjection(value, expected, path, context) {
 function validateCurrentProtocol(value, path, context) {
     const protocol = exactObject(value, Object.keys(CURRENT_PROTOCOL_FIELDS), Object.keys(CURRENT_PROTOCOL_FIELDS), path, context);
     for (const [field, expected] of Object.entries(CURRENT_PROTOCOL_FIELDS)) {
-        exactString(protocol[field], expected, `${path}.${field}`, context);
+        exactString(protocol[field], field === "cluster" && protocol.cluster === MAINNET_PROFILE.network ? MAINNET_PROFILE.network : expected, `${path}.${field}`, context);
     }
 }
 function exactObject(value, allowed, required, path, context) {

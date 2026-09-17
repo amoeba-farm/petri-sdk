@@ -1,0 +1,1661 @@
+✔ npm graph contains no original or replacement bigint-buffer package (4.6142ms)
+✔ Spread ships the maintained Token facade without its private build graph (0.3299ms)
+✔ SDS-001..008 CI keeps private fetch credentials out of source and installs (3.4052ms)
+✔ SDS CI mutation rejects long-lived agent (1.797ms)
+✔ SDS CI mutation rejects mutable action (0.6378ms)
+✔ SDS CI mutation rejects stale CLI (1.8445ms)
+✔ SDS CI mutation rejects stale CLI SDK compatibility base (1.3017ms)
+✔ SDS CI mutation rejects untrusted job secret (0.7644ms)
+✔ SDS CI mutation rejects lifecycle scripts (2.9753ms)
+✔ SDS CI mutation rejects missing current Spread mirror (1.5547ms)
+✔ SDS CI mutation rejects write permission (0.4382ms)
+✔ classic custody accepts None tags with retained bytes without granting authority (6.9179ms)
+✔ classic custody still rejects Some and malformed tags, invalid state and unsafe identity (10.9311ms)
+✔ HTTP client exposes current reads through the current-only surface (69.9478ms)
+✔ writer status accepts collective claims while the trade lane rejects them (6.7938ms)
+✔ CURRENT_STATE_UNAVAILABLE remains one exact fail-closed HTTP contract (17.006ms)
+✔ client endpoints are pinned to Amoeba and derive the sole read gateway (1.1803ms)
+✖ generic transaction submission is absent and product submission/status use typed Amoeba routes (189.6115ms)
+file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19
+        throw new GovernedTransactionValidationError("G3_DEPLOYMENT_BINDING_REQUIRED", "The installed package is not the recorded deployed release; use an observed matching integration profile");
+              ^
+
+GovernedTransactionValidationError: The installed package is not the recorded deployed release; use an observed matching integration profile
+    at currentGovernedWriteReleaseV1 (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19:15)
+    at file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/helpers/current-fixture-builders.mjs:8:140
+    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {
+  code: 'G3_DEPLOYMENT_BINDING_REQUIRED',
+  details: undefined,
+  retryable: false,
+  context: {},
+  [cause]: undefined
+}
+
+Node.js v24.14.0
+✖ test\collective-claim-binding.test.mjs (2222.6342ms)
+file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19
+        throw new GovernedTransactionValidationError("G3_DEPLOYMENT_BINDING_REQUIRED", "The installed package is not the recorded deployed release; use an observed matching integration profile");
+              ^
+
+GovernedTransactionValidationError: The installed package is not the recorded deployed release; use an observed matching integration profile
+    at currentGovernedWriteReleaseV1 (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19:15)
+    at file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/helpers/current-fixture-builders.mjs:8:140
+    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {
+  code: 'G3_DEPLOYMENT_BINDING_REQUIRED',
+  details: undefined,
+  retryable: false,
+  context: {},
+  [cause]: undefined
+}
+
+Node.js v24.14.0
+✖ test\collective-swap-operation.test.mjs (2186.6233ms)
+node:internal/modules/esm/assert:88
+        throw new ERR_IMPORT_ATTRIBUTE_MISSING(url, 'type', validType);
+              ^
+
+TypeError [ERR_IMPORT_ATTRIBUTE_MISSING]: Module "file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/release/local-candidate-build.v1.json" needs an import attribute of "type: json"
+    at validateAttributes (node:internal/modules/esm/assert:88:15)
+    at defaultLoadSync (node:internal/modules/esm/load:164:3)
+    at #loadAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:796:12)
+    at #loadSync (node:internal/modules/esm/loader:816:49)
+    at ModuleLoader.load (node:internal/modules/esm/loader:781:26)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:526:31)
+    at #getOrCreateModuleJobAfterResolve (node:internal/modules/esm/loader:577:36)
+    at afterResolve (node:internal/modules/esm/loader:625:52)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:631:12)
+    at onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:650:32) {
+  code: 'ERR_IMPORT_ATTRIBUTE_MISSING'
+}
+
+Node.js v24.14.0
+✖ controller qualification requires current evidence and preserves historical evidence (761.7009ms)
+✔ readCurrentChainIdentity returns one strict JSON-safe V3 identity with historical RC44 semantics (53.5037ms)
+▶ readCurrentChainIdentity rejects foreign identity and non-finalized input before RPC
+  ✔ foreign program (11.3181ms)
+  ✔ foreign namespace (8.5984ms)
+  ✔ non-finalized commitment (8.5314ms)
+✔ readCurrentChainIdentity rejects foreign identity and non-finalized input before RPC (30.0786ms)
+▶ readCurrentChainIdentity rejects one mutation in every authoritative identity class
+  ✔ deployment attestation (7.6641ms)
+  ✔ VaultConfig owner (9.4802ms)
+  ✔ classic SPL collateral mint (16.0038ms)
+  ✔ classic SPL custody authority (37.6448ms)
+  ✔ Light executable program linkage (12.3875ms)
+  ✔ Light ProgramData layout (16.0394ms)
+  ✔ Light ProgramData payload hash (18.6462ms)
+  ✔ Light config sponsor linkage (16.3956ms)
+  ✔ Light system-owned rent sponsor (13.8403ms)
+  ✔ Light AddressV2 tree layout (15.6764ms)
+  ✔ Light StateV2 tree queue linkage (12.8509ms)
+  ✔ Light output queue tree linkage (20.9593ms)
+  ✔ Light CPI context tree linkage (14.8421ms)
+✔ readCurrentChainIdentity rejects one mutation in every authoritative identity class (216.9543ms)
+✖ same-size RC29-owned DLMM pool, page, and position layouts fail closed (8.8461ms)
+✖ cold DLMM pool, pages, and position authenticate split discriminator/body data (4.3349ms)
+✖ cold split data rejects a matching body with the wrong discriminator or body hash (5.9841ms)
+✖ compressed position discovery is pool/owner scoped and derives the canonical PDA before strict decode (3.7129ms)
+✖ paired CALL and PUT pools resolve through their shared CALL-side anchor OracleMonth (18.1567ms)
+✖ paired PUT pool rejects an unrelated market-local OracleMonth (8.5313ms)
+✖ expiry planning independently joins canonical positions and shared settlement anchor (6.4285ms)
+✖ expiry partial reads are explicitly incomplete and scope/owner substitutions do not invent records (5.3537ms)
+✖ expiry discovery preserves incomplete upstream Market/pool scope (5.3205ms)
+✔ current boundary code set is exact, immutable, and recognizable (3.3871ms)
+✔ current boundary factory preserves deterministic code and fail-closed metadata (0.71ms)
+✔ dedicated current boundary classes expose only their frozen contract codes (0.773ms)
+✔ the existing strict layout error defaults to the current deterministic code (0.6492ms)
+✔ current finalized observation matches Lean's frozen 1130-byte vector (13.8606ms)
+✔ current finalized observation rejects stale, partial, reordered, and widened state (4.9468ms)
+✔ null block time has one canonical digest encoding but is not admissible (1.7953ms)
+✔ provider origin consumes Lean's exact accepted and rejected matrix (8.0792ms)
+✔ release-bound builder snapshots input, preserves branded program id, and revalidates finalized gate (18.8578ms)
+✔ release-bound builder rejects epoch changes between planning and materialization (12.6757ms)
+✔ SDK-owned business builders are governed only by the canonical Spread constructor (9.0548ms)
+✖ current instruction views reject bytes without SDK-issued governance provenance (3.6424ms)
+✔ decoder has an exact payload grammar for every rc.44 VaultInstruction tag (8.1194ms)
+✔ tag 94 emergency settlement signer recovery remains a positive current lane (0.3197ms)
+✔ high-risk fixed, zero, and variable lanes reject trailing or truncated payloads (3.1243ms)
+✔ decoder rejects empty, unassigned, and oversized instruction data (1.5119ms)
+✔ decoder enforces canonical bool, option, and enum discriminants (2.3412ms)
+✔ decoder enforces bounded Borsh vectors, strings, UTF-8, and compressed-session caps (1.4864ms)
+✔ compressed envelopes enforce proof/options, tree bools, domains, and exact compact lengths (1.4076ms)
+✔ registered Light action retains exact runtime output and validates finalized gate on both sides of await (71.0075ms)
+✔ registered Light action rejects epoch advancement during asynchronous construction (45.3213ms)
+✔ Light runtime cannot mutate action bytes, program, metas, privileges or grouping and have them silently restored (349.5352ms)
+✔ ClassicSpl writer delivery re-bridges through the exact canonical Light TransferInterface wire (8.5368ms)
+✔ Uint8Array re-bridge instructions compile and serialize through legacy and v0 transactions (30.8862ms)
+✔ ClassicSpl re-bridge rejects widened amounts, decimals, and account collisions (3.0202ms)
+✔ ClassicSpl re-bridge snapshots amount and decimals before validation and encoding (4.8823ms)
+✔ hot Light snapshot validator binds exact bytes, identity, policy, and writer minimum (21.9386ms)
+✔ hot-absent but cold-existing output is authenticated and loaded, never treated as new (7.2992ms)
+✔ liquidity wire normalization preserves u128 precision and freezes the request (2.3133ms)
+✔ liquidity transport rejects extra authority, rounded numbers, overflow and unordered bins (3.2247ms)
+✔ add and close-position retain distinct exact caller intents (1.7371ms)
+file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19
+        throw new GovernedTransactionValidationError("G3_DEPLOYMENT_BINDING_REQUIRED", "The installed package is not the recorded deployed release; use an observed matching integration profile");
+              ^
+
+GovernedTransactionValidationError: The installed package is not the recorded deployed release; use an observed matching integration profile
+    at currentGovernedWriteReleaseV1 (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19:15)
+    at file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/helpers/current-fixture-builders.mjs:8:140
+    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {
+  code: 'G3_DEPLOYMENT_BINDING_REQUIRED',
+  details: undefined,
+  retryable: false,
+  context: {},
+  [cause]: undefined
+}
+
+Node.js v24.14.0
+✖ test\current-liquidity-operation.test.mjs (1058.8225ms)
+file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-oracle-planner-parity.test.mjs:42
+  ORACLE_EMERGENCY_DISPUTE_V3_PDA_SEED,
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: The requested module '@amoeba/spread-release-tools/oracle-dlmm' does not provide an export named 'ORACLE_EMERGENCY_DISPUTE_V3_PDA_SEED'
+    at #asyncInstantiate (node:internal/modules/esm/module_job:319:21)
+    at async ModuleJob.run (node:internal/modules/esm/module_job:422:5)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.14.0
+✖ test\current-oracle-planner-parity.test.mjs (548.0304ms)
+✖ all fifteen current Oracle action types validate with exact normalized fields (5.1361ms)
+✔ current Oracle request validation rejects widened, malformed, and cross-series input (2.9777ms)
+✔ reason 8, update finalization, and reward variants are exact (1.7392ms)
+✖ current write evidence and update salts reject zero bytes32 values (2.3256ms)
+✖ secret salts are removed completely from public request metadata (1.111ms)
+✔ bytes32 labels and lowercase hashes use one exact encoding (1.2556ms)
+✔ semantic normalization and domain-separated source hashes are frozen by vectors (1.9416ms)
+✖ emergency choices are kind-bound and map exactly to rc.44 indexes (1.2316ms)
+✔ opening archive captures are exact and timestamp-bound (1.2912ms)
+✔ governed RAMX and NANDX manifests are recomputed without copied leaves (44.4283ms)
+✔ governed SKU proofs are exact, verifiable, and product-bound (31.359ms)
+file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-oracle-tag205.test.mjs:124
+  ORACLE_EMERGENCY_DISPUTE_V3_PDA_SEED,
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: The requested module '@amoeba/spread-release-tools/oracle-dlmm' does not provide an export named 'ORACLE_EMERGENCY_DISPUTE_V3_PDA_SEED'
+    at #asyncInstantiate (node:internal/modules/esm/module_job:319:21)
+    at async ModuleJob.run (node:internal/modules/esm/module_job:422:5)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.14.0
+✖ test\current-oracle-tag205.test.mjs (691.4851ms)
+✔ private Photon transport rejects redirects without forwarding provider credentials (36.9758ms)
+✔ Photon authorization hashes only origin while createRpc retains the exact href privately (13.3933ms)
+✔ one exact private Helius Devnet URL may explicitly serve state and Photon (3.2108ms)
+✔ shared Solana hosts are rejected before Photon transport construction (0.698ms)
+✔ Photon loader callback is runtime-checked before any network attestation (0.4059ms)
+✔ writer-loadable Light proof rejects mixed classic-hot plus Light-cold balance (13.4959ms)
+✔ Photon factory rejects either genesis mismatch and every noncanonical tree tuple (4.52ms)
+✖ atomic cold observation builds exact tag-219 and isolates payer-scoped handoffs (4.3218ms)
+✖ cold account and one-leaf proof mutations fail closed (2.4497ms)
+✖ init_collateral binds canonical observed custody and round-trips native/portable validation (15.1585ms)
+✖ deposit_collateral binds canonical observed custody and round-trips native/portable validation (9.8218ms)
+✖ withdraw_collateral binds canonical observed custody and round-trips native/portable validation (7.6577ms)
+✖ position context rejects stale floors, invalid amounts, missing custody and existing initialization (13.8235ms)
+✖ bound adapter issues the position API and refuses substituted plan objects (12.4034ms)
+✖ actual audit actor collateral packets use canonical manifest key order and reject legacy sorting (7.2015ms)
+✖ current user reads expose live deployment while portable plan identity stays historical (8.0563ms)
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+false !== true
+
+    at file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/scripts/check-current-release-qualification.mjs:22:8 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.14.0
+✖ current availability is evidence-qualified, with no public caller or readiness override (395.0337ms)
+✔ artifact hash and full allocated payload hash remain distinct exact identities (9.6049ms)
+✔ Flat transfer is an exact Light TransferChecked plan (29.5523ms)
+✔ cold Flat source binds an independently rebuilt payer-bound Light load (42.4876ms)
+✔ cold destination is loaded in the same final batch as TransferChecked (21.4501ms)
+✔ Flat transfer rejects state policy, payload, meta, and request substitution (32.0714ms)
+✔ canonical contribution builder retains G3 suffix, exact principal and owner (12.8037ms)
+✔ wallet rejects invalid order/receipt payload selectors and exact lengths (8.9033ms)
+✔ retired funded Flat, staking and token-vote construction is absent/rejected (1.4846ms)
+✔ G3 candidate profile cannot be redirected to public RPC or forged (0.8104ms)
+✔ metadata upload prepares only one bounded next step from actual progress (8.8211ms)
+✔ time-weighted payouts conserve profit/loss and split dust over 3000 cases (57.1083ms)
+✔ full-domain capital weights use wide proportional math and reject impossible losses (0.3976ms)
+✔ membership pages exceed 32 records with scoped cursors and exact boundary validation (40.3961ms)
+✔ SDI-001 freezes the reviewed source checkpoints and qualified V3 tooling (2.388ms)
+✖ SDI-002 separates historical reader eligibility from current governed wallet capability (1.0389ms)
+✖ SDI-003 separates historical semantics, finalized live bytes, and current write ABI (0.8748ms)
+✖ SDI-004 never treats Spread main as deployed byte provenance (0.276ms)
+✔ SDI-005 rejects Generation 2 substitutions in the selected live Generation 3 identity (4.4268ms)
+✔ SDI-006 rejects every reviewed Generation 2 candidate identity mutation (5.682ms)
+✖ SDI-007 reviewed candidate flags cannot masquerade as live authority (0.3835ms)
+✔ SDI-008 keeps package source and historical protocol-plan source distinct (0.2441ms)
+✔ SDI-009 TypeScript, Rust, vendor, package, and documentation identities agree (12.0616ms)
+✔ SDI-010 Program and ProgramData linkage derives exactly (1.0348ms)
+✔ SDI-011 versions external and immutable-none authority states (0.8032ms)
+✔ SDI-012 derives exact controller config and gate PDAs (1.5209ms)
+✖ SDI-013 rejects write-compatible release without complete receipts (0.8135ms)
+✔ SDI-014 branch or review state never grants runtime authority (0.6054ms)
+✔ SDI-015 rejects cross-network governance observations before account reads (0.5932ms)
+✔ SDI-016 encodes explicit downgrade and rollback behavior (0.0951ms)
+✔ SDI-017 binds deployed artifact source to receipt-backed provenance (0.0693ms)
+✔ SDI-018 separates Generation 2 artifact source from later governance tooling (0.0691ms)
+✔ SDI-019 canonical release manifest detects identity, fixture, action, and toolchain drift (7.8701ms)
+✔ SDI-020 rejects cross-generation operation context replay (1.0517ms)
+✔ SDG-001 strictly validates all ProtocolGateV1 structure and selected-identity fields (9.1105ms)
+✔ SDG-002 accepts only canonical status-field combinations (0.7381ms)
+✔ SDG-003 encodes and accepts only the exact 16-byte AGV1 epoch tail (0.5356ms)
+✔ SDG-004 obtains expected epoch from a finalized gate observation (3.6084ms)
+✔ SDG-005 rejects a stale epoch even when status returns to Active (0.764ms)
+✔ SDG-006 enforces bigint u64 boundaries and exact observed-epoch equality (0.7161ms)
+✔ SDG-007 requires one final read-only nonsigner gate meta (1.2466ms)
+✔ SDG-008 rejects duplicate gate privilege union (0.4991ms)
+✔ SDG-009 requires the selected controller as exact gate owner (1.7927ms)
+✔ SDG-010 binds gate config, target Program, ProgramData, bump, and executability (9.1997ms)
+✔ SDG-011 selects exactly one governance generation per release (1.1297ms)
+✔ SDG-012 current write release uses its own qualified source and instruction manifest (0.1354ms)
+✖ SDG-013 current capability does not expose an unbound generic mutator (0.3635ms)
+✔ SDG-014 rejects unknown and duplicate tag authority (1.1481ms)
+✔ SDG-017 independently validates every governed instruction in a batch (1.0529ms)
+✔ SDG-020 rejects frozen status and regressed finalized observations locally (1.1187ms)
+✖ governance and live qualifiers reject malformed JavaScript and RPC shapes deterministically (0.8182ms)
+✔ governance fixtures bind exact account hashes (0.5391ms)
+✔ bound transaction revalidation accepts exact signed legacy bytes and setup-only workflows (22.4675ms)
+✔ generation 1 keeps its independent genesis and gate observation path (9.9662ms)
+✔ v0 validation resolves canonical finalized lookup bytes before a later gate read (11.6756ms)
+✔ transaction revalidation rejects stale epochs, unknown tags, and effective gate escalation (17.0404ms)
+✔ release and signature inputs are snapshotted and fail closed (7.1009ms)
+✖ public current revalidator rejects malformed transaction bytes before RPC (1.8221ms)
+✔ Generation 2 observation validates the exact controller-owned Active gate (12.0759ms)
+✔ canonical builder preserves business bytes and account order without aliasing caller state (5.3624ms)
+✔ builder enforces tag authority, one envelope, and the exact 16 KiB outer cap (6.0925ms)
+✔ fresh materialization snapshots inputs and rejects epoch replay or a freeze (8.9803ms)
+✔ fresh revalidation accepts canonical Spread-style output without adding another envelope (5.5255ms)
+✔ Unlicense is a reviewed public-domain class for the exact encoder dependency (2.5352ms)
+✔ public-domain and reciprocal licenses remain package-version scoped (1.0623ms)
+✔ SPDX expressions implement exact OR and AND policy semantics (1.4676ms)
+✔ lifecycle fixture preserves inventory-bound actual finalized identity and six raw accounts (11.8645ms)
+✔ lifecycle artifact, allocated payload and loader account are separate exact pins (13.7063ms)
+✖ historical identity-only staging remains unqualified after the separate final release (1.1292ms)
+(node:45276) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ live identity DTO separates ELF and allocation while preserving qualification refusal (267.5558ms)
+✖ operator subpath separates live byte facts from historical RC44 semantics (2.4404ms)
+✔ deployed carry grammar is bounded and rejects malformed subactions (2.1806ms)
+✔ observed pair preserves original build scope and rejects fabricated correspondence (7.7006ms)
+✔ bounty reader intercepts a frozen connection and enforces finalized read context (79.2409ms)
+✔ staking proof projection preserves every field through portable JSON (1.3846ms)
+✔ staking proof transport rejects omissions and noncanonical or overflowing u64 values (1.6989ms)
+✔ Petri adapter exposes every manifest operation as a callable namespace (1.8706ms)
+✔ Petri declarations and runtime expose the same public families (0.4146ms)
+✔ Petri command-prefix operations cannot be extended through positionals (1.4556ms)
+✔ Petri errors redact secrets and escape terminal controls (60.0528ms)
+✔ Petri backend URLs require HTTPS and reject secret-bearing components (58.7437ms)
+✔ Petri adapter builds global, positional, and camelCase flag arguments without a shell (57.6611ms)
+✔ Petri inherits only reviewed OS environment variables (60.767ms)
+✔ Petri strips every direct provider RPC environment override (51.4543ms)
+✔ local Petri effects require an absolute binary path (0.6176ms)
+✖ Petri transaction commands preserve explicit arguments through the typed command registry (1.2616ms)
+✔ Petri forwards explicit read-only planning inputs without inventing account data (147.2674ms)
+✔ Petri text and command errors retain useful process context (152.4422ms)
+✔ Petri timeout and caller abort failures stay distinguishable (15.5491ms)
+✔ public protocol barrels expose the finalized RC44 identity and collective writer seam (1.435ms)
+✖ deployment identity, limits, account sizes, and tags are release-bound (1.9733ms)
+✖ governed async materialization replaces retired synchronous builders and preserves writer bytes (1.4137ms)
+✔ unassigned instruction bytes are rejected generically (0.7168ms)
+✖ current release accepts the finalized refactor identity (11.4278ms)
+✖ the superseded oracle-carry payload cannot qualify as the current release (15.0459ms)
+✖ governance-aware package measurement retains narrow fail-closed headroom (2.3143ms)
+✔ safe npm tar reader accepts one deterministic regular package file (3.1668ms)
+✔ safe npm tar reader rejects traversal, absolute, and nonportable paths (3.1094ms)
+✔ safe npm tar reader rejects links, devices, directories, and extension records (3.5222ms)
+✔ safe npm tar reader rejects duplicate, corrupt, and truncated archives (1.5349ms)
+✔ release text policy scans normal licenses and source maps without false positives (0.9319ms)
+✔ installed runtime permits only Windows executable-bit loss, never content or metadata drift (6.5125ms)
+✔ scoped long authorization binds the canonical owner, mint and current allowance (10.7065ms)
+✔ scoped long authorization refuses foreign delegates, insufficient allowance and foreign custody (42.7357ms)
+✔ position authorization binds the exact namespaced owner-position marker (7.2319ms)
+✔ CI compatibility override is unavailable outside GitHub Actions (1.9498ms)
+✔ CI compatibility override requires a lowercase full commit SHA (0.4604ms)
+✔ matrix and lock parsers require exact unambiguous full identities (0.8741ms)
+✔ compatibility CI rejects a target that is not an ancestor (0.4536ms)
+✔ compatibility CI requires the exact current CLI checkout and SDK pin (0.5358ms)
+✔ compatibility-base parity cannot authorize current writes (0.6908ms)
+✔ normal live parity remains fail-closed on the exact SDK HEAD (0.4159ms)
+✔ packed-consumer roots may only propagate the reviewed dependency chain (3.7832ms)
+✔ stream-json disposition admits only the exact moderate installed-package advisory (1.5504ms)
+✔ pinned web3 browser-client graph keeps stream-json filters unreachable (64.3796ms)
+✖ trader activation binds six exact finalized accounts and preserves historical business evidence (24.0766ms)
+✔ pinned Light client admits only the exact validity-proof cardinality matrix (6.8833ms)
+✔ pinned Light and web3 clients preserve getSignaturesForAddress minContextSlot (1.6385ms)
+✔ exact Lean V3 chain identity retains typed freshness and frozen business readiness (24.5279ms)
+✔ chain identity rejects malformed or contradictory freshness and unknown fields (6.0846ms)
+✔ synthetic current Lean read DTOs pass their actual strict SDK methods (14.3597ms)
+✖ public V3 finalizer obtains its own same-slot observation and refuses structural capabilities (9.6883ms)
+✖ V3 revalidation uses one coherent batch and two real genesis checks, without cross-call reuse (10.1841ms)
+✖ V3 revalidation rejects initial and final network changes and malformed coherent state (6.5063ms)
+✖ V3 coherent gate context covers the newer ALT observation (7.7569ms)
+✔ public runtime always observes genesis and private helper cannot be imported by package consumers (35.3815ms)
+✖ finalized identity evidence is explicit and historical ProgramData fails current qualification (1.077ms)
+✖ V3 release preserves historical plan baseline and exactly adopts upstream deployed identity (0.3003ms)
+✖ checkpoint-derived bytes with synthetic frozen gate and uninitialized vault while package supports governed writes (4.7691ms)
+✖ Active gate alone never admits absent or paused business state (6.1005ms)
+✔ ProgramData, program linkage, vault owner/layout and regression mutations fail closed (80.6556ms)
+✖ actual public ordinary V3 builder preserves exact signed epoch and final readonly gate (6.7162ms)
+file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19
+        throw new GovernedTransactionValidationError("G3_DEPLOYMENT_BINDING_REQUIRED", "The installed package is not the recorded deployed release; use an observed matching integration profile");
+              ^
+
+GovernedTransactionValidationError: The installed package is not the recorded deployed release; use an observed matching integration profile
+    at currentGovernedWriteReleaseV1 (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19:15)
+    at file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/helpers/current-fixture-builders.mjs:8:140
+    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {
+  code: 'G3_DEPLOYMENT_BINDING_REQUIRED',
+  details: undefined,
+  retryable: false,
+  context: {},
+  [cause]: undefined
+}
+
+Node.js v24.14.0
+✖ test\wallet-browser.test.mjs (712.9098ms)
+file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19
+        throw new GovernedTransactionValidationError("G3_DEPLOYMENT_BINDING_REQUIRED", "The installed package is not the recorded deployed release; use an observed matching integration profile");
+              ^
+
+GovernedTransactionValidationError: The installed package is not the recorded deployed release; use an observed matching integration profile
+    at currentGovernedWriteReleaseV1 (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19:15)
+    at file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/helpers/current-fixture-builders.mjs:8:140
+    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {
+  code: 'G3_DEPLOYMENT_BINDING_REQUIRED',
+  details: undefined,
+  retryable: false,
+  context: {},
+  [cause]: undefined
+}
+
+Node.js v24.14.0
+✖ test\wallet-liquidity-cleanup.test.mjs (722.9189ms)
+file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19
+        throw new GovernedTransactionValidationError("G3_DEPLOYMENT_BINDING_REQUIRED", "The installed package is not the recorded deployed release; use an observed matching integration profile");
+              ^
+
+GovernedTransactionValidationError: The installed package is not the recorded deployed release; use an observed matching integration profile
+    at currentGovernedWriteReleaseV1 (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19:15)
+    at file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/helpers/current-fixture-builders.mjs:8:140
+    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {
+  code: 'G3_DEPLOYMENT_BINDING_REQUIRED',
+  details: undefined,
+  retryable: false,
+  context: {},
+  [cause]: undefined
+}
+
+Node.js v24.14.0
+✖ test\wallet-public-materializer.test.mjs (747.7749ms)
+file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/writer-bid-index-candidate.test.mjs:5
+import {deriveWriterAuctionPda, deriveWriterBidIndexPda} from '@amoeba/spread-release-tools/writer-sleeve-instructions';
+        ^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: The requested module '@amoeba/spread-release-tools/writer-sleeve-instructions' does not provide an export named 'deriveWriterAuctionPda'
+    at #asyncInstantiate (node:internal/modules/esm/module_job:319:21)
+    at async ModuleJob.run (node:internal/modules/esm/module_job:422:5)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.14.0
+✖ test\writer-bid-index-candidate.test.mjs (485.8936ms)
+file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19
+        throw new GovernedTransactionValidationError("G3_DEPLOYMENT_BINDING_REQUIRED", "The installed package is not the recorded deployed release; use an observed matching integration profile");
+              ^
+
+GovernedTransactionValidationError: The installed package is not the recorded deployed release; use an observed matching integration profile
+    at currentGovernedWriteReleaseV1 (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19:15)
+    at file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/helpers/current-fixture-builders.mjs:8:140
+    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {
+  code: 'G3_DEPLOYMENT_BINDING_REQUIRED',
+  details: undefined,
+  retryable: false,
+  context: {},
+  [cause]: undefined
+}
+
+Node.js v24.14.0
+✖ test\writer-operation-plan.test.mjs (695.5788ms)
+✔ shared writer fixture is the attested aggregate-ceiling contract (4.2474ms)
+✔ current group codec accepts an Active zero terminal digest and preserves terminal bytes (8.8222ms)
+✖ activation keeps tag229, empty payload and the readonly terminal manifest at business index11 (10.8471ms)
+✖ packaged close-group commitment hashes zero and terminal digest in the same canonical position (1.1507ms)
+ℹ tests 251
+ℹ suites 0
+ℹ pass 187
+ℹ fail 64
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12740.6002
+
+✖ failing tests:
+
+test at test\client.test.mjs:88:1
+✖ generic transaction submission is absent and product submission/status use typed Amoeba routes (189.6115ms)
+  Error [CurrentWriteReleaseUnavailableError]: current program mutation is unavailable until an exact governed-write release is finalized
+      at assertCurrentWriteReleaseAvailable (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/release-train.js:439:15)
+      at CollectiveOperationApi.submit (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/client.js:322:9)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/client.test.mjs:138:41)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    code: 'CURRENT_PROGRAM_WRITE_ABI_UNAVAILABLE',
+    details: { writeCompatibility: 'governance-gate-v1', selectedGovernanceGeneration: 3 },
+    retryable: false,
+    context: {},
+    [cause]: undefined
+  }
+
+test at test\collective-claim-binding.test.mjs:1:1
+✖ test\collective-claim-binding.test.mjs (2222.6342ms)
+  'test failed'
+
+test at test\collective-swap-operation.test.mjs:1:1
+✖ test\collective-swap-operation.test.mjs (2186.6233ms)
+  'test failed'
+
+test at test\controller-evidence-transition.test.mjs:5:1
+✖ controller qualification requires current evidence and preserves historical evidence (761.7009ms)
+  Error: Command failed: C:\Program Files\nodejs\node.exe --experimental-vm-modules scripts/check-controller-evidence-transition.mjs
+  node:internal/modules/esm/assert:88
+          throw new ERR_IMPORT_ATTRIBUTE_MISSING(url, 'type', validType);
+                ^
+
+  TypeError [ERR_IMPORT_ATTRIBUTE_MISSING]: Module "file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/release/local-candidate-build.v1.json" needs an import attribute of "type: json"
+      at validateAttributes (node:internal/modules/esm/assert:88:15)
+      at defaultLoadSync (node:internal/modules/esm/load:164:3)
+      at #loadAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:796:12)
+      at #loadSync (node:internal/modules/esm/loader:816:49)
+      at ModuleLoader.load (node:internal/modules/esm/loader:781:26)
+      at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:526:31)
+      at #getOrCreateModuleJobAfterResolve (node:internal/modules/esm/loader:577:36)
+      at afterResolve (node:internal/modules/esm/loader:625:52)
+      at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:631:12)
+      at onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:650:32) {
+    code: 'ERR_IMPORT_ATTRIBUTE_MISSING'
+  }
+
+  Node.js v24.14.0
+
+      at genericNodeError (node:internal/errors:985:15)
+      at wrappedFn (node:internal/errors:539:14)
+      at checkExecSyncError (node:child_process:925:11)
+      at execFileSync (node:child_process:961:15)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/controller-evidence-transition.test.mjs:6:29)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.start (node:internal/test_runner/test:1015:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    status: 1,
+    signal: null,
+    output: [ null, '', `node:internal/modules/esm/assert:88\r\n        throw new ERR_IMPORT_ATTRIBUTE_MISSING(url, 'type', validType);\r\n              ^\r\n\r\nTypeError [ERR_IMPORT_ATTRIBUTE_MISSING]: Module "file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/release/local-candidate-build.v1.json" needs an import attribute of "type: json"\r\n    at validateAttributes (node:internal/modules/esm/assert:88:15)\r\n    at defaultLoadSync (node:internal/modules/esm/load:164:3)\r\n    at #loadAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:796:12)\r\n    at #loadSync (node:internal/modules/esm/loader:816:49)\r\n    at ModuleLoader.load (node:internal/modules/esm/loader:781:26)\r\n    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:526:31)\r\n    at #getOrCreateModuleJobAfterResolve (node:internal/modules/esm/loader:577:36)\r\n    at afterResolve (node:internal/modules/esm/loader:625:52)\r\n    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:631:12)\r\n    at onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:650:32) {\r\n  code: 'ERR_IMPORT_ATTRIBUTE_MISSING'\r\n}\r\n\r\nNode.js v24.14.0\r\n` ],
+    pid: 85000,
+    stdout: '',
+    stderr: `node:internal/modules/esm/assert:88\r\n        throw new ERR_IMPORT_ATTRIBUTE_MISSING(url, 'type', validType);\r\n              ^\r\n\r\nTypeError [ERR_IMPORT_ATTRIBUTE_MISSING]: Module "file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/release/local-candidate-build.v1.json" needs an import attribute of "type: json"\r\n    at validateAttributes (node:internal/modules/esm/assert:88:15)\r\n    at defaultLoadSync (node:internal/modules/esm/load:164:3)\r\n    at #loadAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:796:12)\r\n    at #loadSync (node:internal/modules/esm/loader:816:49)\r\n    at ModuleLoader.load (node:internal/modules/esm/loader:781:26)\r\n    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:526:31)\r\n    at #getOrCreateModuleJobAfterResolve (node:internal/modules/esm/loader:577:36)\r\n    at afterResolve (node:internal/modules/esm/loader:625:52)\r\n    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:631:12)\r\n    at onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:650:32) {\r\n  code: 'ERR_IMPORT_ATTRIBUTE_MISSING'\r\n}\r\n\r\nNode.js v24.14.0\r\n`
+  }
+
+test at test\current-cold-state.test.mjs:231:1
+✖ same-size RC29-owned DLMM pool, page, and position layouts fail closed (8.8461ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  360 !== 340
+
+      at poolFixture (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-cold-state.test.mjs:137:10)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-cold-state.test.mjs:232:16)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.start (node:internal/test_runner/test:1015:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 360,
+    expected: 340,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test\current-cold-state.test.mjs:374:1
+✖ cold DLMM pool, pages, and position authenticate split discriminator/body data (4.3349ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  360 !== 340
+
+      at poolFixture (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-cold-state.test.mjs:137:10)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-cold-state.test.mjs:375:16)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 360,
+    expected: 340,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test\current-cold-state.test.mjs:557:1
+✖ cold split data rejects a matching body with the wrong discriminator or body hash (5.9841ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  360 !== 340
+
+      at poolFixture (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-cold-state.test.mjs:137:10)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-cold-state.test.mjs:558:16)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 360,
+    expected: 340,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test\current-cold-state.test.mjs:630:1
+✖ compressed position discovery is pool/owner scoped and derives the canonical PDA before strict decode (3.7129ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  360 !== 340
+
+      at poolFixture (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-cold-state.test.mjs:137:10)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-cold-state.test.mjs:631:16)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 360,
+    expected: 340,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test\current-collective-pool-anchor.test.mjs:234:1
+✖ paired CALL and PUT pools resolve through their shared CALL-side anchor OracleMonth (18.1567ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+    assert(derived.equals(address))
+
+      at bumpFor (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-collective-pool-anchor.test.mjs:65:3)
+      at oracleMonthFixture (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-collective-pool-anchor.test.mjs:131:16)
+      at fixture (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-collective-pool-anchor.test.mjs:201:23)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-collective-pool-anchor.test.mjs:235:17)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.start (node:internal/test_runner/test:1015:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at test\current-collective-pool-anchor.test.mjs:252:1
+✖ paired PUT pool rejects an unrelated market-local OracleMonth (8.5313ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+    assert(derived.equals(address))
+
+      at bumpFor (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-collective-pool-anchor.test.mjs:65:3)
+      at oracleMonthFixture (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-collective-pool-anchor.test.mjs:131:16)
+      at fixture (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-collective-pool-anchor.test.mjs:201:23)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-collective-pool-anchor.test.mjs:253:17)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at test\current-collective-pool-anchor.test.mjs:295:1
+✖ expiry planning independently joins canonical positions and shared settlement anchor (6.4285ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+    assert(derived.equals(address))
+
+      at bumpFor (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-collective-pool-anchor.test.mjs:65:3)
+      at oracleMonthFixture (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-collective-pool-anchor.test.mjs:131:16)
+      at fixture (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-collective-pool-anchor.test.mjs:201:23)
+      at expiryFixture (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-collective-pool-anchor.test.mjs:268:17)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-collective-pool-anchor.test.mjs:296:15)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at test\current-collective-pool-anchor.test.mjs:313:1
+✖ expiry partial reads are explicitly incomplete and scope/owner substitutions do not invent records (5.3537ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+    assert(derived.equals(address))
+
+      at bumpFor (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-collective-pool-anchor.test.mjs:65:3)
+      at oracleMonthFixture (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-collective-pool-anchor.test.mjs:131:16)
+      at fixture (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-collective-pool-anchor.test.mjs:201:23)
+      at expiryFixture (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-collective-pool-anchor.test.mjs:268:17)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-collective-pool-anchor.test.mjs:314:15)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at test\current-collective-pool-anchor.test.mjs:326:1
+✖ expiry discovery preserves incomplete upstream Market/pool scope (5.3205ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+    assert(derived.equals(address))
+
+      at bumpFor (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-collective-pool-anchor.test.mjs:65:3)
+      at oracleMonthFixture (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-collective-pool-anchor.test.mjs:131:16)
+      at fixture (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-collective-pool-anchor.test.mjs:201:23)
+      at expiryFixture (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-collective-pool-anchor.test.mjs:268:17)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-collective-pool-anchor.test.mjs:327:15)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at test\current-governed-builder.test.mjs:250:1
+✖ current instruction views reject bytes without SDK-issued governance provenance (3.6424ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+
+  + 'CURRENT_GOVERNED_WRITE_RELEASE_UNAVAILABLE'
+  - 'CURRENT_GOVERNED_INSTRUCTION_NOT_ISSUED'
+
+      at Object.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-governed-builder.test.mjs:38:12)
+      at expectedException (node:assert:578:17)
+      at expectsError (node:assert:703:21)
+      at strict.throws (node:assert:759:3)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-governed-builder.test.mjs:251:10)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'CURRENT_GOVERNED_WRITE_RELEASE_UNAVAILABLE',
+    expected: 'CURRENT_GOVERNED_INSTRUCTION_NOT_ISSUED',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test\current-liquidity-operation.test.mjs:1:1
+✖ test\current-liquidity-operation.test.mjs (1058.8225ms)
+  'test failed'
+
+test at test\current-oracle-planner-parity.test.mjs:1:1
+✖ test\current-oracle-planner-parity.test.mjs (548.0304ms)
+  'test failed'
+
+test at test\current-oracle-semantics.test.mjs:197:1
+✖ all fifteen current Oracle action types validate with exact normalized fields (5.1361ms)
+  Error: Token staking and token voting were retired; use council ballots
+      at validateCurrentOracleActionRequest (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-oracle-public.js:215:29)
+      at Array.map (<anonymous>)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-oracle-semantics.test.mjs:198:40)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.start (node:internal/test_runner/test:1015:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    code: 'G3_OPERATION_RETIRED'
+  }
+
+test at test\current-oracle-semantics.test.mjs:262:1
+✖ current write evidence and update salts reject zero bytes32 values (2.3256ms)
+  AssertionError [ERR_ASSERTION]: Got unwanted exception.
+  Actual message: "Token staking and token voting were retired; use council ballots"
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-oracle-semantics.test.mjs:276:10)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: Error: Token staking and token voting were retired; use council ballots
+        at validateCurrentOracleActionRequest (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-oracle-public.js:215:29)
+        at file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-oracle-semantics.test.mjs:276:29
+        at getActual (node:assert:611:5)
+        at strict.doesNotThrow (node:assert:779:32)
+        at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-oracle-semantics.test.mjs:276:10)
+        at Test.runInAsyncScope (node:async_hooks:228:14)
+        at Test.run (node:internal/test_runner/test:1118:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+        at Test.postRun (node:internal/test_runner/test:1247:19)
+        at Test.run (node:internal/test_runner/test:1175:12),
+    expected: undefined,
+    operator: 'doesNotThrow',
+    diff: 'simple'
+  }
+
+test at test\current-oracle-semantics.test.mjs:282:1
+✖ secret salts are removed completely from public request metadata (1.111ms)
+  Error: Token staking and token voting were retired; use council ballots
+      at validateCurrentOracleActionRequest (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-oracle-public.js:215:29)
+      at redactCurrentOracleActionRequest (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-oracle-public.js:332:24)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-oracle-semantics.test.mjs:284:22)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    code: 'G3_OPERATION_RETIRED'
+  }
+
+test at test\current-oracle-semantics.test.mjs:328:1
+✖ emergency choices are kind-bound and map exactly to rc.44 indexes (1.2316ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /lowercase hexadecimal/. Input:
+
+  'Error: Token staking and token voting were retired; use council ballots'
+
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-oracle-semantics.test.mjs:348:10)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: Token staking and token voting were retired; use council ballots
+        at validateCurrentOracleActionRequest (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-oracle-public.js:215:29)
+        at file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-oracle-semantics.test.mjs:349:11
+        at getActual (node:assert:611:5)
+        at strict.throws (node:assert:759:24)
+        at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-oracle-semantics.test.mjs:348:10)
+        at Test.runInAsyncScope (node:async_hooks:228:14)
+        at Test.run (node:internal/test_runner/test:1118:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+        at Test.postRun (node:internal/test_runner/test:1247:19)
+        at Test.run (node:internal/test_runner/test:1175:12),
+    expected: /lowercase hexadecimal/,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at test\current-oracle-tag205.test.mjs:1:1
+✖ test\current-oracle-tag205.test.mjs (691.4851ms)
+  'test failed'
+
+test at test\current-photon.test.mjs:654:1
+✖ atomic cold observation builds exact tag-219 and isolates payer-scoped handoffs (4.3218ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  360 !== 340
+
+      at createPoolFixture (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-photon.test.mjs:148:10)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-photon.test.mjs:655:16)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 360,
+    expected: 340,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test\current-photon.test.mjs:807:1
+✖ cold account and one-leaf proof mutations fail closed (2.4497ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  360 !== 340
+
+      at createPoolFixture (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-photon.test.mjs:148:10)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-photon.test.mjs:808:16)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 360,
+    expected: 340,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test\current-position-action.test.mjs:9:3
+✖ init_collateral binds canonical observed custody and round-trips native/portable validation (15.1585ms)
+  Error [GovernedTransactionValidationError]: The installed package is not the recorded deployed release; use an observed matching integration profile
+      at currentGovernedWriteReleaseV1 (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19:15)
+      at prepareCurrentPositionActionContext (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-adapter.js:2832:45)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-position-action.test.mjs:11:25)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.start (node:internal/test_runner/test:1015:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    code: 'G3_DEPLOYMENT_BINDING_REQUIRED',
+    details: undefined,
+    retryable: false,
+    context: {},
+    [cause]: undefined
+  }
+
+test at test\current-position-action.test.mjs:9:3
+✖ deposit_collateral binds canonical observed custody and round-trips native/portable validation (9.8218ms)
+  Error [GovernedTransactionValidationError]: The installed package is not the recorded deployed release; use an observed matching integration profile
+      at currentGovernedWriteReleaseV1 (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19:15)
+      at prepareCurrentPositionActionContext (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-adapter.js:2832:45)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-position-action.test.mjs:11:19)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    code: 'G3_DEPLOYMENT_BINDING_REQUIRED',
+    details: undefined,
+    retryable: false,
+    context: {},
+    [cause]: undefined
+  }
+
+test at test\current-position-action.test.mjs:9:3
+✖ withdraw_collateral binds canonical observed custody and round-trips native/portable validation (7.6577ms)
+  Error [GovernedTransactionValidationError]: The installed package is not the recorded deployed release; use an observed matching integration profile
+      at currentGovernedWriteReleaseV1 (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19:15)
+      at prepareCurrentPositionActionContext (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-adapter.js:2832:45)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-position-action.test.mjs:11:19)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    code: 'G3_DEPLOYMENT_BINDING_REQUIRED',
+    details: undefined,
+    retryable: false,
+    context: {},
+    [cause]: undefined
+  }
+
+test at test\current-position-action.test.mjs:27:1
+✖ position context rejects stale floors, invalid amounts, missing custody and existing initialization (13.8235ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /observation/. Input:
+
+  'GovernedTransactionValidationError: The installed package is not the recorded deployed release; use an observed matching integration profile'
+
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-position-action.test.mjs:30:3)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: GovernedTransactionValidationError: The installed package is not the recorded deployed release; use an observed matching integration profile
+        at currentGovernedWriteReleaseV1 (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19:15)
+        at prepareCurrentPositionActionContext (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-adapter.js:2832:45)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-position-action.test.mjs:30:3)
+        at async Test.run (node:internal/test_runner/test:1125:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+      [cause]: undefined
+    },
+    expected: /observation/,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at test\current-position-action.test.mjs:34:1
+✖ bound adapter issues the position API and refuses substituted plan objects (12.4034ms)
+  Error [GovernedTransactionValidationError]: The installed package is not the recorded deployed release; use an observed matching integration profile
+      at currentGovernedWriteReleaseV1 (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19:15)
+      at prepareCurrentPositionActionContext (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-adapter.js:2832:45) {
+    code: 'G3_DEPLOYMENT_BINDING_REQUIRED',
+    details: undefined,
+    retryable: false,
+    context: {},
+    [cause]: undefined
+  }
+
+test at test\current-position-action.test.mjs:44:1
+✖ actual audit actor collateral packets use canonical manifest key order and reject legacy sorting (7.2015ms)
+  Error [GovernedTransactionValidationError]: The installed package is not the recorded deployed release; use an observed matching integration profile
+      at currentGovernedWriteReleaseV1 (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19:15)
+      at prepareCurrentPositionActionContext (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-adapter.js:2832:45)
+      at buildCurrentPositionAction (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-adapter.js:2875:44)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-position-action.test.mjs:47:46)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    code: 'G3_DEPLOYMENT_BINDING_REQUIRED',
+    details: undefined,
+    retryable: false,
+    context: {},
+    [cause]: undefined
+  }
+
+test at test\current-position-action.test.mjs:64:1
+✖ current user reads expose live deployment while portable plan identity stays historical (8.0563ms)
+  Error [CurrentSdkOperationError]: UserCollateral owner, executable flag, or size is not current
+      at requireProgramAccount (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-adapter.js:247:15)
+      at readCurrentUserCollateral (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-adapter.js:3032:5)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-position-action.test.mjs:67:22)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    code: 'CURRENT_ACCOUNT_INVALID',
+    details: { kind: 'UserCollateral', owner: '8fhNi6QHU5TYNhoPDM4vs89ZBztnpxp3LnBXRgkBVKtx', executable: false, bytes: 192 },
+    retryable: false,
+    context: {},
+    [cause]: undefined
+  }
+
+test at test\current-release-qualification.test.mjs:4:1
+✖ current availability is evidence-qualified, with no public caller or readiness override (395.0337ms)
+  Error: Command failed: C:\Program Files\nodejs\node.exe --experimental-vm-modules scripts/check-current-release-qualification.mjs
+  node:internal/modules/run_main:107
+      triggerUncaughtException(
+      ^
+
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  false !== true
+
+      at file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/scripts/check-current-release-qualification.mjs:22:8 {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+  Node.js v24.14.0
+
+      at genericNodeError (node:internal/errors:985:15)
+      at wrappedFn (node:internal/errors:539:14)
+      at checkExecSyncError (node:child_process:925:11)
+      at execFileSync (node:child_process:961:15)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/current-release-qualification.test.mjs:5:28)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.start (node:internal/test_runner/test:1015:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    status: 1,
+    signal: null,
+    output: [ null, '', "node:internal/modules/run_main:107\r\n    triggerUncaughtException(\r\n    ^\r\n\r\nAssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\r\n\r\nfalse !== true\r\n\r\n    at file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/scripts/check-current-release-qualification.mjs:22:8 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actual: false,\r\n  expected: true,\r\n  operator: 'strictEqual',\r\n  diff: 'simple'\r\n}\r\n\r\nNode.js v24.14.0\r\n" ],
+    pid: 56144,
+    stdout: '',
+    stderr: "node:internal/modules/run_main:107\r\n    triggerUncaughtException(\r\n    ^\r\n\r\nAssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\r\n\r\nfalse !== true\r\n\r\n    at file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/scripts/check-current-release-qualification.mjs:22:8 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actual: false,\r\n  expected: true,\r\n  operator: 'strictEqual',\r\n  diff: 'simple'\r\n}\r\n\r\nNode.js v24.14.0\r\n"
+  }
+
+test at test\governance-release-train.test.mjs:129:1
+✖ SDI-002 separates historical reader eligibility from current governed wallet capability (1.0389ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+
+  + 'unavailable'
+  - 'available'
+
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/governance-release-train.test.mjs:136:10)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'unavailable',
+    expected: 'available',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test\governance-release-train.test.mjs:139:1
+✖ SDI-003 separates historical semantics, finalized live bytes, and current write ABI (0.8748ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  false !== true
+
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/governance-release-train.test.mjs:143:10)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test\governance-release-train.test.mjs:146:1
+✖ SDI-004 never treats Spread main as deployed byte provenance (0.276ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+
+  + 'unavailable'
+  - 'available'
+
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/governance-release-train.test.mjs:149:10)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'unavailable',
+    expected: 'available',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test\governance-release-train.test.mjs:178:1
+✖ SDI-007 reviewed candidate flags cannot masquerade as live authority (0.3835ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  false !== true
+
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/governance-release-train.test.mjs:183:10)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test\governance-release-train.test.mjs:257:1
+✖ SDI-013 rejects write-compatible release without complete receipts (0.8135ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at expectInvalidRelease (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/governance-release-train.test.mjs:71:10)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/governance-release-train.test.mjs:263:6)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at test\governance-release-train.test.mjs:561:1
+✖ SDG-013 current capability does not expose an unbound generic mutator (0.3635ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  false !== true
+
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/governance-release-train.test.mjs:562:10)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test\governance-release-train.test.mjs:616:1
+✖ governance and live qualifiers reject malformed JavaScript and RPC shapes deterministically (0.8182ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+
+  + 'G3_DEPLOYMENT_BINDING_REQUIRED'
+  - 'CURRENT_V3_DEPLOYMENT_ABSENT'
+
+      at Object.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/governance-release-train.test.mjs:63:12)
+      at expectedException (node:assert:578:17)
+      at expectsError (node:assert:703:21)
+      at strict.rejects (node:assert:769:3)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/governance-release-train.test.mjs:634:3)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'G3_DEPLOYMENT_BINDING_REQUIRED',
+    expected: 'CURRENT_V3_DEPLOYMENT_ABSENT',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test\governed-transaction-revalidation.test.mjs:321:1
+✖ public current revalidator rejects malformed transaction bytes before RPC (1.8221ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+
+  + 'G3_DEPLOYMENT_BINDING_REQUIRED'
+  - 'GOVERNED_TRANSACTION_BYTES_INVALID'
+
+      at Object.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/governed-transaction-revalidation.test.mjs:71:12)
+      at expectedException (node:assert:578:17)
+      at expectsError (node:assert:703:21)
+      at strict.rejects (node:assert:769:3)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/governed-transaction-revalidation.test.mjs:323:3)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'G3_DEPLOYMENT_BINDING_REQUIRED',
+    expected: 'GOVERNED_TRANSACTION_BYTES_INVALID',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test\lifecycle-identity-evidence.test.mjs:57:1
+✖ historical identity-only staging remains unqualified after the separate final release (1.1292ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  false !== true
+
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/lifecycle-identity-evidence.test.mjs:61:9)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test\operator-exports.test.mjs:6:1
+✖ operator subpath separates live byte facts from historical RC44 semantics (2.4404ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  false !== true
+
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/operator-exports.test.mjs:13:10)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.start (node:internal/test_runner/test:1015:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test\petri-adapter.test.mjs:167:1
+✖ Petri transaction commands preserve explicit arguments through the typed command registry (1.2616ms)
+  Error [CurrentWriteReleaseUnavailableError]: current program mutation is unavailable until an exact governed-write release is finalized
+      at assertCurrentWriteReleaseAvailable (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/release-train.js:439:15)
+      at PetriAdapter.execute (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/petri/client.js:46:13)
+      at PetriAdapter.invoke (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/petri/client.js:26:21)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/petri-adapter.test.mjs:170:32)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+    code: 'CURRENT_PROGRAM_WRITE_ABI_UNAVAILABLE',
+    details: { writeCompatibility: 'governance-gate-v1', selectedGovernanceGeneration: 3 },
+    retryable: false,
+    context: {},
+    [cause]: undefined
+  }
+
+test at test\protocol.test.mjs:58:1
+✖ deployment identity, limits, account sizes, and tags are release-bound (1.9733ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+
+    [
+  +   364,
+  -   384,
+      602,
+      594,
+      637
+    ]
+
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/protocol.test.mjs:74:10)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 364, 602, 594, 637 ],
+    expected: [ 384, 602, 594, 637 ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test\protocol.test.mjs:98:1
+✖ governed async materialization replaces retired synchronous builders and preserves writer bytes (1.4137ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/protocol.test.mjs:102:13)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at test\refactor-deployment.test.mjs:9:1
+✖ current release accepts the finalized refactor identity (11.4278ms)
+  Error [GovernedTransactionValidationError]: The installed package is not the recorded deployed release; use an observed matching integration profile
+      at currentGovernedWriteReleaseV1 (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19:15)
+      at readCurrentLiveDeploymentFacts (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-live-deployment.js:24:30)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/refactor-deployment.test.mjs:10:23)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.start (node:internal/test_runner/test:1015:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    code: 'G3_DEPLOYMENT_BINDING_REQUIRED',
+    details: undefined,
+    retryable: false,
+    context: {},
+    [cause]: undefined
+  }
+
+test at test\refactor-deployment.test.mjs:16:1
+✖ the superseded oracle-carry payload cannot qualify as the current release (15.0459ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+
+    Comparison {
+  +   code: 'G3_DEPLOYMENT_BINDING_REQUIRED'
+  -   code: 'CURRENT_V3_DEPLOYMENT_INVALID'
+    }
+
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/refactor-deployment.test.mjs:20:3)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: GovernedTransactionValidationError: The installed package is not the recorded deployed release; use an observed matching integration profile
+        at currentGovernedWriteReleaseV1 (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19:15)
+        at readCurrentLiveDeploymentFacts (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-live-deployment.js:24:30)
+        at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/refactor-deployment.test.mjs:20:24)
+        at Test.runInAsyncScope (node:async_hooks:228:14)
+        at Test.run (node:internal/test_runner/test:1118:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+        at Test.postRun (node:internal/test_runner/test:1247:19)
+        at Test.run (node:internal/test_runner/test:1175:12)
+        at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+      [cause]: undefined
+    },
+    expected: { code: 'CURRENT_V3_DEPLOYMENT_INVALID' },
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at test\release-artifact-policy.test.mjs:14:1
+✖ governance-aware package measurement retains narrow fail-closed headroom (2.3143ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+
+    {
+  +   entryCount: 4340,
+  +   size: 16802597,
+  +   unpackedSize: 60711078
+  -   entryCount: 4333,
+  -   size: 15920316,
+  -   unpackedSize: 59441504
+    }
+
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/release-artifact-policy.test.mjs:15:10)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.start (node:internal/test_runner/test:1015:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { size: 16802597, unpackedSize: 60711078, entryCount: 4340 },
+    expected: { size: 15920316, unpackedSize: 59441504, entryCount: 4333 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test\trader-release-identity.test.mjs:15:1
+✖ trader activation binds six exact finalized accounts and preserves historical business evidence (24.0766ms)
+  Error [GovernanceGateValidationError]: governance identity is not an exact release-train Generation 1 or reviewed Generation 2 identity
+      at fail (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/governance.js:662:11)
+      at validateGovernanceIdentityV1 (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/governance.js:595:5)
+      at validateProtocolGovernanceGateAccountV1 (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/governance.js:135:22)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/trader-release-identity.test.mjs:47:16)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    code: 'GOVERNANCE_GENERATION_MISMATCH',
+    details: undefined,
+    retryable: false,
+    context: {},
+    [cause]: undefined
+  }
+
+test at test\v3-close-builder.test.mjs:8:1
+✖ public V3 finalizer obtains its own same-slot observation and refuses structural capabilities (9.6883ms)
+  Error [GovernedTransactionValidationError]: The installed package is not the recorded deployed release; use an observed matching integration profile
+      at currentGovernedWriteReleaseV1 (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19:15)
+      at buildCurrentGovernedInstructionV1 (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-write.js:11:21)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/v3-close-builder.test.mjs:24:22)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    code: 'G3_DEPLOYMENT_BINDING_REQUIRED',
+    details: undefined,
+    retryable: false,
+    context: {},
+    [cause]: undefined
+  }
+
+test at test\v3-integration.test.mjs:23:1
+✖ V3 revalidation uses one coherent batch and two real genesis checks, without cross-call reuse (10.1841ms)
+  Error [GovernedTransactionValidationError]: The installed package is not the recorded deployed release; use an observed matching integration profile
+      at currentGovernedWriteReleaseV1 (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19:15)
+      at Module.buildCurrentGovernedInstructionV1 (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-write.js:11:21)
+      at signedV3Packet (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/v3-integration.test.mjs:15:24)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/v3-integration.test.mjs:24:21)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.start (node:internal/test_runner/test:1015:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    code: 'G3_DEPLOYMENT_BINDING_REQUIRED',
+    details: undefined,
+    retryable: false,
+    context: {},
+    [cause]: undefined
+  }
+
+test at test\v3-integration.test.mjs:39:1
+✖ V3 revalidation rejects initial and final network changes and malformed coherent state (6.5063ms)
+  Error [GovernedTransactionValidationError]: The installed package is not the recorded deployed release; use an observed matching integration profile
+      at currentGovernedWriteReleaseV1 (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19:15)
+      at Module.buildCurrentGovernedInstructionV1 (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-write.js:11:21)
+      at signedV3Packet (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/v3-integration.test.mjs:15:24)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/v3-integration.test.mjs:40:21)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    code: 'G3_DEPLOYMENT_BINDING_REQUIRED',
+    details: undefined,
+    retryable: false,
+    context: {},
+    [cause]: undefined
+  }
+
+test at test\v3-integration.test.mjs:55:1
+✖ V3 coherent gate context covers the newer ALT observation (7.7569ms)
+  Error [GovernedTransactionValidationError]: The installed package is not the recorded deployed release; use an observed matching integration profile
+      at currentGovernedWriteReleaseV1 (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19:15)
+      at Module.buildCurrentGovernedInstructionV1 (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-write.js:11:21)
+      at signedV3Packet (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/v3-integration.test.mjs:15:24)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/v3-integration.test.mjs:56:21)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    code: 'G3_DEPLOYMENT_BINDING_REQUIRED',
+    details: undefined,
+    retryable: false,
+    context: {},
+    [cause]: undefined
+  }
+
+test at test\v3-integration.test.mjs:71:1
+✖ finalized identity evidence is explicit and historical ProgramData fails current qualification (1.077ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+
+  + 497359082
+  - 495537060
+
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/v3-integration.test.mjs:72:9)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 497359082,
+    expected: 495537060,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test\v3-integration.test.mjs:78:1
+✖ V3 release preserves historical plan baseline and exactly adopts upstream deployed identity (0.3003ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  false !== true
+
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/v3-integration.test.mjs:79:9)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test\v3-integration.test.mjs:93:1
+✖ checkpoint-derived bytes with synthetic frozen gate and uninitialized vault while package supports governed writes (4.7691ms)
+  Error [GovernedTransactionValidationError]: The installed package is not the recorded deployed release; use an observed matching integration profile
+      at currentGovernedWriteReleaseV1 (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19:15)
+      at Module.readCurrentLiveDeploymentFacts (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-live-deployment.js:24:30)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/v3-integration.test.mjs:95:24)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    code: 'G3_DEPLOYMENT_BINDING_REQUIRED',
+    details: undefined,
+    retryable: false,
+    context: {},
+    [cause]: undefined
+  }
+
+test at test\v3-integration.test.mjs:99:1
+✖ Active gate alone never admits absent or paused business state (6.1005ms)
+  Error [GovernedTransactionValidationError]: The installed package is not the recorded deployed release; use an observed matching integration profile
+      at currentGovernedWriteReleaseV1 (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19:15)
+      at Module.readCurrentLiveDeploymentFacts (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-live-deployment.js:24:30)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/v3-integration.test.mjs:101:56)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    code: 'G3_DEPLOYMENT_BINDING_REQUIRED',
+    details: undefined,
+    retryable: false,
+    context: {},
+    [cause]: undefined
+  }
+
+test at test\v3-integration.test.mjs:111:1
+✖ actual public ordinary V3 builder preserves exact signed epoch and final readonly gate (6.7162ms)
+  Error [GovernedTransactionValidationError]: The installed package is not the recorded deployed release; use an observed matching integration profile
+      at currentGovernedWriteReleaseV1 (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-release-internal.js:19:15)
+      at Module.buildCurrentGovernedInstructionV1 (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/dist/protocol/current-governed-write.js:11:21)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/v3-integration.test.mjs:113:25)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    code: 'G3_DEPLOYMENT_BINDING_REQUIRED',
+    details: undefined,
+    retryable: false,
+    context: {},
+    [cause]: undefined
+  }
+
+test at test\wallet-browser.test.mjs:1:1
+✖ test\wallet-browser.test.mjs (712.9098ms)
+  'test failed'
+
+test at test\wallet-liquidity-cleanup.test.mjs:1:1
+✖ test\wallet-liquidity-cleanup.test.mjs (722.9189ms)
+  'test failed'
+
+test at test\wallet-public-materializer.test.mjs:1:1
+✖ test\wallet-public-materializer.test.mjs (747.7749ms)
+  'test failed'
+
+test at test\writer-bid-index-candidate.test.mjs:1:1
+✖ test\writer-bid-index-candidate.test.mjs (485.8936ms)
+  'test failed'
+
+test at test\writer-operation-plan.test.mjs:1:1
+✖ test\writer-operation-plan.test.mjs (695.5788ms)
+  'test failed'
+
+test at test\writer-terminal-digest.test.mjs:47:1
+✖ activation keeps tag229, empty payload and the readonly terminal manifest at business index11 (10.8471ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  21 !== 17
+
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/writer-terminal-digest.test.mjs:58:10)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 21,
+    expected: 17,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test\writer-terminal-digest.test.mjs:73:1
+✖ packaged close-group commitment hashes zero and terminal digest in the same canonical position (1.1507ms)
+  AssertionError [ERR_ASSERTION]: review changed dependency helper boundaries
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3sdk-0915/ameba_sdk/test/writer-terminal-digest.test.mjs:78:3)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

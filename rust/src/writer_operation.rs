@@ -1137,7 +1137,7 @@ fn require_writer_semantic_binding(
 fn require_writer_liquidity_semantic(
     operation: WriterOperationKind, fields: &Map<String, Value>, instruction: &Instruction,
 ) -> Result<(), WriterOperationError> {
-    use ameba_spread_program::writer_dlmm_instruction::ManageWriterDlmmV1Params as Action;
+    use ameba_spread_historical::writer_dlmm_instruction::ManageWriterDlmmV1Params as Action;
     if instruction.data.first() != Some(&159) { return Err(invalid("writer liquidity outer tag differs")); }
     let action = Action::decode_exact(&instruction.data[1..]).map_err(|_| invalid("writer liquidity payload is invalid"))?;
     let policy_action = matches!(operation, WriterOperationKind::WriterLiquidityPolicyBegin
@@ -1209,7 +1209,7 @@ fn liquidity_semantic_entries(fields: &Map<String, Value>, count: usize) -> Resu
     Ok(values)
 }
 
-fn require_liquidity_bin_semantic(fields: &Map<String, Value>, entries: &[ameba_spread_program::state::WriterDlmmBinV1], add: bool) -> Result<(), WriterOperationError> {
+fn require_liquidity_bin_semantic(fields: &Map<String, Value>, entries: &[ameba_spread_historical::state::WriterDlmmBinV1], add: bool) -> Result<(), WriterOperationError> {
     let values = liquidity_semantic_entries(fields, entries.len())?;
     let option_field = if add { "maximumOptionAmountAtoms" } else { "optionAmountAtoms" };
     let quote_field = if add { "maximumQuoteAmountAtoms" } else { "quoteAmountAtoms" };

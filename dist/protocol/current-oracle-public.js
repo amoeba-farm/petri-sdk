@@ -18,7 +18,6 @@ export const CURRENT_ORACLE_SEMANTIC_HASH_VECTORS = Object.freeze({
 });
 export const CURRENT_ORACLE_LOCATOR_MAX_BYTES = 2_048;
 export const CURRENT_ORACLE_ACTION_TYPES = Object.freeze([
-    "queue_stake_amba_for_samba", "activate_queued_stake_amba_for_samba", "request_unstake_samba", "complete_unstake_samba",
     "initialize_oracle_month_v5",
     "propose_oracle_source_v3",
     "support_oracle_source_v3",
@@ -30,8 +29,6 @@ export const CURRENT_ORACLE_ACTION_TYPES = Object.freeze([
     "reveal_oracle_update_claim_v3",
     "challenge_oracle_update_claim_v2",
     "finalize_oracle_update_claim_v2",
-    "commit_oracle_emergency_vote_v3",
-    "reveal_oracle_emergency_vote_v2",
     "deposit_oracle_usdc_rewards",
     "claim_oracle_usdc_reward",
 ]);
@@ -211,6 +208,11 @@ function oracleActionKeys(required, optional = []) {
 }
 /** Browser-safe exact normalizer for the 15 current public Oracle actions. */
 export function validateCurrentOracleActionRequest(request) {
+    if (request && typeof request === "object" && "actionType" in request && [
+        "queue_stake_amba_for_samba", "activate_queued_stake_amba_for_samba", "request_unstake_samba", "complete_unstake_samba",
+        "commit_oracle_emergency_vote_v3", "reveal_oracle_emergency_vote_v2",
+    ].includes(String(request.actionType)))
+        throw Object.assign(new Error("Token staking and token voting were retired; use council ballots"), { code: "G3_OPERATION_RETIRED" });
     const value = oracleRecord(request, "current Oracle action request");
     const actionType = oracleString(value, "actionType");
     const common = oracleCommon(value);

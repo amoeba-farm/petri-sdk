@@ -18,8 +18,8 @@ function frozenRecipePreimage(input) {
     const manifestHash = exactHash(input.frozenManifestHash, "frozenManifestHash");
     const nonzeroHash = (value, label) => exactHash(fixedBytes32(value, label), label);
     const buckets = input.buckets.map(bucket => {
-        if (bucket.sources.length === 0 || bucket.sources.length > 8)
-            membershipInvalid("membership buckets require 1..8 frozen sources");
+        if (bucket.sources.length === 0 || bucket.sources.length > 65535)
+            membershipInvalid("membership buckets require 1..65535 frozen sources");
         return { bucketId: nonzeroHash(bucket.bucketId, "bucketId"), bucketWeightBps: bucket.bucketWeightBps,
             sources: bucket.sources.map(source => ({ sourceId: nonzeroHash(source.sourceId, "sourceId"),
                 sourceTypeHash: nonzeroHash(source.sourceTypeHash, "sourceTypeHash"),
@@ -81,7 +81,7 @@ export async function prepareCurrentOracleRecipeIndexStep(input) {
     const progress = await readCurrentOracleRecipeIndexProgress({ connection: input.connection,
         oracleMonth: accounts.oracleMonthPda, expectedRecipeHash, expectedManifestHash: frozenManifestHash,
         minimumContextSlot: binding.governance.finalizedObservationSlot });
-    const next = runtime.nextOracleRecipeSourceIndexStep({ plan, index: progress.recipe, expectedRecipeHash });
+    const next = runtime.nextOracleRecipeSourceIndexStep({ plan, index: progress.recipe, expectedRecipeHash, expectedManifestHash: frozenManifestHash, accounts, governance: binding.spreadGovernance });
     const instruction = next.nextStep?.instruction ?? null;
     if (instruction !== null) {
         inspectBoundCurrentGovernedInstructionV1({ instruction, binding });
@@ -99,11 +99,11 @@ export function prepareOracleRecipeSourceIndexInputs(input) {
     const steps = [];
     let previousHash = preview.initialManifestHash;
     for (const bucket of buckets) {
-        for (const source of bucket.sources) {
+        for (const [sourceIndex, source] of bucket.sources.entries()) {
             const params = { previousHash, bucketId: bucket.bucketId, sourceId: source.sourceId,
                 sourceTypeHash: source.sourceTypeHash, canonicalLocatorHash: source.canonicalLocatorHash,
                 sourceDefinitionHash: source.sourceDefinitionHash, bucketWeightBps: bucket.bucketWeightBps };
-            steps.push({ accounts: { payer: input.accounts.payer, marketPda: input.accounts.marketPda,
+            steps.push({ reverseSourceIndex: bucket.sources.length - 1 - sourceIndex, accounts: { payer: input.accounts.payer, marketPda: input.accounts.marketPda,
                     oracleMonthPda: input.accounts.oracleMonthPda }, params });
             previousHash = advanceOracleRecipeWeightManifestHash(params);
         }
@@ -145,6 +145,32 @@ export async function readCurrentOracleRecipeMembership(input) {
     if (!recipe.recipeHash.equals(recipeHash) || !recipe.manifestHash.equals(manifestHash))
         fail("membership index differs from the independently observed frozen recipe");
     const bucket = runtime.decodeOracleBucketSourceIndex({ programId, data: data[1], index: recipe, bucketId });
-    return Object.freeze({ observedAtSlot: observed.context.slot, recipeAddress, bucketAddress, recipe, bucket });
+    // Each immutable page is decoded against the complete frozen root. Bound each RPC batch.
+    const sourceIds = [];
+    let slot = observed.context.slot;
+    const pageCount = Math.ceil(bucket.sourceCount / 6);
+    for (let first = 0; first < pageCount; first += 100) {
+        const indices = Array.from({ length: Math.min(100, pageCount - first) }, (_, i) => first + i);
+        const addresses = indices.map(pageIndex => runtime.deriveOracleMemberPagePda({ bucket: bucketAddress, pageIndex, programId }));
+        const page = await input.connection.getMultipleAccountsInfoAndContext(addresses, { commitment: "finalized", minContextSlot: slot });
+        if (page.context.slot < slot || page.value.length !== addresses.length)
+            fail("incomplete membership page response");
+        slot = page.context.slot;
+        for (const [i, pageIndex] of indices.entries()) {
+            const info = page.value[i];
+            if (!info || info.executable)
+                fail("membership page is absent or executable");
+            const decoded = runtime.decodeOracleMemberPage({ data: info.data, owner: info.owner, address: addresses[i], bucket: bucketAddress, sourceCount: bucket.sourceCount, pageIndex, programId });
+            for (const id of decoded.descendingIds) {
+                if (sourceIds.length && Buffer.compare(sourceIds.at(-1), id) <= 0)
+                    fail("membership pages overlap or are unordered");
+                sourceIds.push(Buffer.from(id));
+            }
+        }
+    }
+    if (sourceIds.length !== bucket.sourceCount)
+        fail("membership pages are truncated");
+    return Object.freeze({ observedAtSlot: slot, recipeAddress, bucketAddress, recipe,
+        bucket: Object.freeze({ ...bucket, sourceIds: Object.freeze(sourceIds) }), complete: true });
 }
 //# sourceMappingURL=current-oracle-membership.js.map

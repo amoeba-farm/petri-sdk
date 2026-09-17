@@ -16,13 +16,14 @@ bincode = "=1.3.3"
 borsh = "0.10.4"
 light-sdk = { version = "=0.23.0", features = ["keccak"] }
 num-bigint = "=0.4.8"
-ameba_spread_program = { package = "light_token_minter", version = "=0.2.0", path = "vendor/spread-program", default-features = false, features = ["no-entrypoint", "devnet-v3-governance-controller", "devnet-solo-backfill-2026"] }
+ameba_spread_program = { package = "light_token_minter", version = "=0.2.0-mainnet.7d22fd9a", path = "vendor/spread-program-current", default-features = false, features = ["no-entrypoint", "devnet-v3-governance-controller", "devnet-solo-backfill-2026"] }
+ameba_spread_historical = { package = "light_token_minter", version = "=0.2.0", path = "vendor/spread-program", default-features = false, features = ["no-entrypoint", "devnet-v3-governance-controller", "devnet-solo-backfill-2026"] }
 reqwest = { version = "=0.12.28", default-features = false, features = ["blocking", "json", "rustls-tls"] }
 serde = { version = "1.0.219", features = ["derive"] }
 serde_json = "1.0.140"
 solana-program = { version = "2.3", default-features = false }
 solana-message = { version = "2.2.1", features = ["bincode"] }
-solana-signature = { version = "2.2.1", features = ["serde"] }
+solana-signature = { version = "2.2.1", features = ["serde", "verify"] }
 solana-transaction = { version = "2.2.1", features = ["bincode"] }
 solana-sdk-ids = "2.2.1"
 spl-token = { version = "7.0.0", features = ["no-entrypoint"] }

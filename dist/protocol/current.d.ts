@@ -295,10 +295,13 @@ export interface CurrentSettlementSignerSetAccount {
     readonly proposer: PublicKey;
 }
 export interface DecodeCurrentMarketAccountInput extends CurrentProgramAccountInput {
+    readonly marketLayout?: "historical-v2" | "g3";
 }
 export declare function decodeCurrentMarketAccount(input: DecodeCurrentMarketAccountInput): CurrentMarketAccount;
 export interface DecodeCurrentOracleMonthAccountInput extends CurrentProgramAccountInput {
     readonly expiryTs: number | bigint;
+    /** Selects the exact deployed account generation; omission preserves the historical reader. */
+    readonly marketLayout?: "historical-v2" | "g3";
 }
 /** Internal initialization preflight: exact fixed-codec shape with is_initialized=false. */
 export declare function validateUninitializedCurrentOracleMonthData(data: Uint8Array): void;

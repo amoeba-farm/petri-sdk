@@ -1,1 +1,1 @@
-{"version":3,"file":"current-governed-release-internal.d.ts","sourceRoot":"","sources":["../../src/protocol/current-governed-release-internal.ts"],"names":[],"mappings":"AAYA,OAAO,EAEL,KAAK,2BAA2B,EACjC,MAAM,oCAAoC,CAAC;AAO5C;;;;GAIG;AACH,wBAAgB,6BAA6B,IAAI,2BAA2B,CAmI3E"}
+{"version":3,"file":"current-governed-release-internal.d.ts","sourceRoot":"","sources":["../../src/protocol/current-governed-release-internal.ts"],"names":[],"mappings":"AAaA,OAAO,EAEL,KAAK,2BAA2B,EACjC,MAAM,oCAAoC,CAAC;AAO5C;;;;GAIG;AACH,wBAAgB,6BAA6B,IAAI,2BAA2B,CAsI3E"}

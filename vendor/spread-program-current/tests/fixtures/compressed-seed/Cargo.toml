@@ -1,0 +1,19 @@
+[package]
+name = "g3_compressed_fixture"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+solana-program = { version = "2.3", default-features = false }
+
+[workspace]
+
+[profile.release]
+opt-level = "z"
+lto = "fat"
+codegen-units = 1
+panic = "abort"

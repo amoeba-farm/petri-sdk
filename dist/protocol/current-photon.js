@@ -1,3 +1,4 @@
+import { MAINNET_PROFILE } from "../mainnet/profile.js";
 import { readCurrentVerifiedCompressedStateEvidence } from "./current-photon-verified.js";
 import { requireCurrentCompressedEvidenceVerifier } from "./current-compressed-evidence-verifier.js";
 import { CURRENT_SPREAD_LIGHT_CPI_AUTHORITY } from "./current-light-identity.js";
@@ -19,6 +20,7 @@ import { cloneCurrentSpreadInstructionPreservingRegistrationV1, governedCurrentS
 import { buildCurrentGovernedInstructionV1 } from "./current-governed-write.js";
 import { PackedAccountRegistry, activeOutputTreeKey, } from "@amoeba/spread-release-tools/compressed-state";
 import { buildLightAtaReadyActionPlan as buildReferenceLightAtaReadyActionPlan, } from "@amoeba/spread-release-tools/reference-client";
+const mainnetStateConnections = new WeakSet();
 const CURRENT_PHOTON_COMMITMENT = "finalized";
 const CURRENT_PHOTON_MAX_OWNER_ACCOUNTS = 256;
 const CURRENT_PHOTON_ATOMIC_HANDOFF_MS = 30_000;
@@ -212,7 +214,7 @@ async function withCurrentPhotonFetchGuard(endpoint, action) {
 function photonError(code, message, options = {}) {
     return new CurrentPhotonError(code, message, options);
 }
-function parseCurrentPhotonEndpoint(value, label) {
+function parseCurrentPhotonEndpoint(value, label, network = "devnet") {
     let url;
     try {
         url = new URL(value);
@@ -226,7 +228,8 @@ function parseCurrentPhotonEndpoint(value, label) {
     if (url.protocol !== "https:"
         || url.username !== ""
         || url.password !== ""
-        || /mainnet|localhost|127\.0\.0\.1|0\.0\.0\.0/i.test(hostname)
+        || /localhost|127\.0\.0\.1|0\.0\.0\.0/i.test(hostname)
+        || (network === "devnet" ? /mainnet/i.test(hostname) : hostname !== "mainnet.helius-rpc.com")
         || [
             "api.devnet.solana.com",
             "api.testnet.solana.com",
@@ -235,11 +238,13 @@ function parseCurrentPhotonEndpoint(value, label) {
         throw photonError("CURRENT_PHOTON_URL_INVALID", `${label} must be an HTTPS non-mainnet, non-local RPC URL`);
     }
     const apiKeys = url.searchParams.getAll("api-key");
-    const privateHeliusDevnet = hostname === "devnet.helius-rpc.com"
+    const privateHeliusDevnet = hostname === (network === "mainnet-beta" ? "mainnet.helius-rpc.com" : "devnet.helius-rpc.com")
         && (url.pathname === "/" || url.pathname === "")
         && url.hash === ""
         && apiKeys.length === 1
         && apiKeys[0].length > 0;
+    if (network === "mainnet-beta" && !privateHeliusDevnet)
+        throw photonError("CURRENT_PHOTON_URL_INVALID", "Mainnet requires a private Helius endpoint");
     return Object.freeze({
         href: url.href,
         origin: url.origin,
@@ -611,6 +616,8 @@ function instructionDigest(instruction) {
     return hash.digest("hex");
 }
 async function buildCurrentTag219Instruction(input) {
+    if (mainnetStateConnections.has(input.rpc))
+        throw photonError("CURRENT_PHOTON_LOAD_INSTRUCTION_INVALID", "Mainnet historical decompression fallback is unavailable; use a qualified G3 plan");
     const lightConfig = PublicKey.findProgramAddressSync([
         Buffer.from("compressible_config", "ascii"),
         Buffer.alloc(2),
@@ -828,18 +835,22 @@ class CurrentPhotonConnectionImpl {
             || limit > CURRENT_PHOTON_MAX_OWNER_ACCOUNTS) {
             throw photonError("CURRENT_PHOTON_OWNER_QUERY_INVALID", "cold discovery is restricted to 1-256 accounts owned by the current Spread program");
         }
+        if (config.cursor != null && (typeof config.cursor !== "string" || config.cursor.length === 0 || config.cursor.length > 2048 || /[\x00-\x20\x7f]/u.test(config.cursor))) {
+            throw photonError("CURRENT_PHOTON_OWNER_QUERY_INVALID", "invalid owner-query cursor");
+        }
         let result;
         try {
             result = await withCurrentPhotonFetchGuard(this.#providerEndpoint, () => this.#rpc.getCompressedAccountsByOwner(owner, {
                 limit: config.limit,
+                ...(config.cursor == null ? {} : { cursor: config.cursor }),
                 ...(config.filters === undefined ? {} : { filters: config.filters }),
             }));
         }
         catch {
             throw photonError("CURRENT_PHOTON_RPC_UNAVAILABLE", "bounded compressed owner query failed");
         }
-        if (result.cursor !== null || result.items.length > limit) {
-            throw photonError("CURRENT_PHOTON_OWNER_QUERY_BOUND_EXCEEDED", "compressed owner query is incomplete or exceeds its explicit bound");
+        if (result.items.length > limit || (result.cursor !== null && (typeof result.cursor !== "string" || result.cursor.length === 0 || result.cursor.length > 2048 || result.cursor === config.cursor || result.items.length === 0))) {
+            throw photonError("CURRENT_PHOTON_OWNER_QUERY_BOUND_EXCEEDED", "compressed owner query exceeds its page bound or does not advance");
         }
         for (const account of result.items) {
             if (!account.owner.equals(owner)) {
@@ -847,7 +858,7 @@ class CurrentPhotonConnectionImpl {
             }
             exactTreeContext(account.treeInfo);
         }
-        return { cursor: null, items: result.items.map(cloneCompressedAccount) };
+        return { cursor: result.cursor, items: result.items.map(cloneCompressedAccount) };
     }
     async observeCurrentColdAccount(canonicalAddress) {
         const observation = await this.observeProof(canonicalAddress);
@@ -994,6 +1005,8 @@ class CurrentPhotonConnectionImpl {
             getValidityProof: (hashes, addresses) => this.getValidityProofAndRpcContext(hashes, addresses) });
     }
     async prepareCurrentCompressedStateInstruction(input) {
+        if (mainnetStateConnections.has(this.stateConnection))
+            throw photonError("CURRENT_PHOTON_LOAD_INSTRUCTION_INVALID", "Mainnet historical compressed-write fallback is unavailable; use a qualified G3 plan");
         if (!input.innerInstruction.programId.equals(AMOEBA_SPREAD_PROGRAM_ID)) {
             throw photonError("CURRENT_PHOTON_ACCOUNT_INVALID", "compressed logical instruction has a foreign program id");
         }
@@ -1750,8 +1763,8 @@ class CurrentPhotonPayerResolverImpl {
  * from the pinned Light 0.23 transport and are validated as one observation.
  */
 export async function createCurrentPhotonConnection(input) {
-    const photonEndpoint = parseCurrentPhotonEndpoint(input.photonRpcUrl, "Photon RPC URL");
-    const stateEndpoint = parseCurrentPhotonEndpoint(input.stateConnection.rpcEndpoint, "state RPC URL");
+    const photonEndpoint = parseCurrentPhotonEndpoint(input.photonRpcUrl, "Photon RPC URL", input.network);
+    const stateEndpoint = parseCurrentPhotonEndpoint(input.stateConnection.rpcEndpoint, "state RPC URL", input.network);
     const providerOriginSha256 = hashHex(photonEndpoint.origin);
     if (!/^[0-9a-f]{64}$/.test(input.authorizedProviderOriginSha256)
         || input.authorizedProviderOriginSha256 !== providerOriginSha256) {
@@ -1794,11 +1807,13 @@ export async function createCurrentPhotonConnection(input) {
         // Provider errors can include the private href; retain only the typed boundary failure.
         throw photonError("CURRENT_PHOTON_RPC_UNAVAILABLE", "current Photon topology attestation failed");
     }
-    if (stateGenesis !== CURRENT_PROTOCOL_DEVNET_GENESIS_HASH
-        || photonGenesis !== CURRENT_PROTOCOL_DEVNET_GENESIS_HASH) {
-        throw photonError("CURRENT_PHOTON_GENESIS_MISMATCH", "Photon and standard state transports must both attest the maintained Devnet genesis");
+    if (stateGenesis !== (input.network === "mainnet-beta" ? MAINNET_PROFILE.genesisHash : CURRENT_PROTOCOL_DEVNET_GENESIS_HASH)
+        || photonGenesis !== (input.network === "mainnet-beta" ? MAINNET_PROFILE.genesisHash : CURRENT_PROTOCOL_DEVNET_GENESIS_HASH)) {
+        throw photonError("CURRENT_PHOTON_GENESIS_MISMATCH", "Photon and standard state transports must both attest the explicitly selected network genesis");
     }
     validateCurrentPhotonTopology(addressTreeInfo, stateTreeInfos);
+    if (input.network === "mainnet-beta")
+        mainnetStateConnections.add(input.stateConnection);
     return new CurrentPhotonConnectionImpl(rpc, input.stateConnection, photonEndpoint, providerOriginSha256, addressTreeInfo, stateTreeInfos, input.createLightAtaLoadInstructions, input.compressedEvidenceVerifier);
 }
 //# sourceMappingURL=current-photon.js.map

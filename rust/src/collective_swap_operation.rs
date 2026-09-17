@@ -356,7 +356,7 @@ fn validate_collective_swap_operation_inner(
     if context.is_some() {
         use crate::writer_sleeve::*;
         let registry = derive_writer_policy_registry_pda(&CURRENT_PROGRAM_ID).0;
-        if metas[23].pubkey != ameba_spread_program::scoped_settlement::derive_collective_settlement_delegate(&CURRENT_PROGRAM_ID, &trader, &option_mint).0
+        if metas[23].pubkey != ameba_spread_historical::scoped_settlement::derive_collective_settlement_delegate(&CURRENT_PROGRAM_ID, &trader, &option_mint).0
             || metas[24].pubkey != crate::writer_dlmm::derive_writer_dlmm_policy_pda(&CURRENT_PROGRAM_ID, &sleeve).0
             || metas[26].pubkey != crate::writer_dlmm::derive_writer_dlmm_position_pda(&CURRENT_PROGRAM_ID, &pool, &sleeve).0
             || metas[27].pubkey != derive_writer_sleeve_usdc_vault_pda(&CURRENT_PROGRAM_ID, &sleeve).0

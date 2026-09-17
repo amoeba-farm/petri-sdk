@@ -807,6 +807,14 @@
         "type": "json"
       }
     },
+    "release/local-candidate-build.v1.json": {
+      "bytes": 3774,
+      "imports": [],
+      "format": "esm",
+      "with": {
+        "type": "json"
+      }
+    },
     "release/spread-refactor-final-20260912.json": {
       "bytes": 21783,
       "imports": [],
@@ -1017,8 +1025,16 @@
       "format": "esm"
     },
     "dist/protocol/current-governed-release-internal.js": {
-      "bytes": 11522,
+      "bytes": 11899,
       "imports": [
+        {
+          "path": "release/local-candidate-build.v1.json",
+          "kind": "import-statement",
+          "original": "../../release/local-candidate-build.v1.json",
+          "with": {
+            "type": "json"
+          }
+        },
         {
           "path": "release/spread-refactor-final-20260912.json",
           "kind": "import-statement",
@@ -1067,14 +1083,6 @@
         }
       ],
       "format": "esm"
-    },
-    "release/local-candidate-build.v1.json": {
-      "bytes": 3992,
-      "imports": [],
-      "format": "esm",
-      "with": {
-        "type": "json"
-      }
     },
     "dist/protocol/current-build-identity.js": {
       "bytes": 812,
@@ -1222,6 +1230,64 @@
       ],
       "format": "esm"
     },
+    "node_modules/@amoeba/spread-release-tools/dist/amoebaGovernanceGate.js": {
+      "bytes": 30629,
+      "imports": [
+        {
+          "path": "node_modules/buffer/index.js",
+          "kind": "import-statement",
+          "original": "buffer"
+        },
+        {
+          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
+          "kind": "import-statement",
+          "original": "@solana/web3.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@amoeba/spread-release-tools/dist/amoebaDlmmAccounts.js": {
+      "bytes": 14499,
+      "imports": [
+        {
+          "path": "node_modules/buffer/index.js",
+          "kind": "import-statement",
+          "original": "buffer"
+        },
+        {
+          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
+          "kind": "import-statement",
+          "original": "@solana/web3.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@amoeba/spread-release-tools/dist/writerDlmmInstructions.js": {
+      "bytes": 8876,
+      "imports": [
+        {
+          "path": "node_modules/buffer/index.js",
+          "kind": "import-statement",
+          "original": "buffer"
+        },
+        {
+          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
+          "kind": "import-statement",
+          "original": "@solana/web3.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaGovernanceGate.js",
+          "kind": "import-statement",
+          "original": "./amoebaGovernanceGate.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaDlmmAccounts.js",
+          "kind": "import-statement",
+          "original": "./amoebaDlmmAccounts.js"
+        }
+      ],
+      "format": "esm"
+    },
     "node_modules/@noble/hashes/esm/crypto.js": {
       "bytes": 146,
       "imports": [],
@@ -1302,195 +1368,6 @@
       ],
       "format": "esm"
     },
-    "node_modules/@amoeba/spread-release-tools/dist/amoebaGovernanceGate.js": {
-      "bytes": 27869,
-      "imports": [
-        {
-          "path": "node_modules/buffer/index.js",
-          "kind": "import-statement",
-          "original": "buffer"
-        },
-        {
-          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
-          "kind": "import-statement",
-          "original": "@solana/web3.js"
-        }
-      ],
-      "format": "esm"
-    },
-    "node_modules/@amoeba/spread-release-tools/dist/amoebaDlmmAccounts.js": {
-      "bytes": 14586,
-      "imports": [
-        {
-          "path": "node_modules/buffer/index.js",
-          "kind": "import-statement",
-          "original": "buffer"
-        },
-        {
-          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
-          "kind": "import-statement",
-          "original": "@solana/web3.js"
-        }
-      ],
-      "format": "esm"
-    },
-    "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/constants.js": {
-      "bytes": 14056,
-      "imports": [
-        {
-          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
-          "kind": "import-statement",
-          "original": "@solana/web3.js"
-        },
-        {
-          "path": "node_modules/buffer/index.js",
-          "kind": "import-statement",
-          "original": "buffer"
-        }
-      ],
-      "format": "esm"
-    },
-    "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleCurrentV3Operator/model.js": {
-      "bytes": 6291,
-      "imports": [
-        {
-          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
-          "kind": "import-statement",
-          "original": "@solana/web3.js"
-        },
-        {
-          "path": "node_modules/buffer/index.js",
-          "kind": "import-statement",
-          "original": "buffer"
-        },
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/constants.js",
-          "kind": "import-statement",
-          "original": "../amoebaOracleDlmm/constants.js"
-        }
-      ],
-      "format": "esm"
-    },
-    "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleCurrentV3Operator/keyBytes.js": {
-      "bytes": 96,
-      "imports": [],
-      "format": "esm"
-    },
-    "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleCurrentV3Operator/decoders.js": {
-      "bytes": 28244,
-      "imports": [
-        {
-          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
-          "kind": "import-statement",
-          "original": "@solana/web3.js"
-        },
-        {
-          "path": "node_modules/buffer/index.js",
-          "kind": "import-statement",
-          "original": "buffer"
-        },
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/constants.js",
-          "kind": "import-statement",
-          "original": "../amoebaOracleDlmm/constants.js"
-        },
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleCurrentV3Operator/model.js",
-          "kind": "import-statement",
-          "original": "./model.js"
-        },
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleCurrentV3Operator/keyBytes.js",
-          "kind": "import-statement",
-          "original": "./keyBytes.js"
-        }
-      ],
-      "format": "esm"
-    },
-    "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleCurrentV3Funding/model.js": {
-      "bytes": 6657,
-      "imports": [
-        {
-          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
-          "kind": "import-statement",
-          "original": "@solana/web3.js"
-        },
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleCurrentV3Operator/model.js",
-          "kind": "import-statement",
-          "original": "../amoebaOracleCurrentV3Operator/model.js"
-        }
-      ],
-      "format": "esm"
-    },
-    "node_modules/@amoeba/spread-release-tools/dist/currentTokenPrimitives.js": {
-      "bytes": 137616,
-      "imports": [
-        {
-          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
-          "kind": "import-statement",
-          "original": "@solana/web3.js"
-        },
-        {
-          "path": "node_modules/buffer/index.js",
-          "kind": "import-statement",
-          "original": "buffer"
-        },
-        {
-          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
-          "kind": "import-statement",
-          "original": "@solana/web3.js"
-        },
-        {
-          "path": "node_modules/buffer/index.js",
-          "kind": "import-statement",
-          "original": "buffer"
-        }
-      ],
-      "format": "esm"
-    },
-    "node_modules/@amoeba/spread-release-tools/dist/writerCloseObservationCapability.js": {
-      "bytes": 8583,
-      "imports": [
-        {
-          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
-          "kind": "import-statement",
-          "original": "@solana/web3.js"
-        },
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaGovernanceGate.js",
-          "kind": "import-statement",
-          "original": "./amoebaGovernanceGate.js"
-        }
-      ],
-      "format": "esm"
-    },
-    "node_modules/@amoeba/spread-release-tools/dist/writerDlmmInstructions.js": {
-      "bytes": 8876,
-      "imports": [
-        {
-          "path": "node_modules/buffer/index.js",
-          "kind": "import-statement",
-          "original": "buffer"
-        },
-        {
-          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
-          "kind": "import-statement",
-          "original": "@solana/web3.js"
-        },
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaGovernanceGate.js",
-          "kind": "import-statement",
-          "original": "./amoebaGovernanceGate.js"
-        },
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaDlmmAccounts.js",
-          "kind": "import-statement",
-          "original": "./amoebaDlmmAccounts.js"
-        }
-      ],
-      "format": "esm"
-    },
     "node_modules/@amoeba/spread-release-tools/dist/writerDlmmAccounts.js": {
       "bytes": 9618,
       "imports": [
@@ -1523,12 +1400,69 @@
       "format": "esm"
     },
     "node_modules/@amoeba/spread-release-tools/dist/amoebaDlmmMath.js": {
-      "bytes": 15496,
+      "bytes": 14810,
+      "imports": [],
+      "format": "esm"
+    },
+    "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/constants.js": {
+      "bytes": 10522,
+      "imports": [
+        {
+          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
+          "kind": "import-statement",
+          "original": "@solana/web3.js"
+        },
+        {
+          "path": "node_modules/buffer/index.js",
+          "kind": "import-statement",
+          "original": "buffer"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@amoeba/spread-release-tools/dist/writerParticipation.js": {
+      "bytes": 9338,
+      "imports": [
+        {
+          "path": "node_modules/buffer/index.js",
+          "kind": "import-statement",
+          "original": "buffer"
+        },
+        {
+          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
+          "kind": "import-statement",
+          "original": "@solana/web3.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaGovernanceGate.js",
+          "kind": "import-statement",
+          "original": "./amoebaGovernanceGate.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaDlmmAccounts.js",
+          "kind": "import-statement",
+          "original": "./amoebaDlmmAccounts.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/writerDlmmInstructions.js",
+          "kind": "import-statement",
+          "original": "./writerDlmmInstructions.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/constants.js",
+          "kind": "import-statement",
+          "original": "./amoebaOracleDlmm/constants.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@amoeba/spread-release-tools/dist/dlmmOrderMath.js": {
+      "bytes": 3563,
       "imports": [],
       "format": "esm"
     },
     "node_modules/@amoeba/spread-release-tools/dist/writerDlmmQuote.js": {
-      "bytes": 24893,
+      "bytes": 28801,
       "imports": [
         {
           "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaDlmmMath.js",
@@ -1536,7 +1470,215 @@
           "original": "./amoebaDlmmMath.js"
         },
         {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/writerParticipation.js",
+          "kind": "import-statement",
+          "original": "./writerParticipation.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/dlmmOrderMath.js",
+          "kind": "import-statement",
+          "original": "./dlmmOrderMath.js"
+        },
+        {
           "path": "node_modules/@amoeba/spread-release-tools/dist/writerDlmmAccounts.js",
+          "kind": "import-statement",
+          "original": "./writerDlmmAccounts.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@amoeba/spread-release-tools/dist/writerSleeveInstructions.js": {
+      "bytes": 19078,
+      "imports": [
+        {
+          "path": "node_modules/buffer/index.js",
+          "kind": "import-statement",
+          "original": "buffer"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/writerDlmmInstructions.js",
+          "kind": "import-statement",
+          "original": "./writerDlmmInstructions.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/writerDlmmInstructions.js",
+          "kind": "import-statement",
+          "original": "./writerDlmmInstructions.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/writerDlmmAccounts.js",
+          "kind": "import-statement",
+          "original": "./writerDlmmAccounts.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/writerDlmmQuote.js",
+          "kind": "import-statement",
+          "original": "./writerDlmmQuote.js"
+        },
+        {
+          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
+          "kind": "import-statement",
+          "original": "@solana/web3.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaGovernanceGate.js",
+          "kind": "import-statement",
+          "original": "./amoebaGovernanceGate.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaDlmmAccounts.js",
+          "kind": "import-statement",
+          "original": "./amoebaDlmmAccounts.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/constants.js",
+          "kind": "import-statement",
+          "original": "./amoebaOracleDlmm/constants.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@amoeba/spread-release-tools/dist/writerSleeveAccounts.js": {
+      "bytes": 16151,
+      "imports": [
+        {
+          "path": "node_modules/buffer/index.js",
+          "kind": "import-statement",
+          "original": "buffer"
+        },
+        {
+          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
+          "kind": "import-statement",
+          "original": "@solana/web3.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/writerSleeveInstructions.js",
+          "kind": "import-statement",
+          "original": "./writerSleeveInstructions.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@amoeba/spread-historical-v2/dist/amoebaGovernanceGate.js": {
+      "bytes": 27869,
+      "imports": [
+        {
+          "path": "node_modules/buffer/index.js",
+          "kind": "import-statement",
+          "original": "buffer"
+        },
+        {
+          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
+          "kind": "import-statement",
+          "original": "@solana/web3.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@amoeba/spread-historical-v2/dist/amoebaDlmmAccounts.js": {
+      "bytes": 14586,
+      "imports": [
+        {
+          "path": "node_modules/buffer/index.js",
+          "kind": "import-statement",
+          "original": "buffer"
+        },
+        {
+          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
+          "kind": "import-statement",
+          "original": "@solana/web3.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@amoeba/spread-historical-v2/dist/writerDlmmInstructions.js": {
+      "bytes": 8876,
+      "imports": [
+        {
+          "path": "node_modules/buffer/index.js",
+          "kind": "import-statement",
+          "original": "buffer"
+        },
+        {
+          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
+          "kind": "import-statement",
+          "original": "@solana/web3.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/amoebaGovernanceGate.js",
+          "kind": "import-statement",
+          "original": "./amoebaGovernanceGate.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/amoebaDlmmAccounts.js",
+          "kind": "import-statement",
+          "original": "./amoebaDlmmAccounts.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@amoeba/spread-historical-v2/dist/sha256.js": {
+      "bytes": 549,
+      "imports": [
+        {
+          "path": "node_modules/buffer/index.js",
+          "kind": "import-statement",
+          "original": "buffer"
+        },
+        {
+          "path": "node_modules/@noble/hashes/esm/sha256.js",
+          "kind": "import-statement",
+          "original": "@noble/hashes/sha256"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@amoeba/spread-historical-v2/dist/writerDlmmAccounts.js": {
+      "bytes": 9618,
+      "imports": [
+        {
+          "path": "node_modules/buffer/index.js",
+          "kind": "import-statement",
+          "original": "buffer"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/sha256.js",
+          "kind": "import-statement",
+          "original": "./sha256.js"
+        },
+        {
+          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
+          "kind": "import-statement",
+          "original": "@solana/web3.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/amoebaDlmmAccounts.js",
+          "kind": "import-statement",
+          "original": "./amoebaDlmmAccounts.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/writerDlmmInstructions.js",
+          "kind": "import-statement",
+          "original": "./writerDlmmInstructions.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@amoeba/spread-historical-v2/dist/amoebaDlmmMath.js": {
+      "bytes": 15496,
+      "imports": [],
+      "format": "esm"
+    },
+    "node_modules/@amoeba/spread-historical-v2/dist/writerDlmmQuote.js": {
+      "bytes": 24893,
+      "imports": [
+        {
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/amoebaDlmmMath.js",
+          "kind": "import-statement",
+          "original": "./amoebaDlmmMath.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/writerDlmmAccounts.js",
           "kind": "import-statement",
           "original": "./writerDlmmAccounts.js"
         }
@@ -1685,7 +1827,7 @@
       ],
       "format": "esm"
     },
-    "node_modules/@amoeba/spread-release-tools/dist/amoebaGovernedTransactionPlanner.js": {
+    "node_modules/@amoeba/spread-historical-v2/dist/amoebaGovernedTransactionPlanner.js": {
       "bytes": 29266,
       "imports": [
         {
@@ -1694,7 +1836,7 @@
           "original": "buffer"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/sha256.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/sha256.js",
           "kind": "import-statement",
           "original": "./sha256.js"
         },
@@ -1709,14 +1851,56 @@
           "original": "@solana/web3.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaGovernanceGate.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/amoebaGovernanceGate.js",
           "kind": "import-statement",
           "original": "./amoebaGovernanceGate.js"
         }
       ],
       "format": "esm"
     },
-    "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/oracleDerivations.js": {
+    "node_modules/@amoeba/spread-historical-v2/dist/amoebaOracleDlmm/constants.js": {
+      "bytes": 14056,
+      "imports": [
+        {
+          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
+          "kind": "import-statement",
+          "original": "@solana/web3.js"
+        },
+        {
+          "path": "node_modules/buffer/index.js",
+          "kind": "import-statement",
+          "original": "buffer"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@amoeba/spread-historical-v2/dist/currentTokenPrimitives.js": {
+      "bytes": 137616,
+      "imports": [
+        {
+          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
+          "kind": "import-statement",
+          "original": "@solana/web3.js"
+        },
+        {
+          "path": "node_modules/buffer/index.js",
+          "kind": "import-statement",
+          "original": "buffer"
+        },
+        {
+          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
+          "kind": "import-statement",
+          "original": "@solana/web3.js"
+        },
+        {
+          "path": "node_modules/buffer/index.js",
+          "kind": "import-statement",
+          "original": "buffer"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@amoeba/spread-historical-v2/dist/amoebaOracleDlmm/oracleDerivations.js": {
       "bytes": 20770,
       "imports": [
         {
@@ -1730,29 +1914,29 @@
           "original": "buffer"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/sha256.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/sha256.js",
           "kind": "import-statement",
           "original": "../sha256.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/addressDerivations.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/amoebaOracleDlmm/addressDerivations.js",
           "kind": "import-statement",
           "original": "./addressDerivations.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/constants.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/amoebaOracleDlmm/constants.js",
           "kind": "import-statement",
           "original": "./constants.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/finalization.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/amoebaOracleDlmm/finalization.js",
           "kind": "import-statement",
           "original": "./finalization.js"
         }
       ],
       "format": "esm"
     },
-    "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/encoders.js": {
+    "node_modules/@amoeba/spread-historical-v2/dist/amoebaOracleDlmm/encoders.js": {
       "bytes": 20199,
       "imports": [
         {
@@ -1761,34 +1945,34 @@
           "original": "buffer"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/sha256.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/sha256.js",
           "kind": "import-statement",
           "original": "../sha256.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/addressDerivations.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/amoebaOracleDlmm/addressDerivations.js",
           "kind": "import-statement",
           "original": "./addressDerivations.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/constants.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/amoebaOracleDlmm/constants.js",
           "kind": "import-statement",
           "original": "./constants.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/finalization.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/amoebaOracleDlmm/finalization.js",
           "kind": "import-statement",
           "original": "./finalization.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/oracleDerivations.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/amoebaOracleDlmm/oracleDerivations.js",
           "kind": "import-statement",
           "original": "./oracleDerivations.js"
         }
       ],
       "format": "esm"
     },
-    "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/finalization.js": {
+    "node_modules/@amoeba/spread-historical-v2/dist/amoebaOracleDlmm/finalization.js": {
       "bytes": 16735,
       "imports": [
         {
@@ -1802,29 +1986,29 @@
           "original": "buffer"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaGovernanceGate.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/amoebaGovernanceGate.js",
           "kind": "import-statement",
           "original": "../amoebaGovernanceGate.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/addressDerivations.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/amoebaOracleDlmm/addressDerivations.js",
           "kind": "import-statement",
           "original": "./addressDerivations.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/constants.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/amoebaOracleDlmm/constants.js",
           "kind": "import-statement",
           "original": "./constants.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/encoders.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/amoebaOracleDlmm/encoders.js",
           "kind": "import-statement",
           "original": "./encoders.js"
         }
       ],
       "format": "esm"
     },
-    "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/addressDerivations.js": {
+    "node_modules/@amoeba/spread-historical-v2/dist/amoebaOracleDlmm/addressDerivations.js": {
       "bytes": 16861,
       "imports": [
         {
@@ -1838,29 +2022,45 @@
           "original": "buffer"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/sha256.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/sha256.js",
           "kind": "import-statement",
           "original": "../sha256.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/constants.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/amoebaOracleDlmm/constants.js",
           "kind": "import-statement",
           "original": "./constants.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/currentTokenPrimitives.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/currentTokenPrimitives.js",
           "kind": "import-statement",
           "original": "../currentTokenPrimitives.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/finalization.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/amoebaOracleDlmm/finalization.js",
           "kind": "import-statement",
           "original": "./finalization.js"
         }
       ],
       "format": "esm"
     },
-    "node_modules/@amoeba/spread-release-tools/dist/writerSleeveInstructions.js": {
+    "node_modules/@amoeba/spread-historical-v2/dist/writerCloseObservationCapability.js": {
+      "bytes": 8583,
+      "imports": [
+        {
+          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
+          "kind": "import-statement",
+          "original": "@solana/web3.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/amoebaGovernanceGate.js",
+          "kind": "import-statement",
+          "original": "./amoebaGovernanceGate.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@amoeba/spread-historical-v2/dist/writerSleeveInstructions.js": {
       "bytes": 54504,
       "imports": [
         {
@@ -1869,27 +2069,27 @@
           "original": "buffer"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/writerDlmmInstructions.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/writerDlmmInstructions.js",
           "kind": "import-statement",
           "original": "./writerDlmmInstructions.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/writerDlmmInstructions.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/writerDlmmInstructions.js",
           "kind": "import-statement",
           "original": "./writerDlmmInstructions.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/writerDlmmAccounts.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/writerDlmmAccounts.js",
           "kind": "import-statement",
           "original": "./writerDlmmAccounts.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/writerDlmmQuote.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/writerDlmmQuote.js",
           "kind": "import-statement",
           "original": "./writerDlmmQuote.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/sha256.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/sha256.js",
           "kind": "import-statement",
           "original": "./sha256.js"
         },
@@ -1899,100 +2099,39 @@
           "original": "@solana/web3.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaGovernanceGate.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/amoebaGovernanceGate.js",
           "kind": "import-statement",
           "original": "./amoebaGovernanceGate.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaGovernedTransactionPlanner.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/amoebaGovernedTransactionPlanner.js",
           "kind": "import-statement",
           "original": "./amoebaGovernedTransactionPlanner.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaDlmmAccounts.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/amoebaDlmmAccounts.js",
           "kind": "import-statement",
           "original": "./amoebaDlmmAccounts.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/constants.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/amoebaOracleDlmm/constants.js",
           "kind": "import-statement",
           "original": "./amoebaOracleDlmm/constants.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/addressDerivations.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/amoebaOracleDlmm/addressDerivations.js",
           "kind": "import-statement",
           "original": "./amoebaOracleDlmm/addressDerivations.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/constants.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/amoebaOracleDlmm/constants.js",
           "kind": "import-statement",
           "original": "./amoebaOracleDlmm/constants.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/writerCloseObservationCapability.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/writerCloseObservationCapability.js",
           "kind": "import-statement",
           "original": "./writerCloseObservationCapability.js"
-        }
-      ],
-      "format": "esm"
-    },
-    "node_modules/@amoeba/spread-release-tools/dist/writerSleeveAccounts.js": {
-      "bytes": 39686,
-      "imports": [
-        {
-          "path": "node_modules/buffer/index.js",
-          "kind": "import-statement",
-          "original": "buffer"
-        },
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/sha256.js",
-          "kind": "import-statement",
-          "original": "./sha256.js"
-        },
-        {
-          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
-          "kind": "import-statement",
-          "original": "@solana/web3.js"
-        },
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaGovernanceGate.js",
-          "kind": "import-statement",
-          "original": "./amoebaGovernanceGate.js"
-        },
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaDlmmAccounts.js",
-          "kind": "import-statement",
-          "original": "./amoebaDlmmAccounts.js"
-        },
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/constants.js",
-          "kind": "import-statement",
-          "original": "./amoebaOracleDlmm/constants.js"
-        },
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleCurrentV3Operator/decoders.js",
-          "kind": "import-statement",
-          "original": "./amoebaOracleCurrentV3Operator/decoders.js"
-        },
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleCurrentV3Funding/model.js",
-          "kind": "import-statement",
-          "original": "./amoebaOracleCurrentV3Funding/model.js"
-        },
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/currentTokenPrimitives.js",
-          "kind": "import-statement",
-          "original": "./currentTokenPrimitives.js"
-        },
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/writerCloseObservationCapability.js",
-          "kind": "import-statement",
-          "original": "./writerCloseObservationCapability.js"
-        },
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/writerSleeveInstructions.js",
-          "kind": "import-statement",
-          "original": "./writerSleeveInstructions.js"
         }
       ],
       "format": "esm"
@@ -2001,9 +2140,9 @@
       "bytes": 1542,
       "imports": [
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/writerSleeveInstructions.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/writerSleeveInstructions.js",
           "kind": "import-statement",
-          "original": "@amoeba/spread-release-tools/writer-sleeve-instructions"
+          "original": "@amoeba/spread-historical-v2/writer-sleeve-instructions"
         },
         {
           "path": "dist/errors.js",
@@ -2040,6 +2179,377 @@
       ],
       "format": "esm"
     },
+    "node_modules/@amoeba/spread-release-tools/dist/amoebaDlmmInstructions.js": {
+      "bytes": 17577,
+      "imports": [
+        {
+          "path": "node_modules/buffer/index.js",
+          "kind": "import-statement",
+          "original": "buffer"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/writerDlmmInstructions.js",
+          "kind": "import-statement",
+          "original": "./writerDlmmInstructions.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/writerSleeveInstructions.js",
+          "kind": "import-statement",
+          "original": "./writerSleeveInstructions.js"
+        },
+        {
+          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
+          "kind": "import-statement",
+          "original": "@solana/web3.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaGovernanceGate.js",
+          "kind": "import-statement",
+          "original": "./amoebaGovernanceGate.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaDlmmAccounts.js",
+          "kind": "import-statement",
+          "original": "./amoebaDlmmAccounts.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/constants.js",
+          "kind": "import-statement",
+          "original": "./amoebaOracleDlmm/constants.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@amoeba/spread-release-tools/dist/currentTokenPrimitives.js": {
+      "bytes": 135897,
+      "imports": [
+        {
+          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
+          "kind": "import-statement",
+          "original": "@solana/web3.js"
+        },
+        {
+          "path": "node_modules/buffer/index.js",
+          "kind": "import-statement",
+          "original": "buffer"
+        },
+        {
+          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
+          "kind": "import-statement",
+          "original": "@solana/web3.js"
+        },
+        {
+          "path": "node_modules/buffer/index.js",
+          "kind": "import-statement",
+          "original": "buffer"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@amoeba/spread-release-tools/dist/dlmmOrders.js": {
+      "bytes": 12504,
+      "imports": [
+        {
+          "path": "node_modules/buffer/index.js",
+          "kind": "import-statement",
+          "original": "buffer"
+        },
+        {
+          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
+          "kind": "import-statement",
+          "original": "@solana/web3.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaGovernanceGate.js",
+          "kind": "import-statement",
+          "original": "./amoebaGovernanceGate.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaDlmmAccounts.js",
+          "kind": "import-statement",
+          "original": "./amoebaDlmmAccounts.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaDlmmInstructions.js",
+          "kind": "import-statement",
+          "original": "./amoebaDlmmInstructions.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/currentTokenPrimitives.js",
+          "kind": "import-statement",
+          "original": "./currentTokenPrimitives.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/dlmmOrderMath.js",
+          "kind": "import-statement",
+          "original": "./dlmmOrderMath.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@lightprotocol/stateless.js/dist/cjs/node/index.cjs": {
+      "bytes": 190700,
+      "imports": [
+        {
+          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
+          "kind": "require-call",
+          "original": "@solana/web3.js"
+        },
+        {
+          "path": "node_modules/buffer/index.js",
+          "kind": "require-call",
+          "original": "buffer"
+        },
+        {
+          "path": "node_modules/buffer/index.js",
+          "kind": "require-call",
+          "original": "buffer"
+        }
+      ],
+      "format": "cjs"
+    },
+    "node_modules/@amoeba/spread-release-tools/dist/compressedState/codec.js": {
+      "bytes": 16788,
+      "imports": [
+        {
+          "path": "node_modules/@lightprotocol/stateless.js/dist/cjs/node/index.cjs",
+          "kind": "import-statement",
+          "original": "@lightprotocol/stateless.js"
+        },
+        {
+          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
+          "kind": "import-statement",
+          "original": "@solana/web3.js"
+        },
+        {
+          "path": "node_modules/buffer/index.js",
+          "kind": "import-statement",
+          "original": "buffer"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/compressedState/model.js",
+          "kind": "import-statement",
+          "original": "./model.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@amoeba/spread-release-tools/dist/compressedState/model.js": {
+      "bytes": 3988,
+      "imports": [
+        {
+          "path": "node_modules/@lightprotocol/stateless.js/dist/cjs/node/index.cjs",
+          "kind": "import-statement",
+          "original": "@lightprotocol/stateless.js"
+        },
+        {
+          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
+          "kind": "import-statement",
+          "original": "@solana/web3.js"
+        },
+        {
+          "path": "node_modules/buffer/index.js",
+          "kind": "import-statement",
+          "original": "buffer"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/compressedState/codec.js",
+          "kind": "import-statement",
+          "original": "./codec.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/oracleDerivations.js": {
+      "bytes": 16731,
+      "imports": [
+        {
+          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
+          "kind": "import-statement",
+          "original": "@solana/web3.js"
+        },
+        {
+          "path": "node_modules/buffer/index.js",
+          "kind": "import-statement",
+          "original": "buffer"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/sha256.js",
+          "kind": "import-statement",
+          "original": "../sha256.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/addressDerivations.js",
+          "kind": "import-statement",
+          "original": "./addressDerivations.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/constants.js",
+          "kind": "import-statement",
+          "original": "./constants.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/finalization.js",
+          "kind": "import-statement",
+          "original": "./finalization.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/encoders.js": {
+      "bytes": 18183,
+      "imports": [
+        {
+          "path": "node_modules/buffer/index.js",
+          "kind": "import-statement",
+          "original": "buffer"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/sha256.js",
+          "kind": "import-statement",
+          "original": "../sha256.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/addressDerivations.js",
+          "kind": "import-statement",
+          "original": "./addressDerivations.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/constants.js",
+          "kind": "import-statement",
+          "original": "./constants.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/finalization.js",
+          "kind": "import-statement",
+          "original": "./finalization.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/oracleDerivations.js",
+          "kind": "import-statement",
+          "original": "./oracleDerivations.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/finalization.js": {
+      "bytes": 16852,
+      "imports": [
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/oracleEvidence.js",
+          "kind": "import-statement",
+          "original": "../oracleEvidence.js"
+        },
+        {
+          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
+          "kind": "import-statement",
+          "original": "@solana/web3.js"
+        },
+        {
+          "path": "node_modules/buffer/index.js",
+          "kind": "import-statement",
+          "original": "buffer"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaGovernanceGate.js",
+          "kind": "import-statement",
+          "original": "../amoebaGovernanceGate.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/addressDerivations.js",
+          "kind": "import-statement",
+          "original": "./addressDerivations.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/constants.js",
+          "kind": "import-statement",
+          "original": "./constants.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/encoders.js",
+          "kind": "import-statement",
+          "original": "./encoders.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/addressDerivations.js": {
+      "bytes": 14329,
+      "imports": [
+        {
+          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
+          "kind": "import-statement",
+          "original": "@solana/web3.js"
+        },
+        {
+          "path": "node_modules/buffer/index.js",
+          "kind": "import-statement",
+          "original": "buffer"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/currentTokenPrimitives.js",
+          "kind": "import-statement",
+          "original": "../currentTokenPrimitives.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/sha256.js",
+          "kind": "import-statement",
+          "original": "../sha256.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/constants.js",
+          "kind": "import-statement",
+          "original": "./constants.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/finalization.js",
+          "kind": "import-statement",
+          "original": "./finalization.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@amoeba/spread-release-tools/dist/oracleEvidence.js": {
+      "bytes": 21571,
+      "imports": [
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/compressedState/model.js",
+          "kind": "import-statement",
+          "original": "./compressedState/model.js"
+        },
+        {
+          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
+          "kind": "import-statement",
+          "original": "@solana/web3.js"
+        },
+        {
+          "path": "node_modules/buffer/index.js",
+          "kind": "import-statement",
+          "original": "buffer"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/sha256.js",
+          "kind": "import-statement",
+          "original": "./sha256.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaGovernanceGate.js",
+          "kind": "import-statement",
+          "original": "./amoebaGovernanceGate.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/constants.js",
+          "kind": "import-statement",
+          "original": "./amoebaOracleDlmm/constants.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/addressDerivations.js",
+          "kind": "import-statement",
+          "original": "./amoebaOracleDlmm/addressDerivations.js"
+        }
+      ],
+      "format": "esm"
+    },
     "dist/protocol/identity.js": {
       "bytes": 591,
       "imports": [],
@@ -2062,7 +2572,7 @@
       "format": "esm"
     },
     "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleCarryForward/addresses.js": {
-      "bytes": 2291,
+      "bytes": 3471,
       "imports": [
         {
           "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
@@ -2087,8 +2597,65 @@
       ],
       "format": "esm"
     },
+    "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleCurrentV3Operator/model.js": {
+      "bytes": 6332,
+      "imports": [
+        {
+          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
+          "kind": "import-statement",
+          "original": "@solana/web3.js"
+        },
+        {
+          "path": "node_modules/buffer/index.js",
+          "kind": "import-statement",
+          "original": "buffer"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/constants.js",
+          "kind": "import-statement",
+          "original": "../amoebaOracleDlmm/constants.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleCurrentV3Operator/keyBytes.js": {
+      "bytes": 96,
+      "imports": [],
+      "format": "esm"
+    },
+    "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleCurrentV3Operator/decoders.js": {
+      "bytes": 28363,
+      "imports": [
+        {
+          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
+          "kind": "import-statement",
+          "original": "@solana/web3.js"
+        },
+        {
+          "path": "node_modules/buffer/index.js",
+          "kind": "import-statement",
+          "original": "buffer"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/constants.js",
+          "kind": "import-statement",
+          "original": "../amoebaOracleDlmm/constants.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleCurrentV3Operator/model.js",
+          "kind": "import-statement",
+          "original": "./model.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleCurrentV3Operator/keyBytes.js",
+          "kind": "import-statement",
+          "original": "./keyBytes.js"
+        }
+      ],
+      "format": "esm"
+    },
     "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleCarryForward/decoders.js": {
-      "bytes": 8405,
+      "bytes": 11539,
       "imports": [
         {
           "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
@@ -2123,34 +2690,13 @@
       ],
       "format": "esm"
     },
-    "node_modules/@lightprotocol/stateless.js/dist/cjs/node/index.cjs": {
-      "bytes": 190700,
+    "node_modules/@amoeba/spread-release-tools/dist/oracleCouncil.js": {
+      "bytes": 11916,
       "imports": [
         {
-          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
-          "kind": "require-call",
-          "original": "@solana/web3.js"
-        },
-        {
           "path": "node_modules/buffer/index.js",
-          "kind": "require-call",
-          "original": "buffer"
-        },
-        {
-          "path": "node_modules/buffer/index.js",
-          "kind": "require-call",
-          "original": "buffer"
-        }
-      ],
-      "format": "cjs"
-    },
-    "node_modules/@amoeba/spread-release-tools/dist/compressedState/codec.js": {
-      "bytes": 8040,
-      "imports": [
-        {
-          "path": "node_modules/@lightprotocol/stateless.js/dist/cjs/node/index.cjs",
           "kind": "import-statement",
-          "original": "@lightprotocol/stateless.js"
+          "original": "buffer"
         },
         {
           "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
@@ -2158,46 +2704,30 @@
           "original": "@solana/web3.js"
         },
         {
-          "path": "node_modules/buffer/index.js",
+          "path": "node_modules/@amoeba/spread-release-tools/dist/sha256.js",
           "kind": "import-statement",
-          "original": "buffer"
+          "original": "./sha256.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaGovernanceGate.js",
+          "kind": "import-statement",
+          "original": "./amoebaGovernanceGate.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/constants.js",
+          "kind": "import-statement",
+          "original": "./amoebaOracleDlmm/constants.js"
         },
         {
           "path": "node_modules/@amoeba/spread-release-tools/dist/compressedState/model.js",
           "kind": "import-statement",
-          "original": "./model.js"
-        }
-      ],
-      "format": "esm"
-    },
-    "node_modules/@amoeba/spread-release-tools/dist/compressedState/model.js": {
-      "bytes": 3583,
-      "imports": [
-        {
-          "path": "node_modules/@lightprotocol/stateless.js/dist/cjs/node/index.cjs",
-          "kind": "import-statement",
-          "original": "@lightprotocol/stateless.js"
-        },
-        {
-          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
-          "kind": "import-statement",
-          "original": "@solana/web3.js"
-        },
-        {
-          "path": "node_modules/buffer/index.js",
-          "kind": "import-statement",
-          "original": "buffer"
-        },
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/compressedState/codec.js",
-          "kind": "import-statement",
-          "original": "./codec.js"
+          "original": "./compressedState/model.js"
         }
       ],
       "format": "esm"
     },
     "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/oracleMembership.js": {
-      "bytes": 11590,
+      "bytes": 18517,
       "imports": [
         {
           "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
@@ -2233,8 +2763,18 @@
       "format": "esm"
     },
     "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleCarryForward/plans.js": {
-      "bytes": 13572,
+      "bytes": 21153,
       "imports": [
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/oracleCouncil.js",
+          "kind": "import-statement",
+          "original": "../oracleCouncil.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/oracleEvidence.js",
+          "kind": "import-statement",
+          "original": "../oracleEvidence.js"
+        },
         {
           "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
           "kind": "import-statement",
@@ -2278,13 +2818,13 @@
         {
           "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleCarryForward/addresses.js",
           "kind": "import-statement",
-          "original": "./addresses.js"
+          "original": "../amoebaOracleCarryForward/addresses.js"
         }
       ],
       "format": "esm"
     },
     "node_modules/@amoeba/spread-release-tools/dist/compressedState/proofBuilder.js": {
-      "bytes": 14640,
+      "bytes": 21508,
       "imports": [
         {
           "path": "node_modules/@lightprotocol/stateless.js/dist/cjs/node/index.cjs",
@@ -2325,7 +2865,7 @@
       "format": "esm"
     },
     "node_modules/@amoeba/spread-release-tools/dist/compressedState/accessContracts.js": {
-      "bytes": 17453,
+      "bytes": 19337,
       "imports": [
         {
           "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleCarryForward/plans.js",
@@ -2346,17 +2886,12 @@
           "path": "node_modules/@amoeba/spread-release-tools/dist/compressedState/proofBuilder.js",
           "kind": "import-statement",
           "original": "./proofBuilder.js"
-        },
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/constants.js",
-          "kind": "import-statement",
-          "original": "../amoebaOracleDlmm/constants.js"
         }
       ],
       "format": "esm"
     },
     "node_modules/@amoeba/spread-release-tools/dist/compressedState.js": {
-      "bytes": 822,
+      "bytes": 1229,
       "imports": [
         {
           "path": "node_modules/@amoeba/spread-release-tools/dist/compressedState/model.js",
@@ -2382,7 +2917,7 @@
       "format": "esm"
     },
     "node_modules/@amoeba/spread-release-tools/dist/devnetSoloBackfill2026.js": {
-      "bytes": 20378,
+      "bytes": 20292,
       "imports": [
         {
           "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleCarryForward/addresses.js",
@@ -2427,24 +2962,9 @@
       ],
       "format": "esm"
     },
-    "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/stakingMath.js": {
-      "bytes": 19684,
+    "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/usdcRewardMath.js": {
+      "bytes": 3475,
       "imports": [
-        {
-          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
-          "kind": "import-statement",
-          "original": "@solana/web3.js"
-        },
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/addressDerivations.js",
-          "kind": "import-statement",
-          "original": "./addressDerivations.js"
-        },
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/constants.js",
-          "kind": "import-statement",
-          "original": "./constants.js"
-        },
         {
           "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/finalization.js",
           "kind": "import-statement",
@@ -2453,9 +2973,30 @@
       ],
       "format": "esm"
     },
-    "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/vaultMarketBuilders.js": {
-      "bytes": 22181,
+    "node_modules/@amoeba/spread-release-tools/dist/oracleLaunchSchedule.js": {
+      "bytes": 4034,
       "imports": [
+        {
+          "path": "node_modules/buffer/index.js",
+          "kind": "import-statement",
+          "original": "buffer"
+        },
+        {
+          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
+          "kind": "import-statement",
+          "original": "@solana/web3.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/vaultMarketBuilders.js": {
+      "bytes": 22346,
+      "imports": [
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/oracleLaunchSchedule.js",
+          "kind": "import-statement",
+          "original": "../oracleLaunchSchedule.js"
+        },
         {
           "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
           "kind": "import-statement",
@@ -2510,7 +3051,7 @@
       "format": "esm"
     },
     "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/cashBuilders.js": {
-      "bytes": 16542,
+      "bytes": 11094,
       "imports": [
         {
           "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
@@ -2546,17 +3087,12 @@
           "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/oracleDerivations.js",
           "kind": "import-statement",
           "original": "./oracleDerivations.js"
-        },
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/stakingMath.js",
-          "kind": "import-statement",
-          "original": "./stakingMath.js"
         }
       ],
       "format": "esm"
     },
-    "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/stakingBuilders.js": {
-      "bytes": 13165,
+    "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/cashWithdrawal.js": {
+      "bytes": 1986,
       "imports": [
         {
           "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
@@ -2587,11 +3123,6 @@
           "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/finalization.js",
           "kind": "import-statement",
           "original": "./finalization.js"
-        },
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/stakingMath.js",
-          "kind": "import-statement",
-          "original": "./stakingMath.js"
         }
       ],
       "format": "esm"
@@ -2613,7 +3144,7 @@
       "format": "esm"
     },
     "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/sourceBuilders.js": {
-      "bytes": 20510,
+      "bytes": 19545,
       "imports": [
         {
           "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
@@ -2651,21 +3182,26 @@
           "original": "./finalization.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/oracleDerivations.js",
-          "kind": "import-statement",
-          "original": "./oracleDerivations.js"
-        },
-        {
           "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/internalGovernanceComposition.js",
           "kind": "import-statement",
           "original": "./internalGovernanceComposition.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/oracleDerivations.js",
+          "kind": "import-statement",
+          "original": "./oracleDerivations.js"
         }
       ],
       "format": "esm"
     },
     "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/rewardBuilders.js": {
-      "bytes": 16549,
+      "bytes": 16974,
       "imports": [
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/oracleEvidence.js",
+          "kind": "import-statement",
+          "original": "../oracleEvidence.js"
+        },
         {
           "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleCarryForward/addresses.js",
           "kind": "import-statement",
@@ -2720,7 +3256,7 @@
       "format": "esm"
     },
     "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/weightBuilders.js": {
-      "bytes": 16134,
+      "bytes": 16930,
       "imports": [
         {
           "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleCarryForward/addresses.js",
@@ -2776,13 +3312,8 @@
       "format": "esm"
     },
     "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/openingBuilders.js": {
-      "bytes": 18081,
+      "bytes": 18383,
       "imports": [
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleCarryForward/addresses.js",
-          "kind": "import-statement",
-          "original": "../amoebaOracleCarryForward/addresses.js"
-        },
         {
           "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
           "kind": "import-statement",
@@ -2797,6 +3328,16 @@
           "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaGovernanceGate.js",
           "kind": "import-statement",
           "original": "../amoebaGovernanceGate.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleCarryForward/addresses.js",
+          "kind": "import-statement",
+          "original": "../amoebaOracleCarryForward/addresses.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/oracleEvidence.js",
+          "kind": "import-statement",
+          "original": "../oracleEvidence.js"
         },
         {
           "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/addressDerivations.js",
@@ -2827,13 +3368,8 @@
       "format": "esm"
     },
     "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/updateBuilders.js": {
-      "bytes": 24026,
+      "bytes": 20566,
       "imports": [
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleCarryForward/addresses.js",
-          "kind": "import-statement",
-          "original": "../amoebaOracleCarryForward/addresses.js"
-        },
         {
           "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
           "kind": "import-statement",
@@ -2845,9 +3381,14 @@
           "original": "../amoebaGovernanceGate.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/oracleMembership.js",
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleCarryForward/addresses.js",
           "kind": "import-statement",
-          "original": "./oracleMembership.js"
+          "original": "../amoebaOracleCarryForward/addresses.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/oracleEvidence.js",
+          "kind": "import-statement",
+          "original": "../oracleEvidence.js"
         },
         {
           "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/addressDerivations.js",
@@ -2873,18 +3414,18 @@
           "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/oracleDerivations.js",
           "kind": "import-statement",
           "original": "./oracleDerivations.js"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/oracleMembership.js",
+          "kind": "import-statement",
+          "original": "./oracleMembership.js"
         }
       ],
       "format": "esm"
     },
-    "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/emergencyBuilders.js": {
-      "bytes": 22659,
+    "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/cashCleanup.js": {
+      "bytes": 3009,
       "imports": [
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleCarryForward/addresses.js",
-          "kind": "import-statement",
-          "original": "../amoebaOracleCarryForward/addresses.js"
-        },
         {
           "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
           "kind": "import-statement",
@@ -2911,11 +3452,6 @@
           "original": "./constants.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/encoders.js",
-          "kind": "import-statement",
-          "original": "./encoders.js"
-        },
-        {
           "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/finalization.js",
           "kind": "import-statement",
           "original": "./finalization.js"
@@ -2924,38 +3460,12 @@
           "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/oracleDerivations.js",
           "kind": "import-statement",
           "original": "./oracleDerivations.js"
-        },
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/updateBuilders.js",
-          "kind": "import-statement",
-          "original": "./updateBuilders.js"
-        }
-      ],
-      "format": "esm"
-    },
-    "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/stakingPlanning.js": {
-      "bytes": 6569,
-      "imports": [
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/constants.js",
-          "kind": "import-statement",
-          "original": "./constants.js"
-        },
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/finalization.js",
-          "kind": "import-statement",
-          "original": "./finalization.js"
-        },
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/stakingMath.js",
-          "kind": "import-statement",
-          "original": "./stakingMath.js"
         }
       ],
       "format": "esm"
     },
     "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmmInstructions.js": {
-      "bytes": 17246,
+      "bytes": 12709,
       "imports": [
         {
           "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleCarryForward/addresses.js",
@@ -2993,9 +3503,9 @@
           "original": "./amoebaOracleDlmm/addressDerivations.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/stakingMath.js",
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/usdcRewardMath.js",
           "kind": "import-statement",
-          "original": "./amoebaOracleDlmm/stakingMath.js"
+          "original": "./amoebaOracleDlmm/usdcRewardMath.js"
         },
         {
           "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/oracleDerivations.js",
@@ -3018,9 +3528,9 @@
           "original": "./amoebaOracleDlmm/cashBuilders.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/stakingBuilders.js",
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/cashWithdrawal.js",
           "kind": "import-statement",
-          "original": "./amoebaOracleDlmm/stakingBuilders.js"
+          "original": "./amoebaOracleDlmm/cashWithdrawal.js"
         },
         {
           "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/rewardBuilders.js",
@@ -3048,9 +3558,9 @@
           "original": "./amoebaOracleDlmm/updateBuilders.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/emergencyBuilders.js",
+          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/cashCleanup.js",
           "kind": "import-statement",
-          "original": "./amoebaOracleDlmm/emergencyBuilders.js"
+          "original": "./amoebaOracleDlmm/cashCleanup.js"
         },
         {
           "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/finalization.js",
@@ -3063,15 +3573,15 @@
           "original": "./amoebaOracleDlmm/oracleMembership.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/stakingPlanning.js",
+          "path": "node_modules/@amoeba/spread-release-tools/dist/oracleEvidence.js",
           "kind": "import-statement",
-          "original": "./amoebaOracleDlmm/stakingPlanning.js"
+          "original": "./oracleEvidence.js"
         }
       ],
       "format": "esm"
     },
     "dist/protocol/current.js": {
-      "bytes": 52719,
+      "bytes": 53858,
       "imports": [
         {
           "path": "node_modules/buffer/index.js",
@@ -3152,49 +3662,8 @@
       ],
       "format": "esm"
     },
-    "node_modules/@amoeba/spread-release-tools/dist/amoebaDlmmInstructions.js": {
-      "bytes": 16951,
-      "imports": [
-        {
-          "path": "node_modules/buffer/index.js",
-          "kind": "import-statement",
-          "original": "buffer"
-        },
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/writerDlmmInstructions.js",
-          "kind": "import-statement",
-          "original": "./writerDlmmInstructions.js"
-        },
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/writerSleeveInstructions.js",
-          "kind": "import-statement",
-          "original": "./writerSleeveInstructions.js"
-        },
-        {
-          "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
-          "kind": "import-statement",
-          "original": "@solana/web3.js"
-        },
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaGovernanceGate.js",
-          "kind": "import-statement",
-          "original": "./amoebaGovernanceGate.js"
-        },
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaDlmmAccounts.js",
-          "kind": "import-statement",
-          "original": "./amoebaDlmmAccounts.js"
-        },
-        {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/constants.js",
-          "kind": "import-statement",
-          "original": "./amoebaOracleDlmm/constants.js"
-        }
-      ],
-      "format": "esm"
-    },
     "dist/protocol/current-oracle-membership-internal.js": {
-      "bytes": 1705,
+      "bytes": 1882,
       "imports": [
         {
           "path": "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmmInstructions.js",
@@ -3210,8 +3679,23 @@
       "format": "esm"
     },
     "dist/protocol/current-builders.js": {
-      "bytes": 29684,
+      "bytes": 32249,
       "imports": [
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/writerParticipation.js",
+          "kind": "import-statement",
+          "original": "@amoeba/spread-release-tools/writer-participation"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/dlmmOrders.js",
+          "kind": "import-statement",
+          "original": "@amoeba/spread-release-tools/dlmm-orders"
+        },
+        {
+          "path": "node_modules/@amoeba/spread-release-tools/dist/oracleEvidence.js",
+          "kind": "import-statement",
+          "original": "@amoeba/spread-release-tools/oracle-evidence"
+        },
         {
           "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
           "kind": "import-statement",
@@ -3284,9 +3768,9 @@
           "original": "./writer-dlmm.js"
         },
         {
-          "path": "node_modules/@amoeba/spread-release-tools/dist/writerSleeveInstructions.js",
+          "path": "node_modules/@amoeba/spread-historical-v2/dist/writerSleeveInstructions.js",
           "kind": "import-statement",
-          "original": "@amoeba/spread-release-tools/writer-sleeve-instructions"
+          "original": "@amoeba/spread-historical-v2/writer-sleeve-instructions"
         },
         {
           "path": "dist/protocol/current-builders.js",
@@ -3391,7 +3875,7 @@
       "format": "esm"
     },
     "dist/wallet/swap-accounts.js": {
-      "bytes": 7318,
+      "bytes": 7182,
       "imports": [
         {
           "path": "node_modules/@solana/web3.js/lib/index.browser.cjs.js",
@@ -3824,7 +4308,7 @@
           "bytesInOutput": 1808
         },
         "node_modules/@noble/hashes/sha2.js": {
-          "bytesInOutput": 8471
+          "bytesInOutput": 8466
         },
         "node_modules/@noble/curves/utils.js": {
           "bytesInOutput": 5506
@@ -3836,7 +4320,7 @@
           "bytesInOutput": 4773
         },
         "node_modules/@noble/curves/abstract/edwards.js": {
-          "bytesInOutput": 8583
+          "bytesInOutput": 8560
         },
         "node_modules/@noble/curves/abstract/hash-to-curve.js": {
           "bytesInOutput": 3298
@@ -3851,7 +4335,7 @@
           "bytesInOutput": 18
         },
         "node_modules/bn.js/lib/bn.js": {
-          "bytesInOutput": 45146
+          "bytesInOutput": 45159
         },
         "node_modules/safe-buffer/index.js": {
           "bytesInOutput": 805
@@ -3884,7 +4368,7 @@
           "bytesInOutput": 5126
         },
         "node_modules/superstruct/dist/index.cjs": {
-          "bytesInOutput": 10883
+          "bytesInOutput": 10953
         },
         "node_modules/jayson/node_modules/uuid/dist/esm-browser/rng.js": {
           "bytesInOutput": 400
@@ -3950,7 +4434,7 @@
           "bytesInOutput": 1473
         },
         "node_modules/@noble/curves/abstract/weierstrass.js": {
-          "bytesInOutput": 19853
+          "bytesInOutput": 19823
         },
         "node_modules/@noble/curves/_shortw_utils.js": {
           "bytesInOutput": 240
@@ -3969,6 +4453,9 @@
         },
         "release/current-deployment.v1.json": {
           "bytesInOutput": 3346
+        },
+        "release/local-candidate-build.v1.json": {
+          "bytesInOutput": 3172
         },
         "release/spread-refactor-final-20260912.json": {
           "bytesInOutput": 17235
@@ -4004,13 +4491,10 @@
           "bytesInOutput": 544
         },
         "dist/protocol/current-governed-release-internal.js": {
-          "bytesInOutput": 5788
+          "bytesInOutput": 5997
         },
         "dist/protocol/current-instruction-tags.js": {
           "bytesInOutput": 4183
-        },
-        "release/local-candidate-build.v1.json": {
-          "bytesInOutput": 3371
         },
         "dist/protocol/current-build-identity.js": {
           "bytesInOutput": 179
@@ -4037,85 +4521,106 @@
           "bytesInOutput": 6184
         },
         "node_modules/@amoeba/spread-release-tools/dist/writerSleeveAccounts.js": {
-          "bytesInOutput": 207
-        },
-        "node_modules/@amoeba/spread-release-tools/dist/sha256.js": {
-          "bytesInOutput": 18
-        },
-        "node_modules/@amoeba/spread-release-tools/dist/amoebaGovernanceGate.js": {
-          "bytesInOutput": 1134
-        },
-        "node_modules/@amoeba/spread-release-tools/dist/amoebaDlmmAccounts.js": {
-          "bytesInOutput": 729
-        },
-        "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/constants.js": {
-          "bytesInOutput": 3767
-        },
-        "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleCurrentV3Operator/decoders.js": {
           "bytesInOutput": 32
         },
-        "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleCurrentV3Operator/model.js": {
-          "bytesInOutput": 2063
-        },
-        "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleCurrentV3Funding/model.js": {
-          "bytesInOutput": 18
-        },
-        "node_modules/@amoeba/spread-release-tools/dist/currentTokenPrimitives.js": {
-          "bytesInOutput": 30903
-        },
-        "node_modules/@amoeba/spread-release-tools/dist/writerCloseObservationCapability.js": {
-          "bytesInOutput": 18
-        },
         "node_modules/@amoeba/spread-release-tools/dist/writerSleeveInstructions.js": {
-          "bytesInOutput": 2331
+          "bytesInOutput": 1022
         },
         "node_modules/@amoeba/spread-release-tools/dist/writerDlmmInstructions.js": {
           "bytesInOutput": 219
         },
+        "node_modules/@amoeba/spread-release-tools/dist/amoebaGovernanceGate.js": {
+          "bytesInOutput": 1333
+        },
+        "node_modules/@amoeba/spread-release-tools/dist/amoebaDlmmAccounts.js": {
+          "bytesInOutput": 729
+        },
         "node_modules/@amoeba/spread-release-tools/dist/writerDlmmAccounts.js": {
           "bytesInOutput": 89
+        },
+        "node_modules/@amoeba/spread-release-tools/dist/sha256.js": {
+          "bytesInOutput": 18
+        },
+        "node_modules/@amoeba/spread-release-tools/dist/writerParticipation.js": {
+          "bytesInOutput": 69
+        },
+        "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/constants.js": {
+          "bytesInOutput": 2755
+        },
+        "node_modules/@amoeba/spread-release-tools/dist/dlmmOrderMath.js": {
+          "bytesInOutput": 20
         },
         "node_modules/@amoeba/spread-release-tools/dist/writerDlmmQuote.js": {
           "bytesInOutput": 37
         },
-        "node_modules/@amoeba/spread-release-tools/dist/amoebaGovernedTransactionPlanner.js": {
-          "bytesInOutput": 100
-        },
-        "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/addressDerivations.js": {
-          "bytesInOutput": 97
-        },
-        "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/finalization.js": {
-          "bytesInOutput": 32
-        },
-        "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/encoders.js": {
-          "bytesInOutput": 18
-        },
-        "node_modules/@amoeba/spread-release-tools/dist/amoebaOracleDlmm/oracleDerivations.js": {
-          "bytesInOutput": 32
-        },
         "dist/protocol/writer-sleeve.js": {
           "bytesInOutput": 199
+        },
+        "node_modules/@amoeba/spread-historical-v2/dist/writerSleeveInstructions.js": {
+          "bytesInOutput": 2331
+        },
+        "node_modules/@amoeba/spread-historical-v2/dist/writerDlmmInstructions.js": {
+          "bytesInOutput": 219
+        },
+        "node_modules/@amoeba/spread-historical-v2/dist/amoebaGovernanceGate.js": {
+          "bytesInOutput": 1134
+        },
+        "node_modules/@amoeba/spread-historical-v2/dist/amoebaDlmmAccounts.js": {
+          "bytesInOutput": 729
+        },
+        "node_modules/@amoeba/spread-historical-v2/dist/writerDlmmAccounts.js": {
+          "bytesInOutput": 89
+        },
+        "node_modules/@amoeba/spread-historical-v2/dist/sha256.js": {
+          "bytesInOutput": 18
+        },
+        "node_modules/@amoeba/spread-historical-v2/dist/writerDlmmQuote.js": {
+          "bytesInOutput": 37
+        },
+        "node_modules/@amoeba/spread-historical-v2/dist/amoebaGovernedTransactionPlanner.js": {
+          "bytesInOutput": 100
+        },
+        "node_modules/@amoeba/spread-historical-v2/dist/amoebaOracleDlmm/constants.js": {
+          "bytesInOutput": 3667
+        },
+        "node_modules/@amoeba/spread-historical-v2/dist/amoebaOracleDlmm/addressDerivations.js": {
+          "bytesInOutput": 97
+        },
+        "node_modules/@amoeba/spread-historical-v2/dist/currentTokenPrimitives.js": {
+          "bytesInOutput": 30903
+        },
+        "node_modules/@amoeba/spread-historical-v2/dist/amoebaOracleDlmm/finalization.js": {
+          "bytesInOutput": 32
+        },
+        "node_modules/@amoeba/spread-historical-v2/dist/amoebaOracleDlmm/encoders.js": {
+          "bytesInOutput": 18
+        },
+        "node_modules/@amoeba/spread-historical-v2/dist/amoebaOracleDlmm/oracleDerivations.js": {
+          "bytesInOutput": 32
+        },
+        "node_modules/@amoeba/spread-historical-v2/dist/writerCloseObservationCapability.js": {
+          "bytesInOutput": 18
         },
         "dist/protocol/identity.js": {
           "bytesInOutput": 54
         },
         "dist/wallet/operations.js": {
-          "bytesInOutput": 43224
+          "bytesInOutput": 43222
         },
         "dist/protocol/writer-dlmm-wire.js": {
           "bytesInOutput": 2552
         },
         "dist/wallet/writer-dlmm-accounts.js": {
-          "bytesInOutput": 4223
+          "bytesInOutput": 4211
         },
         "dist/wallet/writer-accounts.js": {
           "bytesInOutput": 6565
         },
         "dist/wallet/light-transfer2.js": {
-          "bytesInOutput": 5694
+          "bytesInOutput": 5692
         },
         "dist/wallet/swap-accounts.js": {
-          "bytesInOutput": 3100
+          "bytesInOutput": 3054
         },
         "dist/wallet/observation.js": {
           "bytesInOutput": 5796
@@ -4124,7 +4629,7 @@
           "bytesInOutput": 7705
         },
         "dist/wallet/plans.js": {
-          "bytesInOutput": 24664
+          "bytesInOutput": 24662
         },
         "dist/protocol/current-collective-lookup-table.js": {
           "bytesInOutput": 1763
@@ -4136,10 +4641,10 @@
           "bytesInOutput": 2653
         },
         "dist/wallet/liquidity-cleanup.js": {
-          "bytesInOutput": 5569
+          "bytesInOutput": 5567
         }
       },
-      "bytes": 666277
+      "bytes": 670149
     }
   }
 }

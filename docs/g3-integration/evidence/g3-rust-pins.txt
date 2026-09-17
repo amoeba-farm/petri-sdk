@@ -1,0 +1,1 @@
+Rust protocol dependency is locked to 7d22fd9a55199b54c099b842ec705571abeb27ac with no-entrypoint and both exact deployed build features; exact Light token construction and Keccak are enabled.

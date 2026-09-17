@@ -5,7 +5,7 @@ import { validateCurrentFinalizedObservation, } from "../current-finalized-obser
 import { AmebaProtocolError } from "../errors.js";
 import { CURRENT_LIGHT_TOKEN_PROGRAM_ID, CLASSIC_SPL_MINT_SIZE, CURRENT_LIGHT_TOKEN_ACCOUNT_SIZE, decodeClassicMintAccount, decodeClassicTokenAccount, deriveLightAssociatedTokenAddress, } from "@amoeba/spread-release-tools/token-primitives";
 import { SPL_TOKEN_PROGRAM_ID } from "@amoeba/spread-release-tools/oracle-dlmm";
-import { deriveWriterFlatMintPda } from "@amoeba/spread-release-tools/writer-sleeve-instructions";
+import { deriveWriterFlatMintPda } from "@amoeba/spread-historical-v2/writer-sleeve-instructions";
 import { buildCurrentCreateLightAtaIdempotentInstruction } from "./current-light-token-instructions.js";
 export const FLAT_TRANSFER_OPERATION_PLAN_SCHEMA_VERSION = 1;
 export const FLAT_TRANSFER_OPERATION = "transfer_flat";

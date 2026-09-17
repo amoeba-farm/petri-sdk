@@ -291,6 +291,9 @@ function decodeCurrentMarketSeriesIdentity(marketId, underlyingId, expiryTs, opt
 }
 export function decodeCurrentMarketAccount(input) {
     const { address, data, programId } = input;
+    const generation3 = input.marketLayout === "g3";
+    if (generation3 ? data.length !== 279 : data.length < CURRENT_MARKET_ACCOUNT_SIZE)
+        throw new Error("Market layout does not match selected profile");
     assertCurrentProgramAccount("Market", input);
     return decodeLayout("Market", data, () => {
         const reader = new Reader(data, "Market");
@@ -312,9 +315,9 @@ export function decodeCurrentMarketAccount(input) {
         const tickSize = reader.u64("tick_size");
         const lotSize = reader.u64("lot_size");
         const minOrderQty = reader.u64("min_order_qty");
-        const makerFeeBps = reader.u16("maker_fee_bps");
-        const takerFeeBps = reader.u16("taker_fee_bps");
-        const cancelFeeBps = reader.u16("cancel_fee_bps");
+        const makerFeeBps = generation3 ? 0 : reader.u16("maker_fee_bps");
+        const takerFeeBps = generation3 ? 0 : reader.u16("taker_fee_bps");
+        const cancelFeeBps = generation3 ? 0 : reader.u16("cancel_fee_bps");
         const minCancelSlots = reader.u64("min_cancel_slots");
         const maxFillsPerInstruction = reader.u8("max_fills_per_instruction");
         const totalPositionCollateralLocked = reader.u64("total_position_collateral_locked");
@@ -336,7 +339,7 @@ export function decodeCurrentMarketAccount(input) {
             totalConsumed: reader.u64("total_consumed"),
             totalBurned: reader.u64("total_burned"),
         };
-        reader.exactLengthWithZeroPadding(CURRENT_MARKET_ACCOUNT_SIZE);
+        reader.exactLengthWithZeroPadding(generation3 ? 279 : CURRENT_MARKET_ACCOUNT_SIZE);
         const seriesIdentity = decodeCurrentMarketSeriesIdentity(marketId, underlyingId, expiryTs, optionKind, strikePrice, capPrice, contractSize, maxPayoutPerContract);
         if (createdBy.equals(PublicKey.default))
             throw new Error("created_by is zero");
@@ -362,7 +365,7 @@ export function decodeCurrentMarketAccount(input) {
             || lotSize !== 1n
             || minOrderQty !== 1n
             || makerFeeBps > 10_000
-            || takerFeeBps !== 20
+            || takerFeeBps !== (generation3 ? 0 : 20)
             || cancelFeeBps > 10_000
             || maxFillsPerInstruction !== 8) {
             throw new Error("Market instrument or economic parameters are not current");
@@ -459,10 +462,11 @@ export function validateUninitializedCurrentOracleMonthData(data) {
 }
 export function decodeCurrentOracleMonthAccount(input) {
     const { address, data, expiryTs, programId } = input;
+    const generation3 = input.marketLayout === "g3";
     assertCurrentProgramAccount("OracleMonth", input);
     return decodeLayout("OracleMonth", data, () => {
         const reader = new Reader(data, "OracleMonth");
-        const bump = header(reader, "OMS");
+        const bump = header(reader, "OMS", generation3 ? 2 : 1);
         const market = reader.pubkey("market");
         const authority = reader.pubkey("authority");
         const scrambleStartTs = reader.u64("scramble_start_ts");
@@ -501,10 +505,23 @@ export function decodeCurrentOracleMonthAccount(input) {
         reader.exactLengthWithZeroPadding(CURRENT_ORACLE_MONTH_ACCOUNT_SIZE);
         if (authority.equals(PublicKey.default))
             throw new Error("authority is zero");
-        if (scheduleVersion !== 2 ||
-            workRewardCurrencyVersion !== 1 ||
-            candidateCountTrackingVersion !== 1 ||
-            activeWeightInitializationVersion !== 1) {
+        const generationMarkersInvalid = generation3
+            ? (![0, 1, 255].includes(weightSchemeVersion)
+                || effectiveWeightTotalBps > 10_000
+                || ![0, 2, 255].includes(activeWeightSchemeVersion)
+                || ![2, 3, 4].includes(scheduleVersion)
+                || workRewardCurrencyVersion !== 1
+                || candidateCountTrackingVersion !== 1
+                || activeWeightInitializationVersion !== 1
+                || (scheduleVersion === 4 && (BigInt(expiryTs) !== 1790812800n
+                    || !["Game", "Settled", "Closed"].includes(phase)
+                    || scrambleStartTs === 0n
+                    || listingTs !== scrambleStartTs)))
+            : (scheduleVersion !== 2
+                || workRewardCurrencyVersion !== 1
+                || candidateCountTrackingVersion !== 1
+                || activeWeightInitializationVersion !== 1);
+        if (generationMarkersInvalid) {
             throw new Error("OracleMonth current generation markers are invalid");
         }
         const [, expectedBump] = expectedPda(programId, [

@@ -2,7 +2,7 @@
 import { PublicKey, SystemProgram, type AccountInfo, type Connection } from "@solana/web3.js";
 import { createHash } from "node:crypto";
 import { AmebaProtocolError } from "../errors.js";
-import * as native from "@amoeba/spread-release-tools/oracle-dlmm";
+import * as native from "@amoeba/spread-historical-v2/oracle-dlmm";
 import { getAssociatedTokenAddressSync, unpackAccount, unpackMint } from "./current-token-primitives.js";
 import { decodeCurrentVaultConfigAccount, CURRENT_PROTOCOL_DEVNET_GENESIS_HASH } from "./current.js";
 import { AMOEBA_SPREAD_PROGRAM_ID } from "./identity.js";

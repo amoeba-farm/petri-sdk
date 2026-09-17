@@ -1,3 +1,4 @@
+import { decodeOraclePlayerLedgerBalance } from "@amoeba/spread-historical-v2/oracle-dlmm";
 import { type CurrentOracleStakingProofFacts } from "./current-oracle-staking-proof.js";
 import { syncCurrentPositionExpiryAutomation, type ReadCurrentPositionExpiryAutomationInput, type SyncCurrentPositionExpiryAutomationInput, type CurrentPositionExpiryProjection } from "./current-position-expiry.js";
 import { Buffer } from "buffer";
@@ -5,7 +6,6 @@ import { PACKET_DATA_SIZE, PublicKey, TransactionInstruction, type AccountInfo, 
 import { AmebaProtocolError } from "../errors.js";
 import { type CurrentFinalizedObservation } from "../current-finalized-observation.js";
 import { CURRENT_PROTOCOL_DEPLOYMENT, CURRENT_PROTOCOL_RELEASE, CURRENT_PROTOCOL_SOURCE_COMMIT, decodeCurrentMarketAccount as decodeStrictMarket, type CurrentMarketAccount, type CurrentOracleMonthAccount, type CurrentUserCollateralAccount, type CurrentVaultConfigAccount } from "./current.js";
-import { decodeOraclePlayerLedgerBalance } from "@amoeba/spread-release-tools/oracle-dlmm";
 import { type AmoebaDlmmBinPageAccount, type AmoebaDlmmPoolAccount, type AmoebaDlmmPositionAccount, type AmoebaDlmmSharePageAccount } from "@amoeba/spread-release-tools/dlmm-accounts";
 import { type AmoebaDlmmSwapDirection } from "@amoeba/spread-release-tools/dlmm-instructions";
 import type { CurrentChainIdentityDto } from "./current-chain.js";
@@ -27,6 +27,7 @@ export interface CurrentDeploymentIdentity<Deployment = typeof CURRENT_PROTOCOL_
     readonly deployment: Deployment;
 }
 export interface CurrentAdapterContextInput {
+    readonly marketLayout?: "historical-v2" | "g3";
     readonly connection: Connection;
     readonly programId: PublicKey;
     readonly namespace: CurrentStateNamespace;
@@ -74,7 +75,7 @@ export interface CreateCurrentSdkAdapterInput {
     readonly connection: Connection;
     readonly programId: PublicKey | string;
     readonly namespace: CurrentStateNamespace;
-    readonly cluster: "devnet";
+    readonly cluster: "devnet" | "mainnet-beta";
     readonly releaseTag: typeof CURRENT_PROTOCOL_RELEASE;
     readonly releaseCommit: typeof CURRENT_PROTOCOL_SOURCE_COMMIT;
     readonly photonConnection?: CurrentPhotonConnection;

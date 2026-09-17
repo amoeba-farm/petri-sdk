@@ -4,9 +4,10 @@
 import { writeFileSync } from "node:fs";
 import { build } from "esbuild";
 
+for (const [entry, output] of [["dist/wallet.js", "wallet"], ["dist/g3/browser.js", "g3"]]) {
 const result = await build({
-  entryPoints: ["dist/wallet.js"],
-  outfile: "dist/browser-bundle/wallet.js",
+  entryPoints: [entry],
+  outfile: `dist/browser-bundle/${output}.js`,
   bundle: true,
   format: "esm",
   platform: "browser",
@@ -18,4 +19,6 @@ const result = await build({
   logLevel: "info",
 });
 
-writeFileSync("dist/browser-bundle/wallet.meta.json", JSON.stringify(result.metafile, null, 2) + "\n");
+writeFileSync(`dist/browser-bundle/${output}.meta.json`, JSON.stringify(result.metafile, null, 2) + "\n");
+
+}

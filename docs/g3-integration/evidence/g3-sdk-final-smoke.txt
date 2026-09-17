@@ -1,0 +1,16 @@
+✔ canonical contribution builder retains G3 suffix, exact principal and owner (21.5695ms)
+✔ wallet rejects invalid order/receipt payload selectors and exact lengths (17.7105ms)
+✔ retired funded Flat, staking and token-vote construction is absent/rejected (2.6405ms)
+✔ G3 candidate profile cannot be redirected to public RPC or forged (1.335ms)
+✔ metadata upload prepares only one bounded next step from actual progress (17.7981ms)
+✔ time-weighted payouts conserve profit/loss and split dust over 3000 cases (102.8484ms)
+✔ full-domain capital weights use wide proportional math and reject impossible losses (0.5816ms)
+✔ membership pages exceed 32 records with scoped cursors and exact boundary validation (61.3561ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1473.4954

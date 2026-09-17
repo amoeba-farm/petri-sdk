@@ -1,0 +1,1997 @@
+✔ coalesces identical reads, rejects varied-owner pressure, and reuses a bounded TTL (5.4922ms)
+✔ aborts shared work only after its last identical waiter disconnects (1.5447ms)
+✔ keeps timed-out non-cooperative work admitted until the actual task settles (11.6717ms)
+✔ keeps client-aborted non-cooperative work admitted at global capacity (2.0709ms)
+✔ never caches a result that arrives after the shared timeout (12.4183ms)
+✔ places the shared observer deadline strictly before the outer deadline (1.3733ms)
+✔ background preparation deduplicates exact series, coalesces ticks, and bounds concurrency (8.7913ms)
+✔ one failed series does not prevent the remaining charts from being prepared (3.0443ms)
+Prepared chart fixture: 60 requests, 10000 rows per window, 1188ms total; no history or Lean reads
+✔ background preparation shares one history read and serves concurrent windows without Lean work (3335.9574ms)
+✔ chart reader sends exact retained rows through Lean projection (19.7862ms)
+✔ chart reader rejects a cross-series Lean projection (12.9422ms)
+✔ chart reader rejects malformed and over-bound compact projections (13.1113ms)
+✔ chart reader admits a window-filtered empty projection with paired metadata (6.9316ms)
+✔ chart reader binds an empty source and response to null metadata (7.2043ms)
+✔ chart writer uses the current observation timeout and appends Lean's exact plan (69.8954ms)
+✔ claim preparation uses finalized lifecycle admission for both variants (201.4553ms)
+✔ deposit gate uses preparation's exact finalized snapshot without another read (16.3435ms)
+✔ deposit gate rejects finalized Active even when preliminary state was Funding (13.9103ms)
+✔ deposit gate admits pause and preserves exact response binding (35.2039ms)
+✔ projects all 22 actions from one finalized auction observation (22.2003ms)
+✔ binds the active owner's close facts through the shared close-stage projection (18.3402ms)
+✔ rejects an active auction with a mismatched series-book parent before Lean (15.0735ms)
+✔ blocks auction bids at canonical capacity while preserving the exact count (18.3264ms)
+✔ rejects absent, foreign, inconsistent, or drifting bid-index observations (93.5243ms)
+✔ rejects malformed Lean echoes and contradictory action entries (89.2062ms)
+✔ coalesces identical reads, rejects varied-owner pressure, and reuses a bounded TTL (4.9711ms)
+✔ aborts shared work only after its last identical waiter disconnects (1.3365ms)
+✔ keeps timed-out non-cooperative work admitted until the actual task settles (10.2042ms)
+✔ keeps client-aborted non-cooperative work admitted at global capacity (1.0352ms)
+✔ never caches a result that arrives after the shared timeout (17.7953ms)
+✔ places the shared observer deadline strictly before the outer deadline (0.8957ms)
+✖ collective operation route catalog matches the Petri RC44 contract (3.4504ms)
+✖ trade final freshness follows governance and one relay receives the checked context (7.4663ms)
+✖ old trade binding and insufficient lifetime margin cannot register or relay (10.894ms)
+✖ slow registration retains the signed record but cannot relay an aged final check (1.9268ms)
+✖ missing SDK context and failed registration never relay a trade (1.1212ms)
+✔ prepare registration failure retains its exact stage and does not submit (2.3246ms)
+✔ writer read routes use the CLI's exact RC43 path grammar (2.0799ms)
+✔ wallet action route requires one exact owner and forwards operational facts (8.6122ms)
+✖ swap relay preserves the SDK compute prefix and rejects altered or omitted prefixes (2.0234ms)
+✖ prepare on one replica is submit/status resumable on another replica (7.0588ms)
+✔ singular compatibility prepare paths are not admitted (0.7908ms)
+✔ close preview delegates only the caller's semantic request to the writer authority (0.974ms)
+✔ writer prepare returns and registers the exact operation envelope (4.5779ms)
+✔ writer close progression and cancellation have distinct intent routes (1.8865ms)
+✖ submit persists admission and confirms exact signed bytes through the real observer (7.0956ms)
+✖ concurrent submissions atomically claim one batch before finalized RPC awaits (30.458ms)
+✖ a pre-relay validation failure releases only its exact batch claim (7.4262ms)
+✖ submit rejects a payload-byte mutation even with the same owner and operation ids (6.1349ms)
+✖ pending submission remains pending on status and cannot be replayed (4.7849ms)
+✖ pending confirmation can fail closed on a later status observation (3.2768ms)
+✖ a transient invalid RPC observation remains resumable through status (3.3944ms)
+✖ an ambiguous relay failure preserves the exact signature for status recovery (4.0422ms)
+✖ provider preflight and availability errors remain reconcilable without relay replay (4.1426ms)
+✖ a relay-returned signature mismatch records an exact terminal failure (2.8499ms)
+✖ confirmation hash mismatch fails closed without advancing the batch cursor (4.7262ms)
+✖ submit rejects at the prepared-plan relay safety boundary (4.1596ms)
+✖ submit rejects a forward close plan at its request-deadline safety margin (4.1192ms)
+✖ pending setup batch must confirm through status before the next canonical batch (4.7059ms)
+✖ SDK gate rejection prevents relay before submission registration (4.3117ms)
+✔ RC43 legacy SDK shape preserves call series and classic-input/Light-output (48.0399ms)
+✔ RC43 legacy SDK shape preserves put series and classic-input/Light-output (20.7379ms)
+✔ planner rejects a malformed current OracleMonth derivation without legacy fallback (4.2591ms)
+✔ foreign-realm classic input is canonicalized only for finalized observation (15.8608ms)
+✔ call anchor keeps its Market and shared OracleMonth in the finalized plan (48.3494ms)
+✔ non-anchor put keeps the put Market/pool/mint and uses the call anchor OracleMonth (22.9814ms)
+✔ planner rejects an anchor Market unrelated to the settlement-group underlying (5.9133ms)
+✔ planner rejects a noncanonical SettlementGroup anchor OracleMonth (2.8333ms)
+✔ planner rejects an anchor OracleMonth decoded for an unrelated Market (4.237ms)
+✔ finalized reconstruction rejects anchor economics that drift after preliminary reads (10.7082ms)
+✔ claim builders receive PublicKey Light interfaces for both claim variants (227.8529ms)
+✖ close preview projects one exact finalized writer snapshot into Lean semantics (25.1737ms)
+✖ close preview rejects a noncanonical writer USDC vault identity (21.9867ms)
+✖ close begin derives its request and admits hot Light custody without caller PDAs (33.6812ms)
+✖ close begin fails before admission when its deadline cannot precede sleeve expiry (26.2305ms)
+(node:116172) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ commodity history keeps only minute-bucketed Copper and Palladium prices for 24 hours (10.1744ms)
+(node:124120) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✖ real authenticated Lean projection and public HTTP/websocket deliver the same retained snapshot (107.8718ms)
+﹣ real Redis has no snapshot TTL, fences old writers and survives a persisted process restart (2.0858ms) # SKIP
+✔ background preparation runs without viewers, coalesces work and reads never refresh (15.09ms)
+✔ failed refresh and process restart preserve the exact last-good chart with separate stale status (4.0955ms)
+✔ broad market-state failure does not block independently timestamped retained chart inputs (1.1043ms)
+✔ source-specific history failures are retained as diagnostics without erasing the chart (3.139ms)
+✔ selection and commodity failures keep their source identity (1.4872ms)
+✔ retention does not make an old source fresh, and malformed or wrong-scope storage fails closed (2.0671ms)
+✔ an empty, malformed or missing-current Lean refresh cannot overwrite a retained chart (4.121ms)
+✔ real websocket first frame and reconnect contain the whole cached chart; shared clients use one poll (129.1033ms)
+✔ explicit read-only composition disables writes without changing deployment identity (10.1336ms)
+✔ EDG-012: LEAN_ORIGIN accepts only the canonical IPv4 loopback origin (5.8017ms)
+✔ EDG-012: LEAN_ORIGIN rejects normalization, aliases, and alternate targets (10.8333ms)
+✔ public feed endpoints retain their HTTPS and local-development URL constraints (6.8061ms)
+✔ current guarded history projects only compatibility identity fields (1.9009ms)
+✔ current guarded history rejects cross-series and over-payout retained rows (1.0341ms)
+(node:19632) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ EDG-031: SDK composition requires the exact reviewed package commit (7.3824ms)
+✖ production composition loads only the pinned SDK reader-semantic baseline (0.9188ms)
+✔ G2R-003: read-only Photon observation acquires no Light setup builder (1.1395ms)
+✖ missing or unknown write compatibility remains read-only (0.7302ms)
+✔ current reader separates the RC44 semantic baseline from exact live bytes (0.4252ms)
+✔ V3 runtime derives relay capability from the exact governed ABI (0.2234ms)
+✔ the immutable release pin wins before a forged action-mask observer (90.2455ms)
+✔ collateral amounts reach semantic admission only when positive canonical decimals (108.3505ms)
+✔ wallet reads attest deployment without discovering pool pages or positions (13.5494ms)
+✔ position action rejects an SDK observation changed after Lean admitted its context (13.859ms)
+✔ public mutation routes reject non-JSON media types before parsing (8.3901ms)
+✖ canonical Oracle source routes are dispatched through the composed registry (10.1134ms)
+✔ public mutation JSON rejects duplicate keys and lossy numeric lexemes before dispatch (14.0051ms)
+✔ public mutation JSON closes the connection on invalid UTF-8 (6.7237ms)
+✔ readiness distinguishes cached execution availability from unsupported provisioning facts (11.8432ms)
+✖ readiness and capabilities fail closed when prepared-plan durability is unhealthy (8.4574ms)
+✔ chain identity freshness tracks its own observation without relabeling market evidence (14.0977ms)
+✖ public identity surfaces expose the attested read-only governance bridge (0.9293ms)
+✔ public market reads preserve the exact RC43 display and decimal-string contract (9.0066ms)
+✔ options-book v1 reads only the published snapshot and preserves Lean best levels (157.4169ms)
+ℹ 100 cache-only localhost reads: p50=1.341ms p95=1.944ms max=3.584ms
+✔ finalized Game Oracle price and active pools feed public price and a read-only chart point (15.3412ms)
+✔ an oracle index never substitutes for an unavailable DLMM option mark (10.5272ms)
+✔ changing the settlement index does not change the DLMM option premium (14.4361ms)
+✔ paused or missing-pool neighbours do not pause an unpaused product expiry (14.5201ms)
+✔ missing Lean product status stays paused without a Node policy fallback (9.4202ms)
+✔ distinct expiries retain distinct marks and the product chart obeys Lean selection (31.5598ms)
+✔ call and put charts share only their pool-bound anchor OracleMonth index (10.6874ms)
+✔ an unrelated OracleMonth address is never substituted for a marked series (8.4204ms)
+✔ charts consume only guarded exact-expiry history and preserve compatibility identity (13.2398ms)
+✔ concurrent public market reads never rescan chain after the observer publishes (11.8843ms)
+✔ settlement list and preflight reads use the observer snapshot only (9.0315ms)
+✖ a failed refresh preserves the last-known-good public snapshot and disables trades (7.405ms)
+✔ the observer rejects projected numeric strike bounds before publishing (1.3633ms)
+✔ the observer rejects a missing Lean chart selection for an available product mark (0.8961ms)
+✖ write routes stop at the governed ABI boundary before request handling (6.8891ms)
+✖ the read-only profile blocks every non-read route before parsing its body (6.5908ms)
+✖ the read-only profile does not expose a writer action mask (12.0507ms)
+✖ G2R-003: read-only composition never acquires injected mutation capabilities (10.3389ms)
+✔ unknown public and private routes are rejected generically (8.9232ms)
+✔ the public Edge does not expose an unauthenticated metrics route (11.2959ms)
+✖ SDK composition does not turn unavailable governance RPC into an API startup failure (1.2445ms)
+✔ Lean admission and edge attestation bind the same live deployment (3.7285ms)
+✔ exact finalized Program and ProgramData identity is admitted (7.9194ms)
+✔ SDK chain identity without a raw hash receives finalized cache identity evidence (4.924ms)
+✔ linkage, loader header, raw bytes, and payload mutations fail closed (5.703ms)
+✔ genesis mismatch and attempted relay identity drift are rejected (1.8287ms)
+✔ G2R-003: direct adapter import cannot forge the immutable release into write mode (2.8243ms)
+✖ G2I-017: production SDK loading ignores a forged supported write profile (1.9866ms)
+✔ pool absence and missing context remain attributable and bounded (4.702ms)
+✔ unsupported provisioning observations stay explicit and never fabricate facts (0.8271ms)
+✔ partial provisioning observations cannot populate complete aggregate facts (0.5884ms)
+✖ expiry discovery batches real SDK pool reads and preserves the whole ordered DTO (110.5741ms)
+✖ expiry discovery retains independent missing-pool failures (83.3695ms)
+✖ expiry discovery caps fanout at eight even for repeated scanner entries (76.4268ms)
+✔ finalized-observation authority accepts only Lean's exact immutable echo (6.0266ms)
+✔ finalized-observation authority rejects echo, shape, and ordering drift (2.3393ms)
+✔ frozen RC43-compatible read envelopes and RC44 identity are exact (6.2606ms)
+✔ frozen RC43 authoritative empty and error DTOs remain exact (0.6303ms)
+✔ V3 identity uses council and target gate seeds, with unchanged gate/tail ABI (9.1196ms)
+✔ exact governed ABI derives runtime capability while native gates remain checked (0.4028ms)
+✔ writer layout and staking prerequisite errors retain actionable codes and statuses (3.8779ms)
+✔ unexpected exceptions never disclose internal messages or invalid statuses (0.3845ms)
+✔ typed public errors remain bounded and authoritative-state DTO stays exact (0.4126ms)
+✔ finalized action-state rejection is public without exposing arbitrary action errors (0.4152ms)
+✔ submission error codes use fixed safe messages even if exception text is untrusted (0.7034ms)
+✔ writer Lean calls receive a bounded request signal (63.9892ms)
+✔ writer Lean calls terminate at the public request deadline (12.928ms)
+✔ writer Lean calls propagate an exact client-abort reason (1.4256ms)
+✔ collective action projection uses its exact private route and abort boundary (1.2578ms)
+✔ Oracle source and bounty projections use distinct exact private routes (3.7502ms)
+✔ private Lean responses reject duplicate semantic members (2.7598ms)
+✔ private Lean responses reject malformed UTF-8 before JSON decoding (2.4711ms)
+✔ private Lean responses are bounded while streaming (1.5617ms)
+✔ private Lean responses reject integers that JavaScript would round (4.4699ms)
+(node:89728) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✖ liquidity authority composes native SDK state, real Lean admission and exact unsigned plans (106.2454ms)
+✖ rc.43 SDK YYYY-MM maturity agrees with the bytes32 YYYYMM series label (24.2621ms)
+✔ operation observation commits exact ordered present and absent finalized facts (13.0034ms)
+✔ operation observation rejects duplicate accounts and non-Devnet RPC (1.6799ms)
+✔ operation observation groups 211 accounts and converges on one finalized slot (34.9933ms)
+✔ operation observation groups 195 accounts as 100 plus 95 (33.9235ms)
+✔ operation observation rejects account batches that never share a finalized slot (2.9872ms)
+✔ operation observation rejects malformed grouped account results (1.868ms)
+✔ operation observation races every finalized RPC stage against caller abort (11.0654ms)
+✔ portable operation boundary calls all SDK validators with one plan argument (3.2931ms)
+✔ portable operation boundary fails closed on missing exports or identity drift (1.4788ms)
+✔ bounty DTO emits the exact classic Lean input with decimal atomics (14.0912ms)
+✔ bounty DTO refuses unanchored compact positives and retains only classic-null evidence (1.8794ms)
+✔ partial rewards and candidate-bounded challenges remain unavailable, never empty-complete (1.3093ms)
+✔ classic-null component rows remain explicit evidence without caller completeness flags (1.2829ms)
+✔ bounty DTO rejects a compact item without an all-null classic absence (1.8677ms)
+✔ bounty DTO rejects a classic positive without its exact raw bytes (1.0978ms)
+✔ classic-null ancillary accounts stay unavailable without probing unauthenticated compact state (6.4481ms)
+✔ pinned September cohorts derive exact 52/52/48/48 candidates and side-specific PDAs (118.1568ms)
+✔ September candidates reject a governed manifest root mismatch (13.5121ms)
+✔ durable ordinary candidates require canonical bounded source and challenge IDs (2.0917ms)
+✔ reader fails closed when the governed September source cohort is absent (173.7354ms)
+✔ reader rejects an incomplete authenticated compressed source pair (17.879ms)
+✔ reader never publishes structurally present compact sources without a chain-root proof (9.25ms)
+✔ reader rejects executable classic source state before decoding (11.1738ms)
+✔ reader delegates exact classic source layout enforcement to the pinned decoder (15.4935ms)
+✔ compressed witness validation enforces proof context at or before finalized state (1.7491ms)
+✔ live classic reader output maps directly into the strict Lean DTO (32.6634ms)
+✔ registry DTO builder emits only the strict Lean root and source fields (1.2646ms)
+✖ collateral native SDK contexts compose with real Lean admission and portable HTTP plans (128.9312ms)
+✔ current collateral initialization binds exactly the owner signer (6.2016ms)
+✔ current collateral initialization rejects missing or extra signer coverage (2.4882ms)
+✖ SDK expiry account reads compose with checked Lean planning and incomplete absence (147.3478ms)
+✖ expiry SDK read batches accounts while retaining the exact fresh read window (66.648ms)
+✖ expiry cold attestation retains every provider slot and advances the final account floor (46.8254ms)
+✖ expiry final scope does not reuse preliminary discovery accounts or slot cache (50.7885ms)
+✖ expiry fresh end rejects regression and an end preceding observed account contexts (35.7479ms)
+✖ expiry account batching retains incomplete position inventory and record-absence errors (35.4572ms)
+✖ expiry projection uses actual checked Lean decisions and never enables execution (170.0763ms)
+✔ position projection carries the exact pool Market without changing source state (4.0383ms)
+✔ position projection rejects missing, ambiguous, or conflicting canonical joins (1.8392ms)
+✔ position preparation preserves the SDK-issued context and minimum finalized slot (1.3736ms)
+✔ incomplete expiry discovery cannot establish a requested record is absent (1.2577ms)
+✔ preparation failures retain stage time and fingerprints without raw secrets (6.7822ms)
+✔ real preparation rejection identifies preliminary context without changing admission (8.5858ms)
+✔ structured throws and primitive throws retain their original identity and public semantics (0.7171ms)
+✔ advertises exact hot release evidence only when every layer is present (6.2241ms)
+✔ missing and unknown write profiles never advertise writer capabilities (0.8583ms)
+✔ action-mask capability fails closed without exact bid-index decoding and layout (1.2096ms)
+✔ fails closed when the configured Spread identity is not exact (0.6913ms)
+✔ fails closed when ameba-sdk is not pinned to an exact git SHA (0.8611ms)
+✖ keeps the Petri SDK field on plan identity and reports the package pin separately (3.0017ms)
+✔ fails closed on unexpected SDK package or wallet-export identities (1.3187ms)
+✔ fails closed when the SDK descriptor does not prove complete close parity (0.4012ms)
+✔ fails closed when cancellation does not prove canonical-output setup (0.4623ms)
+✔ fails closed when the SDK descriptor targets another Spread identity (0.6951ms)
+✔ fails closed when an SDK function used by the writer authority is absent (0.4394ms)
+✔ fails closed when the Lean next-stage planner is absent (0.3491ms)
+✔ fails closed when Lean admitWriterOperation is absent (0.3871ms)
+✔ fails closed when Lean previewWriterClose is absent (1.4014ms)
+✔ fails closed when the writer close preview authority is absent (0.6528ms)
+✔ fails closed when the writer begin authority is absent (0.7259ms)
+✔ fails closed when the writer forward authority is absent (0.3727ms)
+✔ fails closed when the writer cancel authority is absent (0.4043ms)
+✔ fails closed when the advertised close-request read authority is absent (0.4897ms)
+✔ fails closed when writer public routes were not composed (0.4321ms)
+✔ reports hot enabled and cold not configured without an authorized indexer (0.5155ms)
+✔ reports cold disabled when Photon is configured without the exact loader (0.3366ms)
+✔ reports disabled runtime when the current write ABI is unavailable (0.3047ms)
+✔ reports disabled runtime when the transaction submitter is absent (0.4399ms)
+✔ reports disabled runtime when the confirmation observer is absent (0.4877ms)
+✔ reports disabled runtime when confirmation cannot resume through status (0.4117ms)
+✔ reports disabled runtime when prepared-plan durability is unavailable (0.4076ms)
+✖ a newer SDK observation floor survives an older backend deployment pin (4.2464ms)
+✔ a stronger backend floor is preserved (0.5344ms)
+✔ missing or malformed slot evidence cannot weaken observation requirements (0.7871ms)
+✔ the locked SDK admits only the exact finalized RC44 V2 identity (5.9461ms)
+✖ the package manifest and lockfile pin finalized RC44 SDK and Spread commits (13.0261ms)
+✔ the bigint conversion dependency is a bounded pure-JavaScript runtime (54.304ms)
+✖ the SDK-owned tree equals the reviewed immutable Git package (346.8956ms)
+✔ the exact Node Light host adapter exposes the reviewed load callback (802.5617ms)
+✔ the advisory-fixed uuid remains compatible with Solana JSON-RPC request generation (86.9576ms)
+✔ the pinned HTTP client accepts maintained V3 identity, market and Oracle DTOs exactly (20.0004ms)
+(node:69020) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ paper configuration is disabled by default and requires a token when enabled (3.0612ms)
+✔ the bounded store retains short history and expires the whole overlay (5.8368ms)
+✔ validator rejects any simulated row that claims to be on-chain (0.5157ms)
+✔ immutable read-only release blocks Devnet paper publication before policy work (96.9968ms)
+✖ scoped LP capability uses Lean admission and retains exact keeper identity across restart (181.3804ms)
+✔ stored keeper settlement verifies exact bytes and signature (225.0403ms)
+✔ scoped worker persists its exact signature before relay (37.3524ms)
+✔ missing or stale governed context and expired blockhash prevent persistence and relay (99.0047ms)
+✔ pending and absent submitted signatures never trigger reconstruction or relay (77.9512ms)
+✔ finalized receipt reconciles after capability consumption (54.1907ms)
+✔ missing or revoked capability prevents keeper signing (2.8148ms)
+✔ foreign genesis prevents preparation and signing (2.7856ms)
+✔ lost durable lease prevents relay (23.1655ms)
+✔ uncertain submission retains the exact signed identity (21.1159ms)
+﹣ Postgres scoped persistence excludes duplicate positions and concurrent workers (1.7543ms) # SKIP
+✔ real finalized swap fixture preserves exact event bytes and log position (4.5592ms)
+✔ failed transactions and reverted nested invocations do not become trades (1.8421ms)
+✔ foreign-program event impersonation is ignored, including text-only spoofing (0.3885ms)
+✔ missing, truncated, malformed and mismatched provenance fails closed (3.9739ms)
+✔ history uses exact pool binding, finalized reads, Lean output, cache and single flight (19.0913ms)
+✔ retained history survives restart and a failed background refresh, then expires after a day (4.4151ms)
+✔ a successful empty signature window does not erase retained finalized rows (6.2708ms)
+✔ missing attestation, unknown series and unavailable transaction are not empty success (1.723ms)
+✔ Lean evidence rejection omits a row; authority outage fails the history read (2.299ms)
+✖ real Node-to-Lean RPC admission and history projection preserve executed fixture (109.8082ms)
+✔ V3 bootstrap entry points refuse before policy, file or signer acquisition (4.132ms)
+✔ fresh deployment receipt persistence is package-verified and no-overwrite (51.411ms)
+✔ bootstrap runtime pins the compiler required by the packaged executor (9.9863ms)
+✔ fresh bootstrap automation is closed by default and exact when enabled (130.9839ms)
+✔ server runtime treats the maturity boundary as a normal durable wait (1.3625ms)
+✔ server runtime hands a verified completion to monthly automation exactly once (1.5557ms)
+✔ fresh deployment plan is deterministic, exact, and funding-aware (318.9404ms)
+✔ dry run obtains exact KMS signatures without RPC simulation or send (139.8545ms)
+✔ execute resumes through finalized writes and verifies exact ProgramData (263.1731ms)
+✔ completed deployment fails closed on ambiguous finalized receipt history (240.2065ms)
+(node:15884) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+﹣ real Redis shares retained ticker responses, fences writers, and survives persistence restart (1.2793ms) # SKIP
+✔ cold reads never fetch; concurrent refresh is single-flight; failures retain original timestamps (14.1131ms)
+✔ reads return the previous snapshot without awaiting an in-progress refresh or history (6.7874ms)
+✔ ticker cache rejects malformed, oversized, and nonfinite display payloads (3.9647ms)
+✔ independent background start warms the ticker and close stops refreshes (2.4247ms)
+✔ decoding memo stays immutable and checks Redis for changed, missing, or corrupted bytes (4.8119ms)
+﹣ real Redis: two replicas, completed history, durable unknowns and stale CAS (1.0837ms) # SKIP
+✔ runtime metadata identity exchanges only for the configured signer identity (34.0314ms)
+✔ runtime impersonation rejects any unexpected metadata identity (1.3015ms)
+✔ runtime impersonation rejects direct identity reuse (0.4562ms)
+✔ GCP provider binds exact key versions, service account, and public identities (43.7846ms)
+✔ GCP provider signs only the digest-bound exact transaction signer set (139.9082ms)
+✔ GCP provider fails closed on credential, key, or signature drift (5.2807ms)
+✔ generic GCP signer supports isolated deployment and bootstrap role sets (95.5068ms)
+✔ release signer wrappers bind deployment steps and Spread bootstrap context (51.4967ms)
+✔ origin-form parsing rejects ambiguous and oversized request targets (1.7895ms)
+✔ Host validation rejects parser-confusing and duplicate authority values (1.839ms)
+✔ HTTP/1.1 requires Host while HTTP/1.0 remains origin-form compatible (0.3178ms)
+✔ mutation JSON media types are singular and canonical (1.7028ms)
+(node:111784) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✖ index history records checked observations and projects genuine prices through Lean and HTTP (95.2187ms)
+﹣ Redis retention survives reconnect, replaces only newer observations and isolates month/product (1.2617ms) # SKIP
+✔ semantic JSON rejects duplicate object members at every depth (2.4812ms)
+✔ semantic request JSON accepts only canonical JS-safe integer lexemes (1.7197ms)
+✔ semantic response numbers must round-trip without hidden precision loss (1.116ms)
+(node:134832) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+﹣ real Redis atomically retains every range without TTL, fences leases, and survives reconnect (1.7934ms) # SKIP
+﹣ real Lean -> Redis -> public HTTP/WS serves prepared prices with zero request-time projections (0.4984ms) # SKIP
+✔ viewer-independent producer coalesces work and computes each source revision once (20.0585ms)
+✔ failure, restart and elapsed age retain original display values and never execution readiness (1.5932ms)
+✔ failed projection, wrong scope and malformed persisted bytes cannot publish or appear fresh (1.6795ms)
+✔ full first frame, bounded-window fanout and reconnect read only Redis, never trigger projections (100.1356ms)
+(node:86572) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✖ current-month indicative index composes the real Lean price and observation boundary (99.9744ms)
+✔ oracle evidence survives capture, while calculation transport failures stay unavailable (11.737ms)
+✔ monthly market automation is disabled and capability-free by default (5.3431ms)
+✔ enabled automation requires exact managed KMS configuration (3.4834ms)
+✔ pinned V3 operator refuses the receipt's frozen gate before signer acquisition (371.9854ms)
+✔ GCP signer provider loads through the same configured interface (0.4982ms)
+✔ operator loader rejects any noncanonical implementation identity (0.4812ms)
+✔ runtime executes only the exact digest authorized by Lean (1.58ms)
+✔ runtime never invokes the operator when Lean returns wait (0.5731ms)
+✔ authority rejects an execute response whose digest changed (0.6014ms)
+✔ options-book v1 preserves mirrored contracts, exact levels, units, and provenance (8.0411ms)
+✔ fair premium never substitutes for a missing side and dynamic changes preserve catalog revision (1.7759ms)
+✔ options-book selection rejects malformed and unknown queries (5.9098ms)
+(node:50904) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ raw accounting retains exact u64 counters without substituting reserves or mint supply (4.7119ms)
+✔ contract collector forwards only exact-pool events to Lean and rejects changed sealed quantities (2.4356ms)
+✖ real Lean metrics, snapshot preparation and public cache-only endpoints (105.0962ms)
+(node:45172) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ application composes finalized observation, Lean projection, durable-first LKG, and Redis (8.0735ms)
+✔ bounty projection failure preserves the finalized source snapshot as explicitly unavailable (1.1488ms)
+✔ disabled application keeps the canonical public route explicit and unavailable (1.2833ms)
+✔ enabled readiness remains false when every exact-series refresh fails (0.9082ms)
+✔ global discovery failure or omission marks every retained LKG stale (6.3826ms)
+✔ series discovery is globally bounded before any finalized reads (0.8566ms)
+✔ bounty composition joins reordered Lean rows by exact source identity (9.3089ms)
+✔ bounty composition rejects omitted or cross-series source rows (0.7403ms)
+✔ Oracle source indexing remains disabled without durable local storage (2.5479ms)
+✔ a configured Oracle source database enables the local indexer (0.4097ms)
+✔ required Oracle source indexing cannot be configured without its database (0.8093ms)
+✔ pending Oracle draft limits are bounded and per-series limits cannot exceed global (0.3622ms)
+(node:69684) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ archive preimages are immutable, secret-free, and advance only after submission (20.0871ms)
+✔ opening archive evidence maps its authoritative alternative fields (2.8612ms)
+✔ evidence-bearing preparation fails closed without durable capture (2.5237ms)
+✔ evidence admission prunes expired pending rows but preserves submitted rows (7.9644ms)
+✔ evidence capacity counts exact UTF-8 payload bytes globally and per series (5.307ms)
+✔ Oracle source HTTP serves exact-series snapshots and bounded detail routes (19.1073ms)
+✔ a healthy persisted LKG cannot assert absence before a current-process refresh (1.5639ms)
+✔ Oracle source HTTP preserves stale LKG and never asserts absence from it (1.5054ms)
+✔ a known current-process refresh failure overrides a persisted healthy status (0.8799ms)
+✔ Oracle source HTTP treats an invalid or regressed clock as stale (1.6645ms)
+✔ Oracle source and owner detail routes reject noncanonical identifiers (0.3468ms)
+✔ Oracle source HTTP distinguishes healthy absence from unavailable LKG (0.3756ms)
+✔ Oracle bounty HTTP refuses incomplete discovery rather than returning an empty list (0.588ms)
+✔ Oracle bounty HTTP serves only the complete exact-series Lean projection (1.8138ms)
+✔ public reads reject forged complete bounty rows before serving a signed source shape (0.6014ms)
+✔ owner bounty unavailability identifies missing evidence without inventing zero rewards (0.8935ms)
+✔ exact-series refresh observes, asks Lean, persists, then publishes Redis LKG (7.1206ms)
+✔ exact metadata lookup is bound to finalized month, proposer, and all commitments (1.0645ms)
+✔ concurrent refreshes share one exact-series observation (0.707ms)
+✔ refreshAll bounds observation pipelines at two and preserves ordered failures (10.0169ms)
+✔ failed refresh preserves the LKG and records only failure status (1.7003ms)
+✔ failure-status persistence errors never mask the finalized refresh failure (0.7545ms)
+✔ startup warm republishes durable LKG and retains unhealthy status (0.5949ms)
+✔ projection queue is single-flight across series and recovers from rejection (3.0176ms)
+✔ two observation pipelines retain provider start pacing (32.0441ms)
+✔ source proposal capture durably binds exact normalized preimages and canonical hashes (5.1571ms)
+✔ proposal preparation fails closed when durable capture is unavailable (1.6797ms)
+✔ confirmed transport submission advances only the matching proposal metadata (0.5466ms)
+✔ Oracle snapshot reads fall back to the durable LKG when Redis fails (1.4018ms)
+✔ the durable projection wins even when Redis claims a newer finalized result (0.2754ms)
+✔ a configured durable read failure is not hidden by Redis (0.9421ms)
+✔ a newer finalized absence is not hidden by an older cached snapshot (1.3548ms)
+✔ Redis is never promoted to public authority without a durable registry (0.2532ms)
+(node:43012) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ unsigned metadata candidates cannot reserve another proposer's exact-series source (14.292ms)
+✔ SQLite Oracle registry transactionally publishes LKG and preserves it on failure (17.3357ms)
+✔ persisted projection validation rejects forged metadata and cross-release snapshots (4.1859ms)
+✔ refresh-status authentication is bound to the exact market and expiry (3.1284ms)
+✔ metadata admission prunes expired pending rows but preserves submitted rows (4.8645ms)
+✔ metadata capacity counts exact UTF-8 payload bytes globally and per series (5.0303ms)
+✔ Oracle source runtime is absent when indexing is disabled (1.7269ms)
+✔ runtime schedules an independent single-flight reconciliation loop (0.9951ms)
+✔ current observation can trigger a long Oracle sweep without awaiting it (7.7274ms)
+✔ all staking stages retain the exact frame and compare independently returned outputs (6.7886ms)
+✔ missing or oversized staking frames fail before calling Lean (0.621ms)
+✔ one-shot capacity pressure rejects without evicting an admitted transaction (2.8608ms)
+✔ one-shot duplicate bytes cannot substitute metadata or extend absolute expiry (0.4263ms)
+✔ prepared plans expire without access extending their lifetime (2.6732ms)
+✔ submitted attempts remain recoverable after preparation and relay TTL (3.4647ms)
+✔ durable prepared lifecycles cannot be deleted ahead of indexed expiry (0.4136ms)
+✔ capacity pressure rejects attackers without evicting pending multi-batch lifecycles (1.983ms)
+✔ per-owner admission is bounded without affecting another owner (2.1006ms)
+✔ two replicas share lifecycle updates through one atomic storage seam (0.7929ms)
+✔ prepared lifecycle CAS is one-shot and exposes no retrying mutator callback (1.1121ms)
+✔ prepared operation ids cannot substitute any immutable binding (1.7096ms)
+(node:53320) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ ticker source discovers commodity venues and selects the liquid duplicate (24.7093ms)
+✔ ticker rejects an oversized upstream body before JSON admission (11.1905ms)
+✔ Lithos extraction canonicalizes external stories and tolerates partial page failure (20.3248ms)
+✔ Lithos fails closed when every fixed page is unavailable (1.6285ms)
+✔ public routes return direct current envelopes and reject mutation methods (44.0783ms)
+✔ Redis Oracle storage atomically publishes and retains an exact-series LKG (28.7242ms)
+✔ Redis Oracle storage is optional and deployment-scoped (5.9609ms)
+✔ a timed-out connection remains shared until its underlying attempt settles (26.2025ms)
+✔ prepared chart leases fence publication and windows are isolated by exact deployment (6.9721ms)
+✖ Redis prepared-plan storage shares atomic admission and CAS by deployment identity (6.3563ms)
+✔ Redis deployment scope binds the exact chain and raw ProgramData identity (1.1098ms)
+✔ read-only, missing, and unknown profiles omit prepared-plan persistence (1.5945ms)
+✔ market snapshot schema rejects missing guarded-mark projections (1.3791ms)
+✔ guarded-mark cache accepts exact two-sided and one-sided Lean projections (12.3933ms)
+✔ cached guarded-mark rows fail closed on shape, identity, frame, and selection tampering (26.7649ms)
+✔ cached oracle indexes fail closed on exact-shape, value, and identity tampering (9.4051ms)
+✔ market snapshots publish atomically, replace membership, and survive failed refreshes (5.5212ms)
+✔ guarded chart history never reads legacy keys and rejects null-expiry access (1.563ms)
+✔ guarded appends trim and separate exact expiries without mutating active markets (5.5815ms)
+✔ guarded chart reads reject malformed, cross-series, and noncanonical retained rows (3.5307ms)
+✔ deployment changes isolate chart history and cached responses without rewriting old data (1.6366ms)
+✔ transport diagnostics retain lifecycle state without exposing errors or credentials (4.8191ms)
+✔ deadline failures are distinguished and a broken logger cannot change outcomes (2.0679ms)
+✔ Redis history uses a one-day TTL and isolates exact deployment, market and expiry (3.8463ms)
+✔ retention deduplicates events and expires old rows without extending them on empty refreshes (0.5974ms)
+(node:72628) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ CF client identity is trusted only across the loopback tunnel boundary (6.1529ms)
+✔ private RPC configuration pins one query-authenticated Helius Devnet provider (7.5172ms)
+✔ prepared-operation retention exceeds every bounded public relay request (1.4682ms)
+✔ /rpc obtains Lean admission, forwards once in process, and never exposes provider choice (131.6508ms)
+✔ /rpc rejects redirects and malformed or mismatched upstream JSON-RPC (34.5958ms)
+✔ pinned Light V2 client emits the exact three compressed provider wire shapes (22.8261ms)
+✔ /rpc rejects noncanonical Lean envelopes and unbounded costs before forwarding (47.8011ms)
+✔ RPC limiter isolates per-client concurrency from the general edge limiter (2.581ms)
+✔ RPC limiter charges Lean-returned method cost and refills deterministically (0.6706ms)
+✔ RPC limiter rejects invalid cost and expired requests (0.6308ms)
+✔ public Edge unit denies both GCE metadata addresses and forces the startup gate (7.6537ms)
+✔ prepared manifests reject blockhash, payer, account, privilege, data, and append mutations (20.5645ms)
+✔ prepared manifests reject duplicate unreferenced message keys (1.4139ms)
+✔ prepared manifests reject unique static-key reordering with rewritten indexes (7.3376ms)
+✔ prepared manifests reject noncanonical lookup ordering with rewritten indexes (4.682ms)
+✔ signed transaction inspection accepts signatures only over the exact prepared message (12.8759ms)
+✔ every required signature slot must be nonzero (4.3584ms)
+✔ address lookup table identity, contents, and indexes are exact (3.4804ms)
+✖ submission transport distinguishes preflight evidence from provider errors without retry (65.6002ms)
+✖ private preflight diagnostics retain only closed kinds and bounded scalar facts (2.493ms)
+✔ submission context does not copy arbitrary exception text or unvalidated identifiers (2.2379ms)
+✔ canonical Solana connections disable hidden retries and bind the configured deadline (2.2431ms)
+✔ public Solana connection exposes only enumerated read capabilities (0.547ms)
+✔ canonical internal connections use one process-wide rate-limit boundary seam (35.5734ms)
+✔ one observation scope deduplicates finalized identity reads and batches accounts (4.5523ms)
+✔ observation account fanout accepts advancing finalized contexts and carries the floor (9.6098ms)
+✔ observation account fanout rejects a regressing provider context (8.6671ms)
+✔ direct contextual reads accept advancement, propagate their floor, and stay deduplicated (1.881ms)
+✔ concurrent contextual reads may complete out of order above their shared floor (20.8918ms)
+✔ sequential observation account reads carry a non-regressing context floor (0.9751ms)
+✔ program-account scans request withContext at the latest finalized floor (0.7813ms)
+✔ observation rejects provider contexts below the finalized slot anchor (0.5414ms)
+✔ failed observation batches are evicted instead of becoming stale cached facts (0.8825ms)
+✔ Solana fetches abort at their hard deadline and honor caller cancellation (104.7521ms)
+✔ connection creation captures the process fetch installed immediately before composition (0.8002ms)
+✔ bounded Solana fetch rejects provider redirects before web3 can follow them (0.9011ms)
+✔ internal Solana fetch recovers from one transient HTTP 429 within one deadline (1.3748ms)
+✔ internal Solana fetch exhausts after one bounded HTTP 429 retry (0.8984ms)
+✔ internal Solana fetch serializes rapid starts without sharing the public RPC limiter (4.4458ms)
+✔ bounded account groups start together and reserve every pacing unit (4.2828ms)
+✔ a grouped fetch deadline aborts every in-flight member (110.4289ms)
+✔ a synchronous grouped-read failure cancels every staged request (1.6108ms)
+✔ a rate-limited concurrent group retries every member together once (2.136ms)
+✔ a failed concurrent group drains every member before releasing the global lane (1.847ms)
+✔ conservative live observation fanout fits the configured pacing share of one cadence (10.4375ms)
+✔ internal Solana retry fails before sleeping beyond the original request deadline (0.8348ms)
+✔ process composition and adapter fallback use only the bounded connection factory (2.5095ms)
+(node:129064) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✖ price grid uses real deployment-attested SDK geometry without unrelated market or bin scans (83.3526ms)
+✖ price-grid public HTTP emits the exact protocol envelope independently of write authority (154.8158ms)
+✔ price-grid rejects malformed query, unknown market and non-GET without native reads (52.701ms)
+✖ price-grid rejects cross-Market SDK results and corrupt native accounts (38.0098ms)
+✔ price-grid does not expose geometry when deployment attestation fails (41.8394ms)
+✔ late lifetime is durable, exact-bound, idempotent, and cannot be replaced (10.2883ms)
+✔ old bindings, foreign requests, and active signing claims never receive a fallback (1.549ms)
+✔ concurrent issuance persists one winner and both replies return that same hash (3.013ms)
+✔ a claim or submitted-record race closes issuance without persisting another hash (2.0164ms)
+✔ malformed or lagging issuance observations never persist a lifetime (1.4415ms)
+✔ final checks use confirmed context and authoritative height after validation (0.6473ms)
+✔ expiry, low margin, invalid validity, and lag fail before relay (1.5684ms)
+✖ actual private Lean volume route uses exact executed units, boundaries, coverage and duplicate rejection (145.5331ms)
+✔ cold start is unknown; connected scans sum both directions/expiries once and prove actual zero (14.5494ms)
+✔ contract totals share the collector cursor, persist independently and never project on reads (4.5825ms)
+✔ persisted backfill seals the complete trailing day in one checked projection (7.0582ms)
+✔ scan gaps, restarts and Redis outages preserve completed history without inventing zero (2.3246ms)
+✔ late finalized timestamps retract a contradicted complete candle (1.1241ms)
+✔ display selection uses existing product/month/window while absent volume remains unknown (0.3672ms)
+✔ scanner uses finalized program-wide cursor, excludes failed signatures and bounds gap recovery (15.737ms)
+✔ cold scanner persists bounded pages and resumes until the 24-hour boundary (2.0118ms)
+﹣ real Redis fences volume/cursor publication, retains across restart and rejects corrupted scope/data (1.0684ms) # SKIP
+✔ current transaction payloads use the exact Solana packet bound (4.7644ms)
+✔ current v0 transactions resolve only the exact authorized lookup table indexes (98.2333ms)
+✔ the submission capability rejects a non-packet transaction bound (0.4362ms)
+✔ Upgradeable Loader v3 codecs match Rust bincode enum layouts (2.6925ms)
+✔ deterministic buffer creation needs only the managed upgrade signer (20.3675ms)
+✔ write chunk calculation leaves the same one-byte packet guard as Agave (122.7208ms)
+✔ fresh deploy message requires only exact program and upgrade KMS identities (5.7203ms)
+✔ loader state decoder exposes exact authority and artifact bytes (0.6645ms)
+✖ forward Collecting selects the exact Lean basket index (105.8131ms)
+✖ forward Complete selects finalization (16.9274ms)
+✖ finalize fails closed on accounting, digest, or external-OI drift while cancel unwinds (18.2458ms)
+✖ cancel selects the next deposited series and then Flat after refunds (19.2286ms)
+✖ propagates Lean rejection of a third-party predeadline cancellation (15.3855ms)
+✖ terminal close requests reach Lean's exact no-action rejection (15.634ms)
+✖ rejects a Lean response that does not echo the exact decision facts (12.0342ms)
+✖ rejects stage drift between preliminary and full finalized observations (16.7456ms)
+✖ keeps a postdeadline cancellation actor distinct from the refund owner (15.5187ms)
+✖ forwards cold Light resolution and re-admission options to finalizeWriterPlan (16.2454ms)
+✔ collective claim plans receive only the final snapshot SeriesBook witness (92.4777ms)
+✔ cold writer setup reserves an exact one-million-CU action batch (9.4755ms)
+✔ writer setup rejects a loader batch without the exact compute prefix (5.9105ms)
+✔ writer input rejects a mixed hot and cold resolver result (6.3176ms)
+✔ basket rechecks its exact minimum against the finalized hot account bytes (6.9606ms)
+✔ cancellation observes SDK-native output creation without cold-owner resolution (8.8575ms)
+✔ canonical output rejects a non-600k SDK setup boundary (3.6064ms)
+✔ refund reads overlap within four slots and preserve page order despite reversed completion (88.9749ms)
+✔ one stale or failed refund row cannot invalidate or invent another row's result (5.2808ms)
+✔ an aborted refund page stops before starting provider discovery (2.8008ms)
+✔ cancellation while four rows are in flight prevents scheduling the remaining bids (13.0958ms)
+✔ writer route map forwards the exact decoded body to one Lean method (3.6138ms)
+✔ writer routes reject methods and unknown suffixes before reading a body (0.412ms)
+✔ writer routes reject a malformed Lean success envelope (3.5374ms)
+ℹ tests 522
+ℹ suites 0
+ℹ pass 436
+ℹ fail 78
+ℹ cancelled 0
+ℹ skipped 8
+ℹ todo 0
+ℹ duration_ms 31925.6745
+
+✖ failing tests:
+
+test at edge\test\collective-operations-http.test.mjs:33:1
+✖ collective operation route catalog matches the Petri RC44 contract (3.4504ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+
+    [
+      '/dlmm/writer-sleeves',
+  +   '/dlmm/writer-sleeves/refunds',
+      '/dlmm/writer-sleeves/:sleeve',
+      '/dlmm/writer-sleeves/:sleeve/available-actions?owner=:owner',
+  +   '/dlmm/writer-sleeves/:sleeve/liquidity?owner=:owner&seriesIndex=:seriesIndex',
+      '/dlmm/writer-sleeves/:sleeve/policy-audit',
+      '/dlmm/writer-sleeves/close-requests/:request',
+      '/dlmm/writer-sleeves/closes/preview',
+      '/dlmm/writer-sleeves/deposits/prepare',
+      '/dlmm/writer-sleeves/bids/prepare',
+  +   '/dlmm/writer-sleeves/refunds/prepare',
+  +   '/dlmm/writer-sleeves/withdrawals/prepare',
+  +   '/dlmm/writer-sleeves/liquidity/initialize/prepare',
+  +   '/dlmm/writer-sleeves/liquidity/add/prepare',
+  +   '/dlmm/writer-sleeves/liquidity/remove/prepare',
+  +   '/dlmm/writer-sleeves/liquidity/sweep/prepare',
+  +   '/dlmm/writer-sleeves/liquidity/policy/begin/prepare',
+  +   '/dlmm/writer-sleeves/liquidity/policy/append/prepare',
+  +   '/dlmm/writer-sleeves/liquidity/policy/seal/prepare',
+      '/dlmm/writer-sleeves/closes/prepare',
+      '/dlmm/writer-sleeves/closes/next/prepare',
+      '/dlmm/writer-sleeves/closes/cancel/next/prepare',
+      '/dlmm/writer-sleeves/claims/prepare',
+      '/dlmm/writer-sleeves/flat-transfers/prepare',
+
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:34:10)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ '/dlmm/writer-sleeves', '/dlmm/writer-sleeves/refunds', '/dlmm/writer-sleeves/:sleeve', '/dlmm/writer-sleeves/:sleeve/available-actions?owner=:owner', '/dlmm/writer-sleeves/:sleeve/liquidity?owner=:owner&seriesIndex=:seriesIndex', '/dlmm/writer-sleeves/:sleeve/policy-audit', '/dlmm/writer-sleeves/close-requests/:request', '/dlmm/writer-sleeves/closes/preview', '/dlmm/writer-sleeves/deposits/prepare', '/dlmm/writer-sleeves/bids/prepare', '/dlmm/writer-sleeves/refunds/prepare', '/dlmm/writer-sleeves/withdrawals/prepare', '/dlmm/writer-sleeves/liquidity/initialize/prepare', '/dlmm/writer-sleeves/liquidity/add/prepare', '/dlmm/writer-sleeves/liquidity/remove/prepare', '/dlmm/writer-sleeves/liquidity/sweep/prepare', '/dlmm/writer-sleeves/liquidity/policy/begin/prepare', '/dlmm/writer-sleeves/liquidity/policy/append/prepare', '/dlmm/writer-sleeves/liquidity/policy/seal/prepare', '/dlmm/writer-sleeves/closes/prepare', '/dlmm/writer-sleeves/closes/next/prepare', '/dlmm/writer-sleeves/closes/cancel/next/prepare', '/dlmm/writer-sleeves/claims/prepare', '/dlmm/writer-sleeves/flat-transfers/prepare', '/dlmm/trades/prepare', '/dlmm/writer-sleeves/submit', '/dlmm/writer-sleeves/status/:operationId', '/dlmm/trades/submit', '/dlmm/trades/transaction-lifetime', '/dlmm/trades/status/:operationId' ],
+    expected: [ '/dlmm/writer-sleeves', '/dlmm/writer-sleeves/:sleeve', '/dlmm/writer-sleeves/:sleeve/available-actions?owner=:owner', '/dlmm/writer-sleeves/:sleeve/policy-audit', '/dlmm/writer-sleeves/close-requests/:request', '/dlmm/writer-sleeves/closes/preview', '/dlmm/writer-sleeves/deposits/prepare', '/dlmm/writer-sleeves/bids/prepare', '/dlmm/writer-sleeves/closes/prepare', '/dlmm/writer-sleeves/closes/next/prepare', '/dlmm/writer-sleeves/closes/cancel/next/prepare', '/dlmm/writer-sleeves/claims/prepare', '/dlmm/writer-sleeves/flat-transfers/prepare', '/dlmm/trades/prepare', '/dlmm/writer-sleeves/submit', '/dlmm/writer-sleeves/status/:operationId', '/dlmm/trades/submit', '/dlmm/trades/transaction-lifetime', '/dlmm/trades/status/:operationId' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at edge\test\collective-operations-http.test.mjs:121:1
+✖ trade final freshness follows governance and one relay receives the checked context (7.4663ms)
+  Error: The exact governed write ABI is unavailable
+      at operationError (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-boundary.mjs:14:17)
+      at Object.handle (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operations-http.mjs:188:15)
+      at preparedTrade (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:114:31)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:123:17)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    code: 'CURRENT_PROGRAM_WRITE_ABI_UNAVAILABLE',
+    status: 503
+  }
+
+test at edge\test\collective-operations-http.test.mjs:146:1
+✖ old trade binding and insufficient lifetime margin cannot register or relay (10.894ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+
+    Comparison {
+  +   code: 'CURRENT_PROGRAM_WRITE_ABI_UNAVAILABLE'
+  -   code: 'CURRENT_TRADE_LIFETIME_REQUIRED'
+    }
+
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:148:3)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: The exact governed write ABI is unavailable
+        at operationError (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-boundary.mjs:14:17)
+        at submit (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-submission.mjs:168:13)
+        at Object.handle (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operations-http.mjs:236:59)
+        at Object.submit (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:117:52)
+        at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:148:28)
+        at async Test.run (node:internal/test_runner/test:1125:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:787:7),
+    expected: { code: 'CURRENT_TRADE_LIFETIME_REQUIRED' },
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at edge\test\collective-operations-http.test.mjs:164:1
+✖ slow registration retains the signed record but cannot relay an aged final check (1.9268ms)
+  Error: The exact governed write ABI is unavailable
+      at operationError (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-boundary.mjs:14:17)
+      at Object.handle (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operations-http.mjs:188:15)
+      at preparedTrade (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:114:31)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:172:17)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    code: 'CURRENT_PROGRAM_WRITE_ABI_UNAVAILABLE',
+    status: 503
+  }
+
+test at edge\test\collective-operations-http.test.mjs:182:1
+✖ missing SDK context and failed registration never relay a trade (1.1212ms)
+  Error: The exact governed write ABI is unavailable
+      at operationError (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-boundary.mjs:14:17)
+      at Object.handle (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operations-http.mjs:188:15)
+      at preparedTrade (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:114:31)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:186:19)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    code: 'CURRENT_PROGRAM_WRITE_ABI_UNAVAILABLE',
+    status: 503
+  }
+
+test at edge\test\collective-operations-http.test.mjs:426:1
+✖ swap relay preserves the SDK compute prefix and rejects altered or omitted prefixes (2.0234ms)
+  Error: The exact governed write ABI is unavailable
+      at operationError (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-boundary.mjs:14:17)
+      at Object.handle (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operations-http.mjs:188:15)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:440:22)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    code: 'CURRENT_PROGRAM_WRITE_ABI_UNAVAILABLE',
+    status: 503
+  }
+
+test at edge\test\collective-operations-http.test.mjs:460:1
+✖ prepare on one replica is submit/status resumable on another replica (7.0588ms)
+  Error: The exact governed write ABI is unavailable
+      at operationError (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-boundary.mjs:14:17)
+      at submit (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-submission.mjs:168:13)
+      at Object.handle (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operations-http.mjs:236:59)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:479:50)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    code: 'CURRENT_PROGRAM_WRITE_ABI_UNAVAILABLE',
+    status: 503
+  }
+
+test at edge\test\collective-operations-http.test.mjs:565:1
+✖ submit persists admission and confirms exact signed bytes through the real observer (7.0956ms)
+  Error: The exact governed write ABI is unavailable
+      at operationError (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-boundary.mjs:14:17)
+      at submit (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-submission.mjs:168:13)
+      at Object.handle (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operations-http.mjs:236:59)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:582:31)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    code: 'CURRENT_PROGRAM_WRITE_ABI_UNAVAILABLE',
+    status: 503
+  }
+
+test at edge\test\collective-operations-http.test.mjs:613:1
+✖ concurrent submissions atomically claim one batch before finalized RPC awaits (30.458ms)
+  Error: The exact governed write ABI is unavailable
+      at operationError (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-boundary.mjs:14:17)
+      at submit (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-submission.mjs:168:13)
+      at Object.handle (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operations-http.mjs:236:59)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:639:22)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    code: 'CURRENT_PROGRAM_WRITE_ABI_UNAVAILABLE',
+    status: 503
+  }
+
+test at edge\test\collective-operations-http.test.mjs:660:1
+✖ a pre-relay validation failure releases only its exact batch claim (7.4262ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+
+  Caught error:
+
+  Error: The exact governed write ABI is unavailable
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:683:3)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: The exact governed write ABI is unavailable
+        at operationError (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-boundary.mjs:14:17)
+        at submit (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-submission.mjs:168:13)
+        at Object.handle (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operations-http.mjs:236:59)
+        at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:683:29)
+        at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+        at async Test.run (node:internal/test_runner/test:1125:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:787:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at edge\test\collective-operations-http.test.mjs:697:1
+✖ submit rejects a payload-byte mutation even with the same owner and operation ids (6.1349ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+
+  Caught error:
+
+  Error: The exact governed write ABI is unavailable
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:704:3)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: The exact governed write ABI is unavailable
+        at operationError (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-boundary.mjs:14:17)
+        at submit (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-submission.mjs:168:13)
+        at Object.handle (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operations-http.mjs:236:59)
+        at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:704:29)
+        at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+        at async Test.run (node:internal/test_runner/test:1125:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:787:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at edge\test\collective-operations-http.test.mjs:718:1
+✖ pending submission remains pending on status and cannot be replayed (4.7849ms)
+  Error: The exact governed write ABI is unavailable
+      at operationError (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-boundary.mjs:14:17)
+      at submit (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-submission.mjs:168:13)
+      at Object.handle (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operations-http.mjs:236:59)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:733:31)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    code: 'CURRENT_PROGRAM_WRITE_ABI_UNAVAILABLE',
+    status: 503
+  }
+
+test at edge\test\collective-operations-http.test.mjs:756:1
+✖ pending confirmation can fail closed on a later status observation (3.2768ms)
+  Error: The exact governed write ABI is unavailable
+      at operationError (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-boundary.mjs:14:17)
+      at submit (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-submission.mjs:168:13)
+      at Object.handle (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operations-http.mjs:236:59)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:763:14)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    code: 'CURRENT_PROGRAM_WRITE_ABI_UNAVAILABLE',
+    status: 503
+  }
+
+test at edge\test\collective-operations-http.test.mjs:785:1
+✖ a transient invalid RPC observation remains resumable through status (3.3944ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+
+  Caught error:
+
+  Error: The exact governed write ABI is unavailable
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:798:3)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: The exact governed write ABI is unavailable
+        at operationError (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-boundary.mjs:14:17)
+        at submit (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-submission.mjs:168:13)
+        at Object.handle (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operations-http.mjs:236:59)
+        at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:798:29)
+        at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+        at async Test.run (node:internal/test_runner/test:1125:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:787:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at edge\test\collective-operations-http.test.mjs:818:1
+✖ an ambiguous relay failure preserves the exact signature for status recovery (4.0422ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+
+  Caught error:
+
+  Error: The exact governed write ABI is unavailable
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:842:3)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: The exact governed write ABI is unavailable
+        at operationError (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-boundary.mjs:14:17)
+        at submit (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-submission.mjs:168:13)
+        at Object.handle (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operations-http.mjs:236:59)
+        at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:842:29)
+        at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+        at async Test.run (node:internal/test_runner/test:1125:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:787:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at edge\test\collective-operations-http.test.mjs:865:1
+✖ provider preflight and availability errors remain reconcilable without relay replay (4.1426ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+
+  Caught error:
+
+  Error: The exact governed write ABI is unavailable
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:888:5)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: The exact governed write ABI is unavailable
+        at operationError (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-boundary.mjs:14:17)
+        at submit (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-submission.mjs:168:13)
+        at Object.handle (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operations-http.mjs:236:59)
+        at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:888:31)
+        at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+        at async Test.run (node:internal/test_runner/test:1125:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:787:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at edge\test\collective-operations-http.test.mjs:909:1
+✖ a relay-returned signature mismatch records an exact terminal failure (2.8499ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+
+  Caught error:
+
+  Error: The exact governed write ABI is unavailable
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:920:3)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: The exact governed write ABI is unavailable
+        at operationError (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-boundary.mjs:14:17)
+        at submit (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-submission.mjs:168:13)
+        at Object.handle (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operations-http.mjs:236:59)
+        at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:920:29)
+        at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+        at async Test.run (node:internal/test_runner/test:1125:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:787:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at edge\test\collective-operations-http.test.mjs:940:1
+✖ confirmation hash mismatch fails closed without advancing the batch cursor (4.7262ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+
+  Caught error:
+
+  Error: The exact governed write ABI is unavailable
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:954:3)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: The exact governed write ABI is unavailable
+        at operationError (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-boundary.mjs:14:17)
+        at submit (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-submission.mjs:168:13)
+        at Object.handle (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operations-http.mjs:236:59)
+        at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:954:29)
+        at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+        at async Test.run (node:internal/test_runner/test:1125:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:787:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at edge\test\collective-operations-http.test.mjs:972:1
+✖ submit rejects at the prepared-plan relay safety boundary (4.1596ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+
+  Caught error:
+
+  Error: The exact governed write ABI is unavailable
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:979:3)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: The exact governed write ABI is unavailable
+        at operationError (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-boundary.mjs:14:17)
+        at submit (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-submission.mjs:168:13)
+        at Object.handle (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operations-http.mjs:236:59)
+        at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:979:29)
+        at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+        at async Test.run (node:internal/test_runner/test:1125:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:787:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at edge\test\collective-operations-http.test.mjs:993:1
+✖ submit rejects a forward close plan at its request-deadline safety margin (4.1192ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+
+  Caught error:
+
+  Error: The exact governed write ABI is unavailable
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:1009:3)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: The exact governed write ABI is unavailable
+        at operationError (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-boundary.mjs:14:17)
+        at submit (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-submission.mjs:168:13)
+        at Object.handle (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operations-http.mjs:236:59)
+        at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:1009:29)
+        at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+        at async Test.run (node:internal/test_runner/test:1125:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:787:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at edge\test\collective-operations-http.test.mjs:1023:1
+✖ pending setup batch must confirm through status before the next canonical batch (4.7059ms)
+  Error: The exact governed write ABI is unavailable
+      at operationError (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-boundary.mjs:14:17)
+      at submit (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-submission.mjs:168:13)
+      at Object.handle (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operations-http.mjs:236:59)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:1075:36)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    code: 'CURRENT_PROGRAM_WRITE_ABI_UNAVAILABLE',
+    status: 503
+  }
+
+test at edge\test\collective-operations-http.test.mjs:1123:1
+✖ SDK gate rejection prevents relay before submission registration (4.3117ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+
+  Caught error:
+
+  Error: The exact governed write ABI is unavailable
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:1134:3)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: The exact governed write ABI is unavailable
+        at operationError (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-boundary.mjs:14:17)
+        at submit (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operation-submission.mjs:168:13)
+        at Object.handle (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-operations-http.mjs:236:59)
+        at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-operations-http.test.mjs:1134:29)
+        at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+        at async Test.run (node:internal/test_runner/test:1125:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:787:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at edge\test\collective-writer-authority.test.mjs:275:1
+✖ close preview projects one exact finalized writer snapshot into Lean semantics (25.1737ms)
+  TypeError: sdk.deriveWriterDlmmPolicyPda is not a function
+      at Object.previewClose (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/writer-close-preview-authority.mjs:311:11)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-writer-authority.test.mjs:295:18)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at edge\test\collective-writer-authority.test.mjs:322:1
+✖ close preview rejects a noncanonical writer USDC vault identity (21.9867ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+
+  Caught error:
+
+  TypeError: sdk.deriveWriterDlmmPolicyPda is not a function
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-writer-authority.test.mjs:337:3)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: TypeError: sdk.deriveWriterDlmmPolicyPda is not a function
+        at Object.previewClose (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/writer-close-preview-authority.mjs:311:11)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-writer-authority.test.mjs:337:3)
+        at async Test.run (node:internal/test_runner/test:1125:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:787:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at edge\test\collective-writer-authority.test.mjs:344:1
+✖ close begin derives its request and admits hot Light custody without caller PDAs (33.6812ms)
+  TypeError: sdk.deriveWriterDlmmPolicyPda is not a function
+      at Object.prepareClose (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-writer-authority.mjs:366:15)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-writer-authority.test.mjs:446:18)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at edge\test\collective-writer-authority.test.mjs:503:1
+✖ close begin fails before admission when its deadline cannot precede sleeve expiry (26.2305ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+
+  Caught error:
+
+  TypeError: sdk.deriveWriterDlmmPolicyPda is not a function
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-writer-authority.test.mjs:559:3)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: TypeError: sdk.deriveWriterDlmmPolicyPda is not a function
+        at Object.prepareClose (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/collective-writer-authority.mjs:366:15)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/collective-writer-authority.test.mjs:559:3)
+        at async Test.run (node:internal/test_runner/test:1125:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:787:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at edge\test\compute-index-integration.test.mjs:31:1
+✖ real authenticated Lean projection and public HTTP/websocket deliver the same retained snapshot (107.8718ms)
+  Error: spawn C:\Users\space\.codex\worktrees\g3lean-0915\ameba_lean\.lake\build\bin\ameba_lean ENOENT
+      at ChildProcess._handle.onexit (node:internal/child_process:286:19)
+      at onErrorNT (node:internal/child_process:484:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawn C:\\Users\\space\\.codex\\worktrees\\g3lean-0915\\ameba_lean\\.lake\\build\\bin\\ameba_lean',
+    path: 'C:\\Users\\space\\.codex\\worktrees\\g3lean-0915\\ameba_lean\\.lake\\build\\bin\\ameba_lean',
+    spawnargs: []
+  }
+
+test at edge\test\current-cutover.test.mjs:67:1
+✖ production composition loads only the pinned SDK reader-semantic baseline (0.9188ms)
+  Error: ameba-sdk must be pinned to the exact reviewed package commit a21b324a7a64da87046c7650355b80ea20c47540
+      at requireExactSdkPackageCommit (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/current-sdk.mjs:50:19)
+      at loadCurrentSdk (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/current-sdk.mjs:130:3)
+      at loadTestSdk (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-cutover.test.mjs:36:16)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-cutover.test.mjs:68:28)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+    code: 'CURRENT_SDK_PACKAGE_IDENTITY_INVALID'
+  }
+
+test at edge\test\current-cutover.test.mjs:129:1
+✖ missing or unknown write compatibility remains read-only (0.7302ms)
+  Error: ameba-sdk must be pinned to the exact reviewed package commit a21b324a7a64da87046c7650355b80ea20c47540
+      at requireExactSdkPackageCommit (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/current-sdk.mjs:50:19)
+      at loadCurrentSdk (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/current-sdk.mjs:130:3)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-cutover.test.mjs:136:30)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    code: 'CURRENT_SDK_PACKAGE_IDENTITY_INVALID'
+  }
+
+test at edge\test\current-cutover.test.mjs:564:1
+✖ canonical Oracle source routes are dispatched through the composed registry (10.1134ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+
+    [
+      {
+        method: 'GET',
+        pathname: '/dlmm/oracle/markets/ramx/expiries/RAMX-202609-CALL-01/sources',
+  +     requestContext: {
+  +       close: [Function: close],
+  +       deadlineAt: 18840.5649,
+  +       signal: AbortSignal {
+  +         Symbol(events.maxEventTargetListeners): 0,
+  +         Symbol(events.maxEventTargetListenersWarned): false,
+  +         Symbol(kAborted): false,
+  +         Symbol(kComposite): false,
+  +         Symbol(kEvents): SafeMap(0) {},
+  +         Symbol(kHandlers): SafeMap(0) {},
+  +         Symbol(kReason): undefined
+  +       }
+  +     },
+  +     searchParams: URLSearchParams {}
+      }
+    ]
+
+      at file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-cutover.test.mjs:574:12
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async withApplication (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-cutover.test.mjs:386:5)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-cutover.test.mjs:568:3)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [Array],
+    expected: [Array],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at edge\test\current-cutover.test.mjs:650:1
+✖ readiness and capabilities fail closed when prepared-plan durability is unhealthy (8.4574ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+
+    {
+      ready: false,
+  +   required: true,
+  +   storage: 'redis'
+  -   required: false,
+  -   storage: 'unavailable'
+    }
+
+      at withApplication.redisRuntime.redisRuntime (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-cutover.test.mjs:664:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async withApplication (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-cutover.test.mjs:386:5)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-cutover.test.mjs:660:3)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { required: true, ready: false, storage: 'redis' },
+    expected: { required: false, ready: false, storage: 'unavailable' },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at edge\test\current-cutover.test.mjs:701:1
+✖ public identity surfaces expose the attested read-only governance bridge (0.9293ms)
+  Error: ameba-sdk must be pinned to the exact reviewed package commit a21b324a7a64da87046c7650355b80ea20c47540
+      at requireExactSdkPackageCommit (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/current-sdk.mjs:50:19)
+      at loadCurrentSdk (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/current-sdk.mjs:130:3)
+      at loadTestSdk (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-cutover.test.mjs:36:16)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-cutover.test.mjs:702:28)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+    code: 'CURRENT_SDK_PACKAGE_IDENTITY_INVALID'
+  }
+
+test at edge\test\current-cutover.test.mjs:1572:1
+✖ a failed refresh preserves the last-known-good public snapshot and disables trades (7.405ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  true !== false
+
+      at withApplication.currentProtocolAdapter (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-cutover.test.mjs:1588:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async withApplication (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-cutover.test.mjs:386:5)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-cutover.test.mjs:1582:3)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at edge\test\current-cutover.test.mjs:1680:1
+✖ write routes stop at the governed ABI boundary before request handling (6.8891ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+
+  + 'CURRENT_OPERATION_AUTHORITY_UNAVAILABLE'
+  - 'CURRENT_PROGRAM_WRITE_ABI_UNAVAILABLE'
+             ^
+
+      at file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-cutover.test.mjs:1699:14
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async withApplication (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-cutover.test.mjs:386:5)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-cutover.test.mjs:1681:3)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'CURRENT_OPERATION_AUTHORITY_UNAVAILABLE',
+    expected: 'CURRENT_PROGRAM_WRITE_ABI_UNAVAILABLE',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at edge\test\current-cutover.test.mjs:1718:1
+✖ the read-only profile blocks every non-read route before parsing its body (6.5908ms)
+  AssertionError [ERR_ASSERTION]: /dlmm/writer-sleeves/closes/preview
+  + actual - expected
+
+  + 'CURRENT_OPERATION_AUTHORITY_UNAVAILABLE'
+  - 'CURRENT_PROGRAM_WRITE_ABI_UNAVAILABLE'
+             ^
+
+      at file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-cutover.test.mjs:1737:14
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async withApplication (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-cutover.test.mjs:386:5)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-cutover.test.mjs:1719:3)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'CURRENT_OPERATION_AUTHORITY_UNAVAILABLE',
+    expected: 'CURRENT_PROGRAM_WRITE_ABI_UNAVAILABLE',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at edge\test\current-cutover.test.mjs:1742:1
+✖ the read-only profile does not expose a writer action mask (12.0507ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  500 !== 503
+
+      at withApplication.applicationOptions.collectiveWriterAuthority.availableActions (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-cutover.test.mjs:1750:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async withApplication (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-cutover.test.mjs:386:5)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-cutover.test.mjs:1745:3)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 500,
+    expected: 503,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at edge\test\current-cutover.test.mjs:1765:1
+✖ G2R-003: read-only composition never acquires injected mutation capabilities (10.3389ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+
+  + [
+  +   'collectiveWriterAuthority',
+  +   'flatTransferAuthority',
+  +   'collectiveTradeAuthority'
+  + ]
+  - []
+
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-cutover.test.mjs:1858:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'collectiveWriterAuthority', 'flatTransferAuthority', 'collectiveTradeAuthority' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at edge\test\current-cutover.test.mjs:1894:1
+✖ SDK composition does not turn unavailable governance RPC into an API startup failure (1.2445ms)
+  Error: ameba-sdk must be pinned to the exact reviewed package commit a21b324a7a64da87046c7650355b80ea20c47540
+      at requireExactSdkPackageCommit (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/current-sdk.mjs:50:19)
+      at loadCurrentSdk (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/current-sdk.mjs:130:3)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-cutover.test.mjs:1913:21)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    code: 'CURRENT_SDK_PACKAGE_IDENTITY_INVALID'
+  }
+
+test at edge\test\current-direct-adapter-gate.test.mjs:65:1
+✖ G2I-017: production SDK loading ignores a forged supported write profile (1.9866ms)
+  Error: ameba-sdk must be pinned to the exact reviewed package commit a21b324a7a64da87046c7650355b80ea20c47540
+      at requireExactSdkPackageCommit (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/current-sdk.mjs:50:19)
+      at loadCurrentSdk (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/current-sdk.mjs:130:3)
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-direct-adapter-gate.test.mjs:70:21)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    code: 'CURRENT_SDK_PACKAGE_IDENTITY_INVALID'
+  }
+
+test at edge\test\current-expiry-discovery.test.mjs:69:1
+✖ expiry discovery batches real SDK pool reads and preserves the whole ordered DTO (110.5741ms)
+  Error: ameba-sdk must be pinned to the exact reviewed package commit a21b324a7a64da87046c7650355b80ea20c47540
+      at requireExactSdkPackageCommit (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/current-sdk.mjs:50:19)
+      at loadCurrentSdk (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/current-sdk.mjs:130:3)
+      at observe (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-expiry-discovery.test.mjs:47:21)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-expiry-discovery.test.mjs:70:18)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    code: 'CURRENT_SDK_PACKAGE_IDENTITY_INVALID'
+  }
+
+test at edge\test\current-expiry-discovery.test.mjs:81:1
+✖ expiry discovery retains independent missing-pool failures (83.3695ms)
+  Error: ameba-sdk must be pinned to the exact reviewed package commit a21b324a7a64da87046c7650355b80ea20c47540
+      at requireExactSdkPackageCommit (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/current-sdk.mjs:50:19)
+      at loadCurrentSdk (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/current-sdk.mjs:130:3)
+      at observe (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-expiry-discovery.test.mjs:47:21)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-expiry-discovery.test.mjs:82:18)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    code: 'CURRENT_SDK_PACKAGE_IDENTITY_INVALID'
+  }
+
+test at edge\test\current-expiry-discovery.test.mjs:93:1
+✖ expiry discovery caps fanout at eight even for repeated scanner entries (76.4268ms)
+  Error: ameba-sdk must be pinned to the exact reviewed package commit a21b324a7a64da87046c7650355b80ea20c47540
+      at requireExactSdkPackageCommit (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/current-sdk.mjs:50:19)
+      at loadCurrentSdk (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/current-sdk.mjs:130:3)
+      at observe (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-expiry-discovery.test.mjs:47:21)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-expiry-discovery.test.mjs:94:18)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    code: 'CURRENT_SDK_PACKAGE_IDENTITY_INVALID'
+  }
+
+test at edge\test\current-liquidity-authority.test.mjs:37:1
+✖ liquidity authority composes native SDK state, real Lean admission and exact unsigned plans (106.2454ms)
+  Error: spawn C:\Users\space\.codex\worktrees\g3lean-0915\ameba_lean\.lake\build\bin\ameba_lean ENOENT
+      at ChildProcess._handle.onexit (node:internal/child_process:286:19)
+      at onErrorNT (node:internal/child_process:484:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawn C:\\Users\\space\\.codex\\worktrees\\g3lean-0915\\ameba_lean\\.lake\\build\\bin\\ameba_lean',
+    path: 'C:\\Users\\space\\.codex\\worktrees\\g3lean-0915\\ameba_lean\\.lake\\build\\bin\\ameba_lean',
+    spawnargs: []
+  }
+
+test at edge\test\current-market-normalization.test.mjs:30:1
+✖ rc.43 SDK YYYY-MM maturity agrees with the bytes32 YYYYMM series label (24.2621ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  0 !== 1
+
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-market-normalization.test.mjs:219:10)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at edge\test\current-position-action-native.test.mjs:12:1
+✖ collateral native SDK contexts compose with real Lean admission and portable HTTP plans (128.9312ms)
+  Error: spawn C:\Users\space\.codex\worktrees\g3lean-0915\ameba_lean\.lake\build\bin\ameba_lean ENOENT
+      at ChildProcess._handle.onexit (node:internal/child_process:286:19)
+      at onErrorNT (node:internal/child_process:484:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawn C:\\Users\\space\\.codex\\worktrees\\g3lean-0915\\ameba_lean\\.lake\\build\\bin\\ameba_lean',
+    path: 'C:\\Users\\space\\.codex\\worktrees\\g3lean-0915\\ameba_lean\\.lake\\build\\bin\\ameba_lean',
+    spawnargs: []
+  }
+
+test at edge\test\current-position-expiry-native.test.mjs:11:1
+✖ SDK expiry account reads compose with checked Lean planning and incomplete absence (147.3478ms)
+  Error: spawn C:\Users\space\.codex\worktrees\g3lean-0915\ameba_lean\.lake\build\bin\ameba_lean ENOENT
+      at ChildProcess._handle.onexit (node:internal/child_process:286:19)
+      at onErrorNT (node:internal/child_process:484:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawn C:\\Users\\space\\.codex\\worktrees\\g3lean-0915\\ameba_lean\\.lake\\build\\bin\\ameba_lean',
+    path: 'C:\\Users\\space\\.codex\\worktrees\\g3lean-0915\\ameba_lean\\.lake\\build\\bin\\ameba_lean',
+    spawnargs: []
+  }
+
+test at edge\test\current-position-expiry-observation.test.mjs:71:1
+✖ expiry SDK read batches accounts while retaining the exact fresh read window (66.648ms)
+  Error: ameba-sdk must be pinned to the exact reviewed package commit a21b324a7a64da87046c7650355b80ea20c47540
+      at requireExactSdkPackageCommit (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/current-sdk.mjs:50:19)
+      at loadCurrentSdk (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/current-sdk.mjs:130:3)
+      at fixture (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-position-expiry-observation.test.mjs:51:21)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-position-expiry-observation.test.mjs:72:13)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    code: 'CURRENT_SDK_PACKAGE_IDENTITY_INVALID'
+  }
+
+test at edge\test\current-position-expiry-observation.test.mjs:93:1
+✖ expiry cold attestation retains every provider slot and advances the final account floor (46.8254ms)
+  Error: ameba-sdk must be pinned to the exact reviewed package commit a21b324a7a64da87046c7650355b80ea20c47540
+      at requireExactSdkPackageCommit (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/current-sdk.mjs:50:19)
+      at loadCurrentSdk (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/current-sdk.mjs:130:3)
+      at fixture (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-position-expiry-observation.test.mjs:51:21)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-position-expiry-observation.test.mjs:94:13)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    code: 'CURRENT_SDK_PACKAGE_IDENTITY_INVALID'
+  }
+
+test at edge\test\current-position-expiry-observation.test.mjs:105:1
+✖ expiry final scope does not reuse preliminary discovery accounts or slot cache (50.7885ms)
+  Error: ameba-sdk must be pinned to the exact reviewed package commit a21b324a7a64da87046c7650355b80ea20c47540
+      at requireExactSdkPackageCommit (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/current-sdk.mjs:50:19)
+      at loadCurrentSdk (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/current-sdk.mjs:130:3)
+      at fixture (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-position-expiry-observation.test.mjs:51:21)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-position-expiry-observation.test.mjs:106:13)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    code: 'CURRENT_SDK_PACKAGE_IDENTITY_INVALID'
+  }
+
+test at edge\test\current-position-expiry-observation.test.mjs:121:1
+✖ expiry fresh end rejects regression and an end preceding observed account contexts (35.7479ms)
+  Error: ameba-sdk must be pinned to the exact reviewed package commit a21b324a7a64da87046c7650355b80ea20c47540
+      at requireExactSdkPackageCommit (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/current-sdk.mjs:50:19)
+      at loadCurrentSdk (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/current-sdk.mjs:130:3)
+      at fixture (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-position-expiry-observation.test.mjs:51:21)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-position-expiry-observation.test.mjs:123:15)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    code: 'CURRENT_SDK_PACKAGE_IDENTITY_INVALID'
+  }
+
+test at edge\test\current-position-expiry-observation.test.mjs:130:1
+✖ expiry account batching retains incomplete position inventory and record-absence errors (35.4572ms)
+  Error: ameba-sdk must be pinned to the exact reviewed package commit a21b324a7a64da87046c7650355b80ea20c47540
+      at requireExactSdkPackageCommit (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/current-sdk.mjs:50:19)
+      at loadCurrentSdk (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/current-sdk.mjs:130:3)
+      at fixture (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-position-expiry-observation.test.mjs:51:21)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-position-expiry-observation.test.mjs:131:13)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    code: 'CURRENT_SDK_PACKAGE_IDENTITY_INVALID'
+  }
+
+test at edge\test\current-position-expiry-projection.test.mjs:18:1
+✖ expiry projection uses actual checked Lean decisions and never enables execution (170.0763ms)
+  Error: spawn C:\Users\space\.codex\worktrees\g3lean-0915\ameba_lean\.lake\build\bin\ameba_lean ENOENT
+      at ChildProcess._handle.onexit (node:internal/child_process:286:19)
+      at onErrorNT (node:internal/child_process:484:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawn C:\\Users\\space\\.codex\\worktrees\\g3lean-0915\\ameba_lean\\.lake\\build\\bin\\ameba_lean',
+    path: 'C:\\Users\\space\\.codex\\worktrees\\g3lean-0915\\ameba_lean\\.lake\\build\\bin\\ameba_lean',
+    spawnargs: []
+  }
+
+test at edge\test\current-release-capabilities.test.mjs:294:1
+✖ keeps the Petri SDK field on plan identity and reports the package pin separately (3.0017ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+
+  + null
+  - 'file:vendor/ameba-sdk-g3-candidate.tgz'
+
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-release-capabilities.test.mjs:304:10)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: 'file:vendor/ameba-sdk-g3-candidate.tgz',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at edge\test\current-sdk-observation.test.mjs:5:1
+✖ a newer SDK observation floor survives an older backend deployment pin (4.2464ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+
+  + 495878940
+  - 495537060
+       ^
+
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/current-sdk-observation.test.mjs:6:10)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.start (node:internal/test_runner/test:1015:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 495878940,
+    expected: 495537060,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at edge\test\dependency-security.test.mjs:120:1
+✖ the package manifest and lockfile pin finalized RC44 SDK and Spread commits (13.0261ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+
+  + 'file:vendor/ameba-sdk-g3-candidate.tgz'
+  - 'git+https://github.com/SPACE999978/ameba_sdk.git#a21b324a7a64da87046c7650355b80ea20c47540'
+
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/dependency-security.test.mjs:127:10)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'file:vendor/ameba-sdk-g3-candidate.tgz',
+    expected: 'git+https://github.com/SPACE999978/ameba_sdk.git#a21b324a7a64da87046c7650355b80ea20c47540',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at edge\test\dependency-security.test.mjs:170:1
+✖ the SDK-owned tree equals the reviewed immutable Git package (346.8956ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+
+  + '8c3b6596a455b75ccb47ca606338ec9a8f6d40a796e094e1d4a237ddd350717c'
+  - 'dc4ae86f1421b2c4549db83310112cd93803bd82c1d8ce9e1a1112e7485b1c24'
+
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/dependency-security.test.mjs:172:10)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '8c3b6596a455b75ccb47ca606338ec9a8f6d40a796e094e1d4a237ddd350717c',
+    expected: 'dc4ae86f1421b2c4549db83310112cd93803bd82c1d8ce9e1a1112e7485b1c24',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at edge\test\expiry-authorization-integration.test.mjs:15:1
+✖ scoped LP capability uses Lean admission and retains exact keeper identity across restart (181.3804ms)
+  Error: spawn C:\Users\space\.codex\worktrees\g3lean-0915\ameba_lean\.lake\build\bin\ameba_lean ENOENT
+      at ChildProcess._handle.onexit (node:internal/child_process:286:19)
+      at onErrorNT (node:internal/child_process:484:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawn C:\\Users\\space\\.codex\\worktrees\\g3lean-0915\\ameba_lean\\.lake\\build\\bin\\ameba_lean',
+    path: 'C:\\Users\\space\\.codex\\worktrees\\g3lean-0915\\ameba_lean\\.lake\\build\\bin\\ameba_lean',
+    spawnargs: []
+  }
+
+test at edge\test\finalized-trade-lean.test.mjs:17:1
+✖ real Node-to-Lean RPC admission and history projection preserve executed fixture (109.8082ms)
+  Error: spawn C:\Users\space\.codex\worktrees\g3lean-0915\ameba_lean\.lake\build\bin\ameba_lean ENOENT
+      at ChildProcess._handle.onexit (node:internal/child_process:286:19)
+      at onErrorNT (node:internal/child_process:484:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawn C:\\Users\\space\\.codex\\worktrees\\g3lean-0915\\ameba_lean\\.lake\\build\\bin\\ameba_lean',
+    path: 'C:\\Users\\space\\.codex\\worktrees\\g3lean-0915\\ameba_lean\\.lake\\build\\bin\\ameba_lean',
+    spawnargs: []
+  }
+
+test at edge\test\index-history.test.mjs:22:1
+✖ index history records checked observations and projects genuine prices through Lean and HTTP (95.2187ms)
+  Error: spawn C:\Users\space\.codex\worktrees\g3lean-0915\ameba_lean\.lake\build\bin\ameba_lean ENOENT
+      at ChildProcess._handle.onexit (node:internal/child_process:286:19)
+      at onErrorNT (node:internal/child_process:484:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawn C:\\Users\\space\\.codex\\worktrees\\g3lean-0915\\ameba_lean\\.lake\\build\\bin\\ameba_lean',
+    path: 'C:\\Users\\space\\.codex\\worktrees\\g3lean-0915\\ameba_lean\\.lake\\build\\bin\\ameba_lean',
+    spawnargs: []
+  }
+
+test at edge\test\market-implied-index.test.mjs:16:1
+✖ current-month indicative index composes the real Lean price and observation boundary (99.9744ms)
+  Error: spawn C:\Users\space\.codex\worktrees\g3lean-0915\ameba_lean\.lake\build\bin\ameba_lean ENOENT
+      at ChildProcess._handle.onexit (node:internal/child_process:286:19)
+      at onErrorNT (node:internal/child_process:484:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawn C:\\Users\\space\\.codex\\worktrees\\g3lean-0915\\ameba_lean\\.lake\\build\\bin\\ameba_lean',
+    path: 'C:\\Users\\space\\.codex\\worktrees\\g3lean-0915\\ameba_lean\\.lake\\build\\bin\\ameba_lean',
+    spawnargs: []
+  }
+
+test at edge\test\options-metrics.test.mjs:39:1
+✖ real Lean metrics, snapshot preparation and public cache-only endpoints (105.0962ms)
+  Error: spawn C:\Users\space\.codex\worktrees\g3lean-0915\ameba_lean\.lake\build\bin\ameba_lean ENOENT
+      at ChildProcess._handle.onexit (node:internal/child_process:286:19)
+      at onErrorNT (node:internal/child_process:484:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawn C:\\Users\\space\\.codex\\worktrees\\g3lean-0915\\ameba_lean\\.lake\\build\\bin\\ameba_lean',
+    path: 'C:\\Users\\space\\.codex\\worktrees\\g3lean-0915\\ameba_lean\\.lake\\build\\bin\\ameba_lean',
+    spawnargs: []
+  }
+
+test at edge\test\redis-runtime.test.mjs:219:1
+✖ Redis prepared-plan storage shares atomic admission and CAS by deployment identity (6.3563ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /SET[^\n]+XX', 'KEEPTTL'/u. Input:
+
+  '\n' +
+    '-- ameba-prepared-plan-cas-v1\n' +
+    "local current = redis.call('GET', KEYS[1])\n" +
+    'if not current then\n' +
+    "  return 'missing'\n" +
+    'end\n' +
+    'if current ~= ARGV[1] then\n' +
+    "  return 'conflict'\n" +
+    'end\n' +
+    "local ttl_ms = redis.call('PTTL', KEYS[1])\n" +
+    "if ttl_ms == -2 or ttl_ms == 0 then return 'missing' end\n" +
+    "local clock = redis.call('TIME')\n" +
+    'local now_ms = (tonumber(clock[1]) * 1000) + math.floor(tonumber(clock[2]) / 1000)\n' +
+    "local active = ARGV[5] == '1'\n" +
+    "local persistent = ARGV[6] == '1'\n" +
+    "local terminal = ARGV[7] == '1'\n" +
+    'if persistent then\n' +
+    "  redis.call('SET', KEYS[1], ARGV[2], 'XX')\n" +
+    'elseif terminal then\n' +
+    "  redis.call('SET', KEYS[1], ARGV[2], 'XX', 'PX', 2592000000)\n" +
+    'else\n' +
+    "  redis.call('SET', KEYS[1], ARGV[2], 'XX', 'PX', math.max(ttl_ms, tonumber(ARGV[3]), 1))\n" +
+    'end\n' +
+    'if active then\n' +
+    '  local score = persistent and 9007199254740991 or now_ms + math.max(ttl_ms, tonumber(ARGV[3]), 1)\n' +
+    "  redis.call('ZADD', KEYS[2], score, ARGV[4])\n" +
+    "  redis.call('ZADD', KEYS[3], score, ARGV[4])\n" +
+    'else\n' +
+    "  redis.call('ZREM', KEYS[2], ARGV[4])\n" +
+    "  redis.call('ZREM', KEYS[3], ARGV[4])\n" +
+    'end\n' +
+    "return 'updated'\n"
+
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/redis-runtime.test.mjs:243:10)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: "\n-- ameba-prepared-plan-cas-v1\nlocal current = redis.call('GET', KEYS[1])\nif not current then\n  return 'missing'\nend\nif current ~= ARGV[1] then\n  return 'conflict'\nend\nlocal ttl_ms = redis.call('PTTL', KEYS[1])\nif ttl_ms == -2 or ttl_ms == 0 then return 'missing' end\nlocal clock = redis.call('TIME')\nlocal now_ms = (tonumber(clock[1]) * 1000) + math.floor(tonumber(clock[2]) / 1000)\nlocal active = ARGV[5] == '1'\nlocal persistent = ARGV[6] == '1'\nlocal terminal = ARGV[7] == '1'\nif persistent then\n  redis.call('SET', KEYS[1], ARGV[2], 'XX')\nelseif terminal then\n  redis.call('SET', KEYS[1], ARGV[2], 'XX', 'PX', 2592000000)\nelse\n  redis.call('SET', KEYS[1], ARGV[2], 'XX', 'PX', math.max(ttl_ms, tonumber(ARGV[3]), 1))\nend\nif active then\n  local score = persistent and 9007199254740991 or now_ms + math.max(ttl_ms, tonumber(ARGV[3]), 1)\n  redis.call('ZADD', KEYS[2], score, ARGV[4])\n  redis.call('ZADD', KEYS[3], score, ARGV[4])\nelse\n  redis.call('ZREM', KEYS[2], ARGV[4])\n  redis.call('ZREM', KEYS[3], ARGV[4])\nend\nreturn 'updated'\n",
+    expected: /SET[^\n]+XX', 'KEEPTTL'/u,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at edge\test\solana-submission-error.test.mjs:17:1
+✖ submission transport distinguishes preflight evidence from provider errors without retry (65.6002ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+
+  + 'SOLANA_TRANSACTION_PREFLIGHT_FAILED'
+  - 'SOLANA_SUBMISSION_RPC_ERROR'
+            ^
+
+      at Object.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/solana-submission-error.test.mjs:63:16)
+      at expectedException (node:assert:578:17)
+      at expectsError (node:assert:703:21)
+      at strict.rejects (node:assert:769:3)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/solana-submission-error.test.mjs:58:7)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'SOLANA_TRANSACTION_PREFLIGHT_FAILED',
+    expected: 'SOLANA_SUBMISSION_RPC_ERROR',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at edge\test\solana-submission-error.test.mjs:83:1
+✖ private preflight diagnostics retain only closed kinds and bounded scalar facts (2.493ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+
+  + 'SOLANA_TRANSACTION_PREFLIGHT_FAILED'
+  - 'SOLANA_SUBMISSION_RPC_ERROR'
+            ^
+
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/solana-submission-error.test.mjs:114:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'SOLANA_TRANSACTION_PREFLIGHT_FAILED',
+    expected: 'SOLANA_SUBMISSION_RPC_ERROR',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at edge\test\trade-price-grid.test.mjs:42:1
+✖ price grid uses real deployment-attested SDK geometry without unrelated market or bin scans (83.3526ms)
+  Error [CurrentSdkOperationError]: current VaultConfig or collective settlement group is absent
+      at readCurrentAmoebaDlmmPool (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/node_modules/.pnpm/ameba-sdk@file+vendor+ameba_5370beae2a0416ea2aa69a9aceba5884/node_modules/ameba-sdk/dist/protocol/current-adapter.js:862:15)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/trade-price-grid-http.mjs:39:22
+      at async Object.handle (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/trade-price-grid-http.mjs:34:23)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/trade-price-grid.test.mjs:43:39)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    code: 'CURRENT_DLMM_POOL_CONTEXT_UNAVAILABLE',
+    details: undefined,
+    retryable: false,
+    context: {},
+    [cause]: undefined
+  }
+
+test at edge\test\trade-price-grid.test.mjs:53:1
+✖ price-grid public HTTP emits the exact protocol envelope independently of write authority (154.8158ms)
+  AssertionError [ERR_ASSERTION]: {"ok":false,"message":"current VaultConfig or collective settlement group is absent","code":"CURRENT_DLMM_POOL_CONTEXT_UNAVAILABLE"}
+
+  503 !== 200
+
+      at TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/trade-price-grid.test.mjs:64:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 503,
+    expected: 200,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at edge\test\trade-price-grid.test.mjs:82:1
+✖ price-grid rejects cross-Market SDK results and corrupt native accounts (38.0098ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+
+  Caught error:
+
+  CurrentSdkOperationError: current VaultConfig or collective settlement group is absent
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/trade-price-grid.test.mjs:89:3)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: CurrentSdkOperationError: current VaultConfig or collective settlement group is absent
+        at readCurrentAmoebaDlmmPool (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/node_modules/.pnpm/ameba-sdk@file+vendor+ameba_5370beae2a0416ea2aa69a9aceba5884/node_modules/ameba-sdk/dist/protocol/current-adapter.js:862:15)
+        at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+        at async readPool (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/trade-price-grid.test.mjs:86:22)
+        at async file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/trade-price-grid-http.mjs:39:22
+        at async handle (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/trade-price-grid-http.mjs:34:23)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/trade-price-grid.test.mjs:89:3)
+        at async Test.run (node:internal/test_runner/test:1125:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+      [cause]: undefined
+    },
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at edge\test\trade-volume-lean.test.mjs:10:1
+✖ actual private Lean volume route uses exact executed units, boundaries, coverage and duplicate rejection (145.5331ms)
+  Error: spawn C:\Users\space\.codex\worktrees\g3lean-0915\ameba_lean\.lake\build\bin\ameba_lean ENOENT
+      at ChildProcess._handle.onexit (node:internal/child_process:286:19)
+      at onErrorNT (node:internal/child_process:484:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawn C:\\Users\\space\\.codex\\worktrees\\g3lean-0915\\ameba_lean\\.lake\\build\\bin\\ameba_lean',
+    path: 'C:\\Users\\space\\.codex\\worktrees\\g3lean-0915\\ameba_lean\\.lake\\build\\bin\\ameba_lean',
+    spawnargs: []
+  }
+
+test at edge\test\writer-close-next-authority.test.mjs:325:1
+✖ forward Collecting selects the exact Lean basket index (105.8131ms)
+  TypeError: sdk.deriveWriterDlmmPolicyPda is not a function
+      at prepare (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/writer-close-next-authority.mjs:256:28)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/writer-close-next-authority.test.mjs:327:18)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3)
+
+test at edge\test\writer-close-next-authority.test.mjs:339:1
+✖ forward Complete selects finalization (16.9274ms)
+  TypeError: sdk.deriveWriterDlmmPolicyPda is not a function
+      at prepare (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/writer-close-next-authority.mjs:256:28)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/writer-close-next-authority.test.mjs:345:18)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at edge\test\writer-close-next-authority.test.mjs:355:1
+✖ finalize fails closed on accounting, digest, or external-OI drift while cancel unwinds (18.2458ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+
+  Caught error:
+
+  TypeError: sdk.deriveWriterDlmmPolicyPda is not a function
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/writer-close-next-authority.test.mjs:366:5)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: TypeError: sdk.deriveWriterDlmmPolicyPda is not a function
+        at prepare (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/writer-close-next-authority.mjs:256:28)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/writer-close-next-authority.test.mjs:366:5)
+        at async Test.run (node:internal/test_runner/test:1125:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:787:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at edge\test\writer-close-next-authority.test.mjs:375:1
+✖ cancel selects the next deposited series and then Flat after refunds (19.2286ms)
+  TypeError: sdk.deriveWriterDlmmPolicyPda is not a function
+      at prepare (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/writer-close-next-authority.mjs:256:28)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/writer-close-next-authority.test.mjs:380:24)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at edge\test\writer-close-next-authority.test.mjs:397:1
+✖ propagates Lean rejection of a third-party predeadline cancellation (15.3855ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+
+  Caught error:
+
+  TypeError: sdk.deriveWriterDlmmPolicyPda is not a function
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/writer-close-next-authority.test.mjs:400:3)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: TypeError: sdk.deriveWriterDlmmPolicyPda is not a function
+        at prepare (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/writer-close-next-authority.mjs:256:28)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/writer-close-next-authority.test.mjs:400:3)
+        at async Test.run (node:internal/test_runner/test:1125:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:787:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at edge\test\writer-close-next-authority.test.mjs:408:1
+✖ terminal close requests reach Lean's exact no-action rejection (15.634ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+
+  Caught error:
+
+  TypeError: sdk.deriveWriterDlmmPolicyPda is not a function
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/writer-close-next-authority.test.mjs:411:5)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: TypeError: sdk.deriveWriterDlmmPolicyPda is not a function
+        at prepare (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/writer-close-next-authority.mjs:256:28)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/writer-close-next-authority.test.mjs:411:5)
+        at async Test.run (node:internal/test_runner/test:1125:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:787:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at edge\test\writer-close-next-authority.test.mjs:419:1
+✖ rejects a Lean response that does not echo the exact decision facts (12.0342ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+
+  Caught error:
+
+  TypeError: sdk.deriveWriterDlmmPolicyPda is not a function
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/writer-close-next-authority.test.mjs:426:3)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: TypeError: sdk.deriveWriterDlmmPolicyPda is not a function
+        at prepare (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/writer-close-next-authority.mjs:256:28)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/writer-close-next-authority.test.mjs:426:3)
+        at async Test.run (node:internal/test_runner/test:1125:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:787:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at edge\test\writer-close-next-authority.test.mjs:433:1
+✖ rejects stage drift between preliminary and full finalized observations (16.7456ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+
+  Caught error:
+
+  TypeError: sdk.deriveWriterDlmmPolicyPda is not a function
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/writer-close-next-authority.test.mjs:441:3)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: TypeError: sdk.deriveWriterDlmmPolicyPda is not a function
+        at prepare (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/writer-close-next-authority.mjs:256:28)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/writer-close-next-authority.test.mjs:441:3)
+        at async Test.run (node:internal/test_runner/test:1125:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:787:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at edge\test\writer-close-next-authority.test.mjs:452:1
+✖ keeps a postdeadline cancellation actor distinct from the refund owner (15.5187ms)
+  TypeError: sdk.deriveWriterDlmmPolicyPda is not a function
+      at prepare (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/writer-close-next-authority.mjs:256:28)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/writer-close-next-authority.test.mjs:458:3)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at edge\test\writer-close-next-authority.test.mjs:474:1
+✖ forwards cold Light resolution and re-admission options to finalizeWriterPlan (16.2454ms)
+  TypeError: sdk.deriveWriterDlmmPolicyPda is not a function
+      at prepare (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/src/writer-close-next-authority.mjs:256:28)
+      at async TestContext.<anonymous> (file:///C:/Users/space/.codex/worktrees/g3lean-0915/ameba_lean/edge/test/writer-close-next-authority.test.mjs:476:3)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)

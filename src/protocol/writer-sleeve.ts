@@ -10,7 +10,7 @@ export { projectWriterDlmmSwapPolicy, quoteWriterDlmmExactIn, planWriterDlmmSwap
 export type { WriterDlmmMathSeries, WriterDlmmRiskLimits, WriterDlmmQuoteSeriesLimits, WriterDlmmSwapPolicy,
   WriterDlmmQuoteBin, WriterDlmmRouteConfig, WriterDlmmFillTotals, WriterDlmmRouteQuote, QuoteWriterDlmmExactInInput,
   WriterDlmmOrdinaryPage, PlanWriterDlmmSwapReservePagesInput, ProjectWriterDlmmSwapPolicyInput } from "./writer-dlmm-quote.js";
-export type * from "@amoeba/spread-release-tools/writer-sleeve-instructions";
+export type * from "@amoeba/spread-historical-v2/writer-sleeve-instructions";
 export type { WriterDlmmSeriesPolicyV1, WriterDlmmAddEntryV1, WriterDlmmRemoveEntryV1, WriterDlmmPolicyAccountsV1,
   WriterDlmmPositionAccountsV1, WriterDlmmLiquidityAccountsV1, WriterDlmmPolicyCommitmentV1, WriterDlmmPolicyAccountV1,
   WriterDlmmPositionAccountV1, WriterDlmmPolicyHashInputV1 } from "./writer-dlmm-native-internal.js";
@@ -42,7 +42,7 @@ export {
   deriveWriterSleevePda,
   deriveWriterSleeveUsdcVaultPda,
   encodeSealWriterPolicyV1Params,
-} from "@amoeba/spread-release-tools/writer-sleeve-instructions";
+} from "@amoeba/spread-historical-v2/writer-sleeve-instructions";
 export {
   buildActivateWriterSleeveV1Instruction,
   buildBeginWriterDlmmPolicyV1Instruction,

@@ -444,14 +444,10 @@ export declare const SDK_RELEASE_TRAIN: Readonly<{
         nativePackage: {
             name: string;
             sourceCommit: string;
-            dependencySpec: string;
             path: string;
+            dependencySpec: string;
             bytes: number;
             sha256: string;
-            npmSha1: string;
-            npmIntegrity: string;
-            entryCount: number;
-            unpackedBytes: number;
         };
         nativePackageSource: {
             repository: string;
@@ -459,15 +455,15 @@ export declare const SDK_RELEASE_TRAIN: Readonly<{
             sourceTree: string;
             sourceInventory: string;
             sourceInventorySha256: string;
+            sourceInventoryAlgorithm: string;
         };
         nativeSource: {
-            baseCommit: string;
             sourceCommit: string;
             sourceTree: string;
-            rustInputsSha256: string;
             sourceInventory: string;
             sourceInventorySha256: string;
             sourceInventoryAlgorithm: string;
+            baseCommit: string;
             cargoGitRevision: string;
         };
         nativeSbf: {
@@ -501,7 +497,8 @@ export declare const SDK_RELEASE_TRAIN: Readonly<{
             };
         };
         qualificationScope: string;
-        finalizedDeployment: {
+        integrationLock: string;
+        historicalFinalizedDeployment: {
             descriptor: string;
             evidence: string;
             sourceCommit: string;
@@ -511,6 +508,7 @@ export declare const SDK_RELEASE_TRAIN: Readonly<{
             finalizedSlot: number;
             gateEpoch: string;
         };
+        observedCandidateDeployment: null;
     }>;
     currentWriteEligible: boolean;
     writeRelease: {

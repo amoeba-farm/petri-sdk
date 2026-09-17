@@ -1,0 +1,19 @@
+✔ real Redis: two replicas, completed history, durable unknowns and stale CAS (815.7096ms)
+✔ one-shot capacity pressure rejects without evicting an admitted transaction (4.4844ms)
+✔ one-shot duplicate bytes cannot substitute metadata or extend absolute expiry (0.5478ms)
+✔ prepared plans expire without access extending their lifetime (5.8986ms)
+✔ submitted attempts remain recoverable after preparation and relay TTL (2.8759ms)
+✔ durable prepared lifecycles cannot be deleted ahead of indexed expiry (0.4701ms)
+✔ capacity pressure rejects attackers without evicting pending multi-batch lifecycles (2.4483ms)
+✔ per-owner admission is bounded without affecting another owner (2.5384ms)
+✔ two replicas share lifecycle updates through one atomic storage seam (1.3767ms)
+✔ prepared lifecycle CAS is one-shot and exposes no retrying mutator callback (2.4631ms)
+✔ prepared operation ids cannot substitute any immutable binding (3.3844ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2155.0823

@@ -1,4 +1,4 @@
-import * as native from "@amoeba/spread-release-tools/writer-sleeve-instructions";
+import * as native from "@amoeba/spread-historical-v2/writer-sleeve-instructions";
 import type { AmoebaDlmmBinLiquidity, AmoebaDlmmBinFill, AmoebaDlmmSwapQuote,
   AmoebaDlmmSwapDirection } from "@amoeba/spread-release-tools/dlmm-math";
 import { AmebaProtocolError } from "../errors.js";
@@ -7,7 +7,7 @@ import type { AmoebaDlmmPoolAccount } from "@amoeba/spread-release-tools/dlmm-ac
 import type { WriterSleeveAccount, WriterSettlementGroupAccount, WriterSeriesBookAccount,
   WriterPolicySnapshotAccount, WriterPolicyRegistryAccount } from "@amoeba/spread-release-tools/writer-sleeve-accounts";
 import type { WriterDlmmPolicyAccountV1, WriterDlmmPositionAccountV1 } from "./writer-dlmm-native-internal.js";
-import type { WriterCloseObservedSeriesBookV1 } from "@amoeba/spread-release-tools/writer-sleeve-instructions";
+import type { WriterCloseObservedSeriesBookV1 } from "@amoeba/spread-historical-v2/writer-sleeve-instructions";
 
 export interface ProjectWriterDlmmSwapPolicyInput {
   readonly sleeve: WriterSleeveAccount; readonly group: WriterSettlementGroupAccount; readonly book: WriterSeriesBookAccount;

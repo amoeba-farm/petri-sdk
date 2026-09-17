@@ -11,7 +11,7 @@ use solana_program::{
 };
 use spl_token::state::{Account as SplTokenAccount, AccountState, Mint as SplTokenMint};
 
-use ameba_spread_program::ID as CURRENT_PROGRAM_ID;
+use ameba_spread_historical::ID as CURRENT_PROGRAM_ID;
 
 use crate::{
     ameba_dlmm_state::{

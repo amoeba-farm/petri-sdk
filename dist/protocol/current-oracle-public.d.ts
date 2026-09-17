@@ -181,7 +181,7 @@ export declare const CURRENT_ORACLE_SEMANTIC_HASH_VECTORS: Readonly<{
     }>;
 }>;
 export declare const CURRENT_ORACLE_LOCATOR_MAX_BYTES: 2048;
-export declare const CURRENT_ORACLE_ACTION_TYPES: readonly ["queue_stake_amba_for_samba", "activate_queued_stake_amba_for_samba", "request_unstake_samba", "complete_unstake_samba", "initialize_oracle_month_v5", "propose_oracle_source_v3", "support_oracle_source_v3", "challenge_oracle_source_v2", "submit_oracle_opening_claim_v2", "challenge_oracle_opening_claim_v2", "finalize_oracle_opening_claim_v2", "commit_oracle_update_claim_v3", "reveal_oracle_update_claim_v3", "challenge_oracle_update_claim_v2", "finalize_oracle_update_claim_v2", "commit_oracle_emergency_vote_v3", "reveal_oracle_emergency_vote_v2", "deposit_oracle_usdc_rewards", "claim_oracle_usdc_reward"];
+export declare const CURRENT_ORACLE_ACTION_TYPES: readonly ["initialize_oracle_month_v5", "propose_oracle_source_v3", "support_oracle_source_v3", "challenge_oracle_source_v2", "submit_oracle_opening_claim_v2", "challenge_oracle_opening_claim_v2", "finalize_oracle_opening_claim_v2", "commit_oracle_update_claim_v3", "reveal_oracle_update_claim_v3", "challenge_oracle_update_claim_v2", "finalize_oracle_update_claim_v2", "deposit_oracle_usdc_rewards", "claim_oracle_usdc_reward"];
 export type CurrentOracleActionType = CurrentOracleActionRequest["actionType"];
 export type CurrentOracleProduct = CurrentOracleActionRequest["marketId"];
 export type CurrentOracleAction<T extends CurrentOracleActionType> = Extract<CurrentOracleActionRequest, {
