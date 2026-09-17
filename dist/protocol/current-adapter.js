@@ -5,6 +5,7 @@ import { ORACLE_PLAYER_LEDGER_PDA_SEED } from "@amoeba/spread-historical-v2/orac
 import { currentOracleActivationSetup, currentOracleActivationSetupManifests } from "./current-oracle-staking-setup.js";
 import { currentOracleStakingProofFacts } from "./current-oracle-staking-proof.js";
 import { deriveCollectiveSettlementDelegatePda } from "./writer-sleeve.js";
+import { nativeWriterDlmmV1 } from "./writer-dlmm-native-internal.js";
 import { readCurrentPositionExpiryAutomation, syncCurrentPositionExpiryAutomation } from "./current-position-expiry.js";
 import { Buffer } from "buffer";
 import { createHash } from "node:crypto";
@@ -572,8 +573,40 @@ export async function discoverCurrentAmoebaDlmmPages(input) {
         optionReserve += page.reservePage.optionReserve.reduce((sum, value) => sum + value, 0n);
         quoteReserve += page.reservePage.quoteReserve.reduce((sum, value) => sum + value, 0n);
     }
+    // G3 writer liquidity shares the pool vaults, but lives in WriterDlmmPosition
+    // accounts rather than ordinary reserve/share pages or the LP page bitmap.
+    if (input.marketLayout === "g3") {
+        const writer = nativeWriterDlmmV1();
+        const entries = await input.connection.getProgramAccounts(input.programId, {
+            commitment: finalizedCommitment(input.commitment),
+            filters: [
+                { dataSize: writer.WRITER_DLMM_ACCOUNT_SIZES.position },
+                { memcmp: { offset: 2, bytes: Buffer.from([0x57, 0x44, 0x50, 1]).toString("base64"), encoding: "base64" } },
+                { memcmp: { offset: 6, bytes: input.poolAddress.toBase58() } },
+            ],
+        });
+        const seen = new Set();
+        for (const entry of entries) {
+            const address = entry.pubkey.toBase58();
+            if (!entry.account.owner.equals(input.programId) || entry.account.executable || seen.has(address)) {
+                throw new CurrentSdkOperationError("CURRENT_DLMM_POSITION_IDENTITY_INVALID", "writer position owner, executable flag, or uniqueness is invalid");
+            }
+            // Native decoding verifies exact size, discriminator/version, PDA/bump,
+            // policy PDA, ordered bins, and bin sums against the position totals.
+            const position = writer.decodeWriterDlmmPositionV1(entry.pubkey, entry.account.data, input.programId);
+            if (!position.pool.equals(input.poolAddress)
+                || !position.market.equals(input.pool.market)
+                || position.bins.some(bin => bin.binId > input.pool.maximumBinId)) {
+                throw new CurrentSdkOperationError("CURRENT_DLMM_POSITION_IDENTITY_INVALID", "writer position pool, market, or bin range is invalid");
+            }
+            seen.add(address);
+            optionReserve += position.optionInventoryAtoms;
+            // Uncommitted proceeds remain in the pool vault until the writer sweeps them.
+            quoteReserve += position.allocatedQuoteAtoms + position.uncommittedQuoteAtoms;
+        }
+    }
     if (optionReserve !== input.pool.accountedOptionReserve || quoteReserve !== input.pool.accountedQuoteReserve) {
-        throw new CurrentSdkOperationError("CURRENT_DLMM_POOL_ACCOUNTING_INVALID", "page reserves do not equal pool accounting");
+        throw new CurrentSdkOperationError("CURRENT_DLMM_POOL_ACCOUNTING_INVALID", "ordinary page and writer position reserves do not equal pool accounting");
     }
     return {
         ...identity(),
