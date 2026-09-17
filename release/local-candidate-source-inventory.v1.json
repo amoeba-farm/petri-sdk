@@ -1375,8 +1375,8 @@
     },
     {
       "path": "src/protocol/current-adapter.ts",
-      "bytes": 221030,
-      "sha256": "142e102d203219742969d15c42804805cf9aedd68754610f9186a041fe76a66a"
+      "bytes": 223037,
+      "sha256": "d3d04018370e8cf96f5903a6a705bd5e6d274c6409896de33cc5292aa2a24deb"
     },
     {
       "path": "src/protocol/current-build-identity.ts",
@@ -2309,5 +2309,5 @@
       "sha256": "a4382c10d8d45d45f222f30be8ff8dfc250dd0c67e55c8078777f65bc6369c7c"
     }
   ],
-  "sha256": "ae07ab9e14299c7c834e1b695d755817ce66757974f8e844cbfcd114e2bf61ad"
+  "sha256": "cf70f4d65a3a95255ad584a05af0ecab160430b21b341eecf533f679a0584478"
 }
